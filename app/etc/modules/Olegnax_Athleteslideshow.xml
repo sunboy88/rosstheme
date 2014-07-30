@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Olegnax_Athleteslideshow>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Olegnax_Athleteslideshow>
+    </modules>
+</config> 

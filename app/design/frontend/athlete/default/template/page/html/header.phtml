@@ -1,0 +1,91 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<?php
+$athleteHelper = Mage::helper('athlete');
+$headerCss = 'header-container ' . $athleteHelper->getCfg('header/header_mobile');
+$menu_position = $athleteHelper->getCfg('header/menu');
+if (empty($menu_position)) $menu_position = 1;
+?>
+	<div class="<?php echo $headerCss; ?> ">
+		<div class="header header-<?php echo $menu_position; ?> row">
+			<div class="grid_18">
+				<div class="table-container">
+					<div class="table-cell v-align-cell logo-container">
+						<div class="logo-container-indent">
+							<?php if ($this->getIsHomePage()): ?>
+								<h1 class="logo">
+									<strong><?php echo $this->getLogoAlt() ?></strong>
+									<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>">
+										<?php echo $this->getChildHtml('theme_logo', false) ?>
+									</a>
+								</h1>
+							<?php else: ?>
+								<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
+									<strong><?php echo $this->getLogoAlt() ?></strong>
+									<?php echo $this->getChildHtml('theme_logo', false) ?>
+								</a>
+							<?php endif ?>
+						</div>
+					</div>
+					<?php
+					$language = $this->getChildHtml('store_language');
+					$currency = $this->getChildHtml('currencyTop');
+					$_css_class = '';
+					if ((!empty($language) && empty($currency)) || (empty($language) && !empty($currency))) {
+						$_css_class = 'one-switch';
+					}
+					?>
+					<div class="table-cell header-info-container">
+						<div class="relative">
+							<div class="top-links-container <?php echo $_css_class; ?>">
+								<?php echo $language . $currency . $this->getChildHtml('cart_top') ?>
+								<div class="top-links"><?php echo $this->getChildHtml('topLinks'); ?></div>
+								<div class="clear"></div>
+							</div>
+							<div class="nav-search-container <?php echo($athleteHelper->getCfg('header/search') ? 'search-visible' : '') ?>">
+								<?php echo $this->getChildHtml('topSearch') ?>
+								<?php if ($menu_position == 1) echo $this->getChildHtml('topMenu') ?>
+								<?php if ($menu_position == 2) : ?>
+									<div class="nav-container header-nav-txt std">
+										<?php echo $this->getChildHtml('athlete_header_text') ?>
+									</div>
+								<?php endif ?>
+							</div>
+						</div>
+					</div>
+				</div>
+				<?php if ($menu_position == 2) : ?>
+					<div class="header-nav-wide"><?php echo $this->getChildHtml('topMenu') ?></div>
+				<?php endif ?>
+			</div>
+		</div>
+	</div>
+<?php echo $this->getChildHtml('topContainer'); ?>
+<?php echo $this->getChildHtml('athlete_slideshow'); ?>

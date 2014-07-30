@@ -1,0 +1,22 @@
+/**
+ * File for custom CSS. You can use it to override the default styling of the theme.
+ *
+ * 1. Copy the file "default.override.css" and rename it to "override.css".
+ * 2. Enable it in the admin panel.
+ *
+ */
+ .categorypath-sports-html .page-title,
+ .categorypath-sports-html .breadcrumbs { display: none}
+ 
+  
+ #nav > li.purchase-yellow > a span {color:#adb903}
+ #nav > li.purchase-yellow > a:hover {background-color:#adb903}
+ #nav > li.purchase-yellow > a:hover span {color:#fff}
+ 
+ #nav > li.purchase-light-english > a span {color:#bb0c1b}
+ #nav > li.purchase-light-english > a:hover {background-color:#bb0c1b}
+ #nav > li.purchase-light-english > a:hover span {color:#fff}
+ 
+ #nav > li.purchase-light-polish > a span {color:#c3a07b}
+ #nav > li.purchase-light-polish > a:hover {background-color:#c3a07b}
+ #nav > li.purchase-light-polish > a:hover span {color:#fff}

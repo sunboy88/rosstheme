@@ -1,0 +1,73 @@
+<?php $_items = $this->getReviewsCollection()->getItems();?>
+<?php if (count($_items)):?>
+	<div class="collateral-box dedicated-review-box" id="customer-reviews">
+
+		<div class="title-container clearfix">
+			<h3><?php echo $this->__('%s customer reviews', $this->getReviewsCollection()->getSize()); ?></h3>
+			<button type="button" title="<?php echo $this->__('Submit Review') ?>" class="button"><span><span><?php echo $this->__('Submit Review') ?></span></span></button>
+		</div>
+		<?php $ratings = Mage::helper('athlete/reviews')->getDetailedRating( $this->getProductId() ); ?>
+		<?php if(!empty($ratings) && $ratings->getSize()): ?>
+			<div class="average-rating">
+				<div class="f-left">
+					<strong><?php echo $this->__('Average rating'); ?></strong>
+					<div class="rating-box rating-large">
+						<div class="rating" style="width:<?php echo ceil(Mage::helper('athlete/reviews')->getRatingSummary( $this->getProduct() )) ?>%;"></div>
+					</div>
+					<span class="reviews-count"><?php echo $this->__('(based on %s reviews)', Mage::helper('athlete/reviews')->getTotalReviewsCount( $this->getProductId() )); ?></span>
+				</div>
+				<div class="f-left">
+					<table class="ratings ratings-table">
+						<col width="1" />
+						<col />
+						<tbody>
+						<?php foreach ($ratings as $_rating): ?>
+							<?php if($_rating->getSummary()): ?>
+								<tr>
+									<td>
+										<div class="rating-box">
+											<div class="rating" style="width:<?php echo ceil($_rating->getSummary()) ?>%;"></div>
+										</div>
+									</td>
+									<th><span><?php echo $this->__($this->escapeHtml($_rating->getRatingCode())) ?></span></th>
+								</tr>
+							<?php endif; ?>
+						<?php endforeach; ?>
+						</tbody>
+					</table>
+				</div>
+				<div class="clear"></div>
+			</div>
+		<?php endif; ?>
+		<?php echo $this->getChildHtml('toolbar') ?>
+		<ol class="reviews-list">
+			<?php foreach ($_items as $_review): Mage::helper('athlete/reviews')->addReviewSummary($_review); ?>
+				<li>
+					<h3 class="review-title"><?php echo $this->escapeHtml($_review->getTitle()) ?></h3>
+					<div class="review-info">
+						<?php if($_review->getSum()): ?>
+							<div class="rating-box">
+								<div class="rating" style="width:<?php echo ( $_review->getSum() / $_review->getCount() ) ?>%;"></div>
+							</div>
+						<?php endif; ?>
+						<?php echo $this->__('Review by %s', '<b>'.$this->escapeHtml($_review->getNickname()).'</b>') ?>
+						<span class="separator"></span>
+						<b><?php echo $this->__('(Posted on %s)', date('F d, Y', Mage::getModel('core/date')->timestamp(strtotime($_review->getCreatedAt())))) ?></b>
+					</div>
+					<p><?php echo nl2br($this->escapeHtml($_review->getDetail())) ?></p>
+				</li>
+			<?php endforeach; ?>
+		</ol>
+		<?php echo $this->getChildHtml('toolbar') ?>
+	</div>
+<?php else:?>
+	<div class="collateral-box dedicated-review-box" id="customer-reviews">
+		<div class="title-container clearfix">
+			<h3><?php echo $this->__('Be the first to review this product'); ?></h3>
+		</div>
+	</div>
+<?php endif;?>
+
+<div class="add-review">
+	<?php echo $this->getChildHtml('review_form') ?>
+</div>

@@ -1,0 +1,3447 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<olegnax_athlete translate="label" module="athlete">
+			<label>Athlete Theme v1.4</label>
+			<sort_order>205</sort_order>
+		</olegnax_athlete>
+	</tabs>
+	<sections>
+		<athlete translate="label" module="athlete">
+			<label>Theme Settings</label>
+			<tab>olegnax_athlete</tab>
+			<sort_order>200</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<features translate="label">
+					<label>Features status</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<prev_next translate="label">
+							<label>Prev / Next product</label>
+							<comment>Prev / Next product links on product details page</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</prev_next>
+						<totop translate="label">
+							<label>ToTop button</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</totop>
+					</fields>
+				</features>
+				<layout translate="label">
+					<label>Layout</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>14</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<!--<responsive translate="label">
+							<label>Responsive mode</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</responsive>-->
+						<max_width translate="label">
+							<label>Site max width</label>
+							<comment>Maximum width in px</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_layout_width</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_width>
+						<custom_width translate="label">
+							<label>Custom Site max width</label>
+							<comment>Specify Maximum width in px</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-number validate-number-range number-range-960-2560</validate>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<max_width>custom</max_width>
+							</depends>
+						</custom_width>
+						<fluid translate="label">
+							<label>Fluid width</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</fluid>
+					</fields>
+				</layout>
+				<header translate="label">
+					<label>Header</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<menu translate="label">
+							<label>Main menu</label>
+							<comment>Position of main menu</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_header_menu</source_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</menu>
+						<sticky translate="label">
+							<label>Sticky header</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sticky>
+						<top_links translate="label">
+							<label>Hide Default Top Links</label>
+							<comment>Links in the header: Account, Wishlist, Log In ...</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_links>
+						<logo_width translate="label">
+							<label>Logo width</label>
+							<comment>Please specify logo width to adjust logo area. Logo width + padding width should be no more 320 px</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-number validate-number-range number-range-0-320</validate>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</logo_width>
+						<logo_padding> translate="label">
+							<label>Logo padding</label>
+							<comment>Please specify logo padding to adjust logo area. Logo width + padding width should be no more 320 px</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-number validate-number-range number-range-0-320</validate>
+							<sort_order>24</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</logo_padding>
+						<search translate="label">
+							<label>Search field always visible</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</search>
+						<header_mobile translate="label">
+							<label>Header size in mobile view</label>
+							<comment>Resized header - hide top links and language/current dropdowns on mobile devices
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_header_size</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</header_mobile>
+					</fields>
+				</header>
+				<footer>
+					<label>Footer</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>25</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<cms_block translate="label">
+							<label>Footer static block</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_footer_staticblock</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cms_block>
+					</fields>
+				</footer>
+				<social translate="label">
+					<label>Social</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<tw_items translate="label">
+							<label>Twitter</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tw_items>
+						<twitter translate="label">
+							<label>Twitter Account</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</twitter>
+						<tweets_num translate="label">
+							<label>Number of shown tweets</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tweets_num>
+						<consumerkey translate="label">
+							<label>Twitter consumer key</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</consumerkey>
+						<consumersecret translate="label">
+							<label>Twitter consumer secret</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</consumersecret>
+						<accesstoken translate="label">
+							<label>Twitter access token</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</accesstoken>
+						<accesstokensecret translate="label">
+							<label>Twitter access token secret</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</accesstokensecret>
+
+						<fb_items translate="label">
+							<label>Facebook</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</fb_items>
+						<facebook translate="label">
+							<label>Facebook ID</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</facebook>
+						<facebook_scheme translate="label">
+							<label>Facebook color scheme</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_facebook_scheme</source_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</facebook_scheme>
+					</fields>
+				</social>
+				<labels translate="label">
+					<label>Product Labels</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>40</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<new_label_text>
+							<label>"New" label text</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</new_label_text>
+						<sale_label_text>
+							<label>"Sale" label text</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sale_label_text>
+						<new_label translate="label">
+							<label>Show "New" label</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</new_label>
+						<new_label_position translate="label">
+							<label>"New" label position</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_position</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</new_label_position>
+						<sale_label translate="label">
+							<label>Show "Sale" label</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sale_label>
+						<sale_label_position translate="label">
+							<label>"Sale" label position</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_position</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sale_label_position>
+						<product_view_items translate="label">
+							<label>Product view page</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_view_items>
+						<product_view_new_label_position translate="label">
+							<label>"New" label position</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_position</source_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_view_new_label_position>
+						<product_view_sale_label_position translate="label">
+							<label>"Sale" label position</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_position</source_model>
+							<sort_order>90</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_view_sale_label_position>
+					</fields>
+				</labels>
+				<images>
+					<label>Product Images</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>80</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<zoom translate="label">
+							<label>Zoom method for Product page</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_zoom</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</zoom>
+						<width translate="label">
+							<label>Main Product Image Width (px)</label>
+							<comment>
+								<![CDATA[Max width is 590px.<br/>
+								Recommended width for 2 columns layout is 299px<br/>
+								Recommended width for 3 columns layout is 520px<br/>
+								If width is not specified, default <strong>width and height</strong> will be used (473 x 473 pixels).
+								  ]]>
+							</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</width>
+						<height translate="label">
+							<label>Main Product Image Height (px)</label>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</height>
+						<keep_ratio translate="label">
+							<label>Use aspect ratio for all images</label>
+							<comment>Use main image aspect ration throughout the site</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</keep_ratio>
+					</fields>
+				</images>
+				<cloudzoom>
+					<label>CloudZoom</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>90</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<position translate="label">
+							<label>Cloudzoom position</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_zoom_position</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</position>
+						<lens_opacity translate="label">
+							<label>Lens Opacity (%)</label>
+							<comment>Opacity of the lens pointer.</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</lens_opacity>
+						<zoom_width translate="label">
+							<label>Zoom Area Width (px)</label>
+							<comment>Leave empty to use default.</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</zoom_width>
+						<zoom_height translate="label">
+							<label>Zoom Area Height (px)</label>
+							<comment>Leave empty to use default.</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</zoom_height>
+						<big_image_width translate="label">
+							<label>Image Width After Zooming (px)</label>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</big_image_width>
+						<big_image_height translate="label">
+							<label>Image Height After Zooming (px)</label>
+							<comment>Leave empty to keep aspect ratio of the image</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</big_image_height>
+						<tint_color translate="label">
+							<label>Tint color</label>
+							<comment>color which will cover the main image. (e.g. #ededed). Does not work with Soft
+								Focus.
+							</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tint_color>
+						<tint_opacity translate="label">
+							<label>Tint Opacity (%)</label>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>90</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tint_opacity>
+						<soft_focus translate="label">
+							<label>Soft Focus</label>
+							<comment>Applies a subtle blur effect to the main image. Does not work with tint.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</soft_focus>
+						<smooth_move translate="label">
+							<label>Smooth Move</label>
+							<comment>Amount of smoothness/drift of the zoom image as it moves. The higher the number,
+								the smoother/more drifty the movement will be. 1 = no smoothing.
+							</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</smooth_move>
+					</fields>
+				</cloudzoom>
+				<listing>
+					<label>Product Listing</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>100</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<products_per_row translate="label">
+							<label>Num of products per row</label>
+							<comment>
+								<![CDATA[These values used for 1024px wide screen. If you have larger screen - number of products
+								will be automatically increased.]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_listing_productrow</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</products_per_row>
+						<product_img_width translate="label">
+							<label>Product image width</label>
+							<comment>
+								<![CDATA[Max product image width in listing mode.]]>
+							</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-number validate-number-range number-range-128-768</validate>
+							<sort_order>14</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_img_width>
+						<toolbar_bottom translate="label">
+							<label>Show bottom toolbar</label>
+							<comment>
+								<![CDATA[Toolbar with sort, view mode, pager...]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</toolbar_bottom>
+
+						<list_items translate="label">
+							<label>List elements</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>29</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</list_items>
+						<list_rating translate="label">
+							<label>Product rating</label>
+							<comment>
+								<![CDATA[Show product rating.]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</list_rating>
+						<list_price translate="label">
+							<label>Product price</label>
+							<comment>
+								<![CDATA[Show product price.]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</list_price>
+						<list_actions translate="label">
+							<label>Action buttons</label>
+							<comment>
+								<![CDATA[Show "Add to cart", "Wishlist", "Compare" buttons]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</list_actions>
+
+						<grid_items translate="label">
+							<label>Grid elements</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</grid_items>
+						<grid_name translate="label">
+							<label>Product name</label>
+							<comment>
+								<![CDATA[Show product name.]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</grid_name>
+						<grid_price translate="label">
+							<label>Product Price</label>
+							<comment>
+								<![CDATA[Show product price.]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</grid_price>
+						<grid_cart translate="label">
+							<label>Add to cart button</label>
+							<comment>
+								<![CDATA[Show / hide add to cart button under product price.<br/>
+								NOTE: Action buttons will be hidden if cart button is visible.<br/>
+								Action buttons settings will be ignored.]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</grid_cart>
+
+						<hover_items translate="label">
+							<label>Grid hover elements</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hover_items>
+						<hover_rating translate="label">
+							<label>Rating</label>
+							<comment>
+								<![CDATA[Show product rating on hover.]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hover_rating>
+						<hover_actions translate="label">
+							<label>Action buttons</label>
+							<comment>
+								<![CDATA[Show "Add to cart", "Wishlist", "Compare" buttons on hover]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>140</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hover_actions>
+
+						<img_hover_items translate="label">
+							<label>Additional image settings</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>150</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</img_hover_items>
+						<hover_image translate="label">
+							<label>Status</label>
+							<comment>
+								<![CDATA[Show additional image on mouse hover.]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<sort_order>160</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hover_image>
+						<hover_image_col translate="label">
+							<label>Additional image column</label>
+							<comment>
+								<![CDATA[Select field to use for additional image: product label or sort position ]]>
+							</comment>
+							<depends>
+								<hover_image>1</hover_image>
+							</depends>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_listing_additionalimg</source_model>
+							<sort_order>170</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hover_image_col>
+						<hover_image_label translate="label">
+							<label>Column value</label>
+							<comment>
+								<![CDATA[Specify image label value or sort value which marks additional images.]]>
+							</comment>
+							<depends>
+								<hover_image>1</hover_image>
+							</depends>
+							<frontend_type>text</frontend_type>
+							<sort_order>180</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hover_image_label>
+
+					</fields>
+				</listing>
+
+				<product_info>
+					<label>Product Details page</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>110</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<second_price translate="label">
+							<label>Hide bottom price for configurable products</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</second_price>
+						<sku translate="label">
+							<label>Show SKU</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sku>
+						<reviews translate="label">
+							<label>Number of reviews on product page</label>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</reviews>
+						<social translate="label">
+							<label>Social block</label>
+							<comment>Facebook like button, pinterest button, Twitter</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</social>
+
+						<tab_items translate="label">
+							<label>Product Tabs</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>200</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_items>
+						<tab_description translate="label">
+							<label>Description</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<sort_order>210</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_description>
+						<tab_additional translate="label">
+							<label>Additionl info</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<sort_order>220</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_additional>
+						<tab_tags translate="label">
+							<label>Tags</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<sort_order>230</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_tags>
+
+					</fields>
+				</product_info>
+
+				<sliders>
+					<label>Sliders</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>120</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+
+						<banner_items translate="label">
+							<label>Banner slider</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</banner_items>
+						<banner_autoscroll>
+							<label>Autoscroll</label>
+							<comment>
+								<![CDATA[Set to 0 to disable autoscroll</br>
+								Set to 1-10 to enable autoscroll ( scroll timeout - autoscroll * 1000ms ) ]]>
+							</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</banner_autoscroll>
+						<banner_scroll_items>
+							<label>Items to scroll</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_slider_scroll</source_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</banner_scroll_items>
+						<banner_rewind>
+							<label>Slide to first item</label>
+							<comment>
+								<![CDATA[Slide to first item or stop at last item ]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</banner_rewind>
+
+						<product_items translate="label">
+							<label>Product slider</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>200</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_items>
+						<product_autoscroll>
+							<label>Autoscroll</label>
+							<comment>
+								<![CDATA[Set to 0 to disable autoscroll</br>
+								Set to 1-10 to enable autoscroll ( scroll timeout - autoscroll * 1000ms ) ]]>
+							</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>210</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_autoscroll>
+						<product_scroll_items>
+							<label>Items to scroll</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_slider_scroll</source_model>
+							<sort_order>220</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_scroll_items>
+						<product_rewind>
+							<label>Slide to first item</label>
+							<comment>
+								<![CDATA[Slide to first item or stop at last item ]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>230</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_rewind>
+
+					</fields>
+				</sliders>
+
+			</groups>
+		</athlete>
+
+		<athlete_appearance translate="label">
+			<label>Appearance settings</label>
+			<tab>olegnax_athlete</tab>
+			<sort_order>210</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<main translate="label">
+					<label>Main Options</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enable_font translate="label comment">
+							<label>Enable Google Font:</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_font>
+						<font translate="label comment">
+							<label>Main Font:</label>
+							<comment>Enable google font to use this option</comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>athlete/config_font</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</font>
+						<color translate="label comment">
+							<label>Main color:</label>
+							<comment>This is main theme color</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</color>
+
+						<button_items translate="label">
+							<label>Buttons</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>49</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_items>
+						<button_color translate="label comment">
+							<label>Button text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_color>
+						<button_bg_color translate="label comment">
+							<label>Button background color:</label>
+							<comment>Leave empty to use main color</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_bg_color>
+						<button_hover_color translate="label comment">
+							<label>Button text hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_hover_color>
+						<button_bg_hover_color translate="label comment">
+							<label>Button background hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_bg_hover_color>
+						<button_icons>
+							<label>Button Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>84</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_icons>
+						<inverted_button_icons>
+							<label>Inverted Button Icon color</label>
+							<comment>Inverted button use hover colors as regular and vice versa</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>85</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</inverted_button_icons>
+
+						<title_items translate="label">
+							<label>Titles</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>89</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title_items>
+						<title_font translate="label comment">
+							<label>Title Font:</label>
+							<comment>Enable google font to use this option. Leave empty to use main font</comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>athlete/config_font</source_model>
+							<sort_order>90</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title_font>
+						<title_color translate="label comment">
+							<label>Title color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title_color>
+
+						<price_items translate="label">
+							<label>Price</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>109</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</price_items>
+						<price_font translate="label comment">
+							<label>Price Font:</label>
+							<comment>Enable google font to use this option. Leave empty to use main font</comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>athlete/config_font</source_model>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</price_font>
+						<price_color translate="label comment">
+							<label>Price color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</price_color>
+						<price_old_color translate="label comment">
+							<label>Old Price color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</price_old_color>
+						<price_text_color translate="label comment">
+							<label>Price Text color:</label>
+							<comment>Text in price block ( As low, From, To )</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>140</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</price_text_color>
+						<new_price_color translate="label comment">
+							<label>New products price color:</label>
+							<comment>Also used as product label background</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>150</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</new_price_color>
+						<sale_price_color translate="label comment">
+							<label>On Sale products price color:</label>
+							<comment>Also used as product label background</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>160</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sale_price_color>
+						<label_color translate="label comment">
+							<label>Product label text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>170</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</label_color>
+
+					</fields>
+				</main>
+				<header translate="label">
+					<label>Header</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<header_bg translate="label comment">
+							<label>Header background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</header_bg>
+						<logo_bg translate="label comment">
+							<label>Logo background color:</label>
+							<comment>Leave empty to use main color</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</logo_bg>
+						<top_bar_bg translate="label comment">
+							<label>Top bar background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_bar_bg>
+						<top_bar_color translate="label comment">
+							<label>Top bar text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>140</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_bar_color>
+						<top_bar_hover_color translate="label comment">
+							<label>Top bar text hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>150</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_bar_hover_color>
+						<top_bar_hover_bg_color translate="label comment">
+							<label>Top bar text hover background color:</label>
+							<comment>Leave empty to use main color</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>160</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_bar_hover_bg_color>
+						<search_bg translate="label comment">
+							<label>Search field background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>170</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</search_bg>
+						<search_color translate="label comment">
+							<label>Search field text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>180</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</search_color>
+						<search_icon>
+							<label>Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>190</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</search_icon>
+					</fields>
+				</header>
+				<header_dropdown translate="label">
+					<label>Header Dropdowns (currency, language, cart)</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<top_dropdown_container translate="label comment">
+							<label>Dropdown background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>170</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_dropdown_container>
+						<top_dropdown_cart_bg_color translate="label comment">
+							<label>Dropdown item background color:</label>
+							<comment>I.e. - products list in cart dropdown</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>176</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_dropdown_cart_bg_color>
+						<top_dropdown_buttons_bg translate="label comment">
+							<label>Dropdown edit / remove buttons background color:</label>
+							<comment>In cart dropdown</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>178</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_dropdown_buttons_bg>
+						<top_dropdown_buttons_icon>
+							<label>Dropdown edit / remove buttons Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>179</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_dropdown_buttons_icon>
+						<top_dropdown_color translate="label comment">
+							<label>Dropdown text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>180</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_dropdown_color>
+						<top_dropdown_hover_color translate="label comment">
+							<label>Dropdown text hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>190</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_dropdown_hover_color>
+						<top_dropdown_hover_bg_color translate="label comment">
+							<label>Dropdown background hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>200</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_dropdown_hover_bg_color>
+					</fields>
+				</header_dropdown>
+				<navigation translate="label">
+					<label>Navigation</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>40</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<top_nav_font translate="label comment">
+							<label>Navigation Font:</label>
+							<comment>Enable google font to use this option. Leave empty to use main font</comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>athlete/config_font</source_model>
+							<sort_order>250</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_nav_font>
+						<top_nav_bg translate="label comment">
+							<label>Top Navigation backgroud:</label>
+							<comment>Used for navigation under logo</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>256</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_nav_bg>
+						<top_nav_color translate="label comment">
+							<label>Top level Navigation color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>260</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_nav_color>
+						<top_nav_hover_color translate="label comment">
+							<label>Top level Navigation hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>270</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_nav_hover_color>
+						<top_nav_hover_bg_color translate="label comment">
+							<label>Top level Navigation background color:</label>
+							<comment>Leave empty to use main theme color</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>280</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_nav_hover_bg_color>
+						<top_nav_font_size translate="label comment">
+							<label>Top level Navigation font size:</label>
+							<comment>Top level ONLY Font size in PX</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>288</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</top_nav_font_size>
+						<sub_nav_container translate="label comment">
+							<label>Sub level Navigation container background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>290</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sub_nav_container>
+						<sub_nav_icons>
+							<label>Sub level Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>292</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sub_nav_icons>
+						<sub_nav_text_color translate="label comment">
+							<label>Sub level Navigation text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>295</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sub_nav_text_color>
+						<sub_nav_color translate="label comment">
+							<label>Sub level Navigation link color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>300</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sub_nav_color>
+						<sub_nav_hover_color translate="label comment">
+							<label>Sub level Navigation link hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>310</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sub_nav_hover_color>
+						<sub_nav_hover_bg_color translate="label comment">
+							<label>Sub level Navigation link hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>320</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sub_nav_hover_bg_color>
+						<mm_border_color translate="label comment">
+							<label>Megamenu border color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>330</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</mm_border_color>
+					</fields>
+				</navigation>
+
+				<content_banners translate="label">
+					<label>Header / footer banners</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>50</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<bg translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg>
+						<content_banner_font translate="label comment">
+							<label>Banner Font:</label>
+							<comment>Enable google font to use this option. Leave empty to use main font</comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>athlete/config_font</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</content_banner_font>
+						<content_banner_font_size translate="label comment">
+							<label>Banner font size:</label>
+							<comment>Font size in PX</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</content_banner_font_size>
+
+						<category_items translate="label">
+							<label>Category banner</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</category_items>
+						<title_bg translate="label comment">
+							<label>Title background:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title_bg>
+						<title_color translate="label comment">
+							<label>Title color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title_color>
+						<link_bg translate="label comment">
+							<label>Link background:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_bg>
+						<link_color translate="label comment">
+							<label>Link color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>90</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_color>
+						<link_hover_bg translate="label comment">
+							<label>Link hover background:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_hover_bg>
+						<link_hover_color translate="label comment">
+							<label>Link hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_hover_color>
+						<icon>
+							<label>Link Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</icon>
+					</fields>
+				</content_banners>
+
+				<banners_slider translate="label">
+					<label>Banners slider</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>54</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<slide_bg translate="label comment">
+							<label>Slide background:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</slide_bg>
+						<text_color translate="label comment">
+							<label>Text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</text_color>
+						<text_bg translate="label comment">
+							<label>Text background:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</text_bg>
+						<text_hover_color>
+							<label>Text hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</text_hover_color>
+						<text_bg_hover_color>
+							<label>Text hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</text_bg_hover_color>
+						<link_color translate="label comment">
+							<label>Link color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_color>
+						<link_bg translate="label comment">
+							<label>Link background:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_bg>
+					</fields>
+				</banners_slider>
+				<content>
+					<label>Content area</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>58</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<content_bg>
+							<label>Content background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</content_bg>
+						<content_border_bg>
+							<label>Content border color:</label>
+							<comment>Sliders border, border between items etc</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</content_border_bg>
+						<content_color>
+							<label>Content text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</content_color>
+						<content_link_bg>
+							<label>Content link background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</content_link_bg>
+						<content_link_color>
+							<label>Content link color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</content_link_color>
+						<content_link_hover_bg>
+							<label>Content link hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</content_link_hover_bg>
+						<content_link_hover_color>
+							<label>Content link hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</content_link_hover_color>
+					</fields>
+				</content>
+				<footer translate="label">
+					<label>Footer</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>60</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<footer_bg translate="label comment">
+							<label>Footer background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>810</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_bg>
+						<footer_border translate="label comment">
+							<label>Footer border color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>815</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_border>
+						<footer_title_font translate="label comment">
+							<label>Footer Title Font:</label>
+							<comment>Enable google font to use this option. Leave empty to use main font</comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>athlete/config_font</source_model>
+							<sort_order>820</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_title_font>
+						<footer_title_color translate="label comment">
+							<label>Footer Title color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>830</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_title_color>
+						<footer_text_color translate="label comment">
+							<label>Footer text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>840</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_text_color>
+						<footer_link_color translate="label comment">
+							<label>Footer link color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>846</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_link_color>
+						<footer_link_hover_color translate="label comment">
+							<label>Footer link hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>850</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_link_hover_color>
+						<footer_link_hover_bg_color translate="label comment">
+							<label>Footer link hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>860</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_link_hover_bg_color>
+						<footer_newsletter_bg translate="label comment">
+							<label>Footer Newsletter background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>870</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_newsletter_bg>
+						<footer_button_color translate="label comment">
+							<label>Footer button text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>880</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_button_color>
+						<footer_button_bg_color translate="label comment">
+							<label>Footer button background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>890</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_button_bg_color>
+						<footer_button_hover_color translate="label comment">
+							<label>Footer button text hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>900</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_button_hover_color>
+						<footer_button_bg_hover_color translate="label comment">
+							<label>Footer button hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>910</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_button_bg_hover_color>
+						<copyright_bg translate="label comment">
+							<label>Copyright background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>920</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</copyright_bg>
+						<copyright_color translate="label comment">
+							<label>Copyright text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>930</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</copyright_color>
+						<copyright_link_color translate="label comment">
+							<label>Copyright link color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>935</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</copyright_link_color>
+						<copyright_hover_bg translate="label comment">
+							<label>Copyright link hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>940</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</copyright_hover_bg>
+						<copyright_hover_color translate="label comment">
+							<label>Copyright link hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>950</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</copyright_hover_color>
+					</fields>
+				</footer>
+				<sidebar>
+					<label>Sidebar</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>70</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<block_border>
+							<label>Block top border color:</label>
+							<comment>Leave empty to use main color</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_border>
+						<block_items_border>
+							<label>Block items border color:</label>
+							<comment>Items divider ( wishlist, checkout progress etc )</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_items_border>
+						<block_bg>
+							<label>Block background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_bg>
+						<block_title_font translate="label comment">
+							<label>Block title font:</label>
+							<comment>Enable google font to use this option. Leave empty to use main font</comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>athlete/config_font</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_title_font>
+						<block_title_font_size translate="label comment">
+							<label>Block title font size:</label>
+							<comment>Font size in PX</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_title_font_size>
+						<block_title_color>
+							<label>Block title color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_title_color>
+						<block_text_color>
+							<label>Block text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_text_color>
+						<block_link_color>
+							<label>Block link color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_link_color>
+						<block_link_hover_color>
+							<label>Block link hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_link_hover_color>
+						<block_link_hover_bg>
+							<label>Block link hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>90</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_link_hover_bg>
+						<block_link_icons>
+							<label>Block link icon color:</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>95</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_link_icons>
+						<button_color translate="label comment">
+							<label>Button text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_color>
+						<button_bg_color translate="label comment">
+							<label>Button background color:</label>
+							<comment>Leave empty to use main color</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_bg_color>
+						<button_hover_color translate="label comment">
+							<label>Button text hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_hover_color>
+						<button_bg_hover_color translate="label comment">
+							<label>Button background hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_bg_hover_color>
+						<!-- poll block -->
+						<poll_items translate="label">
+							<label>Poll block</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>139</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</poll_items>
+						<block_poll_q_bg translate="label comment">
+							<label>Poll question background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>140</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_poll_q_bg>
+						<block_poll_q_color translate="label comment">
+							<label>Poll question text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>150</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_poll_q_color>
+					</fields>
+				</sidebar>
+				<messages>
+					<label>Global messages</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>80</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<success_items translate="label">
+							<label>Success message</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</success_items>
+						<success_bg translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</success_bg>
+						<success_color translate="label comment">
+							<label>Text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</success_color>
+						<error_items translate="label">
+							<label>Error message</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</error_items>
+						<error_bg translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</error_bg>
+						<error_color translate="label comment">
+							<label>Text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</error_color>
+						<notice_items translate="label">
+							<label>Notice message</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>210</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</notice_items>
+						<notice_bg translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>220</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</notice_bg>
+						<notice_color translate="label comment">
+							<label>Text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>230</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</notice_color>
+					</fields>
+				</messages>
+				<pager>
+					<label>Product Listing Toolbar</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>80</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<pager_bg translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pager_bg>
+						<pager_color translate="label comment">
+							<label>Text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pager_color>
+						<pager_icons>
+							<label>Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pager_icons>
+						<links_items translate="label">
+							<label>Pages links</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</links_items>
+						<pager_link_bg translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pager_link_bg>
+						<pager_link_color translate="label comment">
+							<label>Text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pager_link_color>
+						<pager_link_hover_bg translate="label comment">
+							<label>Hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pager_link_hover_bg>
+						<pager_link_hover_color translate="label comment">
+							<label>Hover Text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>140</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pager_link_hover_color>
+						<dropdown_items translate="label">
+							<label>Dropdown</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>200</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</dropdown_items>
+						<pager_dropdown_bg translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>210</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pager_dropdown_bg>
+						<pager_dropdown_color translate="label comment">
+							<label>Text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>220</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pager_dropdown_color>
+						<pager_dropdown_link_color translate="label comment">
+							<label>Link color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>230</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pager_dropdown_link_color>
+						<pager_dropdown_link_hover_bg translate="label comment">
+							<label>Link hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>240</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pager_dropdown_link_hover_bg>
+						<pager_dropdown_link_hover_color translate="label comment">
+							<label>Link hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>250</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pager_dropdown_link_hover_color>
+					</fields>
+				</pager>
+				<arrows>
+					<label>Slider arrows</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>100</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<bs_items translate="label">
+							<label>Banner slider</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bs_items>
+						<banners_slider_bg translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</banners_slider_bg>
+						<banners_slider_hover_bg translate="label comment">
+							<label>Hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</banners_slider_hover_bg>
+						<banners_slider_disabled_bg translate="label comment">
+							<label>Disabled background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</banners_slider_disabled_bg>
+						<banners_slider_icons>
+							<label>Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>140</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</banners_slider_icons>
+
+						<brs_items translate="label">
+							<label>Brands slider</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>200</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</brs_items>
+						<brands_slider_bg translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>210</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</brands_slider_bg>
+						<brands_slider_hover_bg translate="label comment">
+							<label>Hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>220</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</brands_slider_hover_bg>
+						<brands_slider_icons>
+							<label>Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>240</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</brands_slider_icons>
+
+						<pn_items translate="label">
+							<label>Prev next arrows</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>300</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pn_items>
+						<pn_slider_bg translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>310</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pn_slider_bg>
+						<pn_slider_hover_bg translate="label comment">
+							<label>Hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>320</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pn_slider_hover_bg>
+						<pn_slider_icons>
+							<label>Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>340</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pn_slider_icons>
+
+						<ps_items translate="label">
+							<label>Products slider</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>400</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</ps_items>
+						<products_slider_bg translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>410</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</products_slider_bg>
+						<products_slider_hover_bg translate="label comment">
+							<label>Hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>420</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</products_slider_hover_bg>
+						<products_slider_disabled_bg translate="label comment">
+							<label>Disabled background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>430</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</products_slider_disabled_bg>
+						<products_slider_icons>
+							<label>Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>440</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</products_slider_icons>
+
+						<mm_ps_items translate="label">
+							<label>Products slider ( Mega menu )</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>500</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</mm_ps_items>
+						<mm_products_slider_bg translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>510</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</mm_products_slider_bg>
+						<mm_products_slider_hover_bg translate="label comment">
+							<label>Hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>520</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</mm_products_slider_hover_bg>
+						<mm_products_slider_icons>
+							<label>Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>540</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</mm_products_slider_icons>
+
+					</fields>
+				</arrows>
+				<login>
+					<label>Login page</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>200</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<bg_color translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_color>
+						<bg_image>
+							<label>Background image</label>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">olegnax/athlete</upload_dir>
+							<base_url type="media" scope_info="1">olegnax/athlete</base_url>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_image>
+					</fields>
+				</login>
+				<slideshow>
+					<label>Slideshow</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>210</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<bg_color translate="label comment">
+							<label>Background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_color>
+						<timeline translate="label comment">
+							<label>Timeline color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</timeline>
+						<icons>
+							<label>Icons color</label>
+							<comment>Navigation arrows, link arrow</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</icons>
+						<nav_bg translate="label comment">
+							<label>Navigation arrows bg color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</nav_bg>
+						<nav_hover_bg translate="label comment">
+							<label>Navigation arrows bg hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</nav_hover_bg>
+						<title_bg translate="label comment">
+							<label>Title background:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title_bg>
+						<title_color translate="label comment">
+							<label>Title color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title_color>
+						<link_bg translate="label comment">
+							<label>Link background:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_bg>
+						<link_color translate="label comment">
+							<label>Link color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>90</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_color>
+						<link_hover_bg translate="label comment">
+							<label>Link hover background:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_hover_bg>
+						<link_hover_color translate="label comment">
+							<label>Link hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_hover_color>
+					</fields>
+				</slideshow>
+
+				<product_listing>
+					<label>Product listing</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>220</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<product_name_font translate="label comment">
+							<label>Product Name Font:</label>
+							<comment>Enable google font to use this option. Leave empty to use main font</comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>athlete/config_font</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_name_font>
+						<product_name_color translate="label comment">
+							<label>Product Name color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_name_color>
+						<rating_bg>
+							<label>Rating background</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</rating_bg>
+						<hover_bg>
+							<label>Hover background</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>210</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hover_bg>
+						<hover_title_bg>
+							<label>Product title hover background</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>220</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hover_title_bg>
+						<hover_title_color>
+							<label>Product title hover color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>230</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hover_title_color>
+						<hover_price_color>
+							<label>Product price hover color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>240</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hover_price_color>
+
+						<grid_items translate="label">
+							<label>Grid mode</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>300</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</grid_items>
+						<action_btn_bg>
+							<label>Add-to buttons background</label>
+							<comment>"Add to cart", "Wishlist", "Compare" buttons</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>310</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</action_btn_bg>
+						<action_btn_hover_bg>
+							<label>Add-to buttons hover background</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>320</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</action_btn_hover_bg>
+						<action_btn_icons>
+							<label>Add-to buttons Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>330</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</action_btn_icons>
+
+						<list_items translate="label">
+							<label>List mode</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>400</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</list_items>
+						<description_hover_color>
+							<label>Description text hover color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>410</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description_hover_color>
+						<action_btn_color>
+							<label>Add-to buttons text color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>420</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</action_btn_color>
+						<action_btn_hover_color>
+							<label>Add-to buttons text hover color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>430</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</action_btn_hover_color>
+						<action_btn_list_hover_bg>
+							<label>Add-to buttons hover background</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>440</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</action_btn_list_hover_bg>
+						<action_btn_list_icons>
+							<label>Add-to buttons Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>450</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</action_btn_list_icons>
+
+					</fields>
+				</product_listing>
+
+				<product_info>
+					<label>Product details</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>230</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<!-- common -->
+						<title_font translate="label comment">
+							<label>Title Font:</label>
+							<comment>Enable google font to use this option</comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>athlete/config_font</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title_font>
+						<title_color>
+							<label>Title color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title_color>
+						<text_color>
+							<label>Text color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</text_color>
+						<link_bg translate="label comment">
+							<label>Link background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_bg>
+						<link_color translate="label comment">
+							<label>Link color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_color>
+						<link_hover_bg translate="label comment">
+							<label>Link hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_hover_bg>
+						<link_hover_color translate="label comment">
+							<label>Link hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_hover_color>
+						<!-- price -->
+						<price_items translate="label">
+							<label>Price</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</price_items>
+						<price_font translate="label comment">
+							<label>Price Font:</label>
+							<comment>Enable google font to use this option. Leave empty to use main font</comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>athlete/config_font</source_model>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</price_font>
+						<price_color translate="label comment">
+							<label>Price color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</price_color>
+						<price_old_color translate="label comment">
+							<label>Old Price color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</price_old_color>
+						<price_text_color translate="label comment">
+							<label>Price Text color:</label>
+							<comment>Text in price block ( As low, From, To )</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>140</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</price_text_color>
+						<!-- buttons -->
+						<buttons_items translate="label">
+							<label>Buttons</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>200</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</buttons_items>
+						<button_color translate="label comment">
+							<label>Button text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>210</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_color>
+						<button_bg_color translate="label comment">
+							<label>Button background color:</label>
+							<comment>Leave empty to use main color</comment>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>220</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_bg_color>
+						<button_hover_color translate="label comment">
+							<label>Button text hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>230</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_hover_color>
+						<button_bg_hover_color translate="label comment">
+							<label>Button background hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>240</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_bg_hover_color>
+						<button_icons>
+							<label>Button Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>250</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_icons>
+						<!-- Add-to buttons -->
+						<abuttons_items translate="label">
+							<label>
+								<![CDATA[Add-to Buttons ( <small>"Add to cart", "Wishlist", "Compare" buttons</small> ) ]]></label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>300</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</abuttons_items>
+						<action_btn_color>
+							<label>Add-to buttons text color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>310</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</action_btn_color>
+						<action_btn_hover_color>
+							<label>Add-to buttons text hover color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>320</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</action_btn_hover_color>
+						<action_btn_list_hover_bg>
+							<label>Add-to buttons hover background</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>330</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</action_btn_list_hover_bg>
+						<action_btn_list_icons>
+							<label>Add-to buttons Icon color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_icons</source_model>
+							<sort_order>340</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</action_btn_list_icons>
+						<!-- Tabs -->
+						<tabs_items translate="label">
+							<label>Tab Heading</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>400</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tabs_items>
+						<tab_color translate="label comment">
+							<label>Tab text color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>410</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_color>
+						<tab_bg_color translate="label comment">
+							<label>Tab background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>420</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_bg_color>
+						<tab_hover_color translate="label comment">
+							<label>Tab text hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>430</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_hover_color>
+						<tab_bg_hover_color translate="label comment">
+							<label>Tab background hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>440</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_bg_hover_color>
+						<!-- Tab content -->
+						<tab_contents_items translate="label">
+							<label>Tab Content</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>500</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_contents_items>
+						<tab_content_bg>
+							<label>Background color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>520</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_content_bg>
+						<tab_content_color>
+							<label>Text color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>530</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_content_color>
+						<tab_content_link_bg translate="label comment">
+							<label>Link background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>540</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_content_link_bg>
+						<tab_content_link_color translate="label comment">
+							<label>Link color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>550</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_content_link_color>
+						<tab_content_link_hover_bg translate="label comment">
+							<label>Link hover background color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>560</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_content_link_hover_bg>
+						<tab_content_link_hover_color translate="label comment">
+							<label>Link hover color:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>570</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_content_link_hover_color>
+						<tab_content_th translate="label comment">
+							<label>Attribute table heading background:</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>580</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</tab_content_th>
+						<!-- review form -->
+						<review_items translate="label">
+							<label>Review</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>600</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</review_items>
+						<rating_bg>
+							<label>Rating stars background</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>610</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</rating_bg>
+						<rating_select_bg>
+							<label>Rating form background</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>620</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</rating_select_bg>
+						<rating_select_color>
+							<label>Rating form text</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>630</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</rating_select_color>
+						<rating_select_inactive>
+							<label>Rating form inactive element</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>640</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</rating_select_inactive>
+						<rating_select_active>
+							<label>Rating form active element</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>650</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</rating_select_active>
+						<rating_form_bg>
+							<label>Review form background</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>660</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</rating_form_bg>
+						<rating_form_color>
+							<label>Review form text</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>670</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</rating_form_color>
+
+						<!-- cloud zoom -->
+						<cz_items translate="label">
+							<label>Cloudzoom</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>700</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cz_items>
+						<cz_border>
+							<label>Zoom border</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>710</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cz_border>
+						<cz_bg>
+							<label>Moving lens background color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>athlete/adminhtml_system_config_form_field_color</frontend_model>
+							<sort_order>720</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cz_bg>
+						<cz_bg_opacity>
+							<label>Moving lens background opacity</label>
+							<comment>0 - 1 ( 0 - hidden, 0.07 - 7% opacity, 1 - 100% opacity )</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>730</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cz_bg_opacity>
+					</fields>
+				</product_info>
+
+				<custom>
+					<label>Customization</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>380</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<override_css>
+							<label>Enable custom css</label>
+							<comment>Enable this option to load "override.css" file in which you can override the
+								default styling of the theme.
+								To create "override.css" you can use the file "default.override.css" which is located in
+								skin/frontend/athlete/default/css directory.
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</override_css>
+					</fields>
+				</custom>
+			</groups>
+		</athlete_appearance>
+
+		<athlete_brands translate="label">
+			<label>Brands slider</label>
+			<tab>olegnax_athlete</tab>
+			<sort_order>220</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<main translate="label">
+					<label>Brands Settings</label>
+					<comment><![CDATA[<strong>IMPORTANT:</strong><br/>
+						Brand images stored in <b>media/wysiwyg/olegnax/athlete/brands/</b>]]>
+					</comment>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<status translate="label">
+							<label>Brands slider status</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status>
+						<pages>
+							<label>Show Brands slider on</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_brands_pages</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pages>
+						<brands>
+							<label>Show All Brands</label>
+							<comment>Yes - show all brands, No - brands which has at least one active product</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</brands>
+						<attribute translate="label">
+							<label>Attribute Code</label>
+							<comment>
+								<![CDATA[Attribute for product brands.]]>
+							</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-code</validate>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</attribute>
+						<image translate="label">
+							<label>Brand Image File Extension</label>
+							<comment>(
+								<b>Ex:</b>
+								gif, jpg, png)
+							</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</image>
+						<image_width translate="label">
+							<label>Brand Image Width (in px)</label>
+							<comment>Default width is 96px. Max width is 320px</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-digits</validate>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</image_width>
+						<retina>
+							<label>Enable Retina image for Brands</label>
+							<comment><![CDATA[Please note that you will need to upload retina image for each brand image.<br/>
+							It should be twice as large as original image.<br /><br/>
+							Example:<br/>
+							for brand "Adidas" you have to upload:<br/>
+							adidas.png - regular image<br/>
+							adidas_2x.png - retina image]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</retina>
+					</fields>
+				</main>
+				<slider>
+					<label>Slider Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>110</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<brand_autoscroll>
+							<label>Autoscroll</label>
+							<comment>
+								<![CDATA[Set to 0 to disable autoscroll</br>
+								Set to 1-10 to enable autoscroll ( scroll timeout - autoscroll * 1000ms ) ]]>
+							</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>210</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</brand_autoscroll>
+						<brand_scroll_items>
+							<label>Items to scroll</label>
+							<frontend_type>select</frontend_type>
+							<source_model>athlete/config_slider_scroll</source_model>
+							<sort_order>220</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</brand_scroll_items>
+						<brand_rewind>
+							<label>Slide to first item</label>
+							<comment>
+								<![CDATA[Slide to first item or stop at last item ]]>
+							</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>230</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</brand_rewind>
+
+					</fields>
+				</slider>
+			</groups>
+		</athlete_brands>
+
+	</sections>
+</config>
+
+

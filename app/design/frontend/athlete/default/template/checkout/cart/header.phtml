@@ -1,0 +1,51 @@
+<?php
+/**
+ * Shoping cart sidebar
+ *
+ * @see Mage_Checkout_Block_Cart_Sidebar
+ */
+$athleteHelper = $this->helper('athlete');
+$_cartQty = $this->getSummaryCount(); if ( is_null($_cartQty) ) $_cartQty = 0;
+?>
+<!-- cart BOF -->
+<div class="header-switch header-cart">
+	<a class="header-switch-trigger summary icon-<?php echo $athleteHelper->getCfg('header/search_icon', 'athlete_appearance'); ?>" href="<?php echo $this->getUrl('checkout/cart') ?>">
+		<?php echo '<span>'.$this->__('My Cart') . '</span><span class="qty">' . $_cartQty . '</span>'; ?>
+	</a>
+	<div class="header-dropdown">
+		<?php
+		$promo = $this->getChildHtml('athlete_cart_promotion');
+		if ( !empty($promo) ) {
+			echo '<div class="cart-promotion">'.$promo.'</div>';
+		}
+		?>
+		<?php $_items = $this->getRecentItems() ?>
+		<?php if(count($_items)): ?>
+			<p class="block-subtitle text-recently"><?php echo $this->__('Recently added item(s)') ?></p>
+			<ol id="cart-sidebar" class="mini-products-list">
+				<?php foreach($_items as $_item): ?>
+					<?php echo $this->getItemHtml($_item) ?>
+				<?php endforeach; ?>
+			</ol>
+			<div class="subtotal">
+				<?php if ($this->canApplyMsrp()): ?>
+					<span class="map-cart-sidebar-total"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></span>
+				<?php else: ?>
+					<span class="label"><?php echo $this->__('Total:') ?></span> <?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?>
+					<?php if ($_subtotalInclTax = $this->getSubtotalInclTax()): ?>
+						<br />(<?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?> <?php echo Mage::helper('tax')->getIncExcText(true) ?>)
+					<?php endif; ?>
+				<?php endif; ?>
+			</div>
+			<div class="buttons clearfix">
+				<button type="button" title="<?php echo $this->__('View Cart') ?>" class="button inverted btn-continue" onclick="setLocation('<?php echo $this->getUrl('checkout/cart') ?>')"><span><span><?php echo $this->__('View Cart') ?></span></span></button>
+				<?php if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
+				<button type="button" title="<?php echo $this->__('Checkout') ?>" class="button btn-checkout" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><span><span><?php echo $this->__('Checkout') ?></span></span></button>
+				<?php endif ?>
+			</div>
+		<?php else: ?>
+			<p class="a-center"><?php echo $this->__('You have no items in your shopping cart.') ?></p>
+		<?php endif ?>
+	</div>
+</div>
+<!-- cart EOF -->

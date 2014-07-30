@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+
+	<catalog_product_view translate="label">
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/olegnax/colorswatches.css</stylesheet></action>
+			<action method="addItem" ifconfig="olegnaxcolorswatches/main/jquery"><type>js</type><name>olegnax/jquery-1.11.0.min.js</name></action>
+			<action method="addItem" ifconfig="olegnaxcolorswatches/main/jquery"><type>js</type><name>olegnax/jquery-migrate-1.2.1.min.js</name></action>
+			<action method="addJs" ifconfig="olegnaxcolorswatches/main/jquery"><script>olegnax/jquery.noconflict.js</script></action>
+			<action method="addItem" ifconfig="olegnaxcolorswatches/main/status"><type>skin_js</type><name>js/olegnax/jquery.colorswatches.js</name></action>
+		</reference>
+		<reference name="product.info.options.wrapper">
+			<block type="olegnaxcolorswatches/swatches" name="olegnax.colorswatches" template="olegnax/colorswatches/swatches.phtml"/>
+		</reference>
+	</catalog_product_view>
+
+	<olegnaxcolorswatches_index_images>
+		<reference name="root">
+			<action method="setTemplate"><template>olegnax/empty.phtml</template></action>
+			<!-- Mark root page block that template is applied -->
+			<action method="setIsHandle"><applied>1</applied></action>
+		</reference>
+		<reference name="content">
+			<block type="catalog/product_view_media" name="product.info.media" as="media" template="olegnax/colorswatches/media.phtml"/>
+		</reference>
+	</olegnaxcolorswatches_index_images>
+
+	<oxajax_cart_options>
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/olegnax/colorswatches.css</stylesheet></action>
+			<action method="addItem" ifconfig="olegnaxcolorswatches/main/jquery"><type>js</type><name>olegnax/jquery-1.11.0.min.js</name></action>
+			<action method="addItem" ifconfig="olegnaxcolorswatches/main/jquery"><type>js</type><name>olegnax/jquery-migrate-1.2.1.min.js</name></action>
+			<action method="addJs" ifconfig="olegnaxcolorswatches/main/jquery"><script>olegnax/jquery.noconflict.js</script></action>
+			<action method="addItem" ifconfig="olegnaxcolorswatches/main/status"><type>skin_js</type><name>js/olegnax/jquery.colorswatches.js</name></action>
+		</reference>
+		<reference name="product.info.options.wrapper">
+			<block type="olegnaxcolorswatches/swatches" name="olegnax.colorswatches" template="olegnax/colorswatches/swatches.phtml"/>
+		</reference>
+	</oxajax_cart_options>
+
+</layout>

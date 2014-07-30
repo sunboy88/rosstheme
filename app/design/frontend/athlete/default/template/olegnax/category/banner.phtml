@@ -1,0 +1,15 @@
+<?php
+/**
+ * Category banner template
+ *
+ * @see Olegnax_Athlete_Block_Category_Banner
+ */
+$banner = $this->getBannerHtml();
+if (!empty($banner)) :
+?>
+<!-- category banner BOF -->
+<div class="category-banner-container">
+	<?php echo $banner; ?>
+</div>
+<!-- category banner EOF -->
+<?php endif; ?>

@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Olegnax_Colorswatches>
+			<version>1.0.0</version>
+		</Olegnax_Colorswatches>
+	</modules>
+	<frontend>
+		<routers>
+			<olegnaxcolorswatches>
+				<use>standard</use>
+				<args>
+					<module>Olegnax_Colorswatches</module>
+					<frontName>olegnaxcolorswatches</frontName>
+				</args>
+			</olegnaxcolorswatches>
+		</routers>
+		<layout>
+			<updates>
+				<olegnaxcolorswatches>
+					<file>olegnax/colorswatches.xml</file>
+				</olegnaxcolorswatches>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Olegnax_Colorswatches>
+					<files>
+						<default>Olegnax_Colorswatches.csv</default>
+					</files>
+				</Olegnax_Colorswatches>
+			</modules>
+		</translate>
+	</frontend>
+	<adminhtml>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<olegnaxcolorswatches>
+											<title>Olegnax Colorswatches</title>
+										</olegnaxcolorswatches>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>
+	<global>
+		<blocks>
+			<olegnaxcolorswatches>
+				<class>Olegnax_Colorswatches_Block</class>
+			</olegnaxcolorswatches>
+		</blocks>
+		<helpers>
+			<olegnaxcolorswatches>
+				<class>Olegnax_Colorswatches_Helper</class>
+			</olegnaxcolorswatches>
+		</helpers>
+	</global>
+	<default>
+		<olegnaxcolorswatches>
+			<main>
+				<status>1</status>
+				<jquery>1</jquery>
+				<hide_dropdowns>1</hide_dropdowns>
+				<replace_image>1</replace_image>
+				<attribute_title>1</attribute_title>
+				<swatch_images><![CDATA[Color : Black = black.jpg
+Color : White = white.jpg
+Color : Red = red.jpg
+Color : Green = green.jpg
+Color : Blue = blue.jpg
+Color : Yellow = yellow.jpg
+Size : Small = size_s.jpg
+Size : Medium = size_m.jpg
+Size : Large = size_l.jpg
+Size : XL = size_xl.jpg]]></swatch_images>
+			</main>
+		</olegnaxcolorswatches>
+	</default>
+</config>

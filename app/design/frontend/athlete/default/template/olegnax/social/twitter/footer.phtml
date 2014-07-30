@@ -1,0 +1,27 @@
+<?php
+/**
+ * @see Olegnax_Athlete_Block_Social_Twitter
+ */
+$tweets = $this->getTweets();
+?>
+<!-- Twitter -->
+
+<h4><?php echo $this->__('Twitter'); ?></h4>
+<?php if ( !empty($tweets->errors) ) : ?>
+	<ul class="block-tw-list">
+		<?php foreach ($tweets->errors as $_err): ?>
+			<li><?php echo '<b>Error '.$_err->code . ':</b> ' . $_err->message; ?></li>
+		<?php endforeach; ?>
+	</ul>
+<?php else : ?>
+	<ul class="block-tw-list">
+		<?php foreach ($tweets as $_tw): ?>
+			<li>
+				<p><?php echo $_tw->text; ?></p>
+				<span class="tw-date"><?php echo $_tw->created_at; ?></span>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+<?php endif; ?>
+<button type="button" title="<?php echo $this->getTwitterName(); ?>" class="button" onclick="window.location='https://twitter.com/<?php echo $this->getTwitterName(); ?>';"><span><span><?php echo $this->getTwitterName(); ?></span></span></button>
+<!-- Twitter -->

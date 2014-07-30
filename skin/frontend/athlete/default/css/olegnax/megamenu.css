@@ -1,0 +1,177 @@
+/********** < Navigation */
+.nav-container {}
+.olegnaxmegamenu  {}
+.megamenu-dropdown {padding-right: 10px;}
+
+.olegnaxmegamenu #nav li.wide {position:static}
+.olegnaxmegamenu #nav div.megamenu-dropdown > ul { position:static; width:auto; border:none; padding: 0; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;}
+
+.olegnaxmegamenu #nav li.wide > div.megamenu-dropdown { position:absolute; left:0; display: none;
+	top:auto; margin-top:6px; padding: 33px 23px 0; z-index:997; width: inherit}
+.olegnaxmegamenu #nav li.wide ul.level0 { margin:-9px 0 24px -3px; position:static !important; width:auto; padding:0; -webkit-box-shadow:none; -moz-box-shadow:none; box-shadow:none;}
+.olegnaxmegamenu #nav li.wide ul.level0 > li { float:none; width: 16.6666%; display:inline-block; vertical-align:top; margin:0 0 2px;}
+
+.olegnaxmegamenu #nav li.wide > div.shown-sub { left:0; right: 0; display: block;}
+
+.olegnaxmegamenu #nav li.wide ul.level0 li a { float:none; }
+.olegnaxmegamenu #nav li.wide ul.level0 li > a {margin-right: 10px;}
+
+
+.olegnaxmegamenu #nav li.wide ul.level0 ul, .olegnaxmegamenu #nav li.wide div.megamenu-dropdown div.megamenu-dropdown { position:static !important; width:auto; padding:0; margin:0; -webkit-box-shadow:none; -moz-box-shadow:none; box-shadow:none;}
+.olegnaxmegamenu #nav li.wide ul.level0 ul.level1 { margin: 0 0 20px; }
+.olegnaxmegamenu #nav li.wide ul.level0 ul li { float:none; width:auto; margin:2px 0 0; padding:0; }
+.olegnaxmegamenu #nav li.wide ul.level0 ul li a { text-transform:none; font-size:12px; font-weight:300; font-family:Arial, sans-serif; letter-spacing:0; }
+.olegnaxmegamenu #nav li.wide ul.level0 ul li ul li { margin:2px 0 0; padding:0; }
+.olegnaxmegamenu #nav li.wide ul.level0 ul li ul li a { padding-left: 18px; }
+.olegnaxmegamenu #nav li.wide ul.level0 ul li ul li ul li a { padding-left: 29px; }
+.olegnaxmegamenu #nav li.wide ul.level0 ul li ul li ul li ul li a { padding-left: 40px; }
+
+.olegnaxmegamenu #nav li.wide ul.level0 ul li ul li a span:before { content:''; position: absolute; width:20px; height: 25px; overflow: hidden; margin: -5px 0 0 -20px; background: url('../../images/olegnax/megamenu/arrow_item_sidebar.gif') -20px 0 no-repeat }
+.olegnaxmegamenu #nav li.wide ul.level0 ul li ul li.active > a span:before,
+.olegnaxmegamenu #nav li.wide ul.level0 ul li ul li a:hover span:before { background-position: 0 0 }
+.olegnaxmegamenu.icons-white #nav li.wide ul.level0 ul li ul li a span:before { background-position: -20px -25px }
+.olegnaxmegamenu.icons-white #nav li.wide ul.level0 ul li ul li.active > a span:before,
+.olegnaxmegamenu.icons-white #nav li.wide ul.level0 ul li ul li a:hover span:before { background-position: 0 -25px }
+
+.olegnaxmegamenu #nav li.wide ul.level2 { padding:5px 0; }
+.olegnaxmegamenu #nav li.wide ul.level2 li a { font-size:11px; line-height:13px; }
+
+.olegnaxmegamenu #nav li.wide div div.megamenu-block { margin:0 5px 33px;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block .border-bottom { padding:0 0 33px;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block .border-left { margin:0 0 0 33px; padding:0 0 0 33px;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block .border-top { padding:33px 0 0;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-top {}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-bottom {}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-right {}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col { float: left;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col-0 { display: none}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col-1 { width: 16.6666%;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col-2 { width: 33.3333%;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col-3 { width: 50%;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col-4 { width: 66.6666%;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col-5 { width: 83.3333%;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col-6 { width: 100%;}
+
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col-1 ul.level0 > li {width: 100%;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col-2 ul.level0 > li {width: 50%;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col-3 ul.level0 > li {width: 33.3333%;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col-4 ul.level0 > li {width: 25%;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col-5 ul.level0 > li {width: 20%;}
+.olegnaxmegamenu #nav li.wide div div.megamenu-block-col-6 ul.level0 > li {width: 16.6666%;}
+
+/********** < product slider */
+.megamenu-block .product-slider-container { margin: 5px 0 0; }
+.megamenu-block .product-slider-container .title-container { margin-top: -12px; line-height: 21px }
+.megamenu-block .product-slider-container .title-container h3 { font-size: 16px; line-height: 21px; padding:0 11px 0 15px }
+.megamenu-block .slider-container { margin: 0; }
+
+.megamenu-block .product-slider-container .title-container .slider-nav { padding-right: 15px; }
+.megamenu-block .product-slider-container .title-container .slider-nav li {background: transparent; }
+.megamenu-block .product-slider-container .title-container .slider-nav a{width: 22px; height: 21px; line-height:21px; background-color:transparent; background-image: url('../../images/athlete/brands_slider_arrows.png'); background-position: 0 0; }
+.megamenu-block .product-slider-container .title-container .slider-nav a { background-size: 44px 42px;}
+
+.megamenu-block .product-slider-container .title-container .slider-nav a.mm-icon-black { background-position: 0 0;}
+.megamenu-block .product-slider-container .title-container .slider-nav a.next.mm-icon-black { background-position: 100% 100%;}
+.megamenu-block .product-slider-container .title-container .slider-nav a.disabled.mm-icon-black { }
+/* hover */
+.no-touch .megamenu-block .product-slider-container .title-container .slider-nav a.mm-icon-black:hover { background-position:100% 0;}
+.no-touch .megamenu-block .product-slider-container .title-container .slider-nav a.next.mm-icon-black:hover {background-position: 0 100%;}
+.no-touch .megamenu-block .product-slider-container .title-container .slider-nav a.disabled.mm-icon-black:hover { background-position: 0 0;}
+.no-touch .megamenu-block .product-slider-container .title-container .slider-nav a.next.disabled.mm-icon-black:hover { background-position:100% 100%;}
+/* inverted */
+.megamenu-block .product-slider-container .title-container .slider-nav a.mm-icon-white { background-position:100% 0;}
+.megamenu-block .product-slider-container .title-container .slider-nav a.next.mm-icon-white { background-position: 0 100%;}
+.megamenu-block .product-slider-container .title-container .slider-nav a.disabled.mm-icon-white { }
+/* inverted hover */
+.no-touch .megamenu-block .product-slider-container .title-container .slider-nav a.mm-icon-white:hover { background-position: 0 0;}
+.no-touch .megamenu-block .product-slider-container .title-container .slider-nav a.next.mm-icon-white:hover {background-position: 100% 100%;}
+.no-touch .megamenu-block .product-slider-container .title-container .slider-nav a.disabled.mm-icon-white:hover { background-position:100% 0;}
+.no-touch .megamenu-block .product-slider-container .title-container .slider-nav a.next.disabled.mm-icon-white:hover { background-position: 0 100%;}
+
+/********** < Sidebar */
+.block-megamenu-sidebar ul li a { margin: -4px 0}
+.olegnaxmegamenu-sidebar { margin-left: -8px }
+.olegnaxmegamenu-sidebar li { position:relative;  }
+.olegnaxmegamenu-sidebar li.over { }
+.olegnaxmegamenu-sidebar li.active {}
+.olegnaxmegamenu-sidebar li ul {display: none; margin: 7px 0 -1px; }
+.olegnaxmegamenu-sidebar a { }
+.olegnaxmegamenu-sidebar a,
+.olegnaxmegamenu-sidebar a:hover {}
+.olegnaxmegamenu-sidebar li li a { padding-left: 20px; }
+.olegnaxmegamenu-sidebar li li a span:before { content:''; position: absolute; width:20px; height: 25px; overflow: hidden; margin: -5px 0 0 -20px; background: url('../../images/olegnax/megamenu/arrow_item_sidebar.gif') -20px 0 no-repeat }
+.olegnaxmegamenu-sidebar li li.active > a span:before,
+.olegnaxmegamenu-sidebar li li a:hover span:before { background-position: 0 0 }
+.olegnaxmegamenu-sidebar li li li a{ padding-left: 32px; }
+.olegnaxmegamenu-sidebar li li li li a{ padding-left: 44px; }
+.olegnaxmegamenu-sidebar li li li li li a{ padding-left: 56px; }
+.olegnaxmegamenu-sidebar .toggle { display: block; float: right; width: 24px; height: 25px; margin: -5px 0; cursor: pointer; }
+.olegnaxmegamenu-sidebar .toggle-plus { background: url('../../images/olegnax/megamenu/arrow_toggle_sidebar_plus.gif') -24px 0 no-repeat }
+.olegnaxmegamenu-sidebar .toggle-plus:hover { background-position: 0 0 }
+.olegnaxmegamenu-sidebar .toggle-minus { background: url('../../images/olegnax/megamenu/arrow_toggle_sidebar_minus.gif') -24px 0 no-repeat }
+.olegnaxmegamenu-sidebar .toggle-minus:hover { background-position: 0 0 }
+.olegnaxmegamenu-sidebar li.last > a { }
+.olegnaxmegamenu-sidebar span { display:block; cursor:pointer; white-space:nowrap; }
+.olegnaxmegamenu-sidebar > li > a { }
+.olegnaxmegamenu-sidebar li.over a,
+.olegnaxmegamenu-sidebar li.active a,
+.olegnaxmegamenu-sidebar a:hover { }
+
+.olegnaxmegamenu-sidebar.icons-white li li a span:before { background-position: -20px -25px }
+.olegnaxmegamenu-sidebar.icons-white li li.active > a span:before,
+.olegnaxmegamenu-sidebar.icons-white li li a:hover span:before { background-position: 0 -25px }
+.olegnaxmegamenu-sidebar.icons-white .toggle-plus { background-position: -24px -25px }
+.olegnaxmegamenu-sidebar.icons-white .toggle-plus:hover { background-position: 0 -25px }
+.olegnaxmegamenu-sidebar.icons-white .toggle-minus { background-position: -24px -25px }
+.olegnaxmegamenu-sidebar.icons-white .toggle-minus:hover { background-position: 0 -25px }
+
+/* retina images */
+.olegnaxmegamenu #nav li.wide ul.level0 ul li ul li a span:before,
+.olegnaxmegamenu-sidebar li li a span:before { background-size: 40px 50px }
+.olegnaxmegamenu-sidebar .toggle { background-size: 48px 50px }
+@media only screen and ( -webkit-min-device-pixel-ratio: 1.5), only screen and ( min--moz-device-pixel-ratio: 1.5), only screen and ( -o-min-device-pixel-ratio: 3/2), only screen and ( min-device-pixel-ratio: 1.5) {
+	.olegnaxmegamenu #nav li.wide ul.level0 ul li ul li a span:before,
+	.olegnaxmegamenu-sidebar li li a span:before { background-image: url('../../images/olegnax/megamenu/retina/arrow_item_sidebar@2x.png') }
+	.olegnaxmegamenu-sidebar .toggle-plus { background-image: url('../../images/olegnax/megamenu/retina/arrow_toggle_sidebar_plus@2x.png') }
+	.olegnaxmegamenu-sidebar .toggle-minus { background-image: url('../../images/olegnax/megamenu/retina/arrow_toggle_sidebar_minus@2x.png') }
+}
+
+.olegnaxmegamenu #nav li.wide ul.level0 ul li ul li a span:before,
+.olegnaxmegamenu-sidebar li li a span:before {
+	transition:         all 600ms ease-in-out;
+	-webkit-transition: all 600ms ease-in-out;
+	-moz-transition: 	all 600ms ease-in-out;
+	-o-transition: 		all 600ms ease-in-out;
+}
+.olegnaxmegamenu #nav li.wide ul.level0 ul li ul li a:hover span:before,
+.olegnaxmegamenu-sidebar li li a:hover span:before {
+	transition:         all 50ms ease-in-out;
+	-webkit-transition: all 50ms ease-in-out;
+	-moz-transition:	all 50ms ease-in-out;
+	-o-transition: 		all 50ms ease-in-out;
+}
+
+.block-layered-category {display: none}
+
+@media only screen and (max-width: 1023px) {
+
+
+	.olegnaxmegamenu #nav li.wide > div.megamenu-dropdown,
+	.olegnaxmegamenu #nav li.wide > div.shown-sub { display: none;}
+
+	.megamenu-block, .megamenu-dropdown .clear {display: none;}
+	.olegnaxmegamenu #nav ul.level0, .olegnaxmegamenu #nav ul.level0 div > ul { display: block; }
+	.olegnaxmegamenu #nav li.wide ul ul li a { text-transform: inherit; font-size: inherit; font-weight: inherit; font-family: inherit; letter-spacing: inherit; }
+
+	.olegnaxmegamenu #nav li.wide div div.megamenu-block-col {float: none; width: auto !important; display: block !important;}
+
+}
+
+/********** Navigation > */
+/* ======================================================================================= */
+
+/********** < Helper */
+.category_sp {position:absolute; left: 0; top: 0; width: 1px; height:90%; margin-top:5%; background:#e8e8e8}
+
+/********** Navigation > */
+/* ======================================================================================= */

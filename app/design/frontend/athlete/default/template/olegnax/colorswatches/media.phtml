@@ -1,0 +1,151 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product media data template
+ *
+ * @see Mage_Catalog_Block_Product_View_Media
+ */
+?>
+<?php
+$_product = $this->getProduct();
+$_helper = $this->helper('catalog/output');
+
+$athleteHelper = Mage::helper('athlete');
+$imgHelper = Mage::helper('athlete/image');
+list($imgX, $imgY) = $imgHelper->getMainSize();
+list($thumbX, $thumbY) = $imgHelper->getThumbSize();
+?>
+<?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
+	<div class="product-image product-image-zoom">
+		<?php echo $this->helper('athlete')->getLabel($_product, 'product_view_');  ?>
+		<?php
+		$_img = '<img id="image" src="'.$this->helper('catalog/image')->init($_product, 'image').'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
+		echo $_helper->productAttribute($_product, $_img, 'image');
+		?>
+	</div>
+	<p class="zoom-notice" id="track_hint"><?php echo $this->__('Double click on above image to view full picture') ?></p>
+	<div class="zoom">
+		<a href="#" onclick="return false" id="zoom_out" title="<?php echo $this->__('Zoom Out') ?>" class="btn-zoom-out"></a>
+		<div id="track">
+			<div id="handle"></div>
+		</div>
+		<a href="#" onclick="return false" id="zoom_in" title="<?php echo $this->__('Zoom In') ?>" class="btn-zoom-in"></a>
+	</div>
+	<script type="text/javascript">
+		//<![CDATA[
+		jQuery(function($) {
+			$("#image").on('load', function() {
+				//reset zoom elements to default state
+				$('#image').attr({'style': ''});
+				$('#track').parent().show();
+				$('#track_hint').show();
+				//init zoom
+				product_zoom = new Product.Zoom('image', 'track', 'handle', 'zoom_in', 'zoom_out', 'track_hint');
+
+				$('#image').parent().addClass('product-image-zoom');
+
+			}).each(function() {
+					if(this.complete) $(this).load();
+				});
+		});
+		//]]>
+	</script>
+<?php else: ?>
+	<div class="product-image">
+		<?php echo $this->helper('athlete')->getLabel($_product);  ?>
+		<?php
+		$_img = '<img src="'
+			.$this->helper('catalog/image')->init($_product, 'image')->resize($imgX, $imgY)
+			.'" data-srcX2="'. $this->helper('catalog/image')->init($_product, 'image')->resize($imgX*2, $imgY*2)
+			.'" width="'.$imgX.'" height="'.$imgY.'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="' .$this->htmlEscape($this->getImageLabel()).'" />';
+		echo $_helper->productAttribute($_product, $_img, 'image');
+		?>
+	</div>
+<?php endif; ?>
+<?php if (count($this->getGalleryImages()) > 0): ?>
+	<div class="more-views">
+		<div class="more-views-nav" id="thumbs_slider_nav"><ul><li><a class="prev" href="#"></a></li><li><a class="next" href="#"></a></li></ul></div>
+		<ul class="carousel-slider slides" id="thumbs_slider">
+			<?php foreach ($this->getGalleryImages() as $_image): ?>
+				<li>
+					<a href="#" data-src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile()); ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>">
+						<span></span>
+						<img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize($thumbX, $thumbY);
+						?>" data-srcX2="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize($thumbX*2, $thumbY*2);
+						?>" width="<?php echo $thumbX ?>" height="<?php echo $thumbY ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" />
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		//<![CDATA[
+		jQuery(function($) {
+
+			$slider = $('#thumbs_slider');
+			$slider.owlCarousel({
+				itemsCustom: [ [0,4] ],
+				responsiveRefreshRate: 50,
+				slideSpeed: 400,
+				stopOnHover: true,
+				pagination: false,
+				itemsScaleUp: false,
+				rewindNav: false
+			});
+			$('#thumbs_slider_nav .next').click(function(){
+				$slider.trigger('owl.next');
+				return false;
+			});
+			$('#thumbs_slider_nav .prev').click(function(){
+				$slider.trigger('owl.prev');
+				return false;
+			});
+
+			$thumbContainer = $('.content-container .product-view .more-views .jcarousel-container a');
+			$('span', $thumbContainer)
+				.width( $thumbContainer.width()-18 )
+				.height( $thumbContainer.height()-18 );
+
+			$('.more-views a').click(function(){
+				$('#image').attr({
+					'src': $(this).attr('data-src'),
+					'style': ''
+				});
+				return false;
+			});
+
+			var pixelRatio = !!window.devicePixelRatio ? window.devicePixelRatio : 1;
+			if ( pixelRatio > 1 ) {
+				$('.product-img-box img[data-srcX2]').each(function(){
+					$(this).attr('src',$(this).attr('data-srcX2'));
+				});
+			}
+
+		});
+		//]]>
+	</script>
+<?php endif; ?>

@@ -1,0 +1,58 @@
+<?php
+/* @var $this Olegnax_Athlete_Block_Widget_Banner_Headerfooter */
+
+$banner1 = $banner2 = '';
+
+if ($bannerData['blocks'] == 'image') {
+	if (!empty($bannerData['image'])) {
+		list($width, $height, $type, $attr) = getimagesize(Mage::getBaseUrl('media'). $bannerData['image']);
+		$banner1 .= '<a href="' . $bannerData['image_href'] . '"><img '.$attr.' '.($bannerData['imageX2'] ? 'data-srcX2="'.Mage::getBaseUrl('media').$bannerData['imageX2'].'"' : '' ).' src="' . Mage::getBaseUrl('media') . $bannerData['image'] . '" alt="' . $bannerData['image_alt'] . '" /></a>';
+	}
+} else if ($bannerData['blocks'] == 'one') {
+	$banner1 = '<div class="row"><div class="grid_18 banner banner1 "><a href="' . $bannerData['block1']['href'] . '">';
+	$banner1 .= $bannerData['block1']['text'];
+	$banner1 .= '</a></div><div class="clear"></div></div>';
+} else {
+	$banner1 = '<div class="row"><div class="grid_9 banner banner1 "><a href="' . $bannerData['block1']['href'] . '">';
+	$banner1 .= $bannerData['block1']['text'];
+	$banner1 .= '</a></div>';
+
+	$banner2 = '<div class="grid_9 banner banner2 "><a href="' . $bannerData['block2']['href'] . '">';
+	$banner2 .= $bannerData['block2']['text'];
+	$banner2 .= '</a></div><div class="clear"></div></div>';
+}
+?>
+<!-- HF banner BOF -->
+<div class="content-banner banner-<?php echo $bannerData['alias']; ?> clearfix">
+	<?php echo $banner1 . $banner2; ?>
+</div>
+<style>
+<?php if ( $bannerData['blocks'] == 'image' && !empty($bannerData['image_bg']) ) : ?>
+.banner-<?php echo $bannerData['alias']; ?> {background-color: <?php echo $bannerData['image_bg']; ?>;}
+<?php endif; ?>
+
+<?php if ( $bannerData['blocks'] == 'one' || $bannerData['blocks'] == 'two' ) : ?>
+.banner-<?php echo $bannerData['alias']; ?> .banner1, .banner-<?php echo $bannerData['alias']; ?> .banner1:before {background-color: <?php echo $bannerData['block1']['bg']; ?>; color: <?php echo $bannerData['block1']['color']; ?>;}
+.banner-<?php echo $bannerData['alias']; ?> .banner1 a {color: <?php echo $bannerData['block1']['color']; ?>;}
+	<?php if ( !empty($bannerData['block1']['span_bg']) && !empty($bannerData['block1']['span_color']) ) : ?>
+	.banner-<?php echo $bannerData['alias']; ?> .banner1 span {background-color: <?php echo $bannerData['block1']['span_bg']; ?>;color: <?php echo $bannerData['block1']['span_color']; ?>;}
+	<?php endif; ?>
+	<?php if ( !$bannerData['block1']['pattern'] ) : ?>
+	.banner-<?php echo $bannerData['alias']; ?> .banner1:before,
+	.banner-<?php echo $bannerData['alias']; ?> .banner1.grid_18:first-child:before {background-image: none;}
+	<?php endif; ?>
+<?php endif; ?>
+
+<?php if ( $bannerData['blocks'] == 'two' ) : ?>
+.banner-<?php echo $bannerData['alias']; ?> .banner2,.banner-<?php echo $bannerData['alias']; ?> .banner2:before {background-color: <?php echo $bannerData['block2']['bg']; ?>;color: <?php echo $bannerData['block2']['color']; ?>;}
+.banner-<?php echo $bannerData['alias']; ?> .banner2 a {color: <?php echo $bannerData['block2']['color']; ?>;}
+	<?php if ( !empty($bannerData['block1']['span_bg']) && !empty($bannerData['block1']['span_color']) ) : ?>
+	.banner-<?php echo $bannerData['alias']; ?> .banner2 span {background-color: <?php echo $bannerData['block2']['span_bg']; ?>;color: <?php echo $bannerData['block2']['span_color']; ?>;}
+	<?php endif; ?>
+	<?php if ( !$bannerData['block2']['pattern'] ) : ?>
+	.banner-<?php echo $bannerData['alias']; ?> .banner2:before {background-image: none;}
+	<?php endif; ?>
+<?php endif; ?>
+
+</style>
+<!-- HF banner EOF -->

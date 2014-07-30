@@ -1,0 +1,829 @@
+<?xml version="1.0"?>
+<root>
+	<blocks>
+		<item>
+			<title>Athlete Logo</title>
+			<identifier>athlete_logo</identifier>
+			<content><![CDATA[<img class="retina" width="153" height="43" src="{{media url="olegnax/athlete/logo.png"}}" alt="Athlete Premium magento theme" />]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete Cart Promotion</title>
+			<identifier>athlete_cart_promotion</identifier>
+			<content><![CDATA[Place your promotion here]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete Footer customer service</title>
+			<identifier>athlete_footer_customer_service</identifier>
+			<content><![CDATA[<span><b>ONLINE CUSTOMER SERVICE:</b>  1.800.123.4567</span><span><b>IN-STORE CUSTOMER SERVICE:</b>  1.800.123.4567</span>]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete Footer Connect</title>
+			<identifier>athlete_footer_connect</identifier>
+			<content><![CDATA[
+<div class="title">Connect with us.</div>
+{{widget type="athlete/widget_social" icon="rss"		inverted="black" href="#" target="1"}}
+{{widget type="athlete/widget_social" icon="facebook"	inverted="black" href="//facebook.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="twitter"	inverted="black" href="//twitter.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="mail"		inverted="black" href="mailto:mail@lipsum.com" target="1"}}
+{{widget type="athlete/widget_social" icon="youtube"	inverted="black" href="//youtube.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="gplus"		inverted="black" href="//plus.google.com/olegnaxthemes" target="1"}}
+
+{{widget type="athlete/widget_social" icon="dribble"	inverted="black" href="//dribbble.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="flicker"	inverted="black" href="//flickr.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="vimeo"		inverted="black" href="//vimeo.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="linkedin"	inverted="black" href="//linkedin.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="pinterest"	inverted="black" href="//pinterest.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="picasa"		inverted="black" href="//picasa.google.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="digg"		inverted="black" href="//digg.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="plurk"		inverted="black" href="//plurk.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="tripadvisor"	inverted="black" href="//tripadvisor.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="yahoo"		inverted="black" href="//yahoo.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="delicious"	inverted="black" href="//delicious.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="devianart"	inverted="black" href="//deviantart.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="tumblr"		inverted="black" href="//tumblr.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="skype"		inverted="black" href="//skype.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="apple"		inverted="black" href="//apple.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="aim"		inverted="black" href="//aim.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="paypal"		inverted="black" href="//paypal.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="blogger"	inverted="black" href="//blogger.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="behance"	inverted="black" href="//behance.net/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="myspace"	inverted="black" href="//myspace.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="stumble"	inverted="black" href="//stumbleupon.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="forrst"		inverted="black" href="//forrst.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="imdb"		inverted="black" href="//imdb.com/olegnaxthemes" target="1"}}
+{{widget type="athlete/widget_social" icon="instagram"	inverted="black" href="//instagram.com/olegnaxthemes" target="1"}}
+			]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete block</title>
+			<identifier>athlete_navigation_block</identifier>
+			<content><![CDATA[
+<div class="clearfix">
+        <div class="one_fourth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+        <div class="one_fourth">
+		<h3>We are here to help.</h3>
+		<p>Nemo enim ipsam
+voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Ut enim ad minima veniam, quis nostrum exercitationem ullam </p>
+	</div>
+        <div class="one_fourth">
+		<h3>We are here to help.</h3>
+		<p>Nemo enim ipsam
+voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Ut enim ad minima veniam, quis nostrum exercitationem ullam </p>
+	</div>
+        <div class="one_fourth last">
+		<h3>We are here to help.</h3>
+		<p>Nemo enim ipsam
+voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Ut enim ad minima veniam, quis nostrum exercitationem ullam </p>
+	</div>
+</div>
+                ]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Custom tab 1</title>
+			<identifier>athlete_custom_tab1</identifier>
+			<content><![CDATA[
+"Sed ut perspiciatis unde <a href="{{store url='athlete_typography_2col'}}">omnis iste natus</a> error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
+eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
+commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
+consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Custom tab 2</title>
+			<identifier>athlete_custom_tab2</identifier>
+			<content><![CDATA[
+<div class="one_half ">
+<h3>Marked List</h3>
+<ul class="ox_list_simple">
+<li>Curabitur eu sapien eget tortor blandit pretium auctor ac metus.</li>
+<li>Etiam quis est non velit facilisis auctor.</li>
+<li>Vivamus adipiscing auctor quam, at aliquet diam viverra sed.</li>
+<li>Integer a tortor quis purus consectetur luctus sit amet ac elit.</li>
+<li>Duis eget odio ut tellus pulvinar gravida in in purus.</li>
+<li>Cras interdum faucibus erat, sit amet pretium leo dignissim vel.</li>
+</ul>
+</div>
+<div class="one_half last">
+<h3>Ordered List</h3>
+<ol>
+<li>Curabitur eu sapien eget tortor blandit pretium auctor ac metus.</li>
+<li>Etiam quis est non velit facilisis auctor.</li>
+<li>Vivamus adipiscing auctor quam, at aliquet diam viverra sed.</li>
+<li>Integer a tortor quis purus consectetur luctus sit amet ac elit.</li>
+<li>Duis eget odio ut tellus pulvinar gravida in in purus.</li>
+<li>Cras interdum faucibus erat, sit amet pretium leo dignissim vel.</li>
+</ol></div>
+<div class="clearfix">&nbsp;</div>
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete Credit card icons</title>
+			<identifier>athlete_cc_icons</identifier>
+			<content><![CDATA[<img width="244" height="23"  src="{{media url="olegnax/athlete/cc_icons.png"}}" alt="credit card icons" />]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete Addthis block</title>
+			<identifier>athlete_addthis</identifier>
+			<content><![CDATA[
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+	<iframe allowtransparency="true" frameborder="0" scrolling="no" src="https://platform.twitter.com/widgets/tweet_button.html" style="width:90px; height:20px; margin: 0 10px"></iframe>
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+	<a class="addthis_counter addthis_pill_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f574ddc5bcdccbc"></script>
+<!-- AddThis Button END -->
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+        <item>
+			<title>Athlete sideblock banners</title>
+			<identifier>athlete_sideblock_banners</identifier>
+			<content><![CDATA[
+{{block type="athlete/bannerslider" slide_group="sidebar" template="olegnax/bannerslider.phtml" }}
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete footer - 1 column</title>
+			<identifier>athlete_footer_1col</identifier>
+			<content><![CDATA[
+<!-- fuul column -->
+<div class="info-content clearfix">
+	<h1>NEW MAGENTO THEME</h1>
+	<p><a href="{{store url='athlete_typography_1col'}}">Lorem Ipsum is simply</a> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, neque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, neque, quis, accusantium officiis maiores quo eius aliquam ad iste eos harum reprehenderit sapiente deserunt itaque distinctio architecto nihil nulla cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, voluptatum accusantium non dolorem sequi voluptates perferendis laboriosam nemo cumque doloribus.</p>
+
+	<h2>NEW MAGENTO THEME</h2>
+	<p><a href="{{store url='athlete_typography_1col'}}">Lorem Ipsum is simply</a> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, ipsa laudantium similique! Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, non earum sit numquam vero tempore reprehenderit fuga maiores rerum odio!</p>
+
+	<h3>NEW MAGENTO THEME</h3>
+	<p><a href="{{store url='athlete_typography_1col'}}">Lorem Ipsum is simply</a> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, quo, praesentium autem fugiat quos odio eaque omnis earum beatae temporibus amet magni necessitatibus explicabo velit incidunt ipsa architecto officiis similique!</p>
+
+	<h4>NEW MAGENTO THEME</h4>
+	<p><a href="{{store url='athlete_typography_1col'}}">Lorem Ipsum is simply</a> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, autem, earum, doloribus a placeat temporibus necessitatibus sit praesentium itaque distinctio molestias minima esse vel ipsam quae atque assumenda obcaecati repudiandae.</p>
+
+	<h5>NEW MAGENTO THEME</h5>
+	<p><a href="{{store url='athlete_typography_1col'}}">Lorem Ipsum is simply</a> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+	<p><a href="{{store url='athlete_typography_1col'}}">Lorem Ipsum is simply</a> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+	<h6>NEW MAGENTO THEME</h6>
+	<p><a href="{{store url='athlete_typography_1col'}}">Lorem Ipsum is simply</a> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+	<ul>
+		<li><a href="{{store url='contacts'}}">Contact Us</a></li>
+		<li><a href="{{store url='athlete_typography_2col'}}">Affiliate Program</a></li>
+		<li><a href="{{store url='athlete_typography_3col'}}">Careers</a></li>
+		<li><a href="{{store url='athlete_typography_1col'}}">Gift Shop</a></li>
+	</ul>
+</div>
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete footer - 1 column + newsletter</title>
+			<identifier>athlete_footer_1col_newsletter</identifier>
+			<content><![CDATA[
+<!-- 1 column -->
+<div class="info info-content clearfix">
+	<h4>NEW MAGENTO THEME</h4>
+	<p><a href="{{store url='contacts'}}">Lorem Ipsum is simply</a> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+	<p><a href="{{store url='athlete_typography_1col'}}">Lorem Ipsum is simply</a> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+	<p><a href="{{store url='athlete_typography_1col'}}">Lorem Ipsum is simply</a> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+	<p><a href="{{store url='athlete_typography_1col'}}">Lorem Ipsum is simply</a> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+</div>
+
+<div class="newsletter-container">
+	<div class="newsletter">
+		{{block type="newsletter/subscribe" template="newsletter/subscribe_footer.phtml" }}
+	</div>
+	<div class="athlete_footer_connect">
+		{{block type="cms/block" block_id="athlete_footer_connect" }}
+	</div>
+</div>
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete footer - 2 columns + newsletter</title>
+			<identifier>athlete_footer_2col_newsletter</identifier>
+			<content><![CDATA[
+<!-- 2 column -->
+<div class="info info-content clearfix">
+	<div class="one_half">
+		{{block type="athlete/social_twitter" template="olegnax/social/twitter/footer.phtml" }}
+	</div>
+	<div class="one_half last">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+</div>
+<div class="newsletter-container">
+	<div class="newsletter">
+		{{block type="newsletter/subscribe" template="newsletter/subscribe_footer.phtml" }}
+	</div>
+	<div class="athlete_footer_connect">
+		{{block type="cms/block" block_id="athlete_footer_connect" }}
+	</div>
+</div>
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete footer - 3 columns + newsletter</title>
+			<identifier>athlete_footer_3col_newsletter</identifier>
+			<content><![CDATA[
+<!-- 3 column -->
+<div class="newsletter-container">
+	<div class="newsletter">
+		{{block type="newsletter/subscribe" template="newsletter/subscribe_footer.phtml" }}
+	</div>
+	<div class="athlete_footer_connect">
+		{{block type="cms/block" block_id="athlete_footer_connect" }}
+	</div>
+</div>
+
+<div class="info info-content clearfix">
+	<div class="one_third">
+		<h4>Company.</h4>
+		<ul>
+			<li><a href="{{store url='athlete_typography_1col'}}">About Us</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Affiliate Program</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Careers</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Gift Shop</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Group Sales</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Outlet</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">SA Elite</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">SB657 Compliance</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Team Savings</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">The League</a></li>
+		</ul>
+	</div>
+	<div class="one_third">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+	<div class="one_third last">
+		<h4>Order info.</h4>
+		<ul>
+			<li><a href="{{store url='athlete_typography_1col'}}">Order Tracking</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Product Availability Pricing</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Returns & Warranties</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Shipping</a></li>
+		</ul>
+	</div>
+</div>
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+<item>
+			<title>Athlete footer - 4 columns + newsletter</title>
+			<identifier>athlete_footer_4col_newsletter</identifier>
+			<content><![CDATA[
+<!-- 4 column -->
+<div class="newsletter-container">
+	<div class="newsletter">
+		{{block type="newsletter/subscribe" template="newsletter/subscribe_footer.phtml" }}
+	</div>
+	<div class="athlete_footer_connect">
+		{{block type="cms/block" block_id="athlete_footer_connect" }}
+	</div>
+</div>
+
+<div class="info info-content clearfix">
+	<div class="one_fourth">
+		<h4>Company.</h4>
+		<ul>
+			<li><a href="{{store url='athlete_typography_1col'}}">About Us</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Affiliate Program</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Careers</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Gift Shop</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Group Sales</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Outlet</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">SA Elite</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">SB657 Compliance</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Team Savings</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">The League</a></li>
+		</ul>
+	</div>
+	<div class="one_fourth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+	<div class="one_fourth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+	<div class="one_fourth last">
+		<h4>Order info.</h4>
+		<ul>
+			<li><a href="{{store url='athlete_typography_1col'}}">Order Tracking</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Product Availability Pricing</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Returns & Warranties</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Shipping</a></li>
+		</ul>
+	</div>
+</div>
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+<item>
+			<title>Athlete footer - 5 columns + newsletter</title>
+			<identifier>athlete_footer_5col_newsletter</identifier>
+			<content><![CDATA[
+<!-- 5 column -->
+<div class="newsletter-container">
+	<div class="newsletter">
+		{{block type="newsletter/subscribe" template="newsletter/subscribe_footer.phtml" }}
+	</div>
+	<div class="athlete_footer_connect">
+		{{block type="cms/block" block_id="athlete_footer_connect" }}
+	</div>
+</div>
+
+<div class="info info-content clearfix">
+	<div class="one_fifth">
+		<h4>Company.</h4>
+		<ul>
+			<li><a href="{{store url='athlete_typography_1col'}}">About Us</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Affiliate Program</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Careers</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Gift Shop</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Group Sales</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Outlet</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">SA Elite</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">SB657 Compliance</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Team Savings</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">The League</a></li>
+		</ul>
+	</div>
+	<div class="one_fifth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+	<div class="one_fifth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+	<div class="one_fifth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+	<div class="one_fifth last">
+		<h4>Order info.</h4>
+		<ul>
+			<li><a href="{{store url='athlete_typography_1col'}}">Order Tracking</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Product Availability Pricing</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Returns & Warranties</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Shipping</a></li>
+		</ul>
+	</div>
+</div>
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete footer - 4 columns</title>
+			<identifier>athlete_footer_4col</identifier>
+			<content><![CDATA[
+<!-- 4 column -->
+<div class="info-content clearfix">
+        <div class="one_fourth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+        <div class="one_fourth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+        <div class="one_fourth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+        <div class="one_fourth last">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+</div>
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+<item>
+			<title>Athlete footer - 5 columns</title>
+			<identifier>athlete_footer_5col</identifier>
+			<content><![CDATA[
+<!-- 5 column -->
+<div class="info-content clearfix">
+        <div class="one_fifth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+        <div class="one_fifth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+    <div class="one_fifth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+	<div class="one_fifth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+        <div class="one_fifth last">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+</div>
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+<item>
+			<title>Athlete footer - 6 columns</title>
+			<identifier>athlete_footer_6col</identifier>
+			<content><![CDATA[
+<!-- 6 column -->
+<div class="info-content clearfix">
+        <div class="one_sixth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+        <div class="one_sixth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+        <div class="one_sixth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+<div class="one_sixth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+<div class="one_sixth">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+        <div class="one_sixth last">
+		<h4>We are here to help.</h4>
+		<ul>
+			<li><a href="{{store url='contacts'}}">Contact Customer Service</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">ScoreCard</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Product Availability and Price</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Recalls</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Return Policy</a></li>
+			<li><a href="{{store url='athlete_typography_3col'}}">Shipping Rates</a></li>
+			<li><a href="{{store url='athlete_typography_1col'}}">Track Your Order</a></li>
+			<li><a href="{{store url='athlete_typography_2col'}}">Buying Guides</a></li>
+		</ul>
+	</div>
+</div>
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete google map</title>
+			<identifier>athlete_google_map</identifier>
+			<content><![CDATA[
+<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.ua/maps?f=q&amp;source=s_q&amp;hl=ru&amp;geocode=&amp;q=Google+Office,+Library+Street,+Reston,+VA,+United+States&amp;aq=0&amp;oq=google+office+&amp;sll=46.933064,32.007997&amp;sspn=0.38401,0.529404&amp;ie=UTF8&amp;hq=Google+Office,&amp;hnear=Library+St,+Reston,+Virginia+20190,+%D0%A1%D0%BE%D0%B5%D0%B4%D0%B8%D0%BD%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5+%D0%A8%D1%82%D0%B0%D1%82%D1%8B+%D0%90%D0%BC%D0%B5%D1%80%D0%B8%D0%BA%D0%B8&amp;t=m&amp;ll=38.958161,-77.358936&amp;spn=0.006295,0.006295&amp;output=embed"></iframe>
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete contacts before form</title>
+			<identifier>athlete_contacts_block1</identifier>
+			<content><![CDATA[
+<div class="m20-top">
+<div class="clearfix">
+	<div class="one_half">
+		<h3>Company address</h3>
+		Your Business Name<br/>
+		1052 – 1054 Christchurch Road<br/>
+		Boscombe East<br/>
+		BH7 6DS
+	</div>
+	<div class="one_half last">
+	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+	</div>
+</div>
+</div>
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete contacts after form</title>
+			<identifier>athlete_contacts_block2</identifier>
+			<content><![CDATA[
+<div class="m20-top">
+* This is a static CMS block displayed if shopping cart is empty. <br />You can put your own content here.<br /><br />
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div>
+				]]>
+			</content>
+			<is_active>1</is_active>
+		</item>
+		<item>
+			<title>Athlete Empty Category block</title>
+			<identifier>athlete_empty_category</identifier>
+			<content><![CDATA[
+<center>
+<h1>WOOPS!</h1>
+<h2>There are no products matching the selection.</h2>
+<p>&nbsp;</p>
+* This is a static CMS block displayed if category is empty. <br />You can put your own content here.<br /><br />
+<p><button class="button" onclick="window.location='{{store url=''}}'"><span><span>back to main</span></span></button></p>
+</center>
+                ]]></content>
+			<is_active>1</is_active>
+			<stores>
+				<item>0</item>
+			</stores>
+		</item>
+		<item>
+			<title>Athlete Empty Cart block</title>
+			<identifier>athlete_empty_cart</identifier>
+			<content><![CDATA[
+<center>
+<h1>WOOPS!</h1>
+<h2>There are no products matching the selection.</h2>
+<p>&nbsp;</p>
+* This is a static CMS block displayed if shopping cart is empty. <br />You can put your own content here.<br /><br />
+<p><button class="button" onclick="window.location='{{store url=''}}'"><span><span>back to main</span></span></button></p>
+</center>
+                ]]></content>
+			<is_active>1</is_active>
+			<stores>
+				<item>0</item>
+			</stores>
+		</item>
+		<item>
+			<title>Athlete Sideblock blog block</title>
+			<identifier>athlete_sideblock_blog_banners</identifier>
+			<content><![CDATA[
+{{block type="athlete/bannerslider" slide_group="blog" template="olegnax/bannerslider.phtml" }}
+                ]]></content>
+			<is_active>1</is_active>
+			<stores>
+				<item>0</item>
+			</stores>
+		</item>
+		<item>
+			<title>Athlete Header text</title>
+			<identifier>athlete_header_text</identifier>
+			<content><![CDATA[
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, optio, delectus eligendi deleniti consequatur repudiandae soluta et ad quam obcaecati. ipsum dolor sit amet, consectetur adipisicing elit. <a href="#">Sapiente, dicta.</a>
+                ]]></content>
+			<is_active>1</is_active>
+			<stores>
+				<item>0</item>
+			</stores>
+		</item>
+	</blocks>
+</root>

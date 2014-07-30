@@ -1,0 +1,61 @@
+<!-- Categories -->
+	<?php if ($this->getCategories()->count() && Mage::getStoreConfig('blog/menu/category')): ?>  
+		<div class="block block-blog block-blog-categories">
+			<div class="block-title">
+				<strong><span><?php echo Mage::helper('blog')->__('Categories'); ?></span></strong>
+			</div>
+			<div class="block-content">
+				<ul>
+					<?php $cats = $this->getCategories(); ?>
+					<?php foreach ($cats as $cat): ?>
+						<li><a href="<?php echo $cat->getAddress(); ?>" ><?php echo $cat->getTitle(); ?></a></li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+	<?php endif; ?>
+
+<?php $posts = $this->getRecent(); if ($posts->getSize()): ?>
+<!-- Recent Posts -->
+	<div class="block block-blog block-blog-recent-post">
+		<div class="block-title">
+			<strong><span><?php echo Mage::helper('blog')->__('Recent Posts'); ?></span></strong>
+		</div>
+		<div class="block-content">
+			<ul>
+			<?php foreach ($posts as $post): ?>
+				<li class="clearfix">
+					<?php if ($post->getThumb()) : list($width, $height, $type, $attr) = getimagesize(Mage::getBaseUrl('media'). $post->getThumb()); ?>
+						<a class="blog-recent-thumb" href="<?php echo $post->getAddress(); ?>"><img <?php echo $attr; ?> src="<?php echo Mage::getBaseUrl('media') . $post->getThumb(); ?>" <?php echo ($post->getThumbRetina() ? 'data-srcX2="'.Mage::getBaseUrl('media') . $post->getThumbRetina().'"' : '' ); ?>></a>
+					<?php else : ?>
+						<a class="blog-recent-thumb" href="<?php echo $post->getAddress(); ?>"><img src="<?php echo $this->getSkinUrl('aw_blog/images/blog-thumb-1.jpg'); ?>"></a>
+					<?php endif; ?>
+
+					<div class="blog-wrap">
+						<p><a href="<?php echo $post->getAddress(); ?>" ><?php echo $post->getTitle(); ?></a></p>
+						<span><?php
+							$t = strtotime($post->getCreatedTime());
+							echo date('M d, Y', $t);
+							?></span>
+					</div>
+				</li>
+			<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+<?php endif; ?>
+
+<?php
+$blog_tags = $this->getChildHtml('blog_tags');
+if ( !empty($blog_tags) ) :
+	?>
+	<!-- Tags -->
+	<div class="block block-blog block-blog-tags">
+		<div class="block-title">
+			<strong><span><?php echo Mage::helper('blog')->__('Tags'); ?></span></strong>
+		</div>
+		<div class="block-content">
+			<?php echo $this->getChildHtml('blog_tags'); ?>
+		</div>
+	</div>
+<?php endif; ?>

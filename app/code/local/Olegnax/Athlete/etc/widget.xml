@@ -1,0 +1,391 @@
+<?xml version="1.0"?>
+<widgets>
+	<athlete_social type="athlete/widget_social">
+		<name>Athlete :: Social icons</name>
+		<description type="desc">Add social links to CMS Block</description>
+		<parameters>
+			<icon translate="label">
+				<required>1</required>
+				<visible>1</visible>
+				<label>Social icon</label>
+				<type>select</type>
+				<source_model>athlete/widget_social_icons</source_model>
+			</icon>
+			<inverted translate="label">
+				<required>1</required>
+				<visible>1</visible>
+				<label>Icon color</label>
+				<type>select</type>
+				<source_model>athlete/widget_social_inverted</source_model>
+			</inverted>
+			<href translate="label">
+				<required>1</required>
+				<visible>1</visible>
+				<label>Link</label>
+				<type>text</type>
+			</href>
+			<target>
+				<visible>1</visible>
+				<label>Open link in new window</label>
+				<type>select</type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+			</target>
+		</parameters>
+	</athlete_social>
+	<athlete_banner_category type="athlete/widget_banner_category">
+		<name>Athlete :: Category banner</name>
+		<description type="desc">Add category banner to CMS Block</description>
+		<parameters>
+			<image_bg>
+				<label>Image Background color</label>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+			</image_bg>
+			<image>
+				<label>Image</label>
+				<required>1</required>
+				<visible>1</visible>
+				<type>athlete/widget_form_chooser</type>
+			</image>
+			<text translate="label">
+				<required>0</required>
+				<visible>1</visible>
+				<label>Banner text</label>
+				<type>textarea</type>
+			</text>
+			<text_bg>
+				<label>Text Background color</label>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+			</text_bg>
+			<text_color>
+				<label>Text color</label>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+			</text_color>
+			<link_text translate="label">
+				<required>0</required>
+				<visible>1</visible>
+				<label>Link text</label>
+				<type>text</type>
+			</link_text>
+			<link_href translate="label">
+				<required>0</required>
+				<visible>1</visible>
+				<label>Link href</label>
+				<type>text</type>
+			</link_href>
+			<link_color>
+				<label>Link color</label>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+			</link_color>
+			<link_bg>
+				<label>Link Background color</label>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+			</link_bg>
+			<link_icon translate="label">
+				<visible>1</visible>
+				<label>Icon color</label>
+				<type>select</type>
+				<source_model>athlete/widget_social_inverted</source_model>
+			</link_icon>
+		</parameters>
+	</athlete_banner_category>
+	<athlete_banner type="athlete/widget_banner_headerfooter">
+		<name>Athlete :: Header / footer banner</name>
+		<description>
+			<![CDATA[
+			Header / footer banner</br>
+			If you want to highlight part of text - wrap it with <b>span</b> tag<br/>
+			If you select Image - it will override banner text
+			]]>
+		</description>
+		<parameters>
+			<blocks>
+				<label>Banner type</label>
+				<required>1</required>
+				<visible>1</visible>
+				<type>select</type>
+				<values>
+					<value_image>
+						<label>Image</label>
+						<value>image</value>
+					</value_image>
+					<value_one>
+						<label>One text block</label>
+						<value>one</value>
+					</value_one>
+					<value_two>
+						<label>Two text blocks</label>
+						<value>two</value>
+					</value_two>
+				</values>
+				<sort_order>10</sort_order>
+			</blocks>
+
+			<image_href>
+				<label>Image href</label>
+				<visible>1</visible>
+				<type>text</type>
+				<sort_order>20</sort_order>
+				<depends>
+					<blocks>
+						<value>image</value>
+					</blocks>
+				</depends>
+			</image_href>
+			<image_alt>
+				<label>Image Alternative text</label>
+				<visible>1</visible>
+				<type>text</type>
+				<sort_order>22</sort_order>
+				<depends>
+					<blocks>
+						<value>image</value>
+					</blocks>
+				</depends>
+			</image_alt>
+			<image_bg>
+				<label>Background color</label>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+				<sort_order>24</sort_order>
+				<depends>
+					<blocks>
+						<value>image</value>
+					</blocks>
+				</depends>
+			</image_bg>
+			<image>
+				<label>Image</label>
+				<visible>1</visible>
+				<type>athlete/widget_form_chooser</type>
+				<sort_order>26</sort_order>
+				<depends>
+					<blocks>
+						<value>image</value>
+					</blocks>
+				</depends>
+			</image>
+			<imageX2>
+				<label>Image for Retina</label>
+				<visible>1</visible>
+				<type>athlete/widget_form_chooser</type>
+				<sort_order>27</sort_order>
+				<depends>
+					<blocks>
+						<value>image</value>
+					</blocks>
+				</depends>
+			</imageX2>
+
+
+			<block1_href>
+				<label>Block 1 Href</label>
+				<visible>1</visible>
+				<type>text</type>
+				<sort_order>30</sort_order>
+				<depends>
+					<blocks>
+						<values>
+							<value_one>one</value_one>
+							<value_two>two</value_two>
+						</values>
+					</blocks>
+				</depends>
+			</block1_href>
+			<block1_text>
+				<label>Block 1 Text</label>
+				<visible>1</visible>
+				<type>text</type>
+				<sort_order>40</sort_order>
+				<depends>
+					<blocks>
+						<values>
+							<value_one>one</value_one>
+							<value_two>two</value_two>
+						</values>
+					</blocks>
+				</depends>
+			</block1_text>
+			<block1_bg>
+				<label>Background color</label>
+				<required>1</required>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+				<sort_order>50</sort_order>
+				<depends>
+					<blocks>
+						<values>
+							<value_one>one</value_one>
+							<value_two>two</value_two>
+						</values>
+					</blocks>
+				</depends>
+			</block1_bg>
+			<block1_pattern>
+				<label>Background pattern</label>
+				<required>1</required>
+				<visible>1</visible>
+				<type>select</type>
+				<values>
+					<value_no>
+						<label>No</label>
+						<value>0</value>
+					</value_no>
+					<value_yes>
+						<label>Yes</label>
+						<value>1</value>
+					</value_yes>
+				</values>
+				<sort_order>52</sort_order>
+				<depends>
+					<blocks>
+						<values>
+							<value_one>one</value_one>
+							<value_two>two</value_two>
+						</values>
+					</blocks>
+				</depends>
+			</block1_pattern>
+			<block1_color>
+				<label>Text color</label>
+				<required>1</required>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+				<sort_order>60</sort_order>
+				<depends>
+					<blocks>
+						<values>
+							<value_one>one</value_one>
+							<value_two>two</value_two>
+						</values>
+					</blocks>
+				</depends>
+			</block1_color>
+			<block1_span_bg>
+				<label>Highlight Background color</label>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+				<sort_order>70</sort_order>
+				<depends>
+					<blocks>
+						<values>
+							<value_one>one</value_one>
+							<value_two>two</value_two>
+						</values>
+					</blocks>
+				</depends>
+			</block1_span_bg>
+			<block1_span_color>
+				<label>Highlight Text color</label>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+				<sort_order>80</sort_order>
+				<depends>
+					<blocks>
+						<values>
+							<value_one>one</value_one>
+							<value_two>two</value_two>
+						</values>
+					</blocks>
+				</depends>
+			</block1_span_color>
+
+
+			<block2_href>
+				<label>Block 2 Href</label>
+				<visible>1</visible>
+				<type>text</type>
+				<depends>
+					<blocks>
+						<value>two</value>
+					</blocks>
+				</depends>
+				<sort_order>96</sort_order>
+			</block2_href>
+			<block2_text>
+				<label>Block 2 Text</label>
+				<visible>1</visible>
+				<type>text</type>
+				<depends>
+					<blocks>
+						<value>two</value>
+					</blocks>
+				</depends>
+				<sort_order>100</sort_order>
+			</block2_text>
+			<block2_bg>
+				<label>Background color</label>
+				<required>1</required>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+				<depends>
+					<blocks>
+						<value>two</value>
+					</blocks>
+				</depends>
+				<sort_order>130</sort_order>
+			</block2_bg>
+			<block2_pattern>
+				<label>Background pattern</label>
+				<required>1</required>
+				<visible>1</visible>
+				<type>select</type>
+				<values>
+					<value_no>
+						<label>No</label>
+						<value>0</value>
+					</value_no>
+					<value_yes>
+						<label>Yes</label>
+						<value>1</value>
+					</value_yes>
+				</values>
+				<sort_order>132</sort_order>
+				<depends>
+					<blocks>
+						<value>two</value>
+					</blocks>
+				</depends>
+			</block2_pattern>
+			<block2_color>
+				<label>Text color</label>
+				<required>1</required>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+				<depends>
+					<blocks>
+						<value>two</value>
+					</blocks>
+				</depends>
+				<sort_order>140</sort_order>
+			</block2_color>
+			<block2_span_bg>
+				<label>Highlight Background color</label>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+				<depends>
+					<blocks>
+						<value>two</value>
+					</blocks>
+				</depends>
+				<sort_order>150</sort_order>
+			</block2_span_bg>
+			<block2_span_color>
+				<label>Highlight Text color</label>
+				<visible>1</visible>
+				<type>athlete/widget_form_colorpicker</type>
+				<depends>
+					<blocks>
+						<value>two</value>
+					</blocks>
+				</depends>
+				<sort_order>160</sort_order>
+			</block2_span_color>
+
+		</parameters>
+	</athlete_banner>
+</widgets>

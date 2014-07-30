@@ -1,0 +1,12 @@
+.tp-bullets.simplebullets.round .bullet					{	margin-top:2px; }
+.tp-bullets.simplebullets.round-old .bullet				{	margin-top:0px;}
+.tp-bullets.simplebullets.square .bullet				{	margin-top:2px;}
+.tp-bullets.simplebullets.square-old .bullet			{	margin-top:2px;}
+.tp-leftarrow.round									{	margin-top:0px;}
+.tp-rightarrow.round								{	margin-top:0px;}
+.tp-leftarrow.round-old									{	margin-top:0px;}
+.tp-rightarrow.round-old								{	margin-top:0px;}
+.tp-leftarrow.square									{	margin-top:0px;}
+.tp-rightarrow.square									{	margin-top:0px;}
+.tp-leftarrow.square-old								{	margin-top:0px;}
+.tp-rightarrow.square-old								{	margin-top:0px;}

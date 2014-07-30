@@ -1,0 +1,26 @@
+<?php
+/**
+ * Category left navigation
+ *
+ * @see Olegnax_Megamenu_Block_Megamenu
+ */
+?>
+<?php
+$menuHelper = $this->helper('olegnaxmegamenu');
+if ( $menuHelper->getCfg('general/status') && $menuHelper->getCfg('sidebar/status') ) :
+
+	$_menu = $this->getSidebarHtml('level-top');
+	?>
+	<?php if ($_menu): ?>
+	<div class="block block-layered-nav block-megamenu-sidebar">
+		<div class="block-title">
+			<strong><span><?php echo $this->__('Categories') ?></span></strong>
+		</div>
+		<div class="block-content">
+			<ul class="olegnaxmegamenu-sidebar icons-<?php echo Mage::helper('athlete')->getAppearanceCfg('sidebar/block_link_icons'); ?>">
+				<?php echo $_menu; ?>
+			</ul>
+		</div>
+	</div>
+<?php endif; //if ($_menu): ?>
+<?php endif; //if ( $menuHelper->getCfg('general/status') && $menuHelper->getCfg('sidebar/status') ) : ?>

@@ -1,0 +1,40 @@
+.oxajax-cart-options .product-view .product-img-box {width:352px;}
+.oxajax-cart-options .product-view .product-shop {float: none; overflow: hidden; width: auto;}
+.oxajax-cart-options .product-image a,
+.oxajax-cart-options .product-image a:hover {background:transparent}
+
+#fancybox-close { top: 0; right: 0; background: #000 url('../../images/athlete/btn_remove_sprite.png') 5px 4px no-repeat; }
+#fancybox-close:hover { background-color: #ffe51e; background-position: 5px -17px }
+
+.ajax-message { width: 280px; max-width: 100%; }
+.ajax-message button.button { margin: 5px }
+.ajax-message p{ padding: 10px}
+.ajax-message a { display: inline-block; padding: 1px 4px 1px; color: #000; text-decoration: none;}
+.ajax-message a:hover { background: #000; color: #fff; text-decoration: none;}
+
+.products-grid .product-image {position: relative}
+.products-list .product-image {position: relative}
+
+button.button.quick-view { position: absolute; z-index: 3; width: 129px;  }
+button.button.quick-view span {height: 40px; line-height: 40px;}
+button.button.quick-view span span{width:107px}
+.products-grid button.quick-view { opacity: 0; }
+.products-list button.quick-view { display: none }
+.no-touch .products-list button.quick-view { display: block; visibility: hidden; height: 0; opacity: 0; }
+.no-touch .products-list li.item:hover button.quick-view { visibility: visible; height: auto; opacity: 1; }
+
+button.button.quick-view {
+	transition:         opacity 200ms ease-in-out;
+	-webkit-transition: opacity 200ms ease-in-out;
+	-moz-transition:	opacity 200ms ease-in-out;
+	-o-transition: 		opacity 200ms ease-in-out;
+}
+
+@media only screen and (max-width: 1023px) {
+	button.quick-view { display: none !important }
+}
+
+#fancybox-close { background-size: 21px 42px;}
+@media only screen and ( -webkit-min-device-pixel-ratio: 1.5), only screen and ( min--moz-device-pixel-ratio: 1.5), only screen and ( -o-min-device-pixel-ratio: 3/2), only screen and ( min-device-pixel-ratio: 1.5) {
+	#fancybox-close { background-image: url('../../images/retina/btn_remove_sprite@2x.png');}
+}

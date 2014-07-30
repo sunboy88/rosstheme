@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <olegnaxall translate="label" module="olegnaxall">
+            <label>Olegnax Extensions</label>
+            <sort_order>210</sort_order>
+        </olegnaxall>
+    </tabs>
+	<sections>
+		<olegnaxall translate="label" module="olegnaxall">
+			<label>Extensions Information</label>
+			<tab>olegnaxall</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>10</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+                <extensions translate="label">
+                    <label>Installed Extensions</label>
+                    <frontend_type>text</frontend_type>
+                    <frontend_model>olegnaxall/system_config_form_fieldset_olegnaxall_extensions</frontend_model>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </extensions>
+			</groups>
+		</olegnaxall>
+	</sections>
+</config>

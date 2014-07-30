@@ -1,0 +1,7 @@
+.product-view .product-img-box .zoom.disabled {-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";}
+
+.disabled { filter:alpha(opacity=50);}
+
+/* product slider  */
+.slider-container li.item { zoom: 1;}
+.col2-left-layout .products-grid li.item {margin-right: -9px}

@@ -1,0 +1,52 @@
+<?php
+/* @var $this Olegnax_Athlete_Block_Widget_Banner_Category */
+
+$appearance = Mage::helper('athlete')->getCfg('','athlete_appearance');
+?>
+<!-- category banner BOF -->
+<div class="category-banner-container banner-<?php echo $bannerData['alias']; ?>">
+	<div class="row">
+		<div class="grid_18">
+			<span class="text-container">
+				<?php
+				if ( !empty($bannerData['text']) ) {
+					$_title = explode("\n", $bannerData['text']);
+					$_style = '';
+					if ( !empty($bannerData['text_color']) ) {
+						$_style .= 'color:'.$bannerData['text_color'];
+					}
+					if ( !empty($bannerData['text_bg']) ) {
+						$_style .= '; background-color:'.$bannerData['text_bg'];
+					}
+					echo '<span class="text" style="'.$_style.'">'. implode('</span><br/><span class="text" style="'.$_style.'">', $_title) .'</span><br/>';
+				}
+				if ( !empty($bannerData['link_text']) ) {
+					$_style = $onMouseOver = $onMouseOut = '';
+					if ( !empty($bannerData['link_color']) ) {
+						$_style .= 'color:'.$bannerData['link_color'];
+						if ( $appearance['content_banners']['link_hover_color'] != '' ) {
+							$onMouseOut .= "this.style.color='".$bannerData['link_color']."';";
+							$onMouseOver .= "this.style.color='".$appearance['content_banners']['link_hover_color']."';";
+						}
+					}
+					if ( !empty($bannerData['link_bg']) ) {
+						$_style .= '; background-color:'.$bannerData['link_bg'];
+						if ( $appearance['content_banners']['link_hover_bg'] != '' ) {
+							$onMouseOut .= "this.style.backgroundColor='".$bannerData['link_bg']."';";
+							$onMouseOver .= "this.style.backgroundColor='".$appearance['content_banners']['link_hover_bg']."';";
+						}
+					}
+					echo '<a style="'.$_style.'" onMouseOver="'.$onMouseOver.'" onMouseOut="'.$onMouseOut.'" class="link icon-'.$bannerData['link_icon'].'" href="'. $bannerData['link_href'] .'">'. $bannerData['link_text'] .'<span></span></a>';
+				}
+				?>
+			</span>
+		</div>
+	</div>
+	<div class="img-container"><img src="<?php echo Mage::getBaseUrl('media') . $bannerData['image'] ?>" alt="" /></div>
+</div>
+<?php if ( $bannerData['image_bg'] ) : ?>
+<style>
+	.banner-<?php echo $bannerData['alias']; ?> {background-color: <?php echo $bannerData['image_bg']; ?>;}
+</style>
+<?php endif; ?>
+<!-- category banner EOF -->

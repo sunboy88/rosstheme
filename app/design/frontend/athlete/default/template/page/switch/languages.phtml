@@ -1,0 +1,34 @@
+<?php
+/**
+ * Language switcher template
+ *
+ * @see Mage_Page_Block_Switch
+ */
+?>
+<?php if(count($this->getStores())>1): ?>
+	<?php
+	$stores = array();
+	$_current = null;
+	foreach ($this->getStores() as $_lang) {
+		$_selected = $_selected_option = '';
+		if ( ($_lang->getId() == $this->getCurrentStoreId()) ) {
+			$_current =  $_lang;
+			$_selected = ' class="selected"';
+			$_selected_option = ' selected="selected"';
+		}
+		$stores[] = '<li'. $_selected .'><a style="background-image:url(\''. $this->getSkinUrl('images/flags/'.$_lang->getCode().'.png') .'\');" href="'. $_lang->getCurrentUrl() .'">'. $this->escapeHtml($_lang->getName()) .'</a></li>';
+		$select_stores[] = '<option '.$_selected_option.' value="'. $_lang->getCurrentUrl() .'">'. $this->escapeHtml($_lang->getName()) .'</option>';
+	}
+
+	?>
+	<div class="header-switch header-language">
+    	<span class="header-switch-trigger">
+		    <span class="icon" style="background-image:url('<?php echo $this->getSkinUrl('images/flags/'.$_current->getCode().'.png')?>')">
+				<?php echo $this->escapeHtml($_current->getName()); ?>
+			</span>
+		</span>
+		<div class="header-dropdown">
+			<ul><?php echo implode('', $stores); ?></ul>
+		</div>
+	</div>
+<?php endif; ?>

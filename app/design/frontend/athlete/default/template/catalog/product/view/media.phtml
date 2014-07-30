@@ -1,0 +1,93 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product media data template
+ *
+ * @see Mage_Catalog_Block_Product_View_Media
+ */
+?>
+<?php
+$_product = $this->getProduct();
+$_helper = $this->helper('catalog/output');
+
+$athleteHelper = Mage::helper('athlete');
+$imgHelper = Mage::helper('athlete/image');
+list($imgX, $imgY) = $imgHelper->getMainSize();
+list($thumbX, $thumbY) = $imgHelper->getThumbSize();
+?>
+<?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
+<div class="product-image product-image-zoom">
+	<?php echo $this->helper('athlete')->getLabel($_product, 'product_view_');  ?>
+    <?php
+        $_img = '<img id="image" src="'.$this->helper('catalog/image')->init($_product, 'image').'" alt="'.$this->escapeHtml($this->getImageLabel()).'" title="'.$this->escapeHtml($this->getImageLabel()).'" />';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+    ?>
+</div>
+<p class="zoom-notice" id="track_hint"><?php echo $this->__('Double click on above image to view full picture') ?></p>
+<div class="zoom">
+    <a href="#" onclick="return false" id="zoom_out" title="<?php echo $this->__('Zoom Out') ?>" class="btn-zoom-out"></a>
+    <div id="track">
+        <div id="handle"></div>
+    </div>
+	<a href="#" onclick="return false" id="zoom_in" title="<?php echo $this->__('Zoom In') ?>" class="btn-zoom-in"></a>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    Event.observe(window, 'load', function() {
+        product_zoom = new Product.Zoom('image', 'track', 'handle', 'zoom_in', 'zoom_out', 'track_hint');
+    });
+//]]>
+</script>
+<?php else: ?>
+<div class="product-image">
+	<?php echo $this->helper('athlete')->getLabel($_product);  ?>
+    <?php
+        $_img = '<img src="'
+	        .$this->helper('catalog/image')->init($_product, 'image')->resize($imgX, $imgY)
+	        .'" data-srcX2="'. $this->helper('catalog/image')->init($_product, 'image')->resize($imgX*2, $imgY*2)
+	        .'" width="'.$imgX.'" height="'.$imgY.'" alt="'.$this->escapeHtml($this->getImageLabel()).'" title="' .$this->escapeHtml($this->getImageLabel()).'" />';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+    ?>
+</div>
+<?php endif; ?>
+<?php if (count($this->getGalleryImages()) > 0): ?>
+<div class="more-views">
+	<div class="more-views-nav" id="thumbs_slider_nav"><ul><li><a class="prev" href="#"></a></li><li><a class="next" href="#"></a></li></ul></div>
+    <ul class="carousel-slider slides" id="thumbs_slider" data-items="[ [0, 3], [426, 4] ]">
+    <?php foreach ($this->getGalleryImages() as $_image): ?>
+        <li>
+            <a href="#" onclick="popWin('<?php echo $this->getGalleryUrl($_image) ?>', 'gallery', 'width=300,height=300,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes'); return false;" title="<?php echo $this->escapeHtml($_image->getLabel()) ?>">
+	            <span></span>
+	            <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize($thumbX, $thumbY);
+	            ?>" data-srcX2="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize($thumbX*2, $thumbY*2);
+		            ?>" width="<?php echo $thumbX ?>" height="<?php echo $thumbY ?>" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>" />
+            </a>
+        </li>
+    <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>

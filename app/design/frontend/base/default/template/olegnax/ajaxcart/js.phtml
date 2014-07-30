@@ -1,0 +1,19 @@
+<script type="text/javascript">
+	//<![CDATA[
+	if (typeof Olegnax == "undefined") var Olegnax = {};
+	if (typeof Olegnax.Ajaxcart == "undefined") {
+		Olegnax.Ajaxcart = {
+			translation : {},
+			options : {},
+			helpers : {}
+		};
+	}
+	Olegnax.Ajaxcart.baseUrl = '<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK) ?>';
+	Olegnax.Ajaxcart.options.status = <?php echo $this->helper('oxajax')->getCfg('general/status')?>;
+	Olegnax.Ajaxcart.options.quick_view = <?php echo $this->helper('oxajax')->getCfg('general/quick_view')?>;
+	Olegnax.Ajaxcart.options.wishlist = <?php echo $this->helper('oxajax')->getCfg('general/wishlist')?>;
+	Olegnax.Ajaxcart.options.compare = <?php echo $this->helper('oxajax')->getCfg('general/compare')?>;
+
+	Olegnax.Ajaxcart.translation.quick_view = '<?php echo $this->__('Quick View'); ?>';
+	//]]>
+</script>

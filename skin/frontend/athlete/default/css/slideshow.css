@@ -1,0 +1,105 @@
+.athlete-slideshow { overflow: hidden; position: relative; z-index: 1 }
+
+.athlete-slideshow .slide {display: none; width:100%;}
+.athlete-slideshow .slide .slide-img { position: absolute; z-index: 1; width: 100%; }
+.athlete-slideshow .slide .slide-content-container { position: relative; z-index: 2; width: 98%; margin:0 auto; padding: 20px 0;}
+.athlete-slideshow .slide .controls-title { position: relative; float: left; margin: 0; }
+.athlete-slideshow .slide .controls { position: relative; float: left; margin: 0; }
+.athlete-slideshow .slide .controls .slide-control { opacity: 0; filter:alpha(opacity=0); width:60px; height: 52px; z-index: 800; overflow: hidden; cursor: pointer; background:#000 url('../images/athlete/slideshow_arrows.png') 0 0 no-repeat }
+.athlete-slideshow .slide .controls .slide-next { background-position: 100% 0; }
+.athlete-slideshow .slide .disabled { background-color:#999 }
+.no-touch .athlete-slideshow .slide .controls .slide-control:hover{background-color:#fff; background-position: 0 100% }
+.no-touch .athlete-slideshow .slide .controls .slide-next:hover{background-position: 100% 100%; }
+.no-touch .athlete-slideshow .slide .controls .disabled:hover { background-color:#999; background-position: 0 0 }
+.no-touch .athlete-slideshow .slide .controls .slide-next.disabled:hover { background-position:100% 0 }
+/* black icon */
+.icons-black .athlete-slideshow .slide .controls .slide-control {background-position:0 100%;}
+.no-touch .icons-black .athlete-slideshow .slide .controls .slide-control:hover {background-position:0 0;}
+.icons-black .athlete-slideshow .slide .controls .slide-next {background-position:100% 100%;}
+.no-touch .icons-black .athlete-slideshow .slide .controls .slide-next:hover {background-position:100% 0;}
+
+.athlete-slideshow .slide .controls .progress { position: absolute; right: 0; height: 10px; width: 0; background: #c00; }
+
+.slide-title { float: left; margin: 0; position: absolute; left: 60px; z-index: 1; display: none; }
+.slide-title br { clear:both; height:0; line-height: 0; font-size: 0;}
+.slide-title .text { position: relative; display: inline-block; overflow: hidden; white-space: nowrap; line-height:48px; padding:1px 12px 3px 6px; margin: 0; color:#fff; font-size:48px; font-weight:900; text-transform:uppercase; }
+.slide-title .text:first-child { margin-top: 0 }
+.slide-title .link { position: relative; display: inline-block; overflow: hidden; white-space: nowrap; line-height: 35px; margin: 0; padding:0 51px 0 11px; color:#000; font-size:16px; font-weight:700; text-transform:uppercase; text-decoration: none; }
+.slide-title .link span { display: block; position: absolute; top: 0; right: 0; overflow: hidden; width:25px; height: 35px; background-image:url('../images/athlete/slideshow_link_arrow.png'); background-position: 100% 100%; background-repeat: no-repeat }
+.no-touch .slide-title .link:hover span { background-position: 0 100%; }
+/* black icon */
+.icons-black .slide-title .link span {background-position:100% 0;}
+.no-touch .icons-black .slide-title .link:hover span {background-position: 0 0;}
+
+.slide-title .animation-wrapper {position: relative; z-index: 3; overflow: hidden; margin: 0; padding: 0}
+.slide-title .animation-wrapper:first-child { margin-top: 0 }
+.slide-title .animation-link { margin-top: 0 }
+.slide-title .text:before, .slide-title .text:after { content: ''; position: absolute; left: 0; top: 0; width: 0; height: 100%; z-index: -1;}
+.slide-title .text:before { width: 100% }
+.slide-title .animate-me .text:after { width: 100%;}
+
+.athlete-slideshow .slide .slide-banners { float: right; }
+.athlete-slideshow .slide .slide-banner { display: block; margin: 0 -10px 18px; opacity: 0; filter:alpha(opacity=0); }
+.athlete-slideshow .slide .slide-banner:last-child { margin-bottom: 0 }
+.athlete-slideshow .slide .slide-banner img { display: block; float: right;  margin-left: 15px; }
+.no-touch .athlete-slideshow .slide .slide-banner:hover img { margin:0 15px 0 0; opacity: 0.9 }
+
+/* in case script does not load */
+.athlete-slideshow .slide.first { display: block; }
+
+/* loading */
+.cycle-loading { min-height: 80px; background: url('../images/athlete/ajax-loader-black.gif') 50% 50% no-repeat; }
+
+/* pager */
+.cycle-pager {
+	text-align: center; width: 100%; z-index: 500; position: absolute; top: 10px; overflow: hidden;
+}
+.cycle-pager span {
+	font-family: arial; font-size: 50px; width: 16px; height: 16px;
+	display: inline-block; color: #ddd; cursor: pointer;
+}
+.cycle-pager span.cycle-pager-active { color: #D69746;}
+.cycle-pager > * { cursor: pointer;}
+
+/* caption */
+.cycle-caption { position: absolute; color: white; bottom: 15px; right: 15px; z-index: 700; }
+
+/* overlay */
+.cycle-overlay {
+	font-family: tahoma, arial;
+	position: absolute; bottom: 0; width: 100%; z-index: 600;
+	background: black; color: white; padding: 15px; opacity: .5;
+}
+/* prev / next links */
+.cycle-prev, .cycle-next { position: absolute; top: 0; width: 30%; opacity: 0; filter: alpha(opacity=0); z-index: 800; height: 100%; cursor: pointer; }
+.cycle-prev { left: 0;  }
+.cycle-next { right: 0; }
+.cycle-prev:hover, .cycle-next:hover { opacity: .7; filter: alpha(opacity=70) }
+
+@media only screen and (max-width: 1023px) {
+
+    .athlete-slideshow .slide .controls .slide-control { width:51px; height: 44px; background-size: 102px 88px !important;}
+    .slide-title { left: 51px; }
+    .slide-title .text { line-height: 40px; font-size: 40px; letter-spacing: -3px !important; }
+}
+@media only screen and (max-width: 767px) {
+
+	.athlete-slideshow .slide .controls .slide-control { width:39px; height: 34px; background-size: 78px 68px !important;}
+	.athlete-slideshow .slide .controls-title {float: none; width: 426px; margin: 0 auto; }
+	.athlete-slideshow .slide .slide-banners {float: none; margin: 0 auto; text-align: center}
+	.athlete-slideshow .slide .slide-banner { display: inline-block; margin: 5px; }
+	.athlete-slideshow .slide .slide-banner img { display: inline-block; max-width: 100%; height: auto; float: none; margin: 0}
+	.no-touch .athlete-slideshow .slide .slide-banner:hover img { margin: 0; opacity: 1 }
+    .slide-title { left: 39px; }
+    .slide-title .text { line-height: 30px; font-size: 30px; letter-spacing: -2px !important; }
+	.slide-title .link { line-height: 26px; font-size: 12px; padding: 0 41px 0 7px; background-size: 19px 52px !important; }
+	.slide-title .link span { width:19px; height: 26px; background-size: 38px 52px !important; }
+}
+@media only screen and (max-width: 479px) {
+	.athlete-slideshow .slide .controls-title { width: 300px }
+    .slide-title { left: 33px; }
+    .slide-title .text { line-height: 24px; font-size: 24px; letter-spacing: -2px !important; }
+	.slide-title .link { line-height: 20px; font-size: 11px; padding: 0 31px 0 5px; }
+	.slide-title .link span { width:14px; height: 20px; background-size: 28px 40px !important; }
+	.athlete-slideshow .slide .controls .slide-control { width:33px; height: 28px;  background-size: 66px 56px !important;}
+}

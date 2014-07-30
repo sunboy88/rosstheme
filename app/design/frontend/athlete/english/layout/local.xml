@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout>
+	<default>
+
+		<reference name="root">
+			<action method="setTemplate">
+				<template>page/2columns-left.phtml</template>
+				<action method="setIsHandle">
+					<applied>1</applied>
+				</action>
+			</action>
+		</reference>
+
+		<!--
+		<remove name="right.reports.product.viewed" />
+		<remove name="left.reports.product.viewed" />
+		<remove name="catalog.compare.sidebar"/>
+		<remove name="right.reports.product.compared"/>
+		<remove name="wishlist_sidebar"/>
+		<remove name="tags_popular"/>
+		<remove name="right.poll"/>
+		<remove name="paypal.partner.right.logo"/>
+		<remove name="reorder"/>
+		-->
+		<!-- Remove callouts and rarely used stuff -->
+		<remove name="right.poll"/>
+		<remove name="right.permanent.callout"/>
+		<remove name="left.permanent.callout"/>
+		<remove name="paypal.partner.right.logo"/>
+		<remove name="cart_sidebar"/>
+		
+		<remove name="left.newsletter"/>
+		<remove name="left.poll" >
+		<remove name="athlete.sidebar.twitter" >
+
+		<!-- add the local stylesheet & js -->
+		<reference name="head">
+			<action method="removeItem">
+				<type>js</type>
+				<name>varien/menu.js</name>
+				<params />
+			</action>
+			<action method="addCss"><stylesheet>css/local.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/custom.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/animation.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/grid.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/retina.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/ie.css</stylesheet><params/><if>lt IE 9</if></action>
+			<action method="addCss"><stylesheet helper="athlete/data/getThemeCss" /></action>
+			<action ifconfig="athlete_appearance/custom/override_css" method="addItem"><type>skin_css</type><name>css/override.css</name></action>
+			<action method="addItem"><type>js</type><name>olegnax/html5shiv.js</name><params/><if>lt IE 9</if></action>
+			<action method="addJs"><script>olegnax/jquery-1.8.2.min.js</script></action>
+			<action method="addJs"><script>olegnax/jquery.noconflict.js</script></action>
+			<action method="addJs"><script>olegnax/jquery.easing.js</script></action>
+			<action method="addJs"><script>olegnax/jquery.swipe.js</script></action>
+			<action method="addJs"><script>olegnax/jquery.jcarousel.min.js</script></action>
+			<action method="addJs"><script>olegnax/jquery.hoverIntent.min.js</script></action>
+			<action method="addJs"><script>olegnax/jquery.anystretch.1.2.min.js</script></action>
+			<action method="addItem"><type>skin_js</type><script>js/script.js</script></action>
+		</reference>
+
+		<reference name="top.links">
+			<!--<remove name="wishlist_link"/>-->
+			<remove name="checkout_cart_link"/>
+			<block type="checkout/links" name="checkout_cart_link_custom">
+				<action method="addCheckoutLink"></action>
+			</block>
+		</reference>
+
+		<!-- add currency and cart block in header -->
+		<reference name="header">
+			<block type="cms/block" name="theme_logo" as="theme_logo">
+				<action method="setBlockId">
+					<block_id>athlete_logo</block_id>
+				</action>
+			</block>
+			<block type="directory/currency" name="currency_top" as="currencyTop"
+			       template="directory/currency_header.phtml"/>
+			<block type="checkout/cart_sidebar" name="cart_top" as="cart_top" template="checkout/cart/header.phtml">
+				<action method="addItemRender">
+					<type>simple</type>
+					<block>checkout/cart_item_renderer</block>
+					<template>checkout/cart/sidebar/default.phtml</template>
+				</action>
+				<action method="addItemRender">
+					<type>grouped</type>
+					<block>checkout/cart_item_renderer_grouped</block>
+					<template>checkout/cart/sidebar/default.phtml</template>
+				</action>
+				<action method="addItemRender">
+					<type>configurable</type>
+					<block>checkout/cart_item_renderer_configurable</block>
+					<template>checkout/cart/sidebar/default.phtml</template>
+				</action>
+				<block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions" translate="label"
+				       module="checkout">
+					<label>Shopping Cart Sidebar Extra Actions</label>
+				</block>
+				<block type="cms/block" name="athlete_cart_promotion">
+					<action method="setBlockId">
+						<block_id>athlete_cart_promotion</block_id>
+					</action>
+				</block>
+			</block>
+			<action ifconfig="athlete/header/top_links" method="unsetChild">
+				<name>topLinks</name>
+			</action>
+		</reference>
+
+		<reference name="right">
+			<action method="unsetChild">
+				<name>cart_sidebar</name>
+			</action>
+			<action method="unsetChild">
+				<name>catalog.compare.sidebar</name>
+			</action>
+			<action method="unsetChild">
+				<name>right.reports.product.compared</name>
+			</action>
+			<action method="unsetChild">
+				<name>right.reports.product.viewed</name>
+			</action>
+			<action method="unsetChild">
+				<name>wishlist</name>
+			</action>
+			<action method="unsetChild">
+				<name>reorder</name>
+			</action>
+			<action method="unsetChild">
+				<name>right.poll</name>
+			</action>
+			<action method="unsetChild">
+				<name>paypal.partner.right.logo</name>
+			</action>
+		</reference>
+
+		<reference name="left">
+			<remove name="currency"/>
+			<remove name="left.newsletter"/>
+			<block type="poll/activePoll" name="left.poll" after="-">
+				<action method="setPollTemplate">
+					<template>poll/active.phtml</template>
+					<type>poll</type>
+				</action>
+				<action method="setPollTemplate">
+					<template>poll/result.phtml</template>
+					<type>results</type>
+				</action>
+			</block>
+			<action method="insert">
+				<blockName>catalog.compare.sidebar</blockName>
+				<sublingName>left.poll</sublingName>
+				<after>1</after>
+			</action>
+			<action method="insert">
+				<blockName>right.reports.product.compared</blockName>
+				<sublingName>catalog.compare.sidebar</sublingName>
+				<after>1</after>
+			</action>
+			<action method="insert">
+				<blockName>right.reports.product.viewed</blockName>
+				<sublingName>catalog.compare.sidebar</sublingName>
+				<after>1</after>
+			</action>
+			<action method="insert">
+				<blockName>wishlist_sidebar</blockName>
+				<sublingName>left.poll</sublingName>
+				<after>0</after>
+			</action>
+			<action method="insert">
+				<blockName>sale.reorder.sidebar</blockName>
+				<sublingName>wishlist_sidebar</sublingName>
+				<after>0</after>
+			</action>
+            <block type="cms/block" name="athlete_sideblock_banners" before="-">
+                <action method="setBlockId"><block_id>athlete_sideblock_banners</block_id></action>
+            </block>			
+		</reference>
+
+		<reference name="footer">
+			<remove name="cms_footer_links"/>
+			<block type="athlete/brands" name="athlete.brands" as="athlete_brands" template="olegnax/brands_slider.phtml" />
+			<block type="cms/block" name="athlete_footer_customer_service" as="athlete_footer_customer_service">
+				<action method="setBlockId">
+					<block_id>athlete_footer_customer_service</block_id>
+				</action>
+			</block>
+			<block type="cms/block" name="athlete_footer_connect" as="athlete_footer_connect">
+				<action method="setBlockId">
+					<block_id>athlete_footer_connect</block_id>
+				</action>
+			</block>
+			<block type="cms/block" name="athlete_cc_icons" as="athlete_cc_icons">
+				<action method="setBlockId">
+					<block_id>athlete_cc_icons</block_id>
+				</action>
+			</block>
+			<block type="newsletter/subscribe" name="footer.newsletter" as="footerNewsletter"
+			       template="newsletter/subscribe_footer.phtml"/>
+		</reference>
+
+	</default>
+
+	<customer_account>
+		<reference name="left">
+			<action method="unsetChild"><name>catalog.compare.sidebar</name></action>
+		</reference>
+	</customer_account>
+
+	<catalog_category_default translate="label">
+		<reference name="left">
+				<action method="unsetChild"><alias>catalog.leftnav</alias></action>
+				<action method="insert"><blockName>catalog.leftnav</blockName><before>athlete_sideblock_banners</before></action>
+		</reference>
+		<reference name="product_list">
+			<block type="cms/block" name="athlete_empty_category" as="athlete_empty_category">
+				<action method="setBlockId">
+					<block_id>athlete_empty_category</block_id>
+				</action>
+			</block>
+		</reference>
+	</catalog_category_default>
+
+	<catalog_category_layered translate="label">
+		<reference name="left">
+			<action method="unsetChild"><alias>catalog.leftnav</alias></action>
+			<action method="insert"><blockName>catalog.leftnav</blockName><before>athlete_sideblock_banners</before></action>
+		</reference>
+		<reference name="product_list">
+			<block type="cms/block" name="athlete_empty_category" as="athlete_empty_category">
+				<action method="setBlockId">
+					<block_id>athlete_empty_category</block_id>
+				</action>
+			</block>
+		</reference>
+	</catalog_category_layered>
+
+	<catalog_category_layered_nochildren translate="label">
+		<remove name="right.reports.product.viewed" />
+		<reference name="left">
+			<block type="reports/product_viewed" after="-" name="left.reports.product.viewed" template="reports/product_viewed.phtml" />
+		</reference>
+	</catalog_category_layered_nochildren>
+
+	<catalogsearch_result_index translate="label">
+		<reference name="root">
+			<action method="setTemplate">
+				<template>page/2columns-left.phtml</template>
+			</action>
+		</reference>
+		<reference name="left">
+			<action method="unsetChild"><alias>catalogsearch.leftnav</alias></action>
+			<action method="insert"><blockName>catalogsearch.leftnav</blockName><after>0</after></action>
+		</reference>
+	</catalogsearch_result_index>
+
+	<catalogsearch_advanced_index translate="label">
+		<reference name="root">
+			<action method="setTemplate">
+				<template>page/2columns-left.phtml</template>
+			</action>
+		</reference>
+	</catalogsearch_advanced_index>
+
+	<catalogsearch_advanced_result translate="label">
+		<reference name="root">
+			<action method="setTemplate">
+				<template>page/2columns-left.phtml</template>
+			</action>
+		</reference>
+	</catalogsearch_advanced_result>
+
+	<catalog_product_view translate="label">
+		<reference name="root">
+			<action method="setTemplate">
+				<template>page/1column.phtml</template>
+			</action>
+		</reference>
+
+		<reference name="right">
+			<action method="unsetChild" ><name>catalog.product.related</name></action>
+		</reference>
+
+		<reference name="product.info">
+			<action method="unsetChild"><name>additional</name></action>
+			<block type="cms/block" name="athlete_addthis">
+				<action method="setBlockId"><block_id>athlete_addthis</block_id></action>
+			</block>
+			<block type="catalog/product_list_related" name="content.product.related" as="content_related" template="catalog/product/list/related_content.phtml"/>
+			<block type="athlete/product_view_reviews" name="content.product.review" as="content_reviews" template="review/product_info_review.phtml"/>
+		</reference>
+
+		<reference name="product.info.additional">
+			<action method="unsetChild" ><name>product_tag_list</name></action>
+			<block type="catalog/product_view_tabs" name="product.info.tabs" as="info_tabs">
+				<action method="setTemplate" ><template>catalog/product/view/tabs.phtml</template></action>
+				<action ifconfig="athlete/product_info/tab_description" method="addTab" translate="title" module="catalog" ><alias>description_tabbed</alias><title>Description</title><block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template></action>
+				<action ifconfig="athlete/product_info/tab_additional" method="addTab" translate="title" module="catalog" ><alias>additional_tabbed</alias><title>Additional</title><block>catalog/product_view_attributes</block><template>catalog/product/view/attributes.phtml</template></action>
+				<action ifconfig="athlete/product_info/tab_tags" method="addTab" translate="title" module="tag" ><alias>tags_tabbed</alias><title>Tags</title><block>tag/product_list</block><template>tag/list.phtml</template></action>
+
+				<block type="cms/block" name="athlete_custom_tab1" as="athlete_custom_tab1">
+					<action method="setBlockId"><block_id>athlete_custom_tab1</block_id></action>
+				</block>
+				<block type="cms/block" name="athlete_custom_tab2" as="athlete_custom_tab2">
+					<action method="setBlockId"><block_id>athlete_custom_tab2</block_id></action>
+				</block>
+
+			</block>
+		</reference>
+
+		<reference name="product.info.options.wrapper.bottom">
+			<action method="unsetChild"><name>product.info.addto</name></action>
+			<action ifconfig="athlete/product_info/second_price" method="unsetChild"><name>prices</name></action>
+		</reference>
+
+		<reference name="product.info.upsell">
+			<action method="setItemLimit"><type>upsell</type><limit>16</limit></action>
+		</reference>
+
+	</catalog_product_view>
+
+	<reviews>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+	</reviews>
+
+	<review_product_list translate="label">
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+	</review_product_list>
+
+	<wishlist_index_configure translate="label">
+		<reference name="product.info.options.wrapper.bottom">
+			<action method="unsetChild"><name>product.info.addto</name></action>
+		</reference>
+	</wishlist_index_configure>
+
+	<catalog_product_compare_index>
+		<reference name="head">
+			<action method="removeItem"><type>skin_css</type><name>css/grid.css</name></action>
+		</reference>
+	</catalog_product_compare_index>
+
+	<cms_page>
+		<update handle="MAP_popup" />
+	</cms_page>
+
+	<contacts_index_index translate="label">
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+		<reference name="contactForm">
+			<block type="cms/block" name="athlete.google.map" as="athlete_google_map">
+				<action method="setBlockId">
+					<block_id>athlete_google_map</block_id>
+				</action>
+			</block>
+			<block type="cms/block" name="athlete_contacts_block1" as="athlete_contacts_block1">
+				<action method="setBlockId">
+					<block_id>athlete_contacts_block1</block_id>
+				</action>
+			</block>
+			<block type="cms/block" name="athlete_contacts_block2" as="athlete_contacts_block2">
+				<action method="setBlockId">
+					<block_id>athlete_contacts_block2</block_id>
+				</action>
+			</block>
+		</reference>
+	</contacts_index_index>
+
+	<checkout_cart_index>
+		<reference name="checkout.cart">
+			<block type="cms/block" name="athlete_empty_cart" as="athlete_empty_cart">
+				<action method="setBlockId">
+					<block_id>athlete_empty_cart</block_id>
+				</action>
+			</block>
+		</reference>
+	</checkout_cart_index>
+
+</layout>

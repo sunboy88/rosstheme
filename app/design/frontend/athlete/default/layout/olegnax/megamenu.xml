@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+
+	<default>
+		<reference name="head">
+			<action ifconfig="olegnaxmegamenu/general/status" method="removeItem">
+				<type>js</type>
+				<name>varien/menu.js</name>
+				<params />
+			</action>
+			<action ifconfig="olegnaxmegamenu/general/status" method="addCss"><stylesheet>css/olegnax/megamenu.css</stylesheet></action>
+			<action method="addItem" ifconfig="olegnaxmegamenu/general/jquery"><type>js</type><name>olegnax/jquery-1.11.0.min.js</name></action>
+			<action method="addItem" ifconfig="olegnaxmegamenu/general/jquery"><type>js</type><name>olegnax/jquery-migrate-1.2.1.min.js</name></action>
+			<action ifconfig="olegnaxmegamenu/general/jquery" method="addJs"><script>olegnax/jquery.noconflict.js</script></action>
+			<action ifconfig="olegnaxmegamenu/general/status" method="addItem"><type>skin_js</type><script>js/olegnax/megamenu.js</script></action>
+		</reference>
+		<reference name="top.menu">
+			<action ifconfig="olegnaxmegamenu/general/status" method="unsetChild">
+				<name>catalog.topnav</name>
+			</action>
+			<block type="olegnaxmegamenu/megamenu" name="olegnaxmegamenu.megamenu" as="megamenu" template="olegnax/megamenu/top.phtml"/>
+		</reference>
+	</default>
+
+	<catalog_category_default>
+		<remove name="catalog.leftnav"/>
+		<reference name="left">
+			<block type="olegnaxmegamenu/megamenu" name="olegnaxmegamenu.megamenu.left" as="megamenuLeft" template="olegnax/megamenu/left.phtml" before="-" />
+		</reference>
+	</catalog_category_default>
+
+	<catalog_category_layered>
+		<reference name="left">
+			<block type="olegnaxmegamenu/megamenu" name="olegnaxmegamenu.megamenu.left" as="megamenuLeft" template="olegnax/megamenu/left.phtml" before="-" />
+		</reference>
+	</catalog_category_layered>
+
+</layout>

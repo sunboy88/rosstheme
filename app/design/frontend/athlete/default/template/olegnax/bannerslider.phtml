@@ -1,0 +1,71 @@
+<?php
+/**
+ * Banner slider template
+ *
+ * @see Olegnax_Athlete_Block_Bannerslider
+ *
+ */
+$athleteHelper = $this->helper('athlete');
+$athleteImgHelper = $this->helper('athlete/image');
+$slideGroup = $this->getGroup($this->getSlideGroup());
+
+$slides = $this->getSlides();
+if ($slides->getSize()) :
+    ?>
+    <!-- banner slider BOF -->
+    <div id="<?php echo $this->getSliderId($slideGroup->getGroupName()); ?>" class="banners-slider-container icon-<?php echo $athleteHelper->getCfg('arrows/banners_slider_icons', 'athlete_appearance'); ?>">
+        <div id="<?php echo $this->getSliderId($slideGroup->getGroupName()); ?>_list_nav" class="nav">
+            <a class="prev" href="#">&nbsp;</a>
+            <a class="next" href="#">&nbsp;</a>
+        </div>
+        <ul id="<?php echo $this->getSliderId($slideGroup->getGroupName()); ?>_list" class="banners"
+            data-items="<?php echo Mage::helper('athlete/layout')->getBannerSliderItems( $slideGroup->getSlideWidth() ) ?>"
+            data-autoscroll="<?php echo $athleteHelper->getCfg('sliders/banner_autoscroll'); ?>"
+            data-scroll="<?php echo $athleteHelper->getCfg('sliders/banner_scroll_items'); ?>"
+            data-rewind="<?php echo $athleteHelper->getCfg('sliders/banner_rewind'); ?>"
+	        >
+            <?php foreach ( $slides as $_slide ) : ?>
+            <li class="slide<?php echo $_slide['slide_id']; ?>" <?php echo ( !empty($_slide['slide_bg']) ? 'style="background-color:'.$_slide['slide_bg'].'" ' : '' ); ?>>
+                <a href="<?php echo $_slide['link_href']; ?>">
+                    <span class="text-container <?php echo $_slide['title_position']; ?>">
+                        <?php
+                        if ( !empty($_slide['title']) ) {
+                            $_style = '';
+                            if ( !empty($_slide['title_color']) ) {
+                                $_style .= 'color:'.$_slide['title_color'];
+                            }
+                            if ( !empty($_slide['title_bg']) ) {
+                                $_style .= '; background-color:'.$_slide['title_bg'];
+                            }
+                            $_title = explode("\n", $_slide['title']);
+                            echo '<span class="text" style="'.$_style.'">'. implode('</span><br/><span class="text" style="'.$_style.'">', $_title) .'</span><br/>';
+                        }
+
+                        if ( !empty($_slide['link_text']) ) {
+                            $_style = '';
+                            if ( !empty($_slide['link_color']) ) {
+                                $_style .= 'color:'.$_slide['link_color'];
+                            }
+                            if ( !empty($_slide['link_bg']) ) {
+                                $_style .= '; background-color:'.$_slide['link_bg'];
+                            }
+                            echo '<em class="link" style="'.$_style.'">'.$_slide['link_text'].'</em>';
+                        }
+                        ?>
+                    </span>
+                    <?php if ( !empty($_slide['image']) ) :
+	                    $url = $athleteImgHelper->adaptiveResize($_slide['image'], $slideGroup->getSlideWidth(), $slideGroup->getSlideHeight());
+	                    $urlX2 = '';
+	                    if ( !empty($_slide['imageX2']) ) {
+		                    $urlX2 = $athleteImgHelper->adaptiveResize($_slide['imageX2'], $slideGroup->getSlideWidth()*2, $slideGroup->getSlideHeight()*2);
+	                    }
+	                    ?>
+                    <img src="<?php echo $url; ?>" alt="" <?php echo ($urlX2 ? 'data-srcX2="'.$urlX2.'"' : '' ); ?> width="<?php echo $slideGroup->getSlideWidth() ?>" height="<?php echo $slideGroup->getSlideHeight() ?>" />
+                    <?php endif; ?>
+                </a>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <!-- banner slider EOF -->
+<?php endif; ?>

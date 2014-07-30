@@ -1,0 +1,120 @@
+<?php
+$athleteHelper = $this->helper('athlete');
+$config = $athleteHelper->getCfg('athlete', 'athleteslideshow');
+
+$slides = $this->getSlides();
+$slidesCount = $slides->getSize();
+if ( $slidesCount ) : ?>
+<!-- SLIDESHOW -->
+<div class="slideshow-container icons-<?php echo $athleteHelper->getCfg('slideshow/icons', 'athlete_appearance'); ?>">
+<div class="athlete-slideshow" id="athlete-slideshow" data-width="960">
+	<!-- slides -->
+	<?php
+	$first = true;
+
+	foreach($slides as $s) {
+		$style = '';
+		if ( !empty($s['image']) ) {
+			$imgSize = getimagesize(Mage::getBaseDir('media') .'/'. $s['image']);
+			if ($imgSize) {
+				$style = ' style=" background:url(\''. Mage::getBaseUrl('media') . $s['image'] . '\') 50% 0 no-repeat; " ';
+				$style .= ' data-height="'.$imgSize[1].'" ';
+			}
+		}
+		?>
+		<div class="slide slide-<?php echo $s['slide_id']; ?> <?php echo ( $first ? 'first' : '' ); ?>">
+			<div class="slide-img" <?php echo $style; ?> >
+				<img width="1" height="1" src="<?php echo $this->getSkinUrl('images/spacer.gif') ?>" alt=""  />
+			</div>
+			<div class="row clearfix">
+			<div class="slide-content-container">
+				<div class="controls-title">
+					<?php if ( $slidesCount > 1 ) : ?>
+						<div class="controls">
+							<div class="slide-control slide-prev"></div>
+							<div class="slide-control slide-next"></div>
+							<div class="progress"></div>
+						</div>
+					<?php endif; ?>
+					<div class="slide-title">
+						<?php
+						if ( !empty($s['title']) ) {
+							$_style = '';
+							if ( !empty($s['title_color']) ) {
+								$_style .= 'color:'.$s['title_color'];
+							}
+							if ( !empty($s['title_bg']) ) {
+								$_style .= '; background-color:'.$s['title_bg'];
+							}
+							$_title = explode("\n", $s['title']);
+							echo '<span class="text" style="'.$_style.'">'. implode('</span><br/><span class="text" style="'.$_style.'">', $_title) .'</span><br/>';
+						}
+						if ( !empty($s['link_text']) && !empty($s['link_href']) ) {
+							$_style = $_onMouseOver = $_onMouseOut = '';
+							if ( !empty($s['link_color']) ) {
+								$_style .= 'color:'.$s['link_color'];
+							}
+							if ( !empty($s['link_bg']) ) {
+								$_style .= '; background-color:'.$s['link_bg'];
+							}
+							if ( !empty($s['link_hover_color']) || !empty($s['link_hover_bg']) ) {
+								$_onMouseOver = 'onMouseOver="';
+								if ( !empty($s['link_hover_color']) ) $_onMouseOver .= 'this.style.color=\''.$s['link_hover_color'].'\';';
+								if ( !empty($s['link_hover_bg']) ) $_onMouseOver .= 'this.style.backgroundColor=\''.$s['link_hover_bg'].'\';';
+								$_onMouseOver .= '"';
+
+								$_onMouseOut = 'onMouseOut="';
+								if ( !empty($s['link_color']) ) $_onMouseOut .= 'this.style.color=\''.$s['link_color'].'\';';
+								if ( !empty($s['link_bg']) ) $_onMouseOut .= 'this.style.backgroundColor=\''.$s['link_bg'].'\';';
+								$_onMouseOut .= '"';
+							}
+							echo '<a href="'.$s['link_href'].'" class="link" style="'.$_style.'" '.$_onMouseOver.' '.$_onMouseOut.' >'.$s['link_text'].'<span></span></a>';
+						}
+						?>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="slide-banners <?php echo (!$config['responsive_banners'] ? 'hide-below-768' : '' ); ?>">
+					<?php
+					if ( !empty($s['banner_1_img']) ) {
+						list($width, $height, $type, $attr) = getimagesize(Mage::getBaseUrl('media').$s['banner_1_img']);
+						echo '<a class="slide-banner clearfix" href="'.$s['banner_1_href'].'"><img '.$attr.' '.($s['banner_1_imgX2'] ? 'data-srcX2="'.Mage::getBaseUrl('media').$s['banner_1_imgX2'].'"' : '' ).' src="'.Mage::getBaseUrl('media').$s['banner_1_img'].'" alt="" /></a>';
+					}
+					if ( !empty($s['banner_2_img']) ) {
+						list($width, $height, $type, $attr) = getimagesize(Mage::getBaseUrl('media').$s['banner_2_img']);
+						echo '<a class="slide-banner clearfix" href="'.$s['banner_2_href'].'"><img '.$attr.' '.($s['banner_2_imgX2'] ? 'data-srcX2="'.Mage::getBaseUrl('media').$s['banner_2_imgX2'].'"' : '' ).' src="'.Mage::getBaseUrl('media').$s['banner_2_img'].'" alt="" /></a>';
+					}
+					?>
+				</div>
+				<div class="clear"></div>
+			</div>
+			</div>
+		</div>
+		<?php
+		$first = false;
+	} // foreach($slides as $s) { ?>
+</div>
+<script>
+	var ATHLETE_SLIDESHOW = {
+		allowWrap: <?php echo $config['allowWrap']; ?>,
+		autoHeight: '<?php echo $config['autoHeight']; ?>',
+		autoHeightSpeed: <?php echo (is_numeric($config['speed']) ? intval($config['speed']/2) : 600); ?>,
+		easing: '<?php echo $config['easing']; ?>',
+		fx: '<?php echo $config['fx']; ?>',
+		log: false,
+		loader: 'wait',
+		next: ' .controls .slide-next',
+		pauseOnHover: <?php echo $config['pauseOnHover']; ?>,
+		prev: ' .controls .slide-prev',
+		slideActiveClass: 'athlete-slide-active',
+		slideClass: 'athlete-slide',
+		slides: '> div.slide',
+		speed: <?php echo (is_numeric($config['speed']) ? $config['speed'] : 1200); ?>,
+		sync: <?php echo $config['sync']; ?>,
+		timeout: <?php echo (is_numeric($config['timeout']) ? $config['timeout'] : 8000); ?>,
+		swipe: <?php echo ($config['fx'] != 'scrollVert' ? 'true' : 'false' ); ?>
+	};
+</script>
+</div>
+<!-- SLIDESHOW EOF -->
+<?php endif; //if ( $slidesCount ) : ?>

@@ -1,0 +1,386 @@
+<?xml version="1.0"?>
+<root>
+	<pages>
+		<item>
+			<title>Athlete Home page</title>
+			<identifier>athlete_home_1col</identifier>
+			<content><![CDATA[
+{{block type="athlete/bannerslider" slide_group="home_page" template="olegnax/bannerslider.phtml" }}
+{{block type="athlete/product_list_featured" category_id="12" products_count="8" block_title="What's New" block_title_size="big" template="catalog/product/products_slider.phtml"}}
+{{block type="athlete/product_list_featured" category_id="10" products_count="6" product_columns="5" block_title="Sale" template="catalog/product/products_slider.phtml"}}
+                ]]></content>
+			<is_active>1</is_active>
+			<root_template>one_column</root_template>
+		</item>
+		<item>
+			<title>Athlete Sample page</title>
+			<identifier>athlete_sample</identifier>
+			<content><![CDATA[
+<p>U hebt zojuist een nieuw overhemd aangeschaft en hebt besloten om dit goed te onderhouden. Hieronder vindt u een aantal handigheden voor het goed behandelen van uw kostbare en stijlvolle overhemd. HIeronder vindt u meer&nbsp;informatie over het wassen en onderhoud van uw overhemd</p>
+<ul>
+<li><a title="Overhemd wassen" href="//olegnax.com">Overhemd wassen</a></li>
+<li><a title="Overhemd drogen" href="//olegnax.com">Overhemd drogen</a></li>
+<li><a title="Overhemd strijken" href="//olegnax.com">Overhemd strijken</a></li>
+<li><a title="Overhemd chemisch reinigen" href="//olegnax.com">Overhemd chemisch reinigen</a></li>
+<li><a title="Overhemd stomen" href="//olegnax.com">Overhemd stomen</a></li>
+<li><a title="Overhemd bleken" href="//olegnax.com">Overhemd bleken</a></li>
+</ul>
+<h3>Een gloednieuw overhemd?</h3>
+<ul class="bullets_tonen">
+<li>Was een nieuw overhemd altijd voordat je het draagt (maximaal 40 &ordm;)</li>
+<li>Doe dit zonder andere was - of als je zeker bent met kledingstukken van dezelfde kleur</li>
+<li>Gekleurde katoenen overhemden geven de eerste 5-10x wassen natuurlijk af. Houdt hier rekening mee!&nbsp;</li>
+</ul>
+<h3>&nbsp;Hoe was ik mijn overhemd zonder risico?</h3>
+<ul class="bullets_tonen">
+<li>Verwijder (indien mogelijk) de <a title="Baleinen voor overhemden" href="//olegnax.com" target="_blank">baleinen</a> uit de kraag&nbsp;</li>
+<li>Was de overhemden op maximaal 40&ordm; in de wasmachine</li>
+<li>Gebruik een wasmiddel zonder chloor</li>
+<li>Centrifugeer op normale snelheid.&nbsp;</li>
+<li>Niet in de droger maar op een haakje laten drogen</li>
+</ul>
+<h3>&nbsp;Een overhemd strijken?</h3>
+<ul class="bullets_tonen">
+<li>Strijk bij voorkeur met een stoomstrijkijzer</li>
+<li>Controleer vooraf of het strijkijzer goed schoon is (strijk eerst een theedoek)</li>
+<li>Bevochtig het overhemd goed met stoom of plantenspuit.&nbsp;</li>
+<li>Een vochtig hemd is makkelijker te strijken omdat het vocht de warmte van het strijkijzer diep in de vezels brengt&nbsp;</li>
+</ul>
+<h3>&nbsp;Goed en snel strijken in drie stappen</h3>
+<ul class="bullets_tonen">
+<li>Leg het overhemd over de strijkplank met de lange open zijde met knoopjes bovenop, van je af.</li>
+<li>Begin vervolgens bij de kraag en werk tussen en langs de knoopjes naar beneden. Trek de stof zo glad mogelijk over de strijkplank. Draai het overhemd daarna een beetje verder over de strijkplank (van je af) en strijk zo de zijkant en rug om daarna aan de andere kant (met knoopsgaatjes ui te komen).</li>
+<li>Pak het overhemd op en strijk de boord van voor en achteren met &eacute;&eacute;n goede strook.</li>
+<li>Leg daarna de mouwen overdwars op de strijkplank. Lijn het overhemd uit door de naad aaan de onderzijde van de mouw strak te strekken.&nbsp;Trek de stof zo glad mogelijk over de strijkplank.&nbsp;Strijk van boven naar beneden. &nbsp;Strijk de manchetten recht met&nbsp;&eacute;&eacute;n goede strook. Doe dit voor beide mouwen en je bent klaar.</li>
+</ul>
+<h3>&nbsp;Goed zorgen voor katoenen overhemden</h3>
+<p>Katoen is &eacute;&eacute;n van de meest gebruikte natuurlijke vezels. Zo is katoen zacht, makkelijk te wassen, slijtvast en vochtabsorberend. Nadeel is dat katoen nogal kan kreuken en bij te heet wassen kan krimpen. Enkele tips.</p>
+<ul class="bullets_tonen">
+<li>Nieuwe katoenen kleding kan, als het voor het eerst gewassen wordt, kleur afgeven. Was het daarom de eerste paar keer apart&nbsp;</li>
+<li>U houdt kleding mooier als u een wasmiddel zonder bleekmiddel gebruikt&nbsp;</li>
+<li>Voor een witoverhemd kan een wasmiddel met bleekmiddel&nbsp;wonderen doen</li>
+<li>De boord maak je helemaal zuiver door het voor het wassen al in te smeren met Ossengal zeep of Oxi Action &nbsp;</li>
+<li>Katoen kan krimpen! Zorg dat u de overhemden niet warmer wast dan 30&deg;C als het niet nodig is</li>
+<li>Laat uw katoenen kleding niet in de felle zon drogen. Dan kan het namelijk vaal worden.&nbsp;</li>
+</ul>
+<h3>&nbsp;Vlekken verwijder tips</h3>
+<p>Zorg ervoor dat de vlek niet indroogt en grijp direct in. Wrijf nooit over de vlek! Daardoor wordt de vlek namelijk groter en dringt dieper in de stof. Als eerste kunt u de vlek verwijderen door opzuigen of deppen met bijvoorbeeld een stukje keukenpapier. Daarna deppen met lauw water met zeep of wasmiddel met eventueel een handdoek als onderlegger. Als dit onvoldoende resultaat geeft dan is er nog de stomerij.</p>
+<p>Enkele &ldquo;grootmoeders tips&rdquo; om specifieke vlekken zo goed mogelijk te verwijderen:</p>
+                ]]></content>
+			<is_active>1</is_active>
+			<root_template>one_column</root_template>
+		</item>
+		<item>
+			<title>Athlete Typography 1 column</title>
+			<identifier>athlete_typography_1col</identifier>
+			<content><![CDATA[
+<h1>H1 tag example</h1>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h2>H2 tag example</h2>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h3>H3 tag example</h3>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h4>H4 tag example</h4>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h5>H5 tag example</h5>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h6>H6 tag example</h6>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h2>Blockquotes</h2>
+<div class="one_half">
+<blockquote>
+<p>Labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum abore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatu</p>
+</blockquote>
+<p style="text-align: right;"><a href="//olegnax.com">John Doe</a><br /> Creative Director</p>
+</div>
+<div class="one_half last">
+<blockquote>
+<h3>John Doe</h3>
+<p>Labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit</p>
+</blockquote>
+</div>
+<div class="clearfix">&nbsp;</div>
+<h2>Images</h2>
+<p><a title="title link" href="//olegnax.com"><img style="float: left;" src="{{media url="olegnax/athlete/sample_banner_220x120.jpg"}}" alt="" width="220" height="120" /></a> sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliqrporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+<p><img style="float: right;" title="typo2" src="{{media url="olegnax/athlete/sample_banner_220x120.jpg"}}" alt="" width="220" height="120" />sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure d quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h2>Lists</h2>
+<div class="one_half ">
+<h3>Marked</h3>
+<ul class="ox_list_simple">
+<li>Curabitur eu sapien eget tortor blandit pretium auctor ac metus.</li>
+<li>Etiam quis est non velit facilisis auctor.</li>
+<li>Vivamus adipiscing auctor quam, at aliquet diam viverra sed.</li>
+<li>Integer a tortor quis purus consectetur luctus sit amet ac elit.</li>
+<li>Duis eget odio ut tellus pulvinar gravida in in purus.</li>
+<li>Cras interdum faucibus erat, sit amet pretium leo dignissim vel.</li>
+</ul>
+</div>
+<div class="one_half last">
+<h3>Ordered</h3>
+<ol>
+<li>Curabitur eu sapien eget tortor blandit pretium auctor ac metus.</li>
+<li>Etiam quis est non velit facilisis auctor.</li>
+<li>Vivamus adipiscing auctor quam, at aliquet diam viverra sed.</li>
+<li>Integer a tortor quis purus consectetur luctus sit amet ac elit.</li>
+<li>Duis eget odio ut tellus pulvinar gravida in in purus.</li>
+<li>Cras interdum faucibus erat, sit amet pretium leo dignissim vel.</li>
+</ol></div>
+<div class="clearfix">&nbsp;</div>
+<h2>Table</h2>
+<table class="ox_table">
+<thead>
+<tr><th>Header 1</th><th>Header 2</th><th>Header 3</th><th>Header 4</th><th>Header 5</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+<td>Division 4</td>
+<td>Division 5</td>
+</tr>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+<td>Division 4</td>
+<td>Division 5</td>
+</tr>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+<td>Division 4</td>
+<td>Division 5</td>
+</tr>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+<td>Division 4</td>
+<td>Division 5</td>
+</tr>
+</tbody>
+</table>
+<h2>Misc stuff</h2>
+<p><sup>sed quia</sup> consequuntur magni dolores <sub>eos qui ratione</sub> voluptatem sequi nesciunt. <cite>Neque porro quisquam est, qui dolorem</cite> ipsum quia dolor <abbr title="Simplicity WordPress Theme">AWT</abbr>sit amet, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam <span class="hdark">consectetur, adipisci velit</span> quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem <abbr title="Simplicity WordPress Theme">AWT</abbr>, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h2>Code</h2>
+<pre><code>$productCollection = Mage::getResourceModel('catalog/product_collection');
+$layer->prepareProductCollection($productCollection);
+$productCollection->addCountToCategories($categories);
+return $categories;
+</code></pre>
+                ]]></content>
+			<is_active>1</is_active>
+			<root_template>one_column</root_template>
+		</item>
+		<item>
+			<title>Athlete Typography 2 columns</title>
+			<identifier>athlete_typography_2col</identifier>
+			<content><![CDATA[
+<h1>H1 tag example</h1>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h2>H2 tag example</h2>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h3>H3 tag example</h3>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h4>H4 tag example</h4>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h5>H5 tag example</h5>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h6>H6 tag example</h6>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h2>Blockquotes</h2>
+<div class="one_half">
+<blockquote>
+<p>Labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum abore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatu</p>
+</blockquote>
+<p style="text-align: right;"><a href="//olegnax.com">John Doe</a><br /> Creative Director</p>
+</div>
+<div class="one_half last">
+<blockquote>
+<h3>John Doe</h3>
+<p>Labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit</p>
+</blockquote>
+</div>
+<div class="clearfix">&nbsp;</div>
+<h2>Images</h2>
+<p><a title="title link" href="//olegnax.com"><img style="float: left;" src="{{media url="olegnax/athlete/sample_banner_220x120.jpg"}}" alt="" width="220" height="120" /></a> sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliqrporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+<p><img style="float: right;" title="typo2" src="{{media url="olegnax/athlete/sample_banner_220x120.jpg"}}" alt="" width="220" height="120" />sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure d quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h2>Lists</h2>
+<div class="one_half ">
+<h3>Marked</h3>
+<ul class="ox_list_simple">
+<li>Curabitur eu sapien eget tortor blandit pretium auctor ac metus.</li>
+<li>Etiam quis est non velit facilisis auctor.</li>
+<li>Vivamus adipiscing auctor quam, at aliquet diam viverra sed.</li>
+<li>Integer a tortor quis purus consectetur luctus sit amet ac elit.</li>
+<li>Duis eget odio ut tellus pulvinar gravida in in purus.</li>
+<li>Cras interdum faucibus erat, sit amet pretium leo dignissim vel.</li>
+</ul>
+</div>
+<div class="one_half last">
+<h3>Ordered</h3>
+<ol>
+<li>Curabitur eu sapien eget tortor blandit pretium auctor ac metus.</li>
+<li>Etiam quis est non velit facilisis auctor.</li>
+<li>Vivamus adipiscing auctor quam, at aliquet diam viverra sed.</li>
+<li>Integer a tortor quis purus consectetur luctus sit amet ac elit.</li>
+<li>Duis eget odio ut tellus pulvinar gravida in in purus.</li>
+<li>Cras interdum faucibus erat, sit amet pretium leo dignissim vel.</li>
+</ol></div>
+<div class="clearfix">&nbsp;</div>
+<h2>Table</h2>
+<table class="ox_table">
+<thead>
+<tr><th>Header 1</th><th>Header 2</th><th>Header 3</th><th>Header 4</th><th>Header 5</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+<td>Division 4</td>
+<td>Division 5</td>
+</tr>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+<td>Division 4</td>
+<td>Division 5</td>
+</tr>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+<td>Division 4</td>
+<td>Division 5</td>
+</tr>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+<td>Division 4</td>
+<td>Division 5</td>
+</tr>
+</tbody>
+</table>
+<h2>Misc stuff</h2>
+<p><sup>sed quia</sup> consequuntur magni dolores <sub>eos qui ratione</sub> voluptatem sequi nesciunt. <cite>Neque porro quisquam est, qui dolorem</cite> ipsum quia dolor <abbr title="Simplicity WordPress Theme">AWT</abbr>sit amet, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam <span class="hdark">consectetur, adipisci velit</span> quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem <abbr title="Simplicity WordPress Theme">AWT</abbr>, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h2>Code</h2>
+<pre><code>$productCollection = Mage::getResourceModel('catalog/product_collection');
+$layer->prepareProductCollection($productCollection);
+$productCollection->addCountToCategories($categories);
+return $categories;
+</code></pre>
+                ]]></content>
+			<is_active>1</is_active>
+			<root_template>two_columns_left</root_template>
+		</item>
+		<item>
+			<title>Athlete Typography 3 columns</title>
+			<identifier>athlete_typography_3col</identifier>
+			<content><![CDATA[
+<h1>H1 tag example</h1>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h2>H2 tag example</h2>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h3>H3 tag example</h3>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h4>H4 tag example</h4>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h5>H5 tag example</h5>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h6>H6 tag example</h6>
+<p>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h2>Blockquotes</h2>
+<div class="one_half">
+<blockquote>
+<p>Labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum abore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatu</p>
+</blockquote>
+<p style="text-align: right;"><a href="//olegnax.com">John Doe</a><br /> Creative Director</p>
+</div>
+<div class="one_half last">
+<blockquote>
+<h3>John Doe</h3>
+<p>Labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit</p>
+</blockquote>
+</div>
+<div class="clearfix">&nbsp;</div>
+<h2>Images</h2>
+<p><a title="title link" href="//olegnax.com"><img style="float: left;" src="{{media url="olegnax/athlete/sample_banner_220x120.jpg"}}" alt="" width="220" height="120" /></a> sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliqrporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+<p><img style="float: right;" title="typo2" src="{{media url="olegnax/athlete/sample_banner_220x120.jpg"}}" alt="" width="220" height="120" />sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure d quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h2>Lists</h2>
+<div class="one_half ">
+<h3>Marked</h3>
+<ul class="ox_list_simple">
+<li>Curabitur eu sapien eget tortor blandit pretium auctor ac metus.</li>
+<li>Etiam quis est non velit facilisis auctor.</li>
+<li>Vivamus adipiscing auctor quam, at aliquet diam viverra sed.</li>
+<li>Integer a tortor quis purus consectetur luctus sit amet ac elit.</li>
+<li>Duis eget odio ut tellus pulvinar gravida in in purus.</li>
+<li>Cras interdum faucibus erat, sit amet pretium leo dignissim vel.</li>
+</ul>
+</div>
+<div class="one_half last">
+<h3>Ordered</h3>
+<ol>
+<li>Curabitur eu sapien eget tortor blandit pretium auctor ac metus.</li>
+<li>Etiam quis est non velit facilisis auctor.</li>
+<li>Vivamus adipiscing auctor quam, at aliquet diam viverra sed.</li>
+<li>Integer a tortor quis purus consectetur luctus sit amet ac elit.</li>
+<li>Duis eget odio ut tellus pulvinar gravida in in purus.</li>
+<li>Cras interdum faucibus erat, sit amet pretium leo dignissim vel.</li>
+</ol></div>
+<div class="clearfix">&nbsp;</div>
+<h2>Table</h2>
+<table class="ox_table">
+<thead>
+<tr><th>Header 1</th><th>Header 2</th><th>Header 3</th><th>Header 4</th><th>Header 5</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+<td>Division 4</td>
+<td>Division 5</td>
+</tr>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+<td>Division 4</td>
+<td>Division 5</td>
+</tr>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+<td>Division 4</td>
+<td>Division 5</td>
+</tr>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+<td>Division 4</td>
+<td>Division 5</td>
+</tr>
+</tbody>
+</table>
+<h2>Misc stuff</h2>
+<p><sup>sed quia</sup> consequuntur magni dolores <sub>eos qui ratione</sub> voluptatem sequi nesciunt. <cite>Neque porro quisquam est, qui dolorem</cite> ipsum quia dolor <abbr title="Simplicity WordPress Theme">AWT</abbr>sit amet, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam <span class="hdark">consectetur, adipisci velit</span> quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem <abbr title="Simplicity WordPress Theme">AWT</abbr>, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure</p>
+<h2>Code</h2>
+<pre><code>$productCollection = Mage::getResourceModel('catalog/product_collection');
+$layer->prepareProductCollection($productCollection);
+$productCollection->addCountToCategories($categories);
+return $categories;
+</code></pre>
+                ]]></content>
+			<is_active>1</is_active>
+			<root_template>three_columns</root_template>
+		</item>
+	</pages>
+</root>

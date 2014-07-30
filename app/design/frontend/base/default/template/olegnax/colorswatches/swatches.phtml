@@ -1,0 +1,27 @@
+<?php
+$swatches = $this->getSwatches();
+if ($this->isSwatchesEnabled() && !empty($swatches) ) :
+	?>
+	<!-- BOF: OLEGNAX COLORSWATCHES -->
+	<div class="colorswatches-loading"><?php echo $this->__('Loading...'); ?></div>
+	<script type="text/javascript">
+			if (typeof Olegnax == 'undefined') {
+				Olegnax = {};
+			}
+			Olegnax.colorSwatches = {
+				hideDropdowns: <?php echo $this->helper('olegnaxcolorswatches')->getCfg('main/hide_dropdowns')?>,
+				replaceImage: <?php echo $this->helper('olegnaxcolorswatches')->getCfg('main/replace_image')?>,
+				attributeTitle: <?php echo $this->helper('olegnaxcolorswatches')->getCfg('main/attribute_title')?>,
+				swatches: <?php echo Mage::helper('core')->jsonEncode( $this->getSwatches() ); ?>,
+				swatchKeys: <?php echo Mage::helper('core')->jsonEncode( $this->getSwatchKeys() ); ?>,
+				swatchDir: '<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>wysiwyg/olegnax/colorswatches/',
+				imagesUrl: '<?php echo Mage::getUrl('olegnaxcolorswatches/index/images', array('id' => 'PRODUCT_ID')); ?>'
+			};
+
+			jQuery(function ($) {
+				$('#product-options-wrapper dt').colorSwatches(Olegnax.colorSwatches);
+			});
+
+	</script>
+	<!-- EOF: OLEGNAX COLORSWATCHES -->
+<?php endif; //if ($this->isSwatchesEnabled() && !empty($swatches) ) : ?>

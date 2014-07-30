@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<config>
+
+	<modules>
+		<Olegnax_All>
+			<version>1.0.0</version>
+		</Olegnax_All>
+	</modules> 
+	
+	<adminhtml>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<olegnaxall>
+											<title>Olegnax - All</title>
+										</olegnaxall>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>	
+	</adminhtml>
+	
+	<global>
+		<blocks>
+			<olegnaxall>
+				<class>Olegnax_All_Block</class>
+			</olegnaxall>
+		</blocks>
+		<resources>
+			<olegnaxall_setup>
+				<setup>
+					<module>Olegnax_All</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</olegnaxall_setup>
+			<olegnaxall_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</olegnaxall_write>
+			<olegnaxall_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</olegnaxall_read>
+		</resources>
+		<models>
+			<olegnaxall>
+				<class>Olegnax_All_Model</class>
+			</olegnaxall>
+		</models>
+		<helpers>
+			<olegnaxall>
+				<class>Olegnax_All_Helper</class>
+			</olegnaxall>
+		</helpers>
+	</global>
+
+	<default>
+		<olegnaxall>
+		</olegnaxall>
+	</default>
+	
+</config>

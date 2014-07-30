@@ -1,0 +1,39 @@
+<?php
+/**
+ * Brands slider template
+ *
+ * @see Olegnax_Athlete_Block_Brands
+ */
+
+$athleteHelper = $this->helper('athlete');
+$retina = '';
+if ($athleteHelper->getCfg('main/retina', 'athlete_brands')) {
+	$retina = 'class="retina"';
+}
+$brands = $this->getBrands();
+if (!empty($brands)) :
+?>
+<!-- brands slider BOF -->
+<div class="brands-slider-container">
+	<div class="clearfix title-container">
+		<div class="slider-nav"><ul id="brands_slider_nav"><li><a class="prev icon-<?php echo $athleteHelper->getCfg('arrows/brands_slider_icons', 'athlete_appearance'); ?>" href="#"></a></li><li><a class="next icon-<?php echo $athleteHelper->getCfg('arrows/brands_slider_icons', 'athlete_appearance'); ?>" href="#"></a></li></ul></div>
+	</div>
+	<div class="row">
+		<div class="grid_18">
+			<ul id="brands_slider" class="brands clearfix"
+			    data-items="<?php echo Mage::helper('athlete/layout')->getBrandsSliderItems() ?>"
+			    data-autoscroll="<?php echo $athleteHelper->getCfg('slider/brand_autoscroll', 'athlete_brands'); ?>"
+			    data-scroll="<?php echo $athleteHelper->getCfg('slider/brand_scroll_items', 'athlete_brands'); ?>"
+			    data-rewind="<?php echo $athleteHelper->getCfg('slider/brand_rewind', 'athlete_brands'); ?>"
+				>
+				<?php foreach($brands as $b) : ?>
+					<li>
+						<a href="<?php echo $b['url'] ?>"><span></span><img <?php echo $retina ?> src="<?php echo $b['image'] ?>" alt="<?php echo $b['name'] ?>" /></a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- brands slider EOF -->
+<?php endif; ?>

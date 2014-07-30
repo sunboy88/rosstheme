@@ -1,0 +1,239 @@
+/* Captcha / form styles.css/line:1056; */
+.captcha-reload.refreshing  { animation:rotate 1.5s infinite linear; -webkit-animation:rotate 1.5s infinite linear; -moz-animation:rotate 1.5s infinite linear; }
+@-webkit-keyframes rotate {
+    0% { -webkit-transform:rotate(0); }
+    0% { -webkit-transform:rotate(-360deg); }
+}
+@-moz-keyframes rotate {
+    0% { -moz-transform:rotate(0); }
+    0% { -moz-transform:rotate(-360deg); }
+}
+@keyframes rotate {
+    0% { transform:rotate(0); }
+    0% { transform:rotate(-360deg); }
+}
+
+a, 
+.no-touch .brands-slider-container ul.brands li a span,
+.no-touch .content-container .product-view .more-views .carousel-slider a span,
+.opc .allow .step-title .number, .opc .allow .step-title,
+.products-grid .actions li button.button,
+.nav-top-title div.icon span,
+.block-layered-nav li em,
+.category-banner-container .link span,
+.cms-banner.cms-banner-big-link .link,
+.cms-banner.cms-banner-big-link .link span,
+.slide-title .link span {
+	-webkit-transition: all 600ms ease-in-out;
+	-moz-transition: 	all 600ms ease-in-out;
+	-o-transition: 		all 600ms ease-in-out;
+	transition:         all 600ms ease-in-out;
+}
+
+a:hover,
+.no-touch .brands-slider-container ul.brands li a:hover span,
+.no-touch .content-container .product-view .more-views .carousel-slider a:hover span,
+.opc .allow:hover .step-title .number, .opc .allow:hover .step-title,
+.products-grid .actions li button.button:hover,
+.nav-top-title:hover div.icon span,
+.block-layered-nav li em:hover {
+	-webkit-transition: all 10ms ease-in-out;
+	-moz-transition:	all 10ms ease-in-out;
+	-o-transition: 		all 10ms ease-in-out;
+	transition:         all 10ms ease-in-out;
+}
+
+/* header sticky */
+#nav 						{ 
+	-webkit-transition: all 500ms ease-in-out;
+	-moz-transition:	all 500ms ease-in-out;
+	-o-transition: 		all 500ms ease-in-out;
+	transition:         all 500ms ease-in-out;
+}
+.table-cell 				{
+	-webkit-transition: width 500ms ease-in;
+	-moz-transition:	width 500ms ease-in;
+	-o-transition: 		width 500ms ease-in;
+	transition:         width 500ms ease-in;
+}
+.logo-container-indent 		{
+	-webkit-transition: padding-bottom 500ms ease-in-out;
+	-moz-transition:	padding-bottom 500ms ease-in-out;
+	-o-transition: 		padding-bottom 500ms ease-in-out;
+	transition:         padding-bottom 500ms ease-in-out;
+}
+.header-fixed .form-search  {
+	-webkit-transition: right 500ms ease-in-out;
+	-moz-transition:	right 500ms ease-in-out;
+	-o-transition: 		right 500ms ease-in-out;
+	transition:         right 500ms ease-in-out;
+}
+
+
+
+.header-cart .summary{
+	-moz-transition-property: 	background;
+	-webkit-transition-property:background;
+	-o-transition-property: 	background;
+	transition-property:    	background;
+}
+
+.no-touch .brands-slider-container ul.brands li a img{
+	-webkit-transition: opacity 600ms ease-in-out;
+	-moz-transition: 	opacity 600ms ease-in-out;
+	-o-transition: 		opacity 600ms ease-in-out;
+	transition:         opacity 600ms ease-in-out;
+}
+
+.no-touch .brands-slider-container ul.brands li a:hover img{
+	-webkit-transition: opacity 10ms ease-in-out;
+	-moz-transition:	opacity 10ms ease-in-out;
+	-o-transition: 		opacity 10ms ease-in-out;
+	transition:         opacity 10ms ease-in-out;
+}
+
+
+.qty-container .qty-math:hover,
+.btn-edit:hover, .btn-remove:hover {
+	-webkit-transition: background 100ms ease-in-out;
+	-moz-transition:	background 100ms ease-in-out;
+	-o-transition: 		background 100ms ease-in-out;
+	transition:         background 100ms ease-in-out;
+}
+.slider-container .price-box a {
+	-moz-transition-property: 	background;
+	-webkit-transition-property:background;
+	-o-transition-property: 	background;
+	transition-property:    	background;
+}
+
+a.social-icon, .header .form-search button.button span,
+.header-currency, .header-language,
+.header-currency .header-switch-trigger:after, .header-language .header-switch-trigger:after,
+.header-currency .header-switch-trigger:before, .header-language .header-switch-trigger:before,
+.title-container .slider-nav a, .product-view .product-img-box .more-views-nav a,
+.prev-next a, #toTop,
+.product-view .product-img-box .zoom .btn-zoom-in, .product-view .product-img-box .zoom .btn-zoom-out,
+.banners-slider-container .nav a,
+.athlete-slideshow .slide .controls .slide-control,
+.athlete-slideshow .slide .slide-banner img {
+	-webkit-transition: all 200ms ease;
+	-moz-transition: 	all 200ms ease;
+	-o-transition: 		all 200ms ease;
+	transition:         all 200ms ease;
+}
+
+
+		.add-to-links a .link_i {
+			-webkit-transition: all 600ms ease-in-out;
+			-moz-transition: 	all 600ms ease-in-out;
+			-o-transition: 		all 600ms ease-in-out;
+			transition:         all 600ms ease-in-out;
+		}
+		.add-to-links a:hover .link_i, .slide-title a.link:hover, .text-container a.link:hover,
+		.category-banner-container .link:hover span, .slide-title .link:hover span,
+		.cms-banner.cms-banner-big-link .link:hover,
+		.cms-banner.cms-banner-big-link .link:hover span {
+			-webkit-transition: all 200ms ease;
+			-moz-transition: 	all 200ms ease;
+			-o-transition: 		all 200ms ease;
+			transition:         all 200ms ease;
+		}
+
+
+
+.tp-leftarrow, .tp-rightarrow, .tp-bullets.simplebullets.athlete .bullet {
+	-webkit-transition: all 260ms ease;
+	-moz-transition: 	all 260ms ease;
+	-o-transition: 		all 260ms ease;
+	transition:         all 260ms ease;
+}
+.athlete-slideshow .slide .controls .slide-control,
+.tp-leftarrow, .tp-rightarrow {
+	-moz-transition-property: 	background;
+	-webkit-transition-property:background;
+	-o-transition-property: 	background;
+	transition-property:    	background;
+}
+
+.view-mode a, .view-mode a:hover,
+.products-grid .actions li button.button, .products-grid .actions li button.button:hover,
+.products-grid .actions .add-to-links .link-wishlist, .products-grid .actions .add-to-links .link-compare {
+	-moz-transition-property: 	background-color;
+	-webkit-transition-property:background-color;
+	-o-transition-property: 	background-color;
+	transition-property:    	background-color;
+}
+
+.no-touch .banners-slider-container .banners li a img {
+	-webkit-transition: all 400ms ease-in-out;
+	-moz-transition:    all 400ms ease-in-out;
+	-o-transition:      all 400ms ease-in-out;
+	transition:         all 400ms ease-in-out;
+}
+.no-touch .banners-slider-container .banners li:hover a img {
+	-webkit-transform:scale(1.1);
+	-moz-transform:scale(1.1);
+	-o-transform:scale(1.1);
+	transform:scale(1.1);
+}
+
+.products-grid li.item,
+.products-list li.item,
+.products-grid .ratings,
+.products-grid .product-name:after, .products-grid .price-box:after,
+.no-touch .products-grid li.item:hover .actions .add-to-links li,
+.animation-link,
+.text-container .text,
+.text-container .text:after {
+	-webkit-transition: all 256ms cubic-bezier(0.330, 0.975, 0.245, 0.910);
+	-moz-transition: 	all 256ms cubic-bezier(0.330, 0.975, 0.245, 0.910);
+	-o-transition:   	all 256ms cubic-bezier(0.330, 0.975, 0.245, 0.910);
+	transition: 		all 256ms cubic-bezier(0.330, 0.975, 0.245, 0.910);
+}
+.products-grid li.item,
+.products-list li.item {
+	-moz-transition-property: 	background;
+	-webkit-transition-property:background;
+	-o-transition-property: 	background;
+	transition-property:    	background;
+}
+.products-grid .product-name:after, .products-grid .price-box:after {
+	transition-property:    	width;
+	-moz-transition-property: 	width;
+	-webkit-transition-property:width;
+	-o-transition-property: 	width;
+}
+.products-grid .product-name a {
+	-webkit-transition: none;
+	-moz-transition: 	none;
+	-o-transition:   	none;
+	transition: 		none;
+}
+.no-touch .products-grid li.item:hover .actions .add-to-links li,
+.products-grid .product-name:after, .products-grid .price-box:after,
+.products-grid .ratings {
+	-moz-transition-duration:    128ms;
+	-webkit-transition-duration: 128ms;
+	-o-transition-duration:      128ms;
+	transition-duration:         128ms;
+}
+.animation-link {
+	-moz-transition-property: 	margin;
+	-webkit-transition-property:margin;
+	-o-transition-property: 	margin;
+	transition-property:    	margin;
+}
+
+button.button span, button.button > span:after {
+	-webkit-transition: all 512ms cubic-bezier(0.330, 0.975, 0.245, 0.910);
+	-moz-transition: 	all 512ms cubic-bezier(0.330, 0.975, 0.245, 0.910);
+	-o-transition:   	all 512ms cubic-bezier(0.330, 0.975, 0.245, 0.910);
+	transition: 		all 512ms cubic-bezier(0.330, 0.975, 0.245, 0.910);
+}
+button.button:hover span, button.button:hover > span:after {
+	-webkit-transition: all 256ms cubic-bezier(0.330, 0.975, 0.245, 0.910);
+	-moz-transition: 	all 256ms cubic-bezier(0.330, 0.975, 0.245, 0.910);
+	-o-transition:   	all 256ms cubic-bezier(0.330, 0.975, 0.245, 0.910);
+	transition: 		all 256ms cubic-bezier(0.330, 0.975, 0.245, 0.910);
+}

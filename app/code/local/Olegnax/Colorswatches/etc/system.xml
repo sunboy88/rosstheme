@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<config>
+	<sections>
+		<olegnaxcolorswatches translate="label" module="olegnaxcolorswatches">
+			<label>ColorSwatches</label>
+			<tab>olegnaxall</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>100</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<main translate="label">
+					<label>Configuration</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<status translate="label comment">
+							<label>Enable ColorSwatches</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status>
+						<jquery translate="label comment">
+							<label>Include jQuery library</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</jquery>
+						<hide_dropdowns translate="label comment">
+							<label>Hide Configuration Dropdowns</label>
+							<comment><![CDATA[
+							If you would like to use only images for selection of configurable product options, set "Hide Configuration Dropdowns" = YES
+							]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hide_dropdowns>
+						<replace_image translate="label comment">
+							<label>Replace Product images</label>
+							<comment><![CDATA[
+							Select "Yes" to replace configurable product images with images of the particular simple product images
+							]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</replace_image>
+						<attribute_title>
+							<label>Display attribute title under swatch images</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</attribute_title>
+						<swatch_images translate="label comment">
+							<label>Swatch Images</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[
+								<p>Format: <em>[option label]</em> : <em>[option value]</em> = <em>[swatch image]</em></p>
+								<p>Example:</p>
+								<p>
+								Color : Red = color-red.png<br/>
+								Color : Green = color-medium.png<br/>
+								Color : Blue = color-blue.png<br/>
+								</p>
+								<p>Swatch images should be uploaded in <strong>media/wysiwyg/olegnax/colorswatches/</strong></p>
+								]]></comment>
+						</swatch_images>
+					</fields>
+				</main>
+			</groups>
+		</olegnaxcolorswatches>
+	</sections>
+</config>

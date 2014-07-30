@@ -1,0 +1,54 @@
+<?php
+/**
+ * Top menu for store
+ *
+ * @see Olegnax_Megamenu_Block_Megamenu
+ */
+
+$menuHelper = $this->helper('olegnaxmegamenu');
+if ( $menuHelper->getCfg('general/status') ) :
+
+	$_menu = $this->getHtml('level-top', 'megamenu-dropdown');
+	?>
+	<?php if ($_menu): ?>
+	<div class="nav-container olegnaxmegamenu icons-<?php echo Mage::helper('athlete')->getAppearanceCfg('navigation/sub_nav_icons'); ?>">
+		<div class="nav-top-title"><div class="icon"><span></span><span></span><span></span></div><a href="#"><?php echo $this->__('Navigation'); ?></a></div>
+		<ul id="nav">
+			<?php if ($menuHelper->getCfg('additional/home')) : ?>
+				<li class="level0 level-top home-block">
+					<a href="<?php echo $this->getBaseUrl(); ?>"><span><?php echo $this->__('Home'); ?></span></a>
+				</li>
+			<?php endif; ?>
+			<?php echo $_menu; ?>
+			<?php
+			$customBlock = $menuHelper->getCfg('additional/custom_block_id');
+			if ( !empty($customBlock) ) {
+				$customBlock = Mage::getModel('cms/block')
+					->setStoreId( Mage::app()->getStore()->getId() )
+					->load($customBlock);
+				if($customBlock->getIsActive()) {
+					echo '
+	            <li class="level0 level-top parent wide custom-block">
+	                <a href="#" class="level-top">
+	                    <span>'.$customBlock->getTitle().'</span>
+	                </a>
+	                <div class="megamenu-dropdown"><div class="std megamenu-block megamenu-block-top">'.$menuHelper->processCmsBlock($customBlock->getContent()).'</div></div>
+	            </li>';
+				}
+			}
+
+			$additionalBlock = $menuHelper->getCfg('additional/additional_block_id');
+			if ( !empty($additionalBlock) ) {
+				$additionalBlock = Mage::getModel('cms/block')
+					->setStoreId( Mage::app()->getStore()->getId() )
+					->load($additionalBlock);
+				if($additionalBlock->getIsActive()) {
+					echo $menuHelper->processCmsBlock($additionalBlock->getContent());
+				}
+			}
+
+			?>
+		</ul>
+	</div>
+<?php endif ?>
+<?php endif; //if ( $menuHelper->getCfg('general/status') ) : ?>

@@ -1,0 +1,15 @@
+<?php
+/**
+ * Banner template
+ *
+ * @see Olegnax_Athlete_Block_Footer_Banner
+ */
+$banner = $this->getBannerHtml();
+if (!empty($banner)) :
+	?>
+	<!-- footer banner BOF -->
+	<div class="content-banner footer-banner clearfix">
+		<?php echo $banner; ?>
+	</div>
+	<!-- footer banner EOF -->
+<?php endif; ?>

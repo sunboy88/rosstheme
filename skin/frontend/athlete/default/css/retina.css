@@ -1,0 +1,171 @@
+a.social-icon 											{ background-size: 1196px 68px;}
+
+.banners-slider-container .nav a,
+.tp-leftarrow.default,
+.tp-rightarrow.default 									{ background-size: 98px 148px;}
+
+.brands-slider-container .title-container .slider-nav a { background-size: 44px 42px;}
+.block .actions a.btn-clear 							{ background-size: 11px 11px;}
+.content-container a.btn-edit  							{ background-size: 21px 42px;}/*strong icon*/
+.btn-remove 											{ background-size: 21px 42px;}/*strong icon*/
+.header-dropdown .btn-remove,
+.block-wishlist .btn-remove								{ background-size: 14px  28px;}/*normal icon*/
+.footer .athlete_footer_connect ul li a 				{ background-size: 1201px 68px;}		
+
+.bg-line, .content-banner .row:before,
+.content-banner .banner:before 							{ background-size: 10px 10px;}
+
+.header .form-search button.button span span 			{ background-size: 30px 60px;}	
+
+/* Proceed checkout */
+/*
+button.btn-proceed-checkout span span,
+button.btn-proceed-checkout span span
+*/
+.title-buttons button.button span span, .block_totals button.button span span,
+.title-buttons button.button:hover span span, .block_totals button.button:hover span span { background-size: 10px 15px;}
+
+.qty-container .qty-math 	            				{ background-size: 28px 28px;}
+
+.product-view .product-img-box .more-views-nav a,
+.prev-next a,
+.title-container .slider-nav a							{ background-size: 41px 52px;}	
+
+.athlete-slideshow .slide .controls .slide-control      { background-size: 120px 104px;}
+.slide-title .link span										{ background-size: 50px 70px;}
+.category-banner-container .link span						{ background-size: 50px 70px;}
+.cms-banner.cms-banner-big-link .link span					{ background-size: 50px 70px;}
+
+#toTop 													{ background-size: 45px 90px;}
+.product-view .product-img-box .zoom .btn-zoom-in 		{ background-size: 62px 60px;}
+
+.toolbar-dropdown ul li a 								{ background-size: 3px 5px;}	
+.rating-box, .rating-box .rating 						{ background-size: 49px 36px;}
+
+.dedicated-review-box .average-rating .rating-large,
+.dedicated-review-box .average-rating .rating-large .rating { background-size: 130px 49px;}
+
+.header-dropdown .btn-edit 								{ background-size: 14px 28px;}	
+
+.tool-tip .btn-close a,
+.remember-me-popup .remember-me-popup-head .remember-me-popup-close { background-size: 15px 15px;}
+
+button.btn-cart span span,
+.products-grid .actions li button.button,
+.products-list .add-to-links button.button span span 	{ background-size: 29px 65px;}
+
+.products-grid .actions .add-to-links .link-compare,
+.products-list .link-compare  .link_i,
+.product-shop .link-compare  .link_i 					{ background-size: 29px 65px;}
+
+.product-shop .link-email-friend  .link_i 				{ background-size: 29px 65px;}
+.products-grid .actions .add-to-links .link-wishlist,
+.products-list .link-wishlist .link_i,
+.product-shop .link-wishlist .link_i 					{ background-size: 29px 65px;}
+
+.view-mode .grid 										{ background-size: 31px 58px;}
+.view-mode .list 										{ background-size: 32px 58px;}
+
+.main ul.messages > li:before 							{ background-size: 31px 31px;} 
+
+.toolbar-switch .toolbar-title 							{ background-size: 29px 58px;}
+
+.header-cart .summary									{ background-size: 35px 70px;}
+
+.products-grid .actions .add-to-links .link-compare,
+.products-list .link-compare  .link_i,
+.product-shop .link-compare  .link_i 					{ background-size: 29px 65px;}
+
+pre 													{ background-size: 1px 42px;}
+
+
+@media only screen and ( -webkit-min-device-pixel-ratio: 1.5), only screen and ( min--moz-device-pixel-ratio: 1.5), only screen and ( -o-min-device-pixel-ratio: 3/2), only screen and ( min-device-pixel-ratio: 1.5) {	
+	a.social-icon 											{ background-image: url(../images/retina/connect_icons@2x.png);}
+
+	.banners-slider-container .nav a,
+	.tp-leftarrow.default,
+	.tp-rightarrow.default 									{ background-image: url(../images/retina/banners_slider_arrows@2x.png);}
+	
+	.brands-slider-container .title-container .slider-nav a { background-image: url(../images/retina/brands_slider_arrows@2x.png);}
+	.block .actions a.btn-clear 							{ background-image: url(../images/retina/btn_clear@2x.png);}	
+	
+	.header-dropdown .btn-remove,
+	.block-wishlist .btn-remove								{ background-image: url(../images/retina/btn_remove_small_sprite@2x.png);}
+	
+	.content-container a.btn-edit   						{ background-image: url(../images/retina/icon_edit@2x.png);}
+	.btn-remove 											{ background-image: url(../images/retina/btn_remove_sprite@2x.png);}
+	.footer .athlete_footer_connect ul li a 				{ background-image: url(../images/retina/connect_icons@2x.png);}
+	
+	.bg-line,
+	.content-banner .row:before,
+	.content-banner .banner:before 							{ background-image: url(../images/retina/content_banner_bg@2x.png);}
+	
+	.header .form-search button.button span span 			{ background-image: url(../images/retina/icon_search@2x.png);}	
+	
+	.title-buttons button.button span span,
+	.block_totals button.button span span
+	/* button.btn-proceed-checkout span span */ 			{ background-image: url(../images/retina/next-icon@2x.png);}	
+	
+	.title-buttons button.button:hover span span, 
+	.block_totals button.button:hover span span
+	/* button.btn-proceed-checkout:hover span span */		{ background-image: url(../images/retina/next-icon-roll@2x.png);}
+	
+	.qty-container .qty-math 								{ background-image: url(../images/retina/qty_math@2x.png);}	
+	
+	.product-view .product-img-box .more-views-nav a,
+	.prev-next a,
+	.title-container .slider-nav a							{ background-image: url(../images/retina/slider_arrows@2x.png);}	
+	
+	.athlete-slideshow .slide .controls .slide-control      { background-image: url(../images/retina/slideshow_arrows@2x.png);}
+	.slide-title .link span										{ background-image: url(../images/retina/slideshow_link_arrow@2x.png);}
+	.category-banner-container .link span						{ background-image: url(../images/retina/slideshow_link_arrow@2x.png);}
+	.cms-banner.cms-banner-big-link .link span					{ background-image: url(../images/retina/slideshow_link_arrow@2x.png);}
+
+	#toTop 													{ background-image: url(../images/retina/totop_arrows@2x.png);}	
+	.product-view .product-img-box .zoom .btn-zoom-in 		{ background-image: url(../images/retina/zoom_icons@2x.png);}
+
+
+	.toolbar-dropdown ul li a 								{ background-image: url(../images/retina/arrow_item@2x.png);}	
+	.rating-box, .rating-box .rating 						{ background-image: url(../images/retina/bkg_rating@2x.png);}
+
+	.dedicated-review-box .average-rating .rating-large,
+	.dedicated-review-box .average-rating .rating-large .rating { background-image: url(../images/retina/bkg_rating_large@2x.png);}
+
+	.header-dropdown .btn-edit 								{ background-image: url(../images/retina/btn_edit_sprite@2x.png);}	
+	
+	button.btn-cart span span,
+	.products-grid .actions li button.button,
+	.products-list .add-to-links button.button span span 	{ background-image: url(../images/retina/i_btn_cart@2x.png);}
+	
+	.products-grid .actions .add-to-links .link-compare,
+	.products-list .link-compare  .link_i,
+	.product-shop .link-compare  .link_i					{ background-image: url(../images/retina/i_btn_compare@2x.png);}
+	
+	.product-shop .link-email-friend  .link_i 				{ background-image: url(../images/retina/i_btn_email@2x.png);}
+	
+	.products-grid .actions .add-to-links .link-wishlist,
+	.products-list .link-wishlist .link_i,
+	.product-shop .link-wishlist .link_i 					{ background-image: url(../images/retina/i_btn_wishlist@2x.png);}
+	
+	.view-mode .grid 										{ background-image: url(../images/retina/i_grid_mode@2x.png);}
+	.view-mode .list 										{ background-image: url(../images/retina/i_list_mode@2x.png);}
+
+	ul.messages li.error-msg:before 						{ background-image: url(../images/retina/i_msg-error@2x.png);}
+	ul.messages li.success-msg:before 						{ background-image: url(../images/retina/i_msg-success@2x.png);}
+	ul.messages li.note-msg:before 							{ background-image: url(../images/retina/i_msg-note@2x.png);}
+	ul.messages li.notice-msg:before 						{ background-image: url(../images/retina/i_msg-notice@2x.png);}
+	
+	.toolbar-switch .toolbar-title 							{ background-image: url(../images/retina/selectbox_arrow@2x.png);}
+	.header-cart .summary,
+	.header-fixed .header-cart .summary 					{ background-image: url(../images/retina/i_btn_cart_ios@2x.png);}
+
+	.products-grid .actions .add-to-links .link-compare,
+	.products-list .link-compare  .link_i,
+	.product-shop .link-compare  .link_i 					{ background-image: url(../images/retina/i_btn_compare@2x.png);}
+
+	pre 													{ background-image: url(../images/retina/bg_code@2x.png);}
+}
+
+@media only screen and ( min-width: 1024px) {
+	.header-cart .summary { background-image: none ;}
+}

@@ -1,0 +1,426 @@
+<?xml version="1.0"?>
+<config>
+	<sections>
+		<athleteslideshow translate="label" module="athleteslideshow">
+			<label>Slideshow</label>
+			<tab>olegnax_athlete</tab>
+			<sort_order>400</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<config translate="label">
+					<label>Slideshow Config</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+                        <enabled>
+							<label>Enabled: </label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+							<comment>Enable/Disable slideshow</comment>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+						</enabled>
+                        <show>
+							<label>Show on: </label>
+							<frontend_type>select</frontend_type>
+                            <source_model>athleteslideshow/config_show</source_model>
+							<comment>Select pages to show slideshow</comment>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+						</show>
+                        <slider>
+                            <label>Select slider: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>athleteslideshow/config_slider</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </slider>
+					</fields>
+				</config>
+                <athlete translate="label">
+                    <label>Athlete slider config</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <allowWrap>
+                            <label>Allow wrap: </label>
+                            <frontend_type>select</frontend_type>
+                            <comment>This option determines whether or not a slideshow can advance from the last slide
+	                            to the first (or vice versa). If set to false then once a slideshow reaches its last
+	                            slide it can no longer be advanced forward, it can only advance backward. Likewise,
+	                            when a slideshow is displaying the first slide it can not advance backward.</comment>
+                            <source_model>athleteslideshow/config_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </allowWrap>
+                        <autoHeight>
+                            <label>autoHeight: </label>
+                            <frontend_type>select</frontend_type>
+                            <comment>Animate slider automatically</comment>
+                            <source_model>athleteslideshow/config_autoheight</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </autoHeight>
+	                    <easing>
+                            <label>Easing: </label>
+                            <frontend_type>select</frontend_type>
+                            <comment>Name of the easing function to use for animations.</comment>
+                            <source_model>athleteslideshow/config_easing</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </easing>
+	                    <fx>
+                            <label>Transition effect: </label>
+                            <frontend_type>select</frontend_type>
+                            <comment>The name of the slideshow transition to use</comment>
+                            <source_model>athleteslideshow/config_effect</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </fx>
+	                    <pauseOnHover>
+                            <label>Pause on hover: </label>
+                            <frontend_type>select</frontend_type>
+                            <comment>If true an auto-running slideshow will be paused while the mouse is over the
+	                            slideshow.</comment>
+                            <source_model>athleteslideshow/config_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </pauseOnHover>
+                        <speed>
+                            <label>Transition speed: </label>
+                            <frontend_type>text</frontend_type>
+                            <comment>The speed of the transition effect in milliseconds.</comment>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </speed>
+                        <sync>
+                            <label>Animation sync: </label>
+                            <frontend_type>select</frontend_type>
+                            <comment>If true then animation of the incoming and outgoing slides will be synchronized.
+	                            If false then the animation for the incoming slide will not start until the animation
+	                            for the outgoing slide completes.</comment>
+	                        <source_model>athleteslideshow/config_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </sync>
+	                    <timeout>
+		                    <label>Slide timeout: </label>
+		                    <frontend_type>text</frontend_type>
+		                    <comment>The time between slide transitions in milliseconds.</comment>
+		                    <sort_order>80</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_store>1</show_in_store>
+		                    <show_in_website>1</show_in_website>
+	                    </timeout>
+                        <timeline>
+                            <label>Show timeline: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>athleteslideshow/config_yesno</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </timeline>
+	                    <responsive_banners>
+                            <label>Show banners on devices: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </responsive_banners>
+                    </fields>
+                </athlete>
+                <revolutionslider>
+                    <label>Revolution slider Config</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+
+	                    <global translate="label">
+		                    <label>Global settings</label>
+		                    <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+		                    <sort_order>10</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+	                    </global>
+                        <delay>
+                            <label>Delay: </label>
+                            <frontend_type>text</frontend_type>
+                            <comment>The time one slide stays on the screen in Milliseconds (Default: 9000)</comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </delay>
+                        <startheight>
+                            <label>Height: </label>
+                            <frontend_type>text</frontend_type>
+                            <comment>This Height of the Grid where the Captions are displayed in Pixel.
+	                            This Height is the Max height of Slider in Fullwidth Layout and in Responsive Layout.
+	                            In Fullscreen Layout the Gird will be centered Vertically in case the Slider is higher then this value.</comment>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </startheight>
+                        <startwidth>
+                            <label>Width: </label>
+                            <frontend_type>text</frontend_type>
+                            <comment>This Width is the Max Width of Slider in Responsive Layout.
+	                            In Fullscreen and in FullWidth Layout the Gird will be centered Horizontally in case the
+	                            Slider is wider then this value.</comment>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </startwidth>
+
+	                    <navigation translate="label">
+		                    <label>Navigation settings</label>
+		                    <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+		                    <sort_order>50</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+	                    </navigation>
+	                    <onHoverStop>
+		                    <label>Stop the Timer when hovering the slider: </label>
+		                    <frontend_type>select</frontend_type>
+		                    <source_model>athleteslideshow/config_revolution_onoff</source_model>
+		                    <sort_order>60</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_store>1</show_in_store>
+		                    <show_in_website>1</show_in_website>
+	                    </onHoverStop>
+	                    <thumbWidth>
+		                    <label>Width of Thumbnail: </label>
+		                    <frontend_type>text</frontend_type>
+		                    <comment> The width and height of the thumbs in pixel. Thumbs are not responsive from basic. For Responsive Thumbs you will need to create media qury based thumb sizes. </comment>
+		                    <sort_order>70</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_store>1</show_in_store>
+		                    <show_in_website>1</show_in_website>
+	                    </thumbWidth>
+	                    <thumbHeight>
+		                    <label>Height of Thumbnail: </label>
+		                    <frontend_type>text</frontend_type>
+		                    <comment> The width and height of the thumbs in pixel. Thumbs are not responsive from basic. For Responsive Thumbs you will need to create media qury based thumb sizes. </comment>
+		                    <sort_order>80</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_store>1</show_in_store>
+		                    <show_in_website>1</show_in_website>
+	                    </thumbHeight>
+	                    <thumbAmount>
+		                    <label>the amount of the Thumbs visible same time: </label>
+		                    <frontend_type>text</frontend_type>
+		                    <comment> The Amount of visible Thumbs in the same time.  The rest of the thumbs are only visible on hover, or at slide change.</comment>
+		                    <sort_order>90</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_store>1</show_in_store>
+		                    <show_in_website>1</show_in_website>
+	                    </thumbAmount>
+                        <hideThumbs>
+                            <label>Hide thumbs time: </label>
+                            <frontend_type>text</frontend_type>
+                            <comment>0 - Never hide Thumbs.  1000- 100000 (ms) hide thumbs and navigation arrows, bullets after the predefined ms  (1000ms == 1 sec,  1500 == 1,5 sec etc..)</comment>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </hideThumbs>
+                        <navigationType>
+                            <label>Navigation type: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>athleteslideshow/config_revolution_navbar</source_model>
+                            <comment>Display type of the navigation bar (Default:"none").</comment>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </navigationType>
+                        <navigationArrows>
+                            <label>position of the Navigation Arrows: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>athleteslideshow/config_revolution_navarrows</source_model>
+                            <comment>Display position of the Navigation Arrows</comment>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </navigationArrows>
+                        <navigationStyle>
+                            <label>Navigation bullets: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>athleteslideshow/config_revolution_navbullets</source_model>
+                            <comment>Look of the navigation bullets </comment>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </navigationStyle>
+                        <touchenabled>
+                            <label>Enable Swipe Function on touch devices: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>athleteslideshow/config_revolution_onoff</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </touchenabled>
+
+	                    <loops translate="label">
+		                    <label>Loops settings</label>
+		                    <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+		                    <sort_order>200</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+	                    </loops>
+	                    <stopAtSlide>
+		                    <label>Stop at selected Slide Number: </label>
+		                    <frontend_type>text</frontend_type>
+		                    <comment>-1 or 1 to 999. Stop at selected Slide Number. If set to -1 it will loop without stopping. Only available if stopAfterLoops is not equal -1 !</comment>
+		                    <sort_order>210</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_store>1</show_in_store>
+		                    <show_in_website>1</show_in_website>
+	                    </stopAtSlide>
+	                    <stopAfterLoops>
+		                    <label>Stop at selected Slide Number after slide looped "x" time: </label>
+		                    <frontend_type>text</frontend_type>
+		                    <comment>-1 or 0 to 999. Stop at selected Slide Number (stopAtSlide) after slide looped "x" time, where x this Number. If set to -1 it will loop without stopping. Only available if stopAtSlide not equal -1 !</comment>
+		                    <sort_order>220</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_store>1</show_in_store>
+		                    <show_in_website>1</show_in_website>
+	                    </stopAfterLoops>
+
+	                    <mobile translate="label">
+		                    <label>Mobile visibility</label>
+		                    <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+		                    <sort_order>300</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+	                    </mobile>
+	                    <hideCaptionAtLimit>
+		                    <label>Hide caption limit: </label>
+		                    <frontend_type>text</frontend_type>
+		                    <comment>It Defines if a caption should be shown under a Screen Resolution ( Based on The Width of Browser)</comment>
+		                    <sort_order>310</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_store>1</show_in_store>
+		                    <show_in_website>1</show_in_website>
+	                    </hideCaptionAtLimit>
+	                    <hideAllCaptionAtLilmit>
+		                    <label>Hide all caption limit: </label>
+		                    <frontend_type>text</frontend_type>
+		                    <comment>Hide all The Captions if Width of Browser is less then this value</comment>
+		                    <sort_order>320</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_store>1</show_in_store>
+		                    <show_in_website>1</show_in_website>
+	                    </hideAllCaptionAtLilmit>
+	                    <hideSliderAtLimit>
+		                    <label>Hide slider limit: </label>
+		                    <frontend_type>text</frontend_type>
+		                    <comment>under this Limit the Slider is hidden and the timer is stopped</comment>
+		                    <sort_order>330</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_store>1</show_in_store>
+		                    <show_in_website>1</show_in_website>
+	                    </hideSliderAtLimit>
+
+	                    <layout translate="label">
+		                    <label>Layout styles</label>
+		                    <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+		                    <sort_order>400</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+	                    </layout>
+	                    <fullWidth>
+		                    <label>Enable Fullwidth mode: </label>
+		                    <frontend_type>select</frontend_type>
+		                    <source_model>athleteslideshow/config_revolution_onoff</source_model>
+		                    <sort_order>410</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_store>1</show_in_store>
+		                    <show_in_website>1</show_in_website>
+	                    </fullWidth>
+
+	                    <other translate="label">
+		                    <label>Other settings</label>
+		                    <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+		                    <sort_order>500</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+	                    </other>
+                        <shuffle>
+                            <label>Shuffle slides in random order: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>athleteslideshow/config_revolution_onoff</source_model>
+                            <sort_order>510</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </shuffle>
+                        <timeline>
+                            <label>Show timeline: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>520</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </timeline>
+                        <timeline_position>
+                            <label>Timeline position: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>athleteslideshow/config_revolution_timeline</source_model>
+                            <sort_order>530</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </timeline_position>
+                    </fields>
+                </revolutionslider>
+			</groups>
+		</athleteslideshow>
+	</sections>
+</config>

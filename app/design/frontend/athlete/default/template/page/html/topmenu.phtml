@@ -1,0 +1,11 @@
+<?php
+$_menu = $this->getHtml('level-top');
+?>
+<?php if ($_menu): ?>
+	<div class="nav-container">
+        <div class="nav-top-title"><div class="icon"><span></span><span></span><span></span></div><a href="#"><?php echo $this->__('Navigation'); ?></a></div>
+		<ul id="nav">
+			<?php echo $_menu; ?>
+		</ul>
+	</div>
+<?php endif ?>

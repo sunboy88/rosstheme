@@ -1,0 +1,9 @@
+.product-view .product-img-box {position: relative}
+.colorswatches-container {margin: 10px 0 }
+.colorswatches-container .colorswatch { display: inline-block; margin:0 4px 4px 0; text-align: center}
+.colorswatches-container .colorswatch img { cursor: pointer; border:1px solid #eee; }
+.colorswatches-container .colorswatch span {display: block; margin: 4px 0 0; font-size: 10px; }
+.colorswatches-container .colorswatch a { cursor: pointer }
+.colorswatches-container .colorswatch.current { }
+.colorswatches-container .colorswatch.current img{ border:1px solid #333; }
+.colorswatches-loading{ display: none; position: absolute; z-index: 10; top: 0; left: 0; border:1px solid #ddd; background: #eee; padding: 5px; color: #777; }
