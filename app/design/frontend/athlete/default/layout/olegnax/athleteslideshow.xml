@@ -16,7 +16,8 @@
 			<action method="addItem"><type>skin_js</type><script>rs-plugin/js/script.js</script></action>
 		</reference>
 
-		<reference name="header">
+		<reference name="content">
+			<block type="newsletter/subscribe" name="content.newsletter" template="newsletter/subscribe.phtml"/>
 			<block type="athleteslideshow/slideshow" name="athlete_slideshow" as="athlete_slideshow" template="olegnax/slideshow/slideshow.phtml" />
 		</reference>
 
