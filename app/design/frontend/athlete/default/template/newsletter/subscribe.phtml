@@ -31,10 +31,12 @@
     <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
         <div class="block-content">
             <div class="form-subscribe-header">
-                <label for="newsletter"><?php echo $this->__('Register your email for news and special offers') ?></label>
+                <label for="newsletter"><?php echo $this->__('Signup to our newsletter for the lastest news and offers') ?></label>
+                <label for="newsletter"><?php echo $this->__('Enter free raffle, every month we give away free gift on website under 50$') ?></label>
             </div>
             <div class="input-box">
-               <input type="text" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" />
+                <input type="text" name="name" id="newsletter_name" title="<?php echo $this->__('name') ?>" class="input-text" placeholder="Name" />
+                <input type="text" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" placeholder="Your email address" class="input-text required-entry validate-email" />
             </div>
             <div class="actions">
                 <button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button"><span><span><?php echo $this->__('Subscribe') ?></span></span></button>

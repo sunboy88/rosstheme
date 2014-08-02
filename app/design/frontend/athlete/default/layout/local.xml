@@ -143,6 +143,9 @@
 		</reference>
 
 		<reference name="left">
+			<remove name="left.newsletter"/>
+			<remove name="catalog.compare.sidebar"/>
+			<remove name="left.poll"/>
 			<remove name="currency"/>
 			<block type="poll/activePoll" name="left.poll" after="-">
 				<action method="setPollTemplate">
@@ -182,7 +185,7 @@
             <block type="cms/block" name="athlete_sideblock_banners" before="-">
                 <action method="setBlockId"><block_id>athlete_sideblock_banners</block_id></action>
             </block>
-			<block type="athlete/social_twitter" name="athlete.sidebar.twitter" as="athlete_twitter" template="olegnax/social/twitter/left.phtml" />
+			<!-- <block type="athlete/social_twitter" name="athlete.sidebar.twitter" as="athlete_twitter" template="olegnax/social/twitter/left.phtml" /> -->
 		</reference>
 
 		<reference name="footer">
