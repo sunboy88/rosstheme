@@ -1,0 +1,83 @@
+########################################
+###       Ebluestore .gitignore      ###
+########################################
+
+# ignore everything by default
+
+/*
+
+# un-ingore this file
+
+!/.gitignore
+
+###########
+# Magento #
+###########
+
+!/app
+/app/etc/local.xml
+!/downloader
+/downloader/.cache
+!/errors
+!/includes
+!/js
+!/lib
+!/media
+/media/catalog
+/media/import
+/media/js
+/media/css
+/media/downloadable
+!/shell
+!/skin
+!/api.php
+!/cron.php
+!/cron.sh
+!/favicon.ico
+!/get.php
+!/index.php
+!/index.php.sample
+!/install.php
+!/mage
+/var
+/var/cache
+/var/locks
+/var/package
+/var/session
+!/var/backup
+
+############
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+###################################
+# Logs, databases and other files #
+###################################
+*.log
+*.sql
+*.sqlite
+*.txt
+*.csv
+
+######################
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+*.swp

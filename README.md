@@ -1,4 +1,0 @@
-rosstheme
-=========
-
-Ross's theme

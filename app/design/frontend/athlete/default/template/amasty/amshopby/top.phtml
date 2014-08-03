@@ -1,0 +1,19 @@
+<div class="amshopby-wrapper amshopby-filters-wrapper">
+    <?php $options = $this->getOptions()?>
+    <?php if (count($options)): ?>
+        <?php foreach ($options as $opt): ?>
+            <div class="amshopby-descr">
+                <div class="category-head">
+                    <h2><?php echo $opt['title']?></h2>
+                </div>
+                <?php if ($opt['image']): ?>
+                    <img alt="<?php echo $opt['title']?>" src="<?php echo $opt['image']?>" class="amshopby-logo"/>
+                <?php endif ?>
+                <?php echo Mage::helper('catalog')->__($opt['descr'])?>
+                <?php echo $opt['cms_block']?>
+            </div>
+            <div style="clear:both"></div>
+        <?php endforeach ?>
+    <?php endif ?>        
+</div>
+<div style="clear:both"></div>
