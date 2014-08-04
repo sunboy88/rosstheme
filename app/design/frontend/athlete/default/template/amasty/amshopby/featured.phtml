@@ -1,0 +1,11 @@
+<div class="amshopby-featured-wrapper">
+<?php foreach ($this->getItems() as $item):?>
+    <a href="<?php echo $item->getUrl()?>">
+    <?php if ($item->getImgBig()) : ?>
+        <img class="amshopby-featured" title="<?php echo $this->htmlEscape($item->getTitle())?>" alt="<?php echo $this->htmlEscape($item->getTitle())?>" src="<?php echo $item->getImgBig()?>" />
+    <?php else: ?>
+    <?php echo $this->htmlEscape($item->getTitle())?>
+        <?php endif ?>
+    </a>
+<?php endforeach ?>
+</div>

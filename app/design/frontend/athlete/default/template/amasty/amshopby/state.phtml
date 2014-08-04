@@ -1,0 +1,26 @@
+<?php $_filters = $this->getActiveFilters() ?>
+<?php $_removeTxt = Mage::helper('catalog')->__('Remove This Item') ?>
+<?php if (!empty($_filters)): ?>
+    <p class="block-subtitle"><?php echo Mage::helper('catalog')->__('Currently Shopping by') ?></p>
+    <ol class="currently">
+    <?php foreach ($_filters as $_filter): ?>
+        <li>
+            <span class="label"><?php echo Mage::helper('catalog')->__($_filter->getName()) ?>:</span>
+            <?php if ($_filter->hasData('children')): ?>
+                <?php foreach ($_filter->getData('children') as $child): ?>
+                    <?php echo $child['label'] ?>
+                    <a href="<?php echo $child['url'] ?>" class="btn-remove-inline">
+                        <img src="<?php echo Mage::getDesign()->getSkinUrl('images/spacer.gif') ?>" width="13" height="12" alt="<?php echo $_removeTxt ?>" />
+                    </a>
+                <?php endforeach ?>
+            <?php else: ?>
+                <a href="<?php echo $_filter->getRemoveUrl() ?>" class="btn-remove" title="<?php echo $_removeTxt ?>"><?php echo $_removeTxt ?></a>
+                <?php echo $_filter->getLabel() ?>
+            <?php endif ?>
+        </li>
+    <?php endforeach; ?>
+    </ol>
+    <?php if (Mage::helper('amshopby')->isVersionLessThan(1, 7)): ?>
+    <div class="actions"><a href="<?php echo Mage::helper('amshopby/url')->getFullUrl(array(), 1) ?>"><?php echo Mage::helper('catalog')->__('Clear All') ?></a></div>
+    <?php endif; ?>
+<?php endif; ?>

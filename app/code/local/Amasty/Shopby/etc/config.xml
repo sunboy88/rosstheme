@@ -1,0 +1,386 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2008-2013 Amasty (http://www.amasty.com)
+* @package Amasty_Shopby
+*/
+-->
+<config>
+    <modules>
+        <Amasty_Shopby>
+            <version>2.5.5</version>
+        </Amasty_Shopby>
+    </modules>
+    <global>
+        <models>
+            <amshopby>
+                <class>Amasty_Shopby_Model</class>
+                <resourceModel>amshopby_mysql4</resourceModel>
+            </amshopby>
+            <amshopby_mysql4>
+                <class>Amasty_Shopby_Model_Mysql4</class>
+                <entities>
+                    <filter>
+                        <table>am_shopby_filter</table>
+                    </filter> 
+                    <value>
+                        <table>am_shopby_value</table>
+                    </value> 
+                    <range>
+                        <table>am_shopby_range</table>
+                    </range>
+                    <page>
+                        <table>am_shopby_page</table>
+                    </page>
+                </entities>
+            </amshopby_mysql4>
+
+            <catalog>
+                <rewrite>
+                    <layer_filter_price>Amasty_Shopby_Model_Catalog_Layer_Filter_Price</layer_filter_price>
+                    <layer_filter_decimal>Amasty_Shopby_Model_Catalog_Layer_Filter_Decimal</layer_filter_decimal>
+                    <layer_filter_attribute>Amasty_Shopby_Model_Catalog_Layer_Filter_Attribute</layer_filter_attribute>
+                    <layer_filter_category>Amasty_Shopby_Model_Catalog_Layer_Filter_Category</layer_filter_category>
+                    <layer_filter_item>Amasty_Shopby_Model_Catalog_Layer_Filter_Item</layer_filter_item>
+                </rewrite>
+            </catalog>
+
+            <catalogsearch>
+                <rewrite>
+                    <layer_filter_attribute>Amasty_Shopby_Model_Search_Layer_Filter_Attribute</layer_filter_attribute>
+                </rewrite> 
+            </catalogsearch>
+
+            <enterprise_search>
+                <rewrite>
+                    <catalog_layer_filter_price>Amasty_Shopby_Model_Catalog_Layer_Filter_Price</catalog_layer_filter_price>
+                    <catalog_layer_filter_decimal>Amasty_Shopby_Model_Catalog_Layer_Filter_Decimal</catalog_layer_filter_decimal>
+                    <catalog_layer_filter_attribute>Amasty_Shopby_Model_Catalog_Layer_Filter_Attribute</catalog_layer_filter_attribute>
+                    <catalog_layer_filter_category>Amasty_Shopby_Model_Catalog_Layer_Filter_Category</catalog_layer_filter_category>
+                    <catalog_layer_filter_item>Amasty_Shopby_Model_Catalog_Layer_Filter_Item</catalog_layer_filter_item>
+                </rewrite>
+            </enterprise_search>
+        </models>
+        
+        <resources>
+            <amshopby_setup>
+                <setup>
+                    <module>Amasty_Shopby</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </amshopby_setup>
+            
+            <amshopby_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </amshopby_write>
+            
+            <amshopby_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </amshopby_read>
+        </resources>
+
+        <blocks>
+            <amshopby>
+                <class>Amasty_Shopby_Block</class>
+            </amshopby>
+            <catalog>
+                <rewrite>
+                    <layer_filter_attribute>Amasty_Shopby_Block_Catalog_Layer_Filter_Attribute</layer_filter_attribute>
+                    <product_list_toolbar>Amasty_Shopby_Block_Catalog_Product_List_Toolbar</product_list_toolbar> 
+                </rewrite> 
+            </catalog>  
+            <catalogsearch>
+                <rewrite>
+                    <layer_filter_attribute>Amasty_Shopby_Block_Search_Layer_Filter_Attribute</layer_filter_attribute>
+                </rewrite> 
+            </catalogsearch>
+            <enterprise_search>
+                <rewrite>
+                    <catalog_layer_filter_attribute>Amasty_Shopby_Block_Catalog_Layer_Filter_Attribute</catalog_layer_filter_attribute>
+                    <catalogsearch_layer_filter_attribute>Amasty_Shopby_Block_Search_Layer_Filter_Attribute</catalogsearch_layer_filter_attribute>
+               </rewrite>
+            </enterprise_search>
+        </blocks>
+         
+        <helpers>
+            <amshopby>
+                <class>Amasty_Shopby_Helper</class>
+            </amshopby>
+            <catalog>
+                <rewrite>
+                    <image>Amasty_Shopby_Helper_Image</image>                    
+                </rewrite>
+            </catalog>            
+        </helpers>
+        
+        <events>
+            <controller_front_init_routers>
+                <observers>
+                    <amshopby>
+                        <type>singleton</type>
+                        <class>Amasty_Shopby_Model_Observer</class>
+                        <method>handleControllerFrontInitRouters</method>
+                    </amshopby>
+                </observers>
+            </controller_front_init_routers>
+        </events> 
+                
+    </global>
+    
+     <frontend>
+        <events>
+            <catalog_controller_category_init_after>
+                <observers>
+                    <amshopby>
+                        <type>singleton</type>
+                        <class>amshopby/observer</class>
+                        <method>handleCatalogControllerCategoryInitAfter</method>
+                    </amshopby>
+                </observers>
+            </catalog_controller_category_init_after>
+            
+            <controller_action_layout_render_before_catalog_category_view>
+                <observers>
+                    <amshopby>
+                        <type>singleton</type>
+                        <class>amshopby/observer</class>
+                        <method>handleLayoutRender</method>
+                    </amshopby>
+                </observers>
+            </controller_action_layout_render_before_catalog_category_view>
+
+            <controller_action_layout_render_before_amshopby_index_index>
+                <observers>
+                    <amshopby>
+                        <type>singleton</type>
+                        <class>amshopby/observer</class>
+                        <method>handleLayoutRender</method>
+                    </amshopby>
+                </observers>
+            </controller_action_layout_render_before_amshopby_index_index>
+            
+            <controller_action_layout_render_before_catalogsearch_result_index>
+                <observers>
+                    <amshopby>
+                        <type>singleton</type>
+                        <class>amshopby/observer</class>
+                        <method>handleLayoutRender</method>
+                    </amshopby>
+                </observers>
+            </controller_action_layout_render_before_catalogsearch_result_index>
+
+            <controller_action_predispatch_catalog_category_view>
+                <observers>
+                    <enterprise_amshopby>
+                        <class>amshopby/observer</class>
+                        <method>resetCurrentCatalogLayer</method>
+                    </enterprise_amshopby>
+                </observers>
+            </controller_action_predispatch_catalog_category_view>
+
+            <controller_action_predispatch_catalogsearch_result_index>
+                <observers>
+                    <enterprise_amshopby>
+                        <class>amshopby/observer</class>
+                        <method>resetCurrentSearchLayer</method>
+                    </enterprise_amshopby>
+                </observers>
+            </controller_action_predispatch_catalogsearch_result_index>
+
+            <controller_action_predispatch_catalogsearch_advanced_result>
+                <observers>
+                    <enterprise_amshopby>
+                        <class>amshopby/observer</class>
+                        <method>resetCurrentSearchLayer</method>
+                    </enterprise_amshopby>
+                </observers>
+            </controller_action_predispatch_catalogsearch_advanced_result>
+        </events>
+        <translate>
+            <modules>
+                <Amasty_Shopby>
+                    <files>
+                        <default>Amasty_Shopby.csv</default>
+                    </files>
+                </Amasty_Shopby>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <amshopby module="Amasty_Shopby">
+                    <file>amasty/amshopby.xml</file>
+                </amshopby>
+            </updates>
+        </layout>
+    </frontend>  
+     
+    <admin>
+        <routers>
+            <amshopby>
+                <use>admin</use>
+                <args>
+                    <module>Amasty_Shopby</module>
+                    <frontName>amshopby</frontName>
+                </args>
+            </amshopby>
+        </routers>
+    </admin> 
+        
+   <adminhtml>
+       <events>
+           <admin_system_config_changed_section_amshopby>
+               <observers>
+                   <amshopby>
+                       <type>singleton</type>
+                       <class>amshopby/observer</class>
+                       <method>flushCache</method>
+                   </amshopby>
+               </observers>
+           </admin_system_config_changed_section_amshopby>
+       </events>
+        <menu>
+            <catalog>
+                <children>
+                    <amshopby translate="title" module="amshopby">
+                        <title>Improved Navigation</title>
+                        <sort_order>900</sort_order>
+                        <children>
+                            <filters translate="title" module="amshopby"> 
+                                <title>Filters</title>
+                                <action>amshopby/adminhtml_filter</action>
+                                <sort_order>10</sort_order>
+                            </filters>
+                            <ranges translate="title" module="amshopby"> 
+                                <title>Price Ranges</title>
+                                <action>amshopby/adminhtml_range</action>
+                                <sort_order>20</sort_order>
+                            </ranges>
+                            <pages translate="title" module="amshopby"> 
+                                <title>Pages</title>
+                                <action>amshopby/adminhtml_page</action>
+                                <sort_order>25</sort_order>
+                            </pages>
+                            <settings translate="title" module="amshopby"> 
+                                <title>Settings</title>
+                                <action>adminhtml/system_config/edit/section/amshopby</action>
+                                <sort_order>30</sort_order>
+                            </settings>
+                        </children>
+                    </amshopby>
+                </children>
+            </catalog>
+        </menu>     
+   
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        
+                        <catalog>
+                            <children>
+                                <amshopby>
+                                    <title>Improved Navigation</title>
+                                    <children>
+                                        <filters> 
+                                            <title>Filters</title>
+                                        </filters>
+                                        <ranges> 
+                                            <title>Price Ranges</title>
+                                        </ranges>
+                                        <pages> 
+                                            <title>Pages</title>
+                                        </pages>
+                                        <settings> 
+                                            <title>Settings</title>
+                                        </settings>
+                                    </children>                                    
+                                </amshopby>
+                            </children>
+                        </catalog>
+                        
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <amshopby translate="title" module="amshopby">
+                                            <title>Improved Navigation</title>
+                                        </amshopby>
+                                    </children>
+                                </config>
+                            </children>
+                        </system> 
+                     </children>
+                </admin> 
+            </resources>
+        </acl>
+        <translate>
+            <modules>
+                <Amasty_Shopby>
+                    <files>
+                        <default>Amasty_Shopby.csv</default>
+                    </files>
+                </Amasty_Shopby>
+            </modules>
+        </translate>
+    </adminhtml> 
+    
+    <default>
+        <amshopby>
+           <general>
+                <active>1</active>
+                <title_separator> - </title_separator>
+                <descr_separator>, </descr_separator>
+                <exclude></exclude>
+                <exclude_cat></exclude_cat>
+                <show_in_stock>0</show_in_stock>
+                <use_custom_ranges>0</use_custom_ranges>
+                <categories_type>0</categories_type>
+                <price_type>0</price_type>
+                <price_from_to>1</price_from_to> 
+                <price_collapsed>0</price_collapsed>
+                <enable_collapsing>1</enable_collapsing>
+                <categories_collapsed>0</categories_collapsed>
+                <hide_one_value>0</hide_one_value>
+                <categories_order>0</categories_order>
+                <slider_type>0</slider_type>
+                <bundle>0</bundle>
+                <stock_filter_pos>-1</stock_filter_pos>
+            </general>
+            <block>
+                <ajax>0</ajax>
+                <state_pos>left</state_pos>
+                <categories_pos>left</categories_pos>
+                <price_pos>left</price_pos>
+                
+            </block>
+            <seo>
+                <urls>0</urls>
+                <hide_attributes>0</hide_attributes>
+                <key>shopby</key>
+                <canonical>2</canonical>
+                <canonical_cat>1</canonical_cat>
+                <query_param></query_param>
+                <price_nofollow>0</price_nofollow>
+                <price_noindex>0</price_noindex>
+                <price_rel_nofollow>0</price_rel_nofollow>
+                <special_char>_</special_char>
+                <option_char>-</option_char>
+                <exclude_user_agent></exclude_user_agent>
+            </seo>
+            <brands>
+                <attr></attr>
+            </brands>
+        </amshopby>
+    </default>
+    
+</config>
