@@ -66,7 +66,10 @@ if (empty($menu_position)) $menu_position = 1;
 						<div class="relative">
 							<div class="top-links-container <?php echo $_css_class; ?>">
 								<?php echo $language . $currency . $this->getChildHtml('cart_top') ?>
-								<div class="top-links"><?php echo $this->getChildHtml('topLinks'); ?></div>
+								<div class="top-links">
+									<div class="callus">Call 123456789 or email us</div>
+									<?php echo $this->getChildHtml('topLinks'); ?>
+								</div>
 								<div class="clear"></div>
 							</div>
 							<div class="nav-search-container <?php echo($athleteHelper->getCfg('header/search') ? 'search-visible' : '') ?>">

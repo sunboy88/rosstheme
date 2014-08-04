@@ -63,11 +63,13 @@
 		</reference>
 
 		<reference name="top.links">
-			<!--<remove name="wishlist_link"/>-->
+			<remove name="wishlist_link"/>
 			<remove name="checkout_cart_link"/>
-			<block type="checkout/links" name="checkout_cart_link_custom">
+			<!-- <block type="checkout/links" name="checkout_cart_link_custom">
 				<action method="addCheckoutLink"></action>
-			</block>
+			</block> -->
+			<!-- Removes 'My Account' link - Default position: 10 -->
+                <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/></action>
 		</reference>
 
 		<!-- add currency and cart block in header -->
