@@ -996,6 +996,10 @@ body.cms-index-index{background: #fff;}
 
 .nav-search-container{background: #2b2b2b;}
 
+.wrapper_filter{float: left;width: 23%;}
+.cms-index-index .col-main .block-subscribe{float: right;width: 75%;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;}
+.cms-index-index .col-main .slideshow-container{float: right;clear: right;width: 75%!important;}
+
 /* Clears ================================================================================ */
 .clearer:after,
 .header-container:after,

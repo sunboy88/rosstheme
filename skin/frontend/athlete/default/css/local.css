@@ -1778,7 +1778,8 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .product-columns-2 .products-grid li.item { width: 50%;}
 .product-columns-3 .products-grid li.item { width: 33.3333%;}
 .product-columns-4 .products-grid li.item { width: 25%;}
-.product-columns-5 .products-grid li.item { width: 28.5%;}
+.product-columns-5 .products-grid li.item { width: 22%;margin: 25px 2% 25px 0;}
+.product-columns-5 .products-grid li.item:first-child{margin-left: 2%;}
 .product-columns-6 .products-grid li.item { width: 16.6666%;}
 .product-columns-7 .products-grid li.item { width: 14.2857%;}
 
