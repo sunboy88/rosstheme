@@ -1,13 +1,13 @@
 <div class="footer-subscribe">
-	<div class="title"><?php echo $this->__('Sign up & Get 10% off.') ?></div>
+	<!-- <div class="title"><?php echo $this->__('Sign up & Get 10% off.') ?></div> -->
 	<form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="footer-newsletter-validate-detail">
-		<p><?php echo $this->__('Register your email for news and special offers') ?></p>
-		<button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button">
-			<span><span><?php echo $this->__('Subscribe') ?></span></span></button>
+		<!-- <p><?php echo $this->__('Register your email for news and special offers') ?></p> -->
 		<div class="input-box">
 		<input type="text" name="email" id="footer-newsletter"
 		       title="<?php echo $this->__('Sign up for our newsletter') ?>"
-		       class="input-text required-entry validate-email"/>
+		       class="input-text required-entry validate-email" placeholder="Enter email for newsletter "/>
+		       <button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button">
+			<span><span><?php echo $this->__('Subscribe') ?></span></span></button>
 		</div>
 		<div class="clear"></div>
 	</form>

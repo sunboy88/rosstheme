@@ -7,10 +7,14 @@
 				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId(Mage::helper('athlete')->getCfg('footer/cms_block'))->toHtml(); ?>
 			</div>
 			<div class="facebook-block">
-				<div class="fb-like" data-share="false" data-send="false" data-layout="standard" data-width="270" data-height="35" data-show-faces="false" data-font="arial" data-colorscheme="<?php echo $this->helper('athlete')->getCfg('social/facebook_scheme') ?>" data-action="like"></div>
+				<!-- <div class="fb-like" data-share="false" data-send="false" data-layout="standard" data-width="270" data-height="35" data-show-faces="false" data-font="arial" data-colorscheme="<?php echo $this->helper('athlete')->getCfg('social/facebook_scheme') ?>" data-action="like"></div>
 				<div class="athlete_footer_customer_service">
 					<?php echo $this->getChildHtml('athlete_footer_customer_service');?>
+				</div> -->
+				<div class="newletter_footer">
+					<?php echo $this->getLayout()->createBlock('newsletter/subscribe')->setTemplate('newsletter/subscribe_footer.phtml')->toHtml(); ?>
 				</div>
+				<div class="social_footer"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('athlete_footer_connect')->toHtml(); ?></div> 
 			</div>
 		</div>
 	</div>
@@ -18,8 +22,9 @@
 <div class="copyright-container">
 	<div class="row clearfix">
 		<div class="grid_18">
-			<div class="cc-icons"><?php echo $this->getChildHtml('athlete_cc_icons');?></div>
 			<address><?php echo $this->getCopyright() ?></address>
+			<!-- <div class="cc-icons"><?php echo $this->getChildHtml('athlete_cc_icons');?></div> -->
+			<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_fmenu')->toHtml(); ?>
 		</div>
 	</div>
 </div>
