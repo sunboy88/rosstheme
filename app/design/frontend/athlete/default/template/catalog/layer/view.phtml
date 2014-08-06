@@ -31,6 +31,7 @@
  * @see Mage_Catalog_Block_Layer_View
  */
 ?>
+<div class="wrapper_filter">
 <?php if($this->canShowBlock()): ?>
     <?php if ($this->getLayer()->getState()->getFilters()): ?>
         <div class="block block-currently-shopping">  
@@ -55,4 +56,5 @@
         <script type="text/javascript">decorateDataList('narrow-by-list')</script>
     <?php endif; ?>
 <?php endif; ?>
+</div>
 
