@@ -575,9 +575,10 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 
 
 /* Footer ================================================================================ */
-.footer-container { background:#000;}
+.main-container .footer-container { background:#242424;position: relative;}
+.main-container .footer-container:before{width: 100%;height: 1px;background: #1c1c1c;content: "";position: absolute;top: 260px;left: 0;}
 .footer-container .bottom-container { text-align:center;}
-.footer { border:none; padding:41px 0 30px; color:#fff;}
+.footer { border:none; padding: 50px 0 30px; color:#fff;}
 .footer p { text-align:left;}
 .footer ul {}
 .footer ul li { display:block;}
@@ -592,20 +593,22 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .footer .info-content h4,
 .footer .info-content h5,
 .footer .info-content h6 {
-	padding:0px 0px 20px 2px;
-	color:#fff; font-weight:700; text-transform:uppercase; text-align:left; word-break: break-word;
+	padding:0px 0px 17px 2px;
+	color:#7d7d7d; font-weight:700; text-transform:uppercase; text-align:left; word-break: break-word;
+    font-family: 'open sans';
 }
 
 .footer .info-content h1 { font-size:36px;}
 .footer .info-content h2 { font-size:32px;}
 .footer .info-content h3 { font-size:28px;}
-.footer .info-content h4 { font-size:24px; line-height:22px;}
+.footer .info-content h4 { font-size:14px; line-height:18px;}
 .footer .info-content h5 { font-size:20px;}
 .footer .info-content h6 { font-size:18px;}
 
-.footer .info-content ul li { margin:0 0 4px;}
-.footer .info-content a {display:inline-block; line-height:18px; padding:0 4px; color:#a8a8a8; text-decoration:none;}
-.footer .info-content a:hover {background:#ffe51e; color:#000;}
+.footer .info-content ul li { margin:0;}
+.footer .info-content a {display:inline-block; line-height:18px; padding:0 0 0 8px; color:#7d7d7d; text-decoration:none;font-size: 14px;position: relative;font-family: 'open sans';}
+.footer .info-content a:before{width: 3px;height: 3px;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;content: "";position: absolute;top: 8px;left: 0;background: #7d7d7d;}
+.footer .info-content ul li a:hover {color:#fff;background: none;}
 
 .footer .info-content p {margin-bottom: 18px;}
 
@@ -795,7 +798,7 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 	a.inverted-icon.icon-imdb:hover  		{ background-position:-1120px 0;}
 	a.inverted-icon.icon-instagram:hover  	{ background-position:-1160px 0;}
 
-.footer .facebook-block { margin:54px 0 0; padding:30px 0 0; border-top:1px solid #fff; border-top-color:rgba(255,255,255,0.15);}
+.footer .facebook-block { margin: 45px 0 0; padding:30px 0 0;}
 .footer .facebook-block .fb-like { float:left; width: inherit !important;}
 .athlete_footer_customer_service {overflow:hidden; padding:0 0 0 45px; text-align:right; color:#fff; line-height:24px; font-size:16px;  }
 .athlete_footer_customer_service span {margin: 0 0 0 15px}
@@ -810,6 +813,20 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 	text-align: left; 
 	line-height: 1.3;	
 }
+.newletter_footer{float: left;clear: both;}
+.social_footer{float: right;}
+.social_footer .social-icon{width: 36px;height: 36px;background: url("../images/new/social-footer.png") no-repeat;}
+.social_footer .social-icon:hover{opacity: 0.8;}
+.social_footer a.icon-facebook{background-position: 0 0;}
+.social_footer a.icon-twitter{background-position: -44px 0;}
+.social_footer a.icon-gplus{background-position: -88px 0;}
+.social_footer a.icon-linkedin{background-position: -132px 0;}
+.social_footer a.icon-flicker{background-position: -176px 0;}
+.footer-subscribe .input-box input[type=text]{width: 215px;height: 36px;}
+.footer-subscribe .input-box button.button{width: 36px;height: 36px;background: url("../images/new/arr-right-ic.png") no-repeat center #7d7d7d;margin-left: -4px;vertical-align: top;}
+.footer-subscribe .input-box button.button span{font-size: 0;line-height: 0;padding: 0;margin: 0;}
+.footer-subscribe .input-box button.button span:before{display: none;}
+
 /* ======================================================================================= */
 
 /* Misc ================================================================================ */
