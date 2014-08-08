@@ -1,0 +1,59 @@
+<?php 
+  $deals = $this->getDeals();
+?>
+<?php if(count($deals)):?>
+  <table id="product-attribute-specs-table" class="topic-table" cellpadding="0" cellspacing="0">
+    <colgroup>
+      <col width="265px"/>
+      <col />
+    </colgroup>
+    <tbody>		
+      <?php $i = 1; ?>
+      <?php foreach($deals as $deal):?>
+        <tr style="margin: 0px; padding: 0px;  ">
+          <?php $product = $deal->getProduct();?>
+          <?php $now_time = Mage::getModel('core/date')->timestamp(time()); ?>				
+          <?php $end_time = Mage::getModel('core/date')->timestamp($deal->getEndTime()) ?>
+          <td style="padding: 10px 0;">
+            <a href="<?php echo $product->getProductUrl()?>" title="<?php echo $product->getName(); ?>">
+              <img src="<?php echo $product->getImageUrl()?>" alt="<?php echo $product->getName(); ?>"/> 
+            </a> 
+          </td>
+          <td style="padding-left:12px;">
+            <h2 class="product-name" style="color: #1C9DD0; font-size: 30px;font-weight: bold; text-decoration: none;">
+              <a href="<?php echo $product->getProductUrl()?>" title="<?php echo $product->getName(); ?>">
+                <?php echo $product->getName(); ?>
+              </a>
+            </h2>
+            <div class="short-desc">
+              <?php echo $product->getShortDescription()?>
+            </div>
+            <br/><br/>
+            <div class="deal-price">
+              <div class="price-statistic price-deal" style="float:left;	border-style:solid !important; border-width:3px !important;	box-shadow: 3px 3px 3px #c3c3c3; /* CSS3 */	-moz-border-radius: 5px; /* Firefox */	-webkit-border-radius: 5px; /* Safari, Chrome */	border-radius: 5px; /* CSS3 */	padding:5px;	margin-right:10px;	 font-family:Georgia; border-color:#FEF35D;">
+                <label><?php echo $this->__('Price:') ?></label>
+                <span class="price"><?php echo Mage::helper('core')->currency($deal->getDealPrice());?></span>
+              </div>
+              <div class="price-statistic price-value" style="float:left;	border-style:solid !important; border-width:3px !important;	box-shadow: 3px 3px 3px #c3c3c3; /* CSS3 */	-moz-border-radius: 5px; /* Firefox */	-webkit-border-radius: 5px; /* Safari, Chrome */	border-radius: 5px; /* CSS3 */	padding:5px;	margin-right:10px;	 font-family:Georgia; border-color:#7ae30a;">
+                <label><?php echo $this->__('Value:') ?></label>
+                <span class="price"><?php echo Mage::helper('core')->currency($product->getPrice());?></span>
+              </div>
+              <div class="price-statistic price-saves" style="float:left;	border-style:solid !important; border-width:3px !important;	box-shadow: 3px 3px 3px #c3c3c3; /* CSS3 */	-moz-border-radius: 5px; /* Firefox */	-webkit-border-radius: 5px; /* Safari, Chrome */	border-radius: 5px; /* CSS3 */	padding:5px;	margin-right:10px;	 font-family:Georgia; border-color:#38A8FA;">
+                <?php $is_rounded = Mage::getStoreConfig('dailydeal/general/round_saving');?>
+                <?php $save = floatval($product->getPrice()) - floatval($deal->getDealPrice());?>
+                <?php if ($is_rounded):?>
+                  <?php $save = round(100 * $save / floatval($product->getPrice()),0);?>
+                  <?php else:?>
+                  <?php $save = round(100 * $save / floatval($product->getPrice()),2);?>
+                  <?php endif;?>
+                <label><?php echo $this->__('Save:') ?></label>
+                <span class="price"><?php echo $save; ?><?php echo $this->__('%');?></span>
+              </div>
+            </div>					
+          </td>
+        </tr>	
+        <?php $i++;?>			
+        <?php endforeach;?>
+    </tbody>	
+  </table>
+  <?php endif;?>

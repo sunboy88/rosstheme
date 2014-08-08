@@ -1,0 +1,88 @@
+<?php
+	/*
+	* Copyright (c) 2014 www.magebuzz.com
+	*/
+?>
+
+<?php if(Mage::helper('dailydeal')->isActiveDailydeal()):?>
+		<div class="grid-deals">
+			<div class="page-title title-buttons">
+				<h1><?php echo $this->__('Daily Deals')?></h1>
+				<?php if (Mage::getStoreConfig('dailydeal/deal_subscriber/enable_subscription')):?>
+
+				<div class="daily-deal-subscription">
+					<a class="fancybox" href="#subscription-popup" title="" id="get_notified_daily_deal" ><strong><?php echo $this->__("Get notified of daily deals");?></strong></a> 
+				</div>
+
+				<?php endif;?>
+			</div>
+			<div class="all-deals">
+				<div id="today-deals">
+					<h3><?php echo $this->__('Today\'s Deals')?></h3>
+					<div class="list-deals">
+						<?php echo $this->getChild('today_tab')->toHtml()?>
+					</div>
+				</div>
+				<?php if(Mage::getStoreConfig('dailydeal/general/show_coming_deal') && $this->getComingDeals()->getSize()):?>
+				<div id="coming-deals">
+					<h3><?php echo $this->__('Coming Deals')?></h3>
+					<div class="list-deals">
+						<?php echo $this->getChild('coming_tab')->toHtml()?>
+					</div>
+				</div>
+				<?php endif;?>
+				<?php if(Mage::getStoreConfig('dailydeal/general/show_previous_deal') && $this->getPreviousDeals()->getSize()):?>
+				<div id="previous-deals">
+					<h3><?php echo $this->__('Previous Deals')?></h3>
+					<div class="list-deals">
+						<?php echo $this->getChild('previous_tab')->toHtml()?>
+					</div>
+				</div>
+				<?php endif;?>
+			</div>
+		</div>
+	<?php if (Mage::getStoreConfig('dailydeal/deal_subscriber/enable_subscription')):?>
+		<div id="subscription-popup" style="display:none;">
+			<div class="subscribe-result-message" id="subscribe-result-message"></div>
+			<div id="subscribe-form-ajax" style="display:none;">&nbsp;</div>
+			<form method="post" name="dailydeal-subscription-form" id="dailydeal-subscription-form">
+				<div class="subscription-form">
+				<h5 class="intro-msg"><?php echo Mage::helper('dailydeal')->getIntroMessage();?></h5>
+				<ul class="form-list">
+					<li>
+						<label for="name" class="required"><em>*</em><?php echo $this->__('Your Name:'); ?></label>
+						<div class="input-box">
+							<input type="text" name="dailydeal_customer_name" class="required-entry input-text" id="dailydeal_customer_name"/>
+						</div>
+					</li>	
+					<li>
+						<label for="email" class="required"><em>*</em><?php echo $this->__('Your Email:'); ?></label>
+						<div class="input-box">
+							<input type="text" name="dailydeal_email" class="required-entry input-text validate-email" id="dailydeal_email"/>
+						</div>
+          </li>
+				</ul>
+				<div class="actions">
+					<button class="button right" id="dailydeal-subscribe-button" type="button"><span><span><?php echo $this->__('Submit');?></span></span></button>
+				</div>
+				</div>
+			</form>
+		</div>
+		
+		<script type="text/javascript">
+			Event.observe('dailydeal-subscribe-button', 'click', function(e) {
+				var newsletter_url = '<?php echo $this->getUrl('dailydeal/index/subscribe', array('_secure' => true));?>';
+				var subscription_form = new VarienForm('dailydeal-subscription-form', true);
+				var validator = new Validation(this.form);
+				if (validator.validate()) {
+					submit_dailydeal_newsletter(newsletter_url);
+				}
+			});
+
+			$jq(document).ready(function() {
+				$jq('.fancybox').fancybox();
+			});
+		</script>	
+	<?php endif;?>
+<?php endif;?>
+

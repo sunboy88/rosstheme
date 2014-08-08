@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <default>
+    <reference name="head">
+      <action method="addJs"><script>magebuzz/dailydeal/dailydeal.js</script></action>
+    </reference>
+  </default>
+  <dailydealadmin_adminhtml_dailydeal_index>
+    <reference name="content">
+      <block type="dailydeal/adminhtml_dailydeal" name="dailydeal" />
+    </reference>
+  </dailydealadmin_adminhtml_dailydeal_index>
+  
+  
+  <dailydeal_adminhtml_mail_index>
+    <reference name="content">
+      <block type="dailydeal/adminhtml_mail" name="mail" />
+    </reference>
+  </dailydeal_adminhtml_mail_index>
+  <dailydeal_adminhtml_mail_import>
+    <reference name="content">
+      <block type="dailydeal/adminhtml_import" name="import" />
+    </reference>
+  </dailydeal_adminhtml_mail_import>
+  
+  
+  <dailydealadmin_adminhtml_dailydeal_product>
+    <block type="core/text_list" name="root">
+      <block type="dailydeal/adminhtml_dailydeal_edit_tab_product" name="deal.edit.tab.product"/>
+      <block type="dailydeal/adminhtml_dailydeal_serializer" name="related_grid_serializer">
+        <action method="initSerializerBlock">
+          <grid_block_name>deal.edit.tab.product</grid_block_name>
+          <hidden_input_name>deal_product</hidden_input_name>
+        </action>
+      </block>
+    </block>
+  </dailydealadmin_adminhtml_dailydeal_product>
+
+  <dailydealadmin_adminhtml_dailydeal_productgrid>
+    <block type="core/text_list" name="root">
+      <block type="dailydeal/adminhtml_dailydeal_edit_tab_product" name="deal.edit.tab.product"/>
+    </block>
+  </dailydealadmin_adminhtml_dailydeal_productgrid>
+
+  <dailydealadmin_adminhtml_dailydeal_report>
+    <reference name="head">
+      <action method="addJs"><script>magebuzz/dailydeal/Chart.min.js</script></action>
+    </reference>
+    <reference name="content">
+      <block type="dailydeal/adminhtml_dailydeal_report" name="deal.report" template="dailydeal/report.phtml"/>
+    </reference>
+  </dailydealadmin_adminhtml_dailydeal_report>
+  
+</layout>

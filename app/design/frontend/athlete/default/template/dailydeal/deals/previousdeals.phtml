@@ -1,0 +1,83 @@
+<?php
+  /*
+  * Copyright (c) 2013 www.magebuzz.com
+  */
+?>
+<?php Mage::helper('dailydeal')->updateAllDealStatus(); ?>
+<?php $deals = Mage::helper('dailydeal')->getPreviousDeals(); ?>
+<?php if ($deals->getSize()):?>
+		<?php $col = 3; ?>
+		<?php $i=0; foreach($deals as $deal):?>
+			<?php $product = $deal->getProduct();?>
+			<?php $now_time = Mage::getModel('core/date')->timestamp(time()); ?>				
+			<?php $end_time = Mage::getModel('core/date')->timestamp($deal->getEndTime()) ?>
+			<?php if ($i++%$col==0): ?>
+        <ul class="row">
+      <?php endif ?>
+				<li class="deal<?php if(($i-1)%$col==0): ?> first<?php elseif($i%$col==0): ?> last<?php endif; ?>">
+					<div class="product-info">
+						<a class="product-image" href="<?php echo $product->getProductUrl()?>" title="<?php echo $product->getName()?>">
+							<img src="<?php echo $product->getImageUrl()?>" alt="<?php echo $product->getName()?>" width="135"/> 
+						</a> 
+						<h3 class="product-name">
+							<a href="<?php echo $product->getProductUrl()?>" title="<?php echo $product->getName()?>"><?php echo $product->getName()?></a>
+						</h3>
+						<div class="deal-info">
+							<div class="deal-price">
+								<div class="price-deal">
+									<span class="price"><?php echo Mage::helper('core')->currency($deal->getDealPrice());?></span>
+								</div>
+								<div class="price-value">
+									<span class="price"><?php echo Mage::helper('core')->currency($product->getPrice());?></span>
+								</div>
+								<div class="price-save">
+									<?php $is_rounded = Mage::getStoreConfig('dailydeal/general/round_saving');?>
+									<?php $save = floatval($product->getPrice()) - floatval($deal->getDealPrice());?>
+									<?php if ($is_rounded):?>
+										<?php $save = round(100 * $save / floatval($product->getPrice()),0);?>
+										<?php else:?>
+										<?php $save = round(100 * $save / floatval($product->getPrice()),2);?>
+										<?php endif;?>
+									<span class="price"><?php echo $save; ?><?php echo $this->__('%');?></span>
+								</div>
+							</div>
+							<?php if ($deal->getStatus()==2 || $deal->getStatus()==1):?>
+              <?php if(($end_time > $now_time) && ($deal->getQuantity())):?>
+                <div class="deal-time">				
+										<h5 class="deal-qty left"><?php echo $this->__('There are only %s item(s)!', $deal->getQuantity());?></h5>
+                    <h4>
+                      <span id="timeleft_<?php echo $deal->getId()?>" class="timeleft"> </span>
+                    </h4>
+                </div>					
+                <?php 
+                  if ($deal->getStatus()==2) {
+                    $end_time = Mage::getModel('core/date')->timestamp($deal->getEndTime());
+                  } elseif ($deal->getStatus()==1){
+                    $end_time = Mage::getModel('core/date')->timestamp($deal->getStartTime());
+                  }
+                ?> 
+
+                <script type="text/javascript">
+                  //<![CDATA[
+                  var dealTimeCounter_<?php echo $deal->getId()?> = new DealTimeCounter('<?php echo $now_time ?>', '<?php echo $end_time ?>','<?php echo $deal->getId() ?>');
+                  dealTimeCounter_<?php echo $deal->getId()?>.setTimeleft('timeleft_<?php echo $deal->getId()?>');
+                  //
+                </script>
+                <?php elseif($deal->getQuantity() < 1):?>
+                <div class="deal-time">
+                  <div class="deal-time-info">
+                    <label><?php echo $this->__('Sorry, this deal was sold out.');?></label>
+                  </div>
+                </div>
+                <?php endif;?>
+              <?php endif;?>
+						</div>	
+					</div>	
+				</li>
+			<?php if ($i%$col==0 || $i==count($deals)): ?>
+        </ul>
+        <?php endif ?>
+		<?php endforeach;?>
+<?php else:?>
+<p class="note-msg"><?php echo $this->__('There is no deal available.') ?></p>
+<?php endif;?>

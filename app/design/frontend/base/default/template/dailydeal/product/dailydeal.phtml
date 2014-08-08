@@ -1,0 +1,77 @@
+<?php
+  /*
+  * Copyright (c) 2013 www.magebuzz.com
+  */
+?>
+<?php Mage::helper('dailydeal')->updateAllDealStatus(); ?>
+<?php	$product_id=$this->getRequest()->getParam('id');?>
+<?php $deal=$this->getDeal($product_id);?>
+<?php $deal_id = $deal->getDealId(); ?>
+<?php $now_time=Mage::getModel('core/date')->timestamp(time()); ?>
+<?php $product = Mage::getModel('catalog/product')->load($product_id);?>
+<?php if ($deal->getId() && $deal->getStatus()==2):?>
+  <div class="deal-price">
+    <div class="price-statistic price-deal">
+      <label><?php echo $this->__('Price:') ?></label>
+      <span class="price"><?php echo Mage::helper('core')->currency($deal->getDealPrice());?></span>
+    </div>
+    <div class="price-statistic price-value">
+      <label><?php echo $this->__('Value:') ?></label>
+      <span class="price"><?php echo Mage::helper('core')->currency($product->getPrice());?></span>
+    </div>
+    <div class="price-statistic price-save">
+      <?php $is_rounded = Mage::getStoreConfig('dailydeal/general/round_saving');?>
+      <?php $save = floatval($product->getPrice()) - floatval($deal->getDealPrice());?>
+      <?php if ($is_rounded):?>
+        <?php $save = round(100 * $save / floatval($product->getPrice()),0);?>
+        <?php else:?>
+        <?php $save = round(100 * $save / floatval($product->getPrice()),2);?>
+        <?php endif;?>
+      <label><?php echo $this->__('Save:') ?></label>
+      <span class="price"><?php echo $save; ?><?php echo $this->__('%');?></span>
+    </div>
+  </div>
+  <div class="product-view-deal">
+    <div class="deal-time-info">
+      <?php $end_time = Mage::getModel('core/date')->timestamp($deal->getEndTime()) ?>
+      <?php if(($end_time > $now_time) && ($deal->getQuantity())):?>
+        <h4 class="dealtime-label"><?php echo $this->__('Time left')?></h4>
+        <div id="timeleft" class="timeleft"> </div>
+        <h5 class="deal-qty"><?php echo $this->__('There are only %s item(s)!', $deal->getQuantity());?></h5>
+        <script type="text/javascript">
+          //<![CDATA[
+          var dealTimeCounter = new DealTimeCounter('<?php echo $now_time ?>', '<?php echo $end_time ?>','<?php echo $deal->getId() ?>');
+          dealTimeCounter.setTimeleft('timeleft');
+          //]]>
+        </script>	
+        <?php endif;?>
+    </div>	
+  </div>
+
+  <?php if (Mage::helper('dailydeal')->enableSocialSharing()): ?>
+    <table>
+      <tr class="social-sharing">
+        <!-- facebook -->
+        <td class="td-facebook">
+          <div class="fb-share-button" data-href="<?php echo Mage::helper('core/url')->getCurrentUrl(); ?>" data-type="button_count"></div>
+        </td>
+        <!-- twitter -->
+        <td>
+          <a class="twitter-share-button" data-url="<?php echo Mage::helper('core/url')->getCurrentUrl(); ?>"></a>
+        </td>
+        <!-- Google+ -->
+        <td>
+          <div class="g-plusone" data-href="<?php echo Mage::helper('core/url')->getCurrentUrl(); ?>" data-size="medium"></div>
+        </td>
+      </tr>
+    </table>
+
+  <?php endif;?>
+
+<?php endif;?>
+
+<style type="text/css">
+  .td-facebook {
+    padding-right: 30px;
+  }
+</style>

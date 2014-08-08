@@ -117,17 +117,28 @@ $athleteHelper = $this->helper('athlete');
 		            </div>
 	            <?php endif; ?>
             </div>
-
-		        <?php if( $athleteHelper->getCfg('listing/grid_cart') ): ?>
-			        <div class="btn-cart-container clearfix">
-				        <?php if($_product->isSaleable()): ?>
-					        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart icon-<?php echo $athleteHelper->getCfg('main/button_icons', 'athlete_appearance'); ?>" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
-				        <?php else: ?>
-					        <span class="availability out-of-stock"><?php echo $this->__('Out of stock') ?></span>
-				        <?php endif; ?>
-			        </div>
-		        <?php endif; ?>
-
+            <div class="product-view-deal">			    
+		    	<?php $deal = Mage::helper('dailydeal')->getDealByProductId($_product->getId()); $now_time=Mage::getModel('core/date')->timestamp(time()); ?>
+		      	<?php $end_time = Mage::getModel('core/date')->timestamp($deal->getEndTime()) ?>
+		      	<?php if(($end_time > $now_time) && ($deal->getQuantity())):?>			     
+		        <div id="timeleft" class="timeleft"> </div>			  
+		        <script type="text/javascript">
+		          //<![CDATA[
+		          var dealTimeCounter = new DealTimeCounter('<?php echo $now_time ?>', '<?php echo $end_time ?>','<?php echo $deal->getId() ?>');
+		          dealTimeCounter.setTimeleft('timeleft');
+		          //]]>
+		        </script>	
+		        <?php endif;?>
+			 </div>
+	        <?php if( $athleteHelper->getCfg('listing/grid_cart') ): ?>
+		        <div class="btn-cart-container clearfix">
+			        <?php if($_product->isSaleable()): ?>
+				        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart icon-<?php echo $athleteHelper->getCfg('main/button_icons', 'athlete_appearance'); ?>" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+			        <?php else: ?>
+				        <span class="availability out-of-stock"><?php echo $this->__('Out of stock') ?></span>
+			        <?php endif; ?>
+		        </div>
+	        <?php endif; ?>
 	        </div>
         </li>
     <?php endforeach ?>

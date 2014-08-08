@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<config>
+  <tabs>
+    <magebuzz translate="label">
+      <label>MageBuzz Add-ons</label>
+      <sort_order>400</sort_order>
+    </magebuzz>
+  </tabs>
+  <sections>
+    <dailydeal translate="label" module="dailydeal">
+      <class>separator-top</class>
+      <label>Daily Deal</label>
+      <tab>magebuzz</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>299</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <general translate="label">
+          <label>General Configuration</label>
+          <frontend_type>text</frontend_type>
+          <comment>
+            <![CDATA[
+              <div style="border:1px solid #ccc; padding:5px;">
+                <p style="color:#EB5E00">To show daily deal block to a CMS page, please add following code: <code>{{block type='dailydeal/dailydeal' name='dailydeal' template='dailydeal/deals.phtml'}}</code></p>             
+                <p style="color:#EB5E00">If you want to use daily deal in a phtml file, please add this code: <code>$this->getLayout()->createBlock('dailydeal/dailydeal')->setTemplate('dailydeal/deals.phtml')->toHtml();</code></p>
+              </div>
+            ]]>
+          </comment>
+          <sort_order>1</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>    
+            <enable translate="label">
+              <label>Enable Daily Deals</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>10</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </enable>
+            <include_jquery translate="label">
+              <label>Include jQuery library</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>20</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </include_jquery>
+            <!--<display_in_category_page translate="label">
+              <label>Display Deal's Infomation in Category Page</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>21</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment></comment>
+            </display_in_category_page>  -->     
+            <show_previous_deal>
+              <label>Show previous deals</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>30</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_default>1</show_in_default>
+              <show_in_store>1</show_in_store>
+            </show_previous_deal> 
+            <show_coming_deal>
+              <label>Show coming deals</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>40</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_default>1</show_in_default>
+              <show_in_store>1</show_in_store>
+            </show_coming_deal> 
+            <enable_sharing>
+              <label>Show share buttons</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>50</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_default>1</show_in_default>
+              <show_in_store>1</show_in_store>
+            </enable_sharing>
+            <sharing_template_message>
+              <label>Social Sharing Template Message</label>
+              <frontend_type>textarea</frontend_type>
+              <sort_order>51</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_default>1</show_in_default>
+              <show_in_store>1</show_in_store>
+            </sharing_template_message>
+            <enable_paging>
+              <label>Enable paging</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>57</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_default>1</show_in_default>
+              <show_in_store>1</show_in_store>
+              <depends><display_mode>grid</display_mode></depends>
+            </enable_paging>
+            <show_all_deals>
+              <label>Allow All Deals per Page</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>58</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_default>1</show_in_default>
+              <show_in_store>1</show_in_store>
+              <depends><display_mode>grid</display_mode></depends>
+            </show_all_deals>
+            <deals_grid_per_page_values translate="label">
+              <label>Deals per Page on Grid Allowed Values</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>59</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <depends><display_mode>grid</display_mode></depends>
+            </deals_grid_per_page_values>
+            <show_on_sidebar>
+              <label>Display Today Deals on Sidebar</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>60</sort_order>
+              <source_model>dailydeal/system_config_source_sidebar</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_default>1</show_in_default>
+              <show_in_store>1</show_in_store>
+            </show_on_sidebar>
+            <round_saving>
+              <label>Round up Saving Number</label>
+              <frontend_type>select</frontend_type>
+              <comment><![CDATA[Saving number will show as integer without decimal places.]]></comment>
+              <sort_order>70</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_default>1</show_in_default>
+              <show_in_store>1</show_in_store>
+            </round_saving>
+          </fields>       
+        </general>
+        <deal_subscriber>
+          <label>Daily Deal Subscription</label>
+          <frontend_type>text</frontend_type>         
+          <sort_order>2</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <enable_subscription>
+              <label>Allow customer to subscribe to receive new daily deal notification</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>0</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_default>1</show_in_default>
+              <show_in_store>1</show_in_store>
+            </enable_subscription>
+            <email_sender translate="label comment">
+              <label>Email Sender</label>
+              <comment><![CDATA[Select the email sender]]></comment>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_email_identity</source_model>              
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </email_sender>
+            <email_template translate="label comment">
+              <label>Email Template for email list</label>
+              <comment><![CDATA[Select an email template]]></comment>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_email_template</source_model>
+              <sort_order>2</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </email_template>
+            <intro_message translate="label">
+              <label>Intro message</label>
+              <comment><![CDATA[The message which show in popup to customer enter email]]></comment>
+              <frontend_type>textarea</frontend_type>
+              <sort_order>5</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </intro_message>
+            <thanks_message translate="label">
+              <label>Thank you message</label>
+              <frontend_type>textarea</frontend_type>
+              <sort_order>7</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </thanks_message>
+          </fields>
+        </deal_subscriber>
+      </groups>
+    </dailydeal>
+  </sections>
+</config>

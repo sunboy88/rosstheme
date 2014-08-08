@@ -1,0 +1,55 @@
+<?php
+$product_id=$this->getRequest()->getParam('id');
+$deal=$this->getDeal($product_id);
+if ($deal->getDealId()) :
+?>
+
+<?php
+  $product = Mage::getModel('catalog/product')->load($product_id);
+  $end_time = strtotime($deal->getEndTime());
+  // Zend_Debug::dump($deal);
+  $message_template = Mage::helper('dailydeal')->getSharingMessageTemplate(); 
+  if (!$message_template) {
+    $message_template = 'Hurry Up! Only remaining %d %s are on SALE before %s GMT on %s';
+  }
+  $message = sprintf($message_template, $deal->getQuantity(), $product->getName(), date('H:i:s', $end_time), date('d D-M-Y',$end_time));
+
+  // echo $message;
+
+?>
+
+<!-- facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+
+<!-- Google + Place this tag after the last +1 button tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<meta property="og:url" content="<?php echo Mage::helper('core/url')->getCurrentUrl(); ?>"/>
+
+<meta property="og:title" content="<?php echo $message; ?>"/>
+
+<meta property="og:description" content="<?php echo $message ?>"/>
+
+<meta property="og:image" content="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize(250) ?>"/>
+
+
+
+<?php endif; ?>

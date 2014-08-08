@@ -1,0 +1,169 @@
+#product-attribute-specs-table{
+	width:100%;
+}
+#product-attribute-specs-table tr td{padding:10px 0; /*border-bottom:2px solid #7ed1f0;*/}
+#product-attribute-specs-table tr.last td{border:0 none;}
+#product-attribute-specs-table td img{
+	width:265px;
+	height:250px;
+}
+#product-attribute-specs-table .product-name a{font-size:30px; font-weight:bold; color:#1c9dd0; text-decoration:none;}
+#product-attribute-specs-table .short-desc{font-size:14px; font-weight:normal; color:#636363;}
+.deal-price{float:left; width:100%; margin:5px 0;}
+.price-statistic{
+	float:left;
+	padding:5px;
+	margin-right:10px;
+}
+.price-statistic label{float:left;}
+.price-statistic .price{float:left;font-weight:bold;}
+.deal-time{float:left; width:100%;margin:0 0 10px;}
+.deal-time-info{
+	text-align:left;
+	padding:10px; 
+	border:1px solid #cccccc;
+}
+.deal-share{
+	padding:10px 8px;
+	overflow:hidden;
+}
+
+.deal-share .share-buttons {clear:both; }
+.deal-share .share-buttons .fb-button {display:inline;}
+.deal-share .share-buttons .twitter-button {display:inline;}
+
+.deal-time .deal-share ul li {float:left; margin: 0 5px;}
+
+.deal-time label{color:#FD9000; font-size:16px; font-weight:bold;}
+.deal-time h4{font-size:18px;color:#2f2f2f; text-align:center;}
+.deal-time h4 label{color:#FD9000; font-size:37px; font-family: 'DS-Digital'; }
+.deal-time h4 label,.deal-time .deal-share label{font-size:30px;}
+.deal-time h5{color:#38A8FA; font-size:18px; margin:6px 0 0;}
+.deal-time button.btn-cart::-moz-focus-inner { padding:0; border:0; } /* FF Fix */
+.deal-time button.btn-cart { -webkit-border-fit:lines; } /* <- Safari & Google Chrome Fix */
+.deal-time button.btn-cart{ overflow:visible; width:auto; border:0 none; padding:0; margin:0; background:transparent; cursor:pointer;}
+.deal-time button.btn-cart span { height:37px;line-height:37px; border:0; padding:0; background:url(../../images/dailydeal/btn-buy-now.png) 0 0 no-repeat; width:95px; text-align:center;}
+.deal-time button.btn-cart span span {background:0 none; color:#996633; font-size:16px; font-weight:normal;}
+/* CSS FOR DEAL VIEW */
+.product-view-deal{float:left; width:100%; position: relative; margin:10px 0;}
+.product-view-deal .i-box {
+    background: none repeat scroll 0 0 #F1F1F1;
+    border: 5px solid #FFFFFF;
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.05);
+    padding: 30px 10px 10px;
+    position: relative;
+		overflow:hidden;
+		text-align:center;
+}
+.product-view-deal .price-save {
+    background: url("../../images/dailydeal/i_save.png") no-repeat scroll right top transparent;
+    float: right;
+    height: 100px;
+    position: absolute;
+    right: -30px;
+		top:-60px;
+    width: 100px;
+		text-align:center;
+		z-index:1000;
+}
+.product-view-deal .price-save .price{
+	line-height:100px;
+	font-size:20px;
+	color:#FFFFFF;
+	font-weight:bold;
+}
+.deal-qty{}
+.product-view-deal #timeleft{}
+.product-view-deal .dealtime-label{ color:#FD9000; text-align:left;}
+.product-view-deal #countdown{float:left; width:100%; text-align:left; margin:0 0 10px;}
+.product-view-deal .deal-qty{}
+#countdown{float:left; width:100%; text-align:center; margin:0 0 10px;}
+#countdown li{*float:left; *display:inline; zoom:1; display:inline-block; padding:0; text-align:center;}
+.catalog-category-view #countdown li{width:32px;}
+#countdown li .timeleft-value{font-size:15px; font-family:Arial; line-height:1.55; font-weight:bold; color:#000;}
+#countdown li .timeleft-label{float:left; width:100%; clear:both; color:#333; font-size:11px; font-weight:bold; text-transform:uppercase;}
+/* CSS FOR DEAL SIDEBAR */
+#deal-list tr td{padding:10px; border-bottom:2px solid #cccccc;}
+#deal-list tr.last td{border:0 none;}
+#deal-list .product-deal-image{width:100%; text-align:center;}
+#deal-list .product-deal-name{width:100%; text-align:center; margin:5px 0;}
+#deal-list .product-deal-name a{}
+#deal-list td img{
+	width:135px;
+	height:135px;
+}
+#deal-list .deal-price{margin:3px 0;font-weight:normal; color:#636363;}
+#deal-list .deal-price .price{font-size:20px;}
+#deal-list .save-price {margin:3px 0;font-weight:normal; color:#636363;}
+#deal-list .save-price .price{font-size:20px;}
+#deal-list h4{}
+
+/***** Subscription popup *****/
+#subscription-popup { display: none; min-width: 240px; min-height:150px; max-width:320px; text-align:left;}
+#subscribe-form-ajax {
+	width:32px;
+	height:32px;
+	margin-left:70px;
+	background:url(../../images/dailydeal/ajax-loader.gif) top left no-repeat;
+	z-index:999;
+}
+#newsletter-subscription-popup {position: fixed; width: 300px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); background: #FFFFFF; padding:20px; border-radius:5px;}
+#newsletter-subscription-popup .dailydeal-subscription-popup {display:block; position:relative;}
+#newsletter-subscription-popup .dailydeal-subscription-popup .close-popup{position:absolute; top:-40px; right:-40px;}
+#newsletter-subscription-popup .dailydeal-subscription-popup p.intro-msg{color: #FD9000; font-weight: bold; font-size:13px;}
+#newsletter-subscription-popup .dailydeal-subscription-popup .input-box {width:100%; float:left; margin:0 0 6px;}
+#newsletter-subscription-popup .dailydeal-subscription-popup .input-box .validation-advice{margin-left:70px;}
+#newsletter-subscription-popup .dailydeal-subscription-popup .input-box label{min-width:70px; float:left; font-weight:bold; color:#666666}
+#newsletter-subscription-popup .dailydeal-subscription-popup .input-box input.input-text {float:left; width:220px; margin:0 0 3px;}
+#newsletter-subscription-popup .dailydeal-subscription-popup .actions {clear:both; padding-top:15px; }
+#subscription-popup #subscribe-result-message {color:#EB340A; font-weight:bold; text-align:center;}
+@media (max-width: 480px) and (orientation:portrait){
+	.form-list .input-box{width:194px;}
+	.form-list input.input-text{width:190px;}
+}
+
+/* Grid Mode */
+.grid-deals{}
+.title-buttons{text-align:right;}
+.title-buttons h1, .title-buttons h2, .title-buttons h3, .title-buttons h4, .title-buttons h5, .title-buttons h6{float:left;}
+.grid-deals #today-deals,.grid-deals #coming-deals,.grid-deals #previous-deals{float:left; width:100%; margin:0 0 10px;}
+.grid-deals #today-deals h3,.grid-deals #coming-deals h3,.grid-deals #previous-deals h3{font-size:18px; font-weight:normal;}
+.grid-deals .list-deals{}
+.grid-deals .list-deals .pager{margin:0 0 10px; border:0 none;}
+.grid-deals .list-deals ul{float:left; width:100%; margin:0 0 15px;}
+.grid-deals .list-deals ul li.first{ float:left; width:32%; margin:0;}
+.grid-deals .list-deals ul li{ float:left; width:32%; margin-left:2%; }
+.grid-deals .list-deals ul li.last{ float:right; width:32%; margin:0;}
+.grid-deals .list-deals .product-info{background:#FFFFFF; border:1px solid #cccccc; text-align:center; border-radius:5px; overflow:hidden; position:relative; padding:1px;}
+.grid-deals .list-deals .product-info .product-image{display:block; margin:10px auto; width:135px; border:0 none;}
+.grid-deals .list-deals .product-info .product-name{min-height:2.7em; font-size:15px; font-weight:bold; color:#666666; margin:0 0 10px; padding:0 10px;}
+.grid-deals .list-deals .product-info .product-name a{color:#666666; text-decoration:none;}
+.grid-deals .list-deals .product-info .product-name a:hover{color:#fd9000; text-decoration:none;}
+.grid-deals .list-deals .product-info .deal-info{background:#F1F1F1; padding:10px; margin:0; overflow:hidden;}
+.grid-deals .list-deals .product-info .deal-price{margin:0;}
+.grid-deals .list-deals .product-info .deal-price .price-deal, .grid-deals .list-deals .product-info .deal-price .price-value{display:inline; padding:0 5px;}
+.grid-deals .list-deals .product-info .deal-price .price{font-size:20px; color:#bb2626;}
+.grid-deals .list-deals .product-info .deal-price .price-value .price{text-decoration:line-through;}
+.grid-deals .list-deals .product-info .deal-price .price-save {
+    background: url(../../images/dailydeal/i_save.png) no-repeat scroll left top transparent;
+    height: 100px;
+    line-height: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+}
+.grid-deals .list-deals .product-info .deal-price .price-save .price{color:#FFFFFF;}
+.grid-deals .list-deals .product-info .deal-time{margin:0;}
+.grid-deals .list-deals .product-info .deal-time h5{font-size:13px; color:#666666;}
+.grid-deals .list-deals .product-info .deal-time #countdown li{width:auto!important; margin:0 5px 0 0!important; float:none!important;}
+.grid-deals .list-deals .product-info .deal-time #countdown li .timeleft-value{font-size:15px; font-family:Arial; line-height:1.55;}
+#countdown li .timeleft-label{float:left; width:100%; clear:both; color:#333; font-size:11px; font-weight:bold; text-transform:uppercase;}
+
+/* Responsive */
+@media (max-width: 480px) {
+	.grid-deals .list-deals ul li, .grid-deals .list-deals ul li.first, .grid-deals .list-deals ul li.last{ float:left; width:100%; margin:0 0 15px; }
+}
+@media (min-width: 481px) and (max-width: 600px) {
+	.grid-deals .list-deals ul li, .grid-deals .list-deals ul li.first, .grid-deals .list-deals ul li.last{ float:left; width:100%; margin:0 0 15px; }
+}
