@@ -25,9 +25,7 @@
  */
 ?>
 <div class="block block-subscribe">
-    <div class="block-title">
-       <strong><span><?php echo $this->__('Newsletter') ?></span></strong><!--sign up & get 10% off-->
-    </div>
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('today_special')->toHtml(); ?> 
     <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
         <div class="block-content">
             <div class="form-subscribe-header">
