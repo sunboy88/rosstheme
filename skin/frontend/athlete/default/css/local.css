@@ -272,12 +272,12 @@ p.control input.radio { margin-right:6px; }
 
 .nav-search-container { position: relative; min-height: 74px;text-align: right;}
 .nav-search-container .special-offer,
-.nav-search-container .clearance{display: inline-block;margin: 20px 0 0 15px;vertical-align: top;height: 42px;font: bold 13px 'open sans';line-height: 20px;padding: 11px 15px 11px 44px;text-transform: uppercase;}
+.nav-search-container .clearance{display: inline-block;margin: 20px 0 0 15px;vertical-align: top;height: 20px;font: bold 13px 'open sans';line-height: 20px;padding: 11px 15px 11px 44px;text-transform: uppercase;}
 .nav-search-container .special-offer{background: url("../images/new/offer-ic.png") no-repeat 13px 10px #e01e14;color: #fff;}
 .nav-search-container .clearance{background: url("../images/new/clearance-ic2.png") no-repeat 14px 10px #ffcd00;color: #000;}
 
-.header .form-search { position:absolute; z-index:100; right:0; top: 19px; margin:0; width:35px;}
-.header .form-search-over { width:279px; background: #000; padding: 10px 0 10px 20px; margin-top:-10px;}
+.header .form-search { margin:0; width:35px;float: left;margin: 20px 0 0 40px;}
+.header .form-search-over { width:279px;}
 .header .form-search input { 
 	border: 0;
 	width: 244px; height: 35px;
@@ -285,11 +285,13 @@ p.control input.radio { margin-right:6px; }
     background: #efefef;
 }
 .header .form-search label, .header .form-search input { display:none;}
-.header .form-search button.button, .header .form-search input { float:right;background: url("../images/new/search-ic.png") no-repeat center #efefef;}
+.header .form-search button.button, .header .form-search input { float:right;background: #efefef;}
 
-.header .form-search button.button span { width:35px; height: 35px; padding:0;background: none;}
-.header .form-search button.button span:before, .header .form-search button.button span:after {background: none;}
-.header .form-search button.button span span { color: transparent; text-indent:-1000em;/* background:url('../images/athlete/icon_search.png') 2px 2px no-repeat;*/}
+.header-container .header .form-search button.button{background: url("../images/new/search-ic.png") no-repeat center #efefef;}
+.header-container .header .form-search button.button span { width:35px; height: 35px; padding:0;background: none;}
+.header-container .header .form-search button.button span:before, .header .form-search button.button span:after {background: none;}
+.header-container .header .form-search button.button span span { color: transparent; text-indent:-1000em;/* background:url('../images/athlete/icon_search.png') 2px 2px no-repeat;*/background: none;}
+.header-container .header .form-search button.button span span:hover {background: none;}
 	/* inverted */
 	.header .form-search button.button.icon-white span span {background-position: 2px -28px;}
 
@@ -320,7 +322,7 @@ p.control input.radio { margin-right:6px; }
 #nav > li, #nav ul.level0 li { text-align:left; position:relative; }
 #nav > li.over, #nav ul.level0 li.over { }
 #nav > li.parent, #nav ul.level0 li.parent {}
-#nav > li > a, #nav ul.level0 li a { display:block; text-decoration:none; color:#000; font-size:14px; font-weight:700; }
+#nav > li > a, #nav ul.level0 li a { display:block; text-decoration:none; color:#fff; font-size:14px; font-weight:700; }
 #nav > li > a:hover, #nav ul.level0  li a:hover { text-decoration:none; }
 #nav > li > a span, #nav ul.level0 li a span { display:block; white-space:nowrap; cursor:pointer; }
 #nav > li ul.level0 a span { white-space:normal; }
@@ -329,10 +331,10 @@ p.control input.radio { margin-right:6px; }
 
 /* 1st Level */
 #nav>li { float:left; margin: 0; }
-#nav>li>a {font: normal 12px 'open sans';line-height: 16px;padding: 15px 10px;}
+#nav>li>a {font: normal 12px 'open sans';line-height: 16px;padding: 15px;}
 #nav>li>a:hover,
 #nav>li.over>a,
-#nav>li.active>a {color: #ddd;}
+#nav>li.active>a {color: #000;}
 /*#nav>li.parent>a:hover:before,*/
 /*#nav>li.parent.over>a:before { content:'';width:100%; height:16px; position:absolute; z-index:998; top:28px; left:0; background:#ffe51e; }*/
 
@@ -370,8 +372,9 @@ p.control input.radio { margin-right:6px; }
 ======================================================================================= */
 .header-2 { position: relative;}
 
-.header-nav-wide #nav {margin: 23px 0 20px;-webkit-box-shadow: 0 2px 6px rgba(94,95,95,.32); -moz-box-shadow: 0 2px 6px rgba(94,95,95,.32); box-shadow: 0 2px 6px rgba(94,95,95,.32);background: #2b2b2b;}
-.header-nav-wide #nav > li > a{}
+.header-nav-wide{-webkit-box-shadow: 0 2px 6px rgba(94,95,95,.32); -moz-box-shadow: 0 2px 6px rgba(94,95,95,.32); box-shadow: 0 2px 6px rgba(94,95,95,.32);background: #2b2b2b;}
+.header-nav-wide #nav {margin: 23px auto 20px;padding: 0;max-width: 960px;}
+.header-nav-wide #nav > li > a{font-size: 12px;}
 
 .header-nav-txt.std { padding: 24px 54px 22px 24px;}
 .header-nav-txt.std, .header-nav-txt.std a {color: #fff;}
@@ -1249,11 +1252,14 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 /* Block list hovers */
 	.block-layered-nav li, .block-viewed li, .block-account li, .block .block-content li.item,
 	.block-blog-categories li { 
-		padding: 4px 0 3px; margin-bottom: 1px;
+		padding: 7px 0; margin-bottom: 1px;
+        font-size: 0;
 	}
 	.block-layered-nav li a, .block-account li a, .block-compared li a,
 	.block-blog-categories li a {
-		display:inline-block; padding: 5px 8px 4px; margin: -5px 0 -3px -8px; text-decoration: none;
+		display: block; padding: 5px 8px 4px; margin: -5px 0 -3px -8px; text-decoration: none;
+        font: normal 13px 'open sans';line-height: 15px;
+        background: url("../images/new/checkbox-ic.png") no-repeat 98% center;
 	}
 
 	.block .actions {padding-top: 10px;text-align: left;vertical-align: top;}
@@ -1367,8 +1373,16 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 	/* Block subscribe */
 		.block-subscribe .block-title {padding-bottom: 20px;}
 		.block-subscribe .form-subscribe-header {padding-bottom: 8px;}
-		
+        .block-subscribe .form-subscribe-header label{display: block;text-align: center;font: bold 17px 'open sans';color: #2b2b2b;line-height: 20px;}
+        .block-subscribe .form-subscribe-header label + label{font-weight: normal;}
 
+.block-subscribe .input-box{text-align: center;position: relative;}
+.block-subscribe .input-box input{width: 46%;margin: 0 3px;display: inline-block;vertical-align: top;height: 58px;padding: 12px 14px;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;font: normal 17px 'open sans';color: #2b2b2b;line-height: 30px;border: 4px solid #78c613;border-radius: 8px;-moz-border-radius: 8px;-webkit-border-radius: 8px;}
+.block-subscribe .input-box input + input{padding-right: 50px;}
+.block-subscribe .actions{padding: 0;margin: 0;position: absolute;bottom: 7px;right: 4.2%;width: 45px;height: 45px;}
+.block-subscribe .actions button{width: 45px;height: 45px;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;background: #e01e14;border: 1px solid #a82e28;font: bold 16px 'open sans';color: #fff;line-height: 25px;padding: 10px 0;text-align: center;position: relative;border-radius: 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;}
+.block-subscribe .actions button:before{width: 100%;height: 100%;font: bold 16px 'open sans';color: #fff;line-height: 25px;padding: 10px 0;text-align: center;content: "GO";position: absolute;top: 0;left: 0;}
+.block-subscribe .actions button span{display: none;}
 	/* Block viewed */
 		.block-viewed .block-content li.item { padding: 0 0 22px;}
 		.block-viewed .block-content li.item.last { padding: 0;}
@@ -1654,7 +1668,9 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 	font-weight: 800;
 }
 
-.label-top-right { top: 0; right: 0;}
+.item-wrap .label-top-right { top: -10px; right: -10px;width: 76px;height: 77px;font-size: 0;padding: 0;background: none;}
+.item-wrap .label-top-right.sale-label{background: url("../images/new/lastfew-ic.png") no-repeat top left;}
+.item-wrap .label-top-right.new-label{background: url("../images/new/clearance-ic.png") no-repeat top left;}
 .label-bottom-left { bottom: 0; left: 0;}
 .label-bottom-right { bottom: 0; right: 0;}
 
@@ -1691,7 +1707,8 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 
 .products-grid .price-box { margin: 0;float: left;width: 50%;background: #2b2b2b;border-radius: 5px 0 0 5px;-moz-border-radius: 5px 0 0 5px;-webkit-border-radius: 5px 0 0 5px;}
 .products-grid .price-box:after { content: ''; position: absolute; left: 0; top: 0; width: 0; height: 100%; z-index: -1;}
-.products-grid .price-box .price{color: #fff;font: bold 13px 'open sans';line-height: 30px;}
+.products-grid .price-box .price,
+.products-grid .new-product .price-box .price{color: #fff;font: bold 13px 'open sans';line-height: 30px;}
 .products-grid .save-price{float: right;width: 50%;border-radius: 0 5px 5px 0;-moz-border-radius: 0 5px 5px 0;-webkit-border-radius: 0 5px 5px 0;background: #00b6ff;color: #fff;font: bold 13px 'open sans';line-height: 30px;}
 
 .products-grid .minimal-price-link { text-decoration: none; background-color: transparent;}

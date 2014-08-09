@@ -1005,7 +1005,7 @@ body.cms-index-index{background: #fff;}
 .nav-search-container{}
 
 .wrapper_filter{float: left;width: 23%;}
-.cms-index-index .col-main .block-subscribe{float: right;width: 75%;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;}
+.cms-index-index .col-main .block-subscribe{float: right;width: 75%;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;border: none;background: url("../images/new/special-today.jpg") no-repeat top left;padding: 55px 0 0;position: relative;}
 .cms-index-index .col-main .slideshow-container{float: right;clear: right;width: 75%!important;}
 
 /* Clears ================================================================================ */
