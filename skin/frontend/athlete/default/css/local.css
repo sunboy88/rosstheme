@@ -287,8 +287,8 @@ p.control input.radio { margin-right:6px; }
 .header .form-search label, .header .form-search input { display:none;}
 .header .form-search button.button, .header .form-search input { float:right;background: #efefef;}
 
-.header-container .header .form-search button.button{background: url("../images/new/search-ic.png") no-repeat center #efefef;}
-.header-container .header .form-search button.button span { width:35px; height: 35px; padding:0;background: none;}
+.header-container .header .form-search button.button{background: url("../images/new/search-ic.png") no-repeat center #efefef;width:35px; height: 35px;}
+.header-container .header .form-search button.button span {  padding:0;background: none;display: none;}
 .header-container .header .form-search button.button span:before, .header .form-search button.button span:after {background: none;}
 .header-container .header .form-search button.button span span { color: transparent; text-indent:-1000em;/* background:url('../images/athlete/icon_search.png') 2px 2px no-repeat;*/background: none;}
 .header-container .header .form-search button.button span span:hover {background: none;}
