@@ -487,6 +487,12 @@ tr.summary-details-excluded { font-style:italic; }
 .products-grid .availability { line-height:21px; }
 .products-grid .actions { position:absolute; bottom:12px; }
 
+.product-action{float: right;width: 20%;}
+.product-action .add-to-links li{display: inline;}
+.product-action .add-to-links a.link-compare{display: none;}
+.product-action .add-to-links a.link-wishlist{display: block;width: 24px;height: 26px;font-size: 0;background: url("../images/new/wishlist-ic.png") no-repeat top left;float: right;}
+.product-action .add-to-links li a:hover{background-color: transparent;}
+
 /* View Type: List */
 .products-list li.item { border-bottom:1px solid #ddd; padding:12px 10px; }
 .products-list li.item.last { border-bottom:0; }
