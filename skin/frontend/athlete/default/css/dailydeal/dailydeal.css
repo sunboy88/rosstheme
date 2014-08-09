@@ -45,7 +45,7 @@
 .deal-time button.btn-cart span { height:37px;line-height:37px; border:0; padding:0; background:url(../../images/dailydeal/btn-buy-now.png) 0 0 no-repeat; width:95px; text-align:center;}
 .deal-time button.btn-cart span span {background:0 none; color:#996633; font-size:16px; font-weight:normal;}
 /* CSS FOR DEAL VIEW */
-.product-view-deal{float:left; width:100%; position: relative; margin:10px 0;}
+.product-view-deal{float:left; width:78%; position: relative; margin: 10px 0 12px;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;padding: 5px 8px;clear: both;}
 .product-view-deal .i-box {
     background: none repeat scroll 0 0 #F1F1F1;
     border: 5px solid #FFFFFF;
@@ -75,13 +75,16 @@
 .deal-qty{}
 .product-view-deal #timeleft{}
 .product-view-deal .dealtime-label{ color:#FD9000; text-align:left;}
-.product-view-deal #countdown{float:left; width:100%; text-align:left; margin:0 0 10px;}
+.product-view-deal #countdown{float:left; width: 100%; text-align:left; margin:0 0 10px;-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; background-color: #2b2b2b; -webkit-box-shadow: 0 1px 2px rgba(94,95,95,.73); -moz-box-shadow: 0 1px 2px rgba(94,95,95,.73); box-shadow: 0 1px 2px rgba(94,95,95,.73);}
 .product-view-deal .deal-qty{}
 #countdown{float:left; width:100%; text-align:center; margin:0 0 10px;}
-#countdown li{*float:left; *display:inline; zoom:1; display:inline-block; padding:0; text-align:center;}
+#countdown li{*float:left; *display:inline; zoom:1; display:inline-block; padding:0; text-align:center;position: relative;}
 .catalog-category-view #countdown li{width:32px;}
-#countdown li .timeleft-value{font-size:15px; font-family:Arial; line-height:1.55; font-weight:bold; color:#000;}
-#countdown li .timeleft-label{float:left; width:100%; clear:both; color:#333; font-size:11px; font-weight:bold; text-transform:uppercase;}
+#countdown li:last-child{display: none;}
+#countdown li .timeleft-value{font-size:15px; font-family:Arial; line-height:1.55; font-weight:bold; color:#fff;}
+#countdown li .timeleft-label{float:left; width:100%; clear:both; color:#fff; font-size:11px; font-weight:bold; text-transform:uppercase;}
+#countdown li:before{content: ":";position: absolute;top: 2px;left: -2px;font-size: 12px;color: #fff;font-weight: 900;}
+#countdown li:first-child:before{display: none;}
 /* CSS FOR DEAL SIDEBAR */
 #deal-list tr td{padding:10px; border-bottom:2px solid #cccccc;}
 #deal-list tr.last td{border:0 none;}
@@ -158,7 +161,7 @@
 .grid-deals .list-deals .product-info .deal-time h5{font-size:13px; color:#666666;}
 .grid-deals .list-deals .product-info .deal-time #countdown li{width:auto!important; margin:0 5px 0 0!important; float:none!important;}
 .grid-deals .list-deals .product-info .deal-time #countdown li .timeleft-value{font-size:15px; font-family:Arial; line-height:1.55;}
-#countdown li .timeleft-label{float:left; width:100%; clear:both; color:#333; font-size:11px; font-weight:bold; text-transform:uppercase;}
+#countdown li .timeleft-label{float:left; width:100%; clear:both; color:#fff; font-size:11px; font-weight:bold; text-transform:uppercase;}
 
 /* Responsive */
 @media (max-width: 480px) {
