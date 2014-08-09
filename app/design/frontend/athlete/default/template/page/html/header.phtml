@@ -74,23 +74,18 @@ if (empty($menu_position)) $menu_position = 1;
 							</div>
 							<div class="nav-search-container <?php echo($athleteHelper->getCfg('header/search') ? 'search-visible' : '') ?>">
 								<?php echo $this->getChildHtml('topSearch') ?>
-								<?php if ($menu_position == 1) echo $this->getChildHtml('topMenu') ?>
-								<?php if ($menu_position == 2) : ?>
-<!-- 									<div class="nav-container header-nav-txt std">
-										<?php echo $this->getChildHtml('athlete_header_text') ?>
-									</div> -->
-								<?php endif ?>
+								<?php if ($menu_position == 1) echo $this->getChildHtml('topMenu') ?>								
 								<div class="special-offer">Special Offer</div>
 								<div class="clearance">Clearance</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<?php if ($menu_position == 2) : ?>
-					<div class="header-nav-wide"><?php echo $this->getChildHtml('topMenu') ?></div>
-				<?php endif ?>
+				</div>				
 			</div>
 		</div>
+		<?php if ($menu_position == 2) : ?>
+			<div class="header-nav-wide"><?php echo $this->getChildHtml('topMenu') ?></div>
+		<?php endif ?>
 	</div>
 <?php echo $this->getChildHtml('topContainer'); ?>
 <?php echo $this->getChildHtml('athlete_slideshow'); ?>
