@@ -56,5 +56,10 @@
         <script type="text/javascript">decorateDataList('narrow-by-list')</script>
     <?php endif; ?>
 <?php endif; ?>
+<?php
+$is_homepage = Mage::getBlockSingleton('page/html_header')->getIsHomePage();
+if($is_homepage)
+    echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_left')->toHtml();
+?>
 </div>
 
