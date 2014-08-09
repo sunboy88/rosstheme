@@ -83,28 +83,29 @@ $athleteHelper = $this->helper('athlete');
 	                .'" data-srcX2="'. $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgX*2, $imgY*2)
 	                .'" width="'.$imgX.'" height="'.$imgY.'" alt="'. $this->stripTags($this->getImageLabel
 		                ($_product, 'small_image'), null, true) .'" />'; ?>
+
+                <div class="product-hover">
+                    <?php if( $athleteHelper->getCfg('listing/grid_price') ): ?>
+                        <?php echo $this->getPriceHtml($_product, true) ?>
+                        <?php
+                        $_regular_price = floatval($_product->getPrice());
+                        $_special_price = floatval($_product->getFinalPrice());
+                        $_deal_price 	= floatval($deal->getDealPrice());
+                        if($_deal_price){
+                            $save = round(100 * ($_regular_price - $_deal_price) / $_regular_price, 0);
+                        } else {
+                            $save = round(100 * ($_regular_price - $_special_price) / $_regular_price, 0);
+                        }
+                        if((int)$save > 0):
+                            ?>
+                            <div class="save-price"><?php echo $this->__('Save')." ".$save."%" ?></div>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </div>
             </a>
-            <div class="product-hover">
-            	<?php if( $athleteHelper->getCfg('listing/grid_price') ): ?>
-	                <?php echo $this->getPriceHtml($_product, true) ?>
-	                <?php 
-	                	$_regular_price = floatval($_product->getPrice());
-	                	$_special_price = floatval($_product->getFinalPrice());
-	                	$_deal_price 	= floatval($deal->getDealPrice());
-	                	if($_deal_price){
-	                		$save = round(100 * ($_regular_price - $_deal_price) / $_regular_price, 0);
-	                	} else {
-	                		$save = round(100 * ($_regular_price - $_special_price) / $_regular_price, 0);
-	                	}
-	                	if((int)$save > 0):
-	                ?>
-	                <div class="save-price"><?php echo $this->__('Save')." ".$save."%" ?></div>
-	                <?php endif; ?>
-                <?php endif; ?>
                 <?php if( $athleteHelper->getCfg('listing/grid_name') ): ?>
-	                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2><br/>
+                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2><br/>
                 <?php endif; ?>
-            </div>
             <div class="name">
                 <?php if( $athleteHelper->getCfg('listing/hover_rating') && $_product->getRatingSummary() ): ?>
 	                <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
