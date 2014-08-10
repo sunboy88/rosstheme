@@ -1252,16 +1252,18 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 /* Block list hovers */
 	.block-layered-nav li, .block-viewed li, .block-account li, .block .block-content li.item,
 	.block-blog-categories li { 
-		padding: 7px 0; margin-bottom: 1px;
+		padding: 2px 0; margin-bottom: 1px;
         font-size: 0;
 	}
 	.block-layered-nav li a, .block-account li a, .block-compared li a,
 	.block-blog-categories li a {
-		display: block; padding: 5px 8px 4px; margin: -5px 0 -3px -8px; text-decoration: none;
+		display: block; padding: 8px 17px 8px 23px; margin: 0; text-decoration: none;
         font: normal 13px 'open sans';line-height: 15px;
-        background: url("../images/new/checkbox-ic.png") no-repeat 98% center;
+        background: url("../images/new/checkbox-ic.png") no-repeat 92% center;
 	}
-
+    .block-layered-nav li a:hover{color: #2b2b2b;background-color: #efefef;}
+ .block-layered-nav.block .block-title{padding: 23px 17px 12px 23px;font-weight: normal;letter-spacing: 0;}
+.block-layered-nav.block .block-title strong{font-size: 13px;color: #2b2b2b;line-height: 15px;text-transform: none;}
 	.block .actions {padding-top: 10px;text-align: left;vertical-align: top;}
 	.block .actions a {
 		padding: 0 13px;

@@ -56,7 +56,7 @@ div.block-layered-nav.amshopby-collapse-enabled dt.amshopby-collapsed {backgroun
 
 
 div.block-layered-nav div.amshopby-slider {
-	 position:relative; margin:10px auto 5px auto; z-index:9; height:18px;  background: url(../images/amshopby-slider-bg.gif) repeat-x 0 50%; cursor:pointer;
+	 position:relative; margin:10px 20px 5px; z-index:9; height:18px;  background: url(../images/amshopby-slider-bg.gif) repeat-x 0 50%; cursor:pointer;
 }
 div.block-layered-nav div.amshopby-slider div.handle {width:8px; top:3px; height:14px; background: transparent url(../images/amshopby-hadle.png) no-repeat; position: absolute; cursor:move; z-index: 2;}
 
@@ -108,6 +108,10 @@ div.block-layered-nav div.amshopby-slider div.handle {width:8px; top:3px; height
 
 div.block-layered-nav, div.amshopby-page-container, div.amshopby-filters-top {
     position: relative;
+    border: none;
+    padding: 0;
+    background: none;
+    margin: 0;
 }
 div.amshopby-overlay {
     background-color: #FFFFFF;
