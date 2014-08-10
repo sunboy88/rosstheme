@@ -133,7 +133,20 @@ $athleteHelper = $this->helper('athlete');
 	            </ul>
 			</div>
 	        <?php if( $athleteHelper->getCfg('listing/grid_cart') ): ?>
-		        <div class="btn-cart-container clearfix">
+	            <?php
+                    $targetArray = array("blue", "green","red");
+                    $targetArrayStandard = $targetArray;
+                    $i = 0;
+
+                    if(empty($targetArray)) {
+                        $targetArray = $targetArrayStandard;
+                    }
+                    $rand = array_rand($targetArray);
+
+                    $class= $targetArray[$rand];
+                    unset($targetArray[$rand]);
+                ?>
+		        <div class="btn-cart-container clearfix <?php echo $class?>">
 			        <?php if($_product->isSaleable()): ?>
 				        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart icon-<?php echo $athleteHelper->getCfg('main/button_icons', 'athlete_appearance'); ?>" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
 			        <?php else: ?>
