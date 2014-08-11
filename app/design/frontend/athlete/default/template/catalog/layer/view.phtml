@@ -40,6 +40,7 @@
         </div>
     <?php endif; ?>
     <?php if($this->canShowOptions()): ?>
+        <div class="wrap-block">
         <?php $_filters = $this->getFilters() ?>
         <?php foreach ($_filters as $_filter): ?>
             <?php if($_filter->getItemsCount()): ?>
@@ -52,7 +53,8 @@
                     <div class="block-content"><?php echo $_filter->getHtml() ?></div>
                 </div>
             <?php endif; ?>
-        <?php endforeach; ?> 
+        <?php endforeach; ?>
+        </div> 
         <script type="text/javascript">decorateDataList('narrow-by-list')</script>
     <?php endif; ?>
 <?php endif; ?>
