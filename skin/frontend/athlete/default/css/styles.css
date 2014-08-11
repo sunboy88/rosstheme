@@ -1006,7 +1006,7 @@ body.cms-index-index{background: #fff;}
 
 .wrapper_filter{float: left;width: 23%;margin-right: 2%;position: relative;z-index: 1;border: 1px solid #d4d4d4;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;}
 .main-container .col-main .block-subscribe{float: right;width: 75%;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;border: none;background: none;padding: 0;position: relative;margin: 0 0 25px;}
-.main-container .cms-index-index .col-main .slideshow-container{float: right;clear: right;width: 75%!important;}
+.main-container .col-main .slideshow-container{float: right;clear: right;width: 75%!important;}
 .main-container .col-main .block-subscribe img{max-width: 100%;}
 
 /* Clears ================================================================================ */
