@@ -636,6 +636,12 @@
 	.grid-fluid .footer .newsletter { padding-top: 15px;}
 
 
+
+    .main-container .footer-container:before{display: none;}
+    .newletter_footer{float: none;margin: 0 auto;}
+    .footer-subscribe{text-align: center;}
+    .footer-subscribe .input-box{display: inline-block;}
+    .social_footer{float: none;margin: 20px auto 0;text-align: center;}
 	.footer .facebook-block { margin-top: 0px;}
 
 	.copyright-container .cc-icons {float: none;}
@@ -780,6 +786,7 @@
 	/* product slider */
 	.product-slider-container .title-container h3 {max-width: 212px !important;}
 	.product-slider-container-big .title-container h3 {max-width: 192px !important;}
+    .product-action{width: 18%;}
 
 	/* my order */
 	.order-items table.data-table th, .order-items table.data-table td {padding: 5px; font-size: 11px;}
