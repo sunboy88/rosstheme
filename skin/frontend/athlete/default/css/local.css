@@ -1716,7 +1716,7 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 
 .category-products .products-grid .product-name a{font-size: 12px;color: #2b2b2b;letter-spacing: 1px;font-weight: 600;}
 
-.products-grid .price-box { margin: 0;float: left;width: 50%;background: #2b2b2b;border-radius: 5px 0 0 5px;-moz-border-radius: 5px 0 0 5px;-webkit-border-radius: 5px 0 0 5px;}
+.products-grid .price-box { margin: 0;float: left;width: 50%;background: #2b2b2b;border-radius: 5px 0 0 5px;-moz-border-radius: 5px 0 0 5px;-webkit-border-radius: 5px 0 0 5px;text-align: center;}
 .products-grid .price-box:after { content: ''; position: absolute; left: 0; top: 0; width: 0; height: 100%; z-index: -1;}
 .products-grid .price-box .price,
 .products-grid .new-product .price-box .price{color: #fff;font: bold 13px 'open sans';line-height: 30px;}
