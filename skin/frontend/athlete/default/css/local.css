@@ -1257,10 +1257,16 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 	}
 	.block-layered-nav li a, .block-account li a, .block-compared li a,
 	.block-blog-categories li a {
-		display: block; padding: 8px 17px 8px 23px; margin: 0; text-decoration: none;
-        font: normal 13px 'open sans';line-height: 15px;
-        background: url("../images/new/checkbox-ic.png") no-repeat 92% center;
+		display:inline-block; padding: 5px 8px 4px; margin: -5px 0 -3px -8px; text-decoration: none;
 	}
+.block-layered-nav li a{
+    display: block; padding: 8px 17px 8px 23px; margin: 0; text-decoration: none;
+    font: normal 13px 'open sans';line-height: 15px;
+    background: url("../images/new/checkbox-ic.png") no-repeat 92% 8px;
+}
+.block-layered-nav li a.amshopby-attr-selected{
+    background-image: url("../images/new/checkbox-ic-tick.png");
+}
     .block-layered-nav li a:hover{color: #2b2b2b;background-color: #efefef;}
  .block-layered-nav.block .block-title{padding: 23px 17px 12px 23px;font-weight: normal;letter-spacing: 0;}
 .block-layered-nav.block .block-title strong{font-size: 13px;color: #2b2b2b;line-height: 15px;text-transform: none;}
@@ -1707,6 +1713,8 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .products-grid .product-name { margin:0; padding:0; display: inline-block; position: relative; z-index: 1;}
 .products-grid .product-name:after { content: ''; position: absolute; left: 0; top: 0; width: 0; height: 100%; z-index: -1;}
 .products-grid .product-name a {text-decoration: none; display: inline-block; padding: 3px 6px 4px 5px;}
+
+.category-products .products-grid .product-name a{font-size: 12px;color: #2b2b2b;letter-spacing: 1px;font-weight: 600;}
 
 .products-grid .price-box { margin: 0;float: left;width: 50%;background: #2b2b2b;border-radius: 5px 0 0 5px;-moz-border-radius: 5px 0 0 5px;-webkit-border-radius: 5px 0 0 5px;}
 .products-grid .price-box:after { content: ''; position: absolute; left: 0; top: 0; width: 0; height: 100%; z-index: -1;}
