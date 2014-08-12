@@ -992,7 +992,7 @@ body.cms-index-index{background: #fff;}
 .header-container .top-links-container:before{background-color: #fec52d;height: 45px;}
 .header-container .header .links:after{display: none;}
 .header .top-links .callus{float: left;font: normal 15px 'open sans';color: #fff;line-height: 19px;padding: 10px 0 0 45px;text-shadow: 0 1px 2px rgba(176,136,31,.75);}
-.page .header-container{background: none;}
+.page .header-container{background: #fff;}
 .header-container .header-language{display: none;}
 .header-container .header .top-links{overflow: inherit;}
 .header-container .header .links{height: 23px;padding: 0 5px;border-radius: 10px;-moz-border-radius: 10px;-webkit-border-radius: 10px;background-color: #78c613;-webkit-box-shadow: 0 1px 2px rgba(176,136,31,.75);-moz-box-shadow: 0 1px 2px rgba(176,136,31,.75);box-shadow: 0 1px 2px rgba(176,136,31,.75);margin: 8px 0 0;}
