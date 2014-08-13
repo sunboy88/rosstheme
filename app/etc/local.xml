@@ -41,9 +41,9 @@
             <default_setup>
                 <connection>
                     <host><![CDATA[localhost]]></host>
-                    <username><![CDATA[testsite]]></username>
-                    <password><![CDATA[eguzuby3y]]></password>
-                    <dbname><![CDATA[ebluesto_ross]]></dbname>
+                    <username><![CDATA[root]]></username>
+                    <password><![CDATA[]]></password>
+                    <dbname><![CDATA[rosstheme]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>

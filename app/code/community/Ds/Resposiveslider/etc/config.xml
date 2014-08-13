@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Ds_Resposiveslider>
+			<version>1.0.1</version>
+		</Ds_Resposiveslider>
+	</modules>
+	<global>
+		<helpers>
+			<resposiveslider>
+				<class>Ds_Resposiveslider_Helper</class>
+			</resposiveslider>
+		</helpers>
+		<blocks>
+			<resposiveslider>
+				<class>Ds_Resposiveslider_Block</class>
+			</resposiveslider>
+		</blocks>
+		<models>
+			<resposiveslider>
+				<class>Ds_Resposiveslider_Model</class>
+				<resourceModel>resposiveslider_mysql4</resourceModel>
+			</resposiveslider>
+			<resposiveslider_mysql4>
+				<class>Ds_Resposiveslider_Model_Mysql4</class>
+				<entities>		  
+					<resposiveslider>
+						<table>dsresponsiveslider</table>
+					</resposiveslider>
+				</entities>
+			</resposiveslider_mysql4>
+		</models>
+		<resources>
+			<resposiveslider_setup>
+				<setup>
+					<module>Ds_Resposiveslider</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</resposiveslider_setup>
+			<resposiveslider_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</resposiveslider_write>
+			<resposiveslider_read>
+				<connection>
+				<use>core_read</use>
+				</connection>
+			</resposiveslider_read>
+		</resources>
+	</global>
+	<admin>
+		<routers>
+			<resposiveslider>
+				<use>admin</use>
+				<args>
+					<module>Ds_Resposiveslider</module>
+					<frontName>resposiveslider</frontName>
+				</args>
+			</resposiveslider>
+		</routers>
+	</admin>
+	<adminhtml>
+		<menu>
+			<resposiveslider module="resposiveslider">
+				<title>DS Responsive Slider</title>
+				<sort_order>100</sort_order>
+				<children>
+					<resposiveslider module="resposiveslider">
+						<title>Manage DS Responsive Slider</title>
+						<sort_order>0</sort_order>
+						<action>resposiveslider/adminhtml_resposiveslider</action>
+					</resposiveslider>
+					<manageresposiveslider>
+						<title>Manage Settings</title>
+						<sort_order>1</sort_order>
+						<action>adminhtml/system_config/edit/section/ds_resposiveslidersec</action>
+					</manageresposiveslider>
+				</children>
+			</resposiveslider>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<resposiveslider translate="title" module="resposiveslider">
+							<title>DS Responsive Slider</title>
+							<sort_order>1000</sort_order>
+							<children>
+								<resposiveslider translate="title">
+									<title>Manage DS Responsive Slider</title>
+									<sort_order>0</sort_order>
+								</resposiveslider>
+							</children>
+						</resposiveslider>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<resposiveslider>
+					<file>resposiveslider.xml</file>
+				</resposiveslider>
+			</updates>
+		</layout>
+	</adminhtml>
+	<default>
+		<ds_resposiveslidersec>
+			<manage_settings>
+				<enable_jquery>1</enable_jquery>
+				<mode>1</mode>
+				<speed>500</speed>
+				<autocontrols>1</autocontrols>
+				<auto>1</auto>
+				<pager>1</pager>
+				<pagertype>1</pagertype>
+				<controls>1</controls>
+			</manage_settings>
+		</ds_resposiveslidersec>
+	</default>
+</config> 

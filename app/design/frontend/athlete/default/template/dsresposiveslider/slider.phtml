@@ -1,0 +1,43 @@
+<?php if($this->isJqueryEnabled()) : ?>
+	<script src="<?php echo $this->getSkinUrl('js/dsresponsiveslider/jquery.js');?>"></script>
+<?php endif ?>
+<script src="<?php echo $this->getSkinUrl('js/dsresponsiveslider/jquery.dsslider.min.js');?>"></script>
+<link href="<?php echo $this->getSkinUrl('css/dsresponsiveslider/jquery.dsslider.css');?>" rel="stylesheet" />
+
+<script>
+	jQuery(document).ready(function(){
+		jQuery('.dsslider').bxSlider({
+			auto: <?php echo $this->isAutoTransitionEnabled();?>,
+			autoControls: <?php echo $this->isAutoControlEnabled();?>,
+			mode: "<?php echo $this->getMode();?>",
+			speed: <?php echo $this->getSpeed();?>,
+			pager: <?php echo $this->isPagerEnabled();?>,
+			pagerType: "<?php echo $this->getPagerType();?>",
+			pagerShortSeparator: "<?php echo $this->getPagerShortSeparator();?>",
+			controls:<?php echo $this->isControlsEnabled();?>,
+			autoHover: <?php echo $this->isAutoHoverEnabled();?>,
+		});
+	});
+</script>
+
+<?php
+	$slides 	=	$this->getSlides();
+	if(count($slides) > 0) :
+?>
+	<ul class="dsslider">
+	<?php foreach($slides as $slide) : ?>
+		<li>
+			<?php if(!empty($slide['image_url'])): ?>
+				<a href="<?php echo $slide['image_url'];?>">
+					<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$slide['image_name'];?>" title="<?php echo $slide['title'];?>" />
+				</a>
+			<?php else: ?>
+				<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$slide['image_name'];?>" title="<?php echo $slide['title'];?>" />
+			<?php endif ?>
+			<?php if(!empty($slide['content'])): ?>
+				<div class="contentSlider"><?php echo $slide['content'];?></div>
+			<?php endif ?>
+		</li>
+	<?php endforeach ?>
+	</ul>
+<?php endif ?>

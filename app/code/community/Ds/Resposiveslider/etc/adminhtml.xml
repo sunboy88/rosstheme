@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+	<config>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<ds_resposiveslidersec translate="title" module="resposiveslider">
+											<title>Manage DS Responsive Slider Slider Section</title>
+											<sort_order>0</sort_order>
+										</ds_resposiveslidersec>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</config>

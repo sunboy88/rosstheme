@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <resposiveslider_adminhtml_resposiveslider_index>
+	<reference name="content">
+	  <block type="resposiveslider/adminhtml_resposiveslider" name="resposiveslider" />
+	</reference>
+  </resposiveslider_adminhtml_resposiveslider_index>
+</layout>

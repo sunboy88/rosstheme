@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Ds_Resposiveslider>
+      <active>true</active>
+      <codePool>community</codePool>
+      <version>1.0.1</version>
+    </Ds_Resposiveslider>
+  </modules>
+</config>
