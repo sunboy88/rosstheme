@@ -1011,6 +1011,7 @@ body.cms-index-index{background: #fff;}
 .main-container .col-main .block-subscribe,
 .amshopby-index-index .col-main > *{float: right;width: 75%;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;border: none;background: none;padding: 0;position: relative;margin: 0 0 25px;}
 .main-container .col-main .slideshow-container{float: right;clear: right;width: 75%!important;}
+.main-container .col-main .block-subscribe{z-index: 1;}
 .main-container .col-main .block-subscribe img{max-width: 100%;}
 .wrapper_filter > img{display: block;margin: 20px auto;max-width: 100%;}
 
