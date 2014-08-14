@@ -2,7 +2,7 @@
 <config>
   <modules>
     <Ds_Resposiveslider>
-      <active>false</active>
+      <active>true</active>
       <codePool>community</codePool>
       <version>1.0.1</version>
     </Ds_Resposiveslider>
