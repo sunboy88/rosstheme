@@ -305,7 +305,7 @@
 					<product_columns>5</product_columns>
 				</action>
 			</block>
-			<block type="athlete/product_view_reviews" name="content.product.review" as="content_reviews" template="review/product_info_review.phtml"/>
+			<!-- <block type="athlete/product_view_reviews" name="content.product.review" as="content_reviews" template="review/product_info_review.phtml"/> -->
 		</reference>
 
 		<reference name="product.info.additional">
@@ -314,6 +314,7 @@
 				<action method="setTemplate" ><template>catalog/product/view/tabs.phtml</template></action>
 				<action ifconfig="athlete/product_info/tab_description" method="addTab" translate="title" module="catalog" ><alias>description_tabbed</alias><title>Description</title><block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template></action>
 				<action ifconfig="athlete/product_info/tab_additional" method="addTab" translate="title" module="catalog" ><alias>additional_tabbed</alias><title>Additional</title><block>catalog/product_view_attributes</block><template>catalog/product/view/attributes.phtml</template></action>
+				<action method="addTab" translate="title" module="review" ><alias>reviews_tabbed</alias><title>Reviews</title><block>athlete/product_view_reviews</block><template>review/product_info_review.phtml</template></action>
 				<action ifconfig="athlete/product_info/tab_tags" method="addTab" translate="title" module="tag" ><alias>tags_tabbed</alias><title>Tags</title><block>tag/product_list</block><template>tag/list.phtml</template></action>
 
 				<block type="cms/block" name="athlete_custom_tab1" as="athlete_custom_tab1">
