@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <productquestions_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-right.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="productquestions/questions" name="productquestions" >
+                <block type="productquestions/sorter" name="productquestions_sorter" />
+                <block type="page/html_pager" name="productquestions_pager" />
+                <block type="productquestions/form" name="productquestions_form" />
+            </block>
+        </reference>
+    </productquestions_index_index>
+
+    <productquestions_index_rss>
+        <block type="productquestions/rss" output="toHtml" name="productquestions.rss"/>
+    </productquestions_index_rss>
+</layout>

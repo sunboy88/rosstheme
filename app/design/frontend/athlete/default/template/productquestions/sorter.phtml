@@ -1,0 +1,48 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Productquestions
+ * @version    1.5.0
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ */
+?>
+<?php
+$allowedSortings = AW_Productquestions_Block_Sorter::getAllowedSorting();
+if (count($allowedSortings)):
+    list($sortOrder, $sortDir) = $this->getCurrentSorting();
+    $invertedDir = AW_Productquestions_Block_Sorter::getInvertedDir($sortDir);
+    ?>
+
+    <div class="pager">
+        <div class="limiter">
+    <?php echo $this->__('Sort by') ?>
+            <select onchange="setLocation(this.value)" style="width:120px;">
+            <?php foreach ($allowedSortings as $sortKey => $sortName): ?>
+                    <option value="<?php echo $this->getSortOrderUrl($sortKey) ?>" <?php if ($sortKey == $sortOrder): ?> selected="selected"<?php endif ?>> <?php echo $sortName ?></option>
+                <?php endforeach ?>
+            </select>
+            <a href="<?php echo $this->getSortDirUrl($invertedDir) ?>"><img src="<?php echo $this->getSkinUrl('images/aw_productquestions/sort_' . strtolower($sortDir) . '_arrow.gif') ?>" alt="<?php echo AW_Productquestions_Model_Source_Question_Sorting::getSortDirDescription($invertedDir) ?>" /></a>
+        </div>
+    </div>
+
+<?php endif; ?>
