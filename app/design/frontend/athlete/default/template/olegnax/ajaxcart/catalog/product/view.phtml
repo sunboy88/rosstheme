@@ -70,7 +70,9 @@ if ($athleteHelper->isOnSale($_product)) {
 			?>
 
 			<div class="product-img-box">
-				<?php echo $this->getChildHtml('media') ?>
+                <div class="wrap-product-image">
+				    <?php echo $this->getChildHtml('media') ?>
+                </div>
 				<div class="clearer"></div>
 				<?php echo $this->getChildHtml('details.newsletter') ?>
 			</div>
