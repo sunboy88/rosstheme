@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <productquestions translate="label" module="productquestions">
+            <label>Product Questions</label>
+            <tab>awall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <interface translate="label">
+                    <label>Interface Settings</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <show_last_x translate="label">
+                            <label>Number of questions to display</label>
+                            <comment>Leave empty to display all questions</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                        </show_last_x>
+                        <guests_allowed_to_vote translate="label">
+                            <label>Guests can rate helpfulness</label>
+                            <comment></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                        </guests_allowed_to_vote>
+                        <parse_urls_into_links translate="label">
+                            <label>Parse URLs as links when admin replies</label>
+                            <comment></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                        </parse_urls_into_links>
+                        <allowed_sorting_type translate="label">
+                            <label>Allow questions sorting by</label>
+                            <comment></comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>productquestions/source_question_sorting</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                        </allowed_sorting_type>
+                    </fields>
+                </interface>
+                <question_form translate="label">
+                    <label>Question form settings</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <guests_allowed translate="label">
+                            <label>Guests are allowed to ask questions</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </guests_allowed>
+                        <please_register translate="label">
+                            <label>Message to guests</label>
+                            <comment>Show this message instead of question form/link if the customer is not logged in</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </please_register>
+                        <customer_status translate="label">
+                            <label>Customer-defined question visibility (Private or Public)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customer_status>
+                        <subscription_type translate="label">
+                            <label>Add subscription to the question form</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>productquestions/source_subscription</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[<a href="http://ecommerce.aheadworks.com/extensions/advanced-newsletter.html">Advanced Newsletter extension</a> is required for targeted newsletters functionality]]></comment>
+                        </subscription_type>
+                    </fields>
+                </question_form>
+                <email translate="label">
+                    <label>Email Options</label>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <recipient_email translate="label">
+                            <label>Send Emails To</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-email</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </recipient_email>
+                        <sender_email_identity translate="label">
+                            <label>Email Sender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sender_email_identity>
+                        <to_admin_email translate="label">
+                            <label>Email Template(sent to admin)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </to_admin_email>
+                        <to_customer_email translate="label">
+                            <label>Email Template(sent to customer)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </to_customer_email>
+                    </fields>
+                </email>
+                <autorespond>
+                    <label>Autoresponder</label>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <status translate="label">
+                            <label>Autoresponder enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </status>
+                        <email_template translate="label">
+                            <label>Email Template (sent to customer)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_template>
+                    </fields>
+                </autorespond>
+                <rss>
+                    <label>RSS Feed</label>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Product Questions RSS Feed</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <title translate="label comment">
+                            <label>RSS Feed Title</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[The following macro fields are available:<br />
+<strong>{product_name}</strong> - The Product name,<br />
+<strong>{store_name}</strong> - The Store name<br />
+<strong>{store_url}</strong> - the Store URL,<br />
+<strong>{website_name}</strong> - the Website URL]]></comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <image translate="label">
+                            <label>RSS Feed Image</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Relative to current skin directory, e.g. images/rsslogo.jpg</comment>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </image>
+                        <quantity translate="label">
+                            <label>RSS Questions to Show</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Number of questions to display in the RSS feed</comment>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quantity>
+                    </fields>
+                </rss>
+                <seo>
+                    <label>SEO optimization</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable_url_rewrites translate="label">
+                            <label>Enable URL rewrites</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_url_rewrites>
+                        <cache_requests translate="label">
+                            <label>Cache URL requests</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cache_requests>
+                        <header_title_pattern translate="label comment">
+                            <label>Header title pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[Use <b>%T</b> to insert product title]]></comment>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </header_title_pattern>
+                        <header_meta_description_pattern translate="label">
+                            <label>Header meta description pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[Use <b>%D</b> to insert meta description]]></comment>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </header_meta_description_pattern>
+                    </fields>
+                </seo>
+            </groups>
+        </productquestions>
+    </sections>
+</config>
