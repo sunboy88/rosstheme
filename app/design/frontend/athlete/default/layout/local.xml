@@ -296,6 +296,7 @@
 		</reference>
 
 		<reference name="product.info">
+			<block type="newsletter/subscribe" name="details.newsletter" template="newsletter/subscribe.phtml"/>
 			<action method="unsetChild"><name>additional</name></action>
 			<block type="cms/block" name="athlete_addthis">
 				<action method="setBlockId"><block_id>athlete_addthis</block_id></action>
@@ -304,8 +305,7 @@
 				<action method="setProductColumns">
 					<product_columns>5</product_columns>
 				</action>
-			</block>
-			<!-- <block type="athlete/product_view_reviews" name="content.product.review" as="content_reviews" template="review/product_info_review.phtml"/> -->
+			</block>			
 		</reference>
 
 		<reference name="product.info.additional">

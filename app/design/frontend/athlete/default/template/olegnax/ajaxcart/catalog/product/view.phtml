@@ -71,6 +71,8 @@ if ($athleteHelper->isOnSale($_product)) {
 
 			<div class="product-img-box">
 				<?php echo $this->getChildHtml('media') ?>
+				<div class="clearer"></div>
+				<?php echo $this->getChildHtml('details.newsletter') ?>
 			</div>
 
 			<div class="product-shop <?php echo $liClass ?>">
@@ -108,6 +110,11 @@ if ($athleteHelper->isOnSale($_product)) {
 				<?php endif; ?>
 
 				<?php echo $this->getChildHtml('addto') ?>
+
+				<div class="details_product_banner">
+					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('details_product_banner')->toHtml(); ?> 
+				</div>
+				
 			</div>
 
 			<div class="clearer"></div>
@@ -228,7 +235,7 @@ if ($athleteHelper->isOnSale($_product)) {
 			//]]>
 		</script>
 	</div>
-
+		
 	<?php echo $this->getChildHtml('product_additional_data') ?>
 	<?php echo $this->getChildHtml('content_related') ?>
 	<?php //echo $this->getChildHtml('upsell_products') ?>
