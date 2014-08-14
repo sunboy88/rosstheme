@@ -1,0 +1,10 @@
+tables:
+ collpur/deal:
+  - id: 1
+    product_id: 1
+  - id: 2
+    product_id: 1
+ collpur/coupon:
+  - id: 1
+    deal_id: 1
+    status: pending

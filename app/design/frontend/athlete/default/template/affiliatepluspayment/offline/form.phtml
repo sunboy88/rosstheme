@@ -1,0 +1,173 @@
+<?php
+/**
+ * Offline payment method form template
+ */
+?>
+<?php $require = Mage::helper('affiliateplus/payment')->isRequireAuthentication('offline');?>
+<?php $data = $this->getRequest()->getParams(); ?>
+<?php $back = (isset($data['invoice_address']) && $data['invoice_address']) ?>
+<ul>
+<?php if ($this->customerHasAddresses()): ?>
+	<li class="wide">
+		<label for="account-address-select"><?php echo $this->__('Select an address from your address book or enter a new address.') ?></label>
+		<div class="input-box">
+			<?php echo $this->getAddressesHtmlSelect('account') ?>
+		</div>
+	</li>
+<?php endif; ?>
+    <li id="account-new-address-form" <?php if ($this->customerHasAddresses() && !$this->isShowForm()): ?> style="display:none;"<?php endif; ?>>
+		<fieldset>
+			<input type="hidden" name="account[address_id]" value="<?php echo $this->getAddress()->getId() ?>" id="account:address_id" />
+			<ul>
+				<li class="wide">
+					<label for="account:street1" class="required"><em>*</em><?php echo $this->__('Address') ?></label>
+					<div class="input-box">
+						<input type="text" title="<?php echo $this->__('Street Address') ?>" name="account[street][]" id="account:street1" value="<?php echo $this->htmlEscape($this->getAddress()->getStreet(1)) ?>" class="input-text required-entry" />
+					</div>
+				</li>
+		<?php for ($_i=2, $_n=$this->helper('customer/address')->getStreetLines(); $_i<=$_n; $_i++): ?>
+				<li class="wide">
+					<div class="input-box">
+						<input type="text" title="<?php echo $this->__('Street Address %s', $_i) ?>" name="account[street][]" id="account:street<?php echo $_i?>" value="<?php echo $this->htmlEscape($this->getAddress()->getStreet($_i)) ?>" class="input-text" />
+					</div>
+				</li>
+		<?php endfor ?>
+				<li class="fields">
+					<div class="field">
+						<label for="account:city" class="required"><em>*</em><?php echo $this->__('City') ?></label>
+						<div class="input-box">
+							<input type="text" title="<?php echo $this->__('City') ?>" name="account[city]" value="<?php echo $this->htmlEscape($this->getAddress()->getCity()) ?>" class="input-text required-entry" id="customer:city" />
+						</div>
+					</div>
+					<div class="field">
+						<label for="account:region_id" class="required"><em>*</em><?php echo $this->__('State/Province') ?></label>
+						<div class="input-box">
+							<select id="account:region_id" name="account[region_id]" title="<?php echo $this->__('State/Province') ?>" class="validate-select" style="display:none;">
+								<option value=""><?php echo $this->__('Please select region, state or province') ?></option>
+							</select>
+							<script type="text/javascript">
+							//<![CDATA[
+								$('account:region_id').setAttribute('defaultValue',  "<?php echo $this->getAddress()->getRegionId() ?>");
+							//]]>
+							</script>
+							<input type="text" id="account:region" name="account[region]" value="<?php echo $this->htmlEscape($this->getAddress()->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="input-text" style="display:none;" />
+						</div>
+					</div>
+				</li>
+				<li class="fields">
+					<div class="field">
+						<label for="account:postcode" class="required"><em>*</em><?php echo $this->__('Zip/Postal Code') ?></label>
+						<div class="input-box">
+							<input type="text" title="<?php echo $this->__('Zip/Postal Code') ?>" name="account[postcode]" id="account:postcode" value="<?php echo $this->htmlEscape($this->getAddress()->getPostcode()) ?>" class="input-text validate-zip-international required-entry" />
+						</div>
+					</div>
+					<div class="field">
+						<label for="account:country_id" class="required"><em>*</em><?php echo $this->__('Country') ?></label>
+						<div class="input-box">
+							<?php echo $this->getCountryHtmlSelect('account') ?>
+						</div>
+					</div>
+				</li>
+				<li lang="fields">
+					<div class="field">
+						<label for="account:telephone" class="required"><em>*</em><?php echo $this->__('Telephone') ?></label>
+						<div class="input-box">
+							<input type="text" name="account[telephone]" value="<?php echo $this->htmlEscape($this->getAddress()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="input-text required-entry" id="account:telephone" />
+						</div>
+					</div>
+					<div class="field">
+						<label for="account:fax"><?php echo $this->__('Fax') ?></label>
+						<div class="input-box">
+							<input type="text" name="account[fax]" value="<?php echo $this->htmlEscape($this->getAddress()->getFax()) ?>" title="<?php echo $this->__('Fax') ?>" class="input-text" id="account:fax" />
+						</div>
+					</div>
+				</li>
+                <!--li lang="fields">
+					<div class="field">
+						<label for="account:invoice_address" class="required"><?php echo $this->__('Invoice Address') ?></label>
+						<div class="input-box">
+							<input type="file" name="invoice_address" value="" title="<?php echo $this->__('Invoice Address') ?>" class="" id="invoice_address" />
+						</div>
+					</div>
+				</li-->
+			</ul>
+		</fieldset>
+	</li>
+    <?php if($require): ?>
+     <li id="verify-li" style="<?php if($this->addressIsVerified()):?>display:none<?php endif;?>">
+        <div class="field">
+            <label for="account:invoice_address" class="required"><em id="invoice_address_em" style="<?php if($back): ?>display:none;<?php endif;?>">*</em><?php echo $this->__('Invoice Address') ?></label>
+            <div class="input-box" style="width:310px">
+				<?php if($back): ?>
+				<a href="<?php echo Mage::getBaseUrl('media').'/affiliateplus/payment/'.$data['invoice_address']; ?>" onclick="window.open(this.href, 'preview', 'resizable=1,scrollbars=1'); return false;"><img width="22" height="22" src="<?php echo Mage::getBaseUrl('media').'/affiliateplus/payment/'.$data['invoice_address']; ?>" /></a>
+				<?php endif;?>
+                <input type="file" name="invoice_address" value="" title="<?php echo $this->__('Invoice Address') ?>" <?php if(!$back): ?>class="required-entry"<?php endif;?> id="invoice_address" />
+            </div>
+            <p class="authentication-comment note">
+                <?php echo $this->__('You need to upload an image of your house or your address in any reasonable documents to verify your address.');?>
+            </p>
+        </div>
+    </li>
+    <?php endif;?>
+</ul>
+<script type="text/javascript">
+//<![CDATA[
+	var regionUpdate = new RegionUpdater('account:country_id', 'account:region', 'account:region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'postcode');
+	
+    var currentAddressId = $('account-address-select') ? $('account-address-select').value : false;
+	function lsRequestTrialNewAddress(addressId) {
+		if(addressId == ""){
+			$('account-new-address-form').show();
+        <?php if($require):?>
+            $('verify-li').style.display = 'block';
+            <?php if($back): ?>
+                if (currentAddressId == addressId) {
+                    $$('#verify-li .input-box a').each(function(el){
+                        el.show();
+                    });
+                    $('invoice_address').removeClassName('required-entry');
+                    $('invoice_address_em').hide();
+                } else {
+                    $$('#verify-li .input-box a').each(function(el){
+                        el.hide();
+                    });
+                    $('invoice_address').addClassName('required-entry');
+                    $('invoice_address_em').show();
+                }
+            <?php endif ?>
+        <?php endif;?>
+		} else {
+			$('account-new-address-form').hide();
+            <?php if($require): ?>
+            var url = '<?php echo $this->getUrl('affiliateplus/index/checkVerify');?>?payment_method=offline&email='+addressId;
+            var request = new Ajax.Request(url,
+            {
+                onSuccess: function(response){
+                    if(response.responseText)
+                        $('verify-li').style.display = 'none';
+                    else {
+                        $('verify-li').style.display = 'block';
+                    <?php if($back): ?>
+                        if (currentAddressId == addressId) {
+                            $$('#verify-li .input-box a').each(function(el){
+                                el.show();
+                            });
+                            $('invoice_address').removeClassName('required-entry');
+                            $('invoice_address_em').hide();
+                        } else {
+                            $$('#verify-li .input-box a').each(function(el){
+                                el.hide();
+                            });
+                            $('invoice_address').addClassName('required-entry');
+                            $('invoice_address_em').show();
+                        }
+                    <?php endif ?>
+                    }
+                }
+            }
+            );
+            <?php endif; ?>
+		}
+	}
+//]]>
+</script>

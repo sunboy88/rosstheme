@@ -1,0 +1,80 @@
+<?php
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+/******************************************
+ *      MAGENTO EDITION USAGE NOTICE      *
+ ******************************************/
+ /* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+/******************************************
+ *      DISCLAIMER                        *
+ ******************************************/
+/* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ ******************************************
+ * @category   Belvg
+ * @package    Belvg_Referralreward
+ * @copyright  Copyright (c) 2010 - 2011 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+?>
+<div class="cols send-invites-info">
+    <div class="col-1">
+        <div class="send-block friendslist-message">
+            <h3><?php echo $this->__("Invite Message:") ?></h3>
+            <textarea id="invite-textarea-message" rows="3" name="invite-textarea-message" class="textarea-message"><?php echo $this->__("Hey I just found this site, and I find it completely awesome. Have a look!") ?></textarea>
+            <button class="button send-invation" onclick="inviteSelectedFriends('<?php echo $this->getUrl('referralreward/invite/reminderfriends') ?>');">
+                <span><span><?php echo $this->__("Send Invitation") ?></span></span>
+            </button>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="send-block invite-url">
+            <a class="invite-url-rename" href="javascript:;" onclick="modalwindow_description('referral-link-renameform', 500)">
+                <?php echo $this->__('Rename your link'); ?>
+            </a>
+            <div id="referral-link-renameform" style="display:none">
+                <?php echo $this->getChildHtml("referral-link-renameform") ?>
+            </div>
+            <h3><?php echo $this->__("Your personal invite link is") ?></h3>
+            <strong><?php echo $this->getUrl('invite/'.$this->getItem()->getUrl()); ?></strong>
+            <p><?php echo $this->__("Spread this referral link around your friends on this page or by your own means. Only people registered via this link will bring you credit.") ?></p>
+        </div>
+        <?php echo $this->getChildHtml('share-links') ?>
+    </div>
+</div>
+<div class="cols send-invites">
+    <div class="col-1" style="width:100%;" id="send-invites-col-1">
+        <div class="send-block">
+            <ul class="tabs_title sub_tabs_referral">
+                <li id="tabs_item3" class="active"><a href="#"><?php echo $this->__("Addressbook") ?></a></li>
+                <li id="tabs_item4"><a href="#"><?php echo $this->__("Accepted Invitations") ?></a></li>
+            </ul>
+            <ul class="tabs_content">
+                <li id="tabs_item3_content"><?php echo $this->getChildHtml('addressbook') ?></li>
+                <li id="tabs_item4_content"><?php echo $this->getChildHtml('accepted-invitations') ?></li>
+            </ul>
+        </div>
+        <script>
+            new Varien.BTabs('.sub_tabs_referral');
+        </script>
+    </div>
+    <?php /*
+    <div class="col-2" style="display:none;" id="send-invites-col-2">
+        <div class="send-block facebook">
+            <?php echo $this->getChildHtml('facebook-friends') ?>
+        </div>
+    </div>
+    */ ?>
+</div>

@@ -1,0 +1,31 @@
+<?php
+    $quotePointsMessageShow    = $this->isQuotePointsMessageShow();
+    $customerPointsMessageShow = $this->isCustomerPointsMessageShow();
+    $customerCouponCodeShow    = $this->isCustomerCouponCodeShow();
+?>
+
+<?php if ($quotePointsMessageShow || $customerPointsMessageShow || $customerCouponCodeShow): ?>
+    <div class="referralreward-messages">
+        <?php if ($quotePointsMessageShow): ?>
+            <div class="referralreward-message">
+                <?php echo $this->__("Checkout now and earn %s (%s %s)", $this->getQuoteCredit(), $this->getQuotePoints(), $this->__(($this->getQuotePoints() == 1) ? "point" : "points")) ?>
+                <?php if (!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+                    <?php echo $this->__(" — <b>You will receive points only if you log into your account</b>") ?>
+                <?php endif ?>
+            </div>
+        <?php endif ?>
+        <?php if ($customerPointsMessageShow): ?>
+            <div class="referralreward-message">
+                <?php echo $this->__("Your Credit is: %s (%s %s)", $this->getCustomerCredit(), $this->getCustomerPoints(), $this->__(($this->getCustomerPoints() == 1) ? "point" : "points")) ?>
+            </div>
+        <?php endif ?>
+        <?php if ($customerCouponCodeShow): ?>
+            <div class="referralreward-message">
+                <?php echo $this->__("This is your personal coupon code. Use it to spend your credit.") ?>
+                <span class="credit-coupon-code">
+                    <?php echo $this->getCustomerCouponCode() ?>
+                </span>
+            </div>
+        <?php endif ?>
+    </div>
+<?php endif ?>

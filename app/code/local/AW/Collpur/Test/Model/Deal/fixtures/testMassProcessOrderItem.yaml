@@ -1,0 +1,18 @@
+tables:
+ collpur/deal:
+  - id: 1
+    product_id: 1
+    qty_to_reach_deal: 5
+    purchases_left: 5
+    auto_close: 1
+    close_state: 1
+    is_success: 0
+    is_active: 1
+  - id: 2
+    product_id: 1
+    qty_to_reach_deal: 5
+    purchases_left: 5
+    maximum_allowed_purchases: 10
+    close_state: 1
+    is_success: 0
+    is_active: 1

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_AffiliateplusTrash
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config>
+    <menu>
+        <affiliateplus>
+            <children>
+                <trash module="affiliateplustrash" translate="title">
+                    <title>Trash</title>
+                    <sort_order>300</sort_order>
+                    <children>
+                        <transaction module="affiliateplustrash" translate="title">
+							<title>Transactions</title>
+							<sort_order>10</sort_order>
+							<action>affiliateplustrashadmin/adminhtml_transaction/deleted</action>
+						</transaction>
+                        <payment module="affiliateplustrash" translate="title">
+                            <title>Withdrawals</title>
+							<sort_order>20</sort_order>
+                            <action>affiliateplustrashadmin/adminhtml_payment/deleted</action>
+                        </payment>
+                    </children>
+                </trash>
+            </children>
+        </affiliateplus>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+				<children>
+                    <affiliateplus>
+                        <children>
+                            <trash module="affiliateplustrash" translate="title">
+                                <title>Trash</title>
+                                <sort_order>39</sort_order>
+                                <children>
+                                    <transaction module="affiliateplustrash" translate="title">
+                                        <title>Transactions</title>
+                                        <sort_order>10</sort_order>
+                                    </transaction>
+                                    <payment module="affiliateplustrash" translate="title">
+                                        <title>Withdrawals</title>
+                                        <sort_order>20</sort_order>
+                                    </payment>
+                                </children>
+                            </trash>
+                        </children>
+                    </affiliateplus>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

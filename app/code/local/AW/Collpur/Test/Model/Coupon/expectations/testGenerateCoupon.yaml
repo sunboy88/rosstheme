@@ -1,0 +1,7 @@
+1-1:
+  deal_id: 1
+  purchase_id: null
+2-2:
+  deal_id: 2
+  purchase_id: 1
+  

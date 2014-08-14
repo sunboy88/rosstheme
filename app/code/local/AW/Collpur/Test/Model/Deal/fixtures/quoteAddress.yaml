@@ -1,0 +1,1046 @@
+tables:
+  sales/quote_address:
+    -
+      address_id: 3
+      quote_id: 1
+      created_at: 2011-08-26 07:38:30
+      updated_at: 2011-08-26 07:38:40
+      customer_id: 'NULL'
+      save_in_address_book: 0
+      customer_address_id: 'NULL'
+      address_type: billing
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: 'NULL'
+      middlename: 'NULL'
+      lastname: 'NULL'
+      suffix: 'NULL'
+      company: 'NULL'
+      street: 'NULL'
+      city: 'NULL'
+      region: 'NULL'
+      region_id: 'NULL'
+      postcode: 'NULL'
+      country_id: 'NULL'
+      telephone: 'NULL'
+      fax: 'NULL'
+      same_as_billing: 0
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method:
+      shipping_description:
+      weight: 0.0000
+      subtotal: 0.0000
+      base_subtotal: 0.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 0.0000
+      base_grand_total: 0.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 'NULL'
+      base_hidden_tax_amount: 'NULL'
+      shipping_hidden_tax_amount: 'NULL'
+      base_shipping_hidden_tax_amount: 'NULL'
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description: 'NULL'
+      shipping_discount_amount: 'NULL'
+      base_shipping_discount_amount: 'NULL'
+      subtotal_incl_tax: 0.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 4
+      quote_id: 1
+      created_at: 2011-08-26 07:38:30
+      updated_at: 2011-08-26 07:38:40
+      customer_id: 'NULL'
+      save_in_address_book: 0
+      customer_address_id: 'NULL'
+      address_type: shipping
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: 'NULL'
+      middlename: 'NULL'
+      lastname: 'NULL'
+      suffix: 'NULL'
+      company: 'NULL'
+      street: 'NULL'
+      city: 'NULL'
+      region: 'NULL'
+      region_id: 'NULL'
+      postcode: 'NULL'
+      country_id: 'NULL'
+      telephone: 'NULL'
+      fax: 'NULL'
+      same_as_billing: 1
+      free_shipping: 0
+      collect_shipping_rates: 1
+      shipping_method:
+      shipping_description:
+      weight: 0.0000
+      subtotal: 0.0000
+      base_subtotal: 0.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 0.0000
+      base_grand_total: 0.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amount: 0.0000
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description:
+      shipping_discount_amount: 0.0000
+      base_shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 0.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 5
+      quote_id: 2
+      created_at: 2011-08-26 08:33:38
+      updated_at: 2011-08-26 08:33:40
+      customer_id: 'NULL'
+      save_in_address_book: 0
+      customer_address_id: 'NULL'
+      address_type: billing
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: 'NULL'
+      middlename: 'NULL'
+      lastname: 'NULL'
+      suffix: 'NULL'
+      company: 'NULL'
+      street: 'NULL'
+      city: 'NULL'
+      region: 'NULL'
+      region_id: 'NULL'
+      postcode: 'NULL'
+      country_id: 'NULL'
+      telephone: 'NULL'
+      fax: 'NULL'
+      same_as_billing: 0
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method:
+      shipping_description:
+      weight: 0.0000
+      subtotal: 0.0000
+      base_subtotal: 0.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 0.0000
+      base_grand_total: 0.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 'NULL'
+      base_hidden_tax_amount: 'NULL'
+      shipping_hidden_tax_amount: 'NULL'
+      base_shipping_hidden_tax_amount: 'NULL'
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description: 'NULL'
+      shipping_discount_amount: 'NULL'
+      base_shipping_discount_amount: 'NULL'
+      subtotal_incl_tax: 0.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 6
+      quote_id: 2
+      created_at: 2011-08-26 08:33:38
+      updated_at: 2011-08-26 08:33:40
+      customer_id: 'NULL'
+      save_in_address_book: 0
+      customer_address_id: 'NULL'
+      address_type: shipping
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: 'NULL'
+      middlename: 'NULL'
+      lastname: 'NULL'
+      suffix: 'NULL'
+      company: 'NULL'
+      street: 'NULL'
+      city: 'NULL'
+      region: 'NULL'
+      region_id: 'NULL'
+      postcode: 'NULL'
+      country_id: 'NULL'
+      telephone: 'NULL'
+      fax: 'NULL'
+      same_as_billing: 1
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method:
+      shipping_description:
+      weight: 1.0000
+      subtotal: 45.0000
+      base_subtotal: 45.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 45.0000
+      base_grand_total: 45.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amount: 0.0000
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description:
+      shipping_discount_amount: 0.0000
+      base_shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 45.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 9
+      quote_id: 3
+      created_at: 2011-08-30 12:00:52
+      updated_at: 2011-08-30 12:55:20
+      customer_id: 2
+      save_in_address_book: 1
+      customer_address_id: 1
+      address_type: billing
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: xsserv@gmail.com
+      middlename: 'NULL'
+      lastname: xsserv@gmail.com
+      suffix: 'NULL'
+      company:
+      street: xsserv@gmail.com xsserv@gmail.com
+      city: xsserv@gmail.com
+      region: xsserv@gmail.com
+      region_id: 'NULL'
+      postcode: xsserv@gmail.com
+      country_id: TL
+      telephone: xsserv@gmail.com
+      fax:
+      same_as_billing: 0
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method:
+      shipping_description:
+      weight: 0.0000
+      subtotal: 0.0000
+      base_subtotal: 0.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 0.0000
+      base_grand_total: 0.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 'NULL'
+      base_hidden_tax_amount: 'NULL'
+      shipping_hidden_tax_amount: 'NULL'
+      base_shipping_hidden_tax_amount: 'NULL'
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description: 'NULL'
+      shipping_discount_amount: 'NULL'
+      base_shipping_discount_amount: 'NULL'
+      subtotal_incl_tax: 0.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 10
+      quote_id: 3
+      created_at: 2011-08-30 12:00:52
+      updated_at: 2011-08-30 12:55:20
+      customer_id: 2
+      save_in_address_book: 0
+      customer_address_id: 'NULL'
+      address_type: shipping
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: xsserv@gmail.com
+      middlename: 'NULL'
+      lastname: xsserv@gmail.com
+      suffix: 'NULL'
+      company:
+      street: xsserv@gmail.com xsserv@gmail.com
+      city: xsserv@gmail.com
+      region: xsserv@gmail.com
+      region_id: 'NULL'
+      postcode: xsserv@gmail.com
+      country_id: TL
+      telephone: xsserv@gmail.com
+      fax:
+      same_as_billing: 1
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method: flatrate_flatrate
+      shipping_description: 'Flat Rate - Fixed'
+      weight: 3.0000
+      subtotal: 491.0000
+      base_subtotal: 491.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 15.0000
+      base_shipping_amount: 15.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 506.0000
+      base_grand_total: 506.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amount: 0.0000
+      shipping_incl_tax: 15.0000
+      base_shipping_incl_tax: 15.0000
+      discount_description:
+      shipping_discount_amount: 0.0000
+      base_shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 491.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 11
+      quote_id: 4
+      created_at: 2011-08-30 13:02:10
+      updated_at: 2011-08-30 13:02:37
+      customer_id: 2
+      save_in_address_book: 0
+      customer_address_id: 1
+      address_type: billing
+      email: xsserv@gmail.com
+      prefix: 'NULL'
+      firstname: xsserv@gmail.com
+      middlename: 'NULL'
+      lastname: xsserv@gmail.com
+      suffix: 'NULL'
+      company:
+      street: xsserv@gmail.com xsserv@gmail.com
+      city: xsserv@gmail.com
+      region: xsserv@gmail.com
+      region_id: 'NULL'
+      postcode: xsserv@gmail.com
+      country_id: TL
+      telephone: xsserv@gmail.com
+      fax:
+      same_as_billing: 0
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method:
+      shipping_description:
+      weight: 0.0000
+      subtotal: 0.0000
+      base_subtotal: 0.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 0.0000
+      base_grand_total: 0.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 'NULL'
+      base_hidden_tax_amount: 'NULL'
+      shipping_hidden_tax_amount: 'NULL'
+      base_shipping_hidden_tax_amount: 'NULL'
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description: 'NULL'
+      shipping_discount_amount: 'NULL'
+      base_shipping_discount_amount: 'NULL'
+      subtotal_incl_tax: 0.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 12
+      quote_id: 4
+      created_at: 2011-08-30 13:02:10
+      updated_at: 2011-08-30 13:02:37
+      customer_id: 2
+      save_in_address_book: 0
+      customer_address_id: 1
+      address_type: shipping
+      email: xsserv@gmail.com
+      prefix: 'NULL'
+      firstname: xsserv@gmail.com
+      middlename: 'NULL'
+      lastname: xsserv@gmail.com
+      suffix: 'NULL'
+      company:
+      street: xsserv@gmail.com xsserv@gmail.com
+      city: xsserv@gmail.com
+      region: xsserv@gmail.com
+      region_id: 'NULL'
+      postcode: xsserv@gmail.com
+      country_id: TL
+      telephone: xsserv@gmail.com
+      fax:
+      same_as_billing: 1
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method: flatrate_flatrate
+      shipping_description: 'Flat Rate - Fixed'
+      weight: 0.3000
+      subtotal: 45.0000
+      base_subtotal: 45.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 5.0000
+      base_shipping_amount: 5.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 50.0000
+      base_grand_total: 50.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amount: 0.0000
+      shipping_incl_tax: 5.0000
+      base_shipping_incl_tax: 5.0000
+      discount_description:
+      shipping_discount_amount: 0.0000
+      base_shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 45.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 15
+      quote_id: 5
+      created_at: 2011-08-31 13:30:08
+      updated_at: 2011-08-31 13:40:11
+      customer_id: 'NULL'
+      save_in_address_book: 0
+      customer_address_id: 'NULL'
+      address_type: billing
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: 'NULL'
+      middlename: 'NULL'
+      lastname: 'NULL'
+      suffix: 'NULL'
+      company: 'NULL'
+      street: 'NULL'
+      city: 'NULL'
+      region: 'NULL'
+      region_id: 'NULL'
+      postcode: 'NULL'
+      country_id: 'NULL'
+      telephone: 'NULL'
+      fax: 'NULL'
+      same_as_billing: 0
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method:
+      shipping_description:
+      weight: 0.0000
+      subtotal: 0.0000
+      base_subtotal: 0.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 0.0000
+      base_grand_total: 0.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 'NULL'
+      base_hidden_tax_amount: 'NULL'
+      shipping_hidden_tax_amount: 'NULL'
+      base_shipping_hidden_tax_amount: 'NULL'
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description: 'NULL'
+      shipping_discount_amount: 'NULL'
+      base_shipping_discount_amount: 'NULL'
+      subtotal_incl_tax: 0.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 16
+      quote_id: 5
+      created_at: 2011-08-31 13:30:08
+      updated_at: 2011-08-31 13:40:11
+      customer_id: 'NULL'
+      save_in_address_book: 0
+      customer_address_id: 'NULL'
+      address_type: shipping
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: 'NULL'
+      middlename: 'NULL'
+      lastname: 'NULL'
+      suffix: 'NULL'
+      company: 'NULL'
+      street: 'NULL'
+      city: 'NULL'
+      region: 'NULL'
+      region_id: 'NULL'
+      postcode: 'NULL'
+      country_id: 'NULL'
+      telephone: 'NULL'
+      fax: 'NULL'
+      same_as_billing: 1
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method:
+      shipping_description:
+      weight: 1.0000
+      subtotal: 234.0000
+      base_subtotal: 234.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 234.0000
+      base_grand_total: 234.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amount: 0.0000
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description:
+      shipping_discount_amount: 0.0000
+      base_shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 234.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 19
+      quote_id: 6
+      created_at: 2011-09-12 12:58:34
+      updated_at: 2011-09-12 13:14:51
+      customer_id: 3
+      save_in_address_book: 1
+      customer_address_id: 2
+      address_type: billing
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: Andrej
+      middlename: 'NULL'
+      lastname: Krupenin
+      suffix: 'NULL'
+      company:
+      street: address
+      city: cess
+      region: Alabama
+      region_id: 1
+      postcode: 2342234
+      country_id: US
+      telephone: 234234
+      fax:
+      same_as_billing: 0
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method:
+      shipping_description:
+      weight: 0.0000
+      subtotal: 0.0000
+      base_subtotal: 0.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 0.0000
+      base_grand_total: 0.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 'NULL'
+      base_hidden_tax_amount: 'NULL'
+      shipping_hidden_tax_amount: 'NULL'
+      base_shipping_hidden_tax_amount: 'NULL'
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description: 'NULL'
+      shipping_discount_amount: 'NULL'
+      base_shipping_discount_amount: 'NULL'
+      subtotal_incl_tax: 0.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 20
+      quote_id: 6
+      created_at: 2011-09-12 12:58:34
+      updated_at: 2011-09-12 13:14:51
+      customer_id: 3
+      save_in_address_book: 0
+      customer_address_id: 'NULL'
+      address_type: shipping
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: Andrej
+      middlename: 'NULL'
+      lastname: Krupenin
+      suffix: 'NULL'
+      company:
+      street: address
+      city: cess
+      region: Alabama
+      region_id: 1
+      postcode: 2342234
+      country_id: US
+      telephone: 234234
+      fax:
+      same_as_billing: 1
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method: flatrate_flatrate
+      shipping_description: 'Flat Rate - Fixed'
+      weight: 2.0000
+      subtotal: 363.0000
+      base_subtotal: 363.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 10.0000
+      base_shipping_amount: 10.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 373.0000
+      base_grand_total: 373.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amount: 0.0000
+      shipping_incl_tax: 10.0000
+      base_shipping_incl_tax: 10.0000
+      discount_description:
+      shipping_discount_amount: 0.0000
+      base_shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 363.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 21
+      quote_id: 7
+      created_at: 2011-09-12 13:18:35
+      updated_at: 2011-09-12 13:19:09
+      customer_id: 3
+      save_in_address_book: 0
+      customer_address_id: 2
+      address_type: billing
+      email: helpdeskult9@yandex.ru
+      prefix: 'NULL'
+      firstname: Andrej
+      middlename: 'NULL'
+      lastname: Krupenin
+      suffix: 'NULL'
+      company:
+      street: address
+      city: cess
+      region: Alabama
+      region_id: 1
+      postcode: 2342234
+      country_id: US
+      telephone: 234234
+      fax:
+      same_as_billing: 0
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method:
+      shipping_description:
+      weight: 0.0000
+      subtotal: 0.0000
+      base_subtotal: 0.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 0.0000
+      base_grand_total: 0.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 'NULL'
+      base_hidden_tax_amount: 'NULL'
+      shipping_hidden_tax_amount: 'NULL'
+      base_shipping_hidden_tax_amount: 'NULL'
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description: 'NULL'
+      shipping_discount_amount: 'NULL'
+      base_shipping_discount_amount: 'NULL'
+      subtotal_incl_tax: 0.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 22
+      quote_id: 7
+      created_at: 2011-09-12 13:18:35
+      updated_at: 2011-09-12 13:19:09
+      customer_id: 3
+      save_in_address_book: 0
+      customer_address_id: 2
+      address_type: shipping
+      email: helpdeskult9@yandex.ru
+      prefix: 'NULL'
+      firstname: Andrej
+      middlename: 'NULL'
+      lastname: Krupenin
+      suffix: 'NULL'
+      company:
+      street: address
+      city: cess
+      region: Alabama
+      region_id: 1
+      postcode: 2342234
+      country_id: US
+      telephone: 234234
+      fax:
+      same_as_billing: 1
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method: flatrate_flatrate
+      shipping_description: 'Flat Rate - Fixed'
+      weight: 2.0000
+      subtotal: 468.0000
+      base_subtotal: 468.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 10.0000
+      base_shipping_amount: 10.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 478.0000
+      base_grand_total: 478.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amount: 0.0000
+      shipping_incl_tax: 10.0000
+      base_shipping_incl_tax: 10.0000
+      discount_description:
+      shipping_discount_amount: 0.0000
+      base_shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 468.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 31
+      quote_id: 8
+      created_at: 2011-09-14 12:43:55
+      updated_at: 2011-09-14 12:43:55
+      customer_id: 3
+      save_in_address_book: 0
+      customer_address_id: 'NULL'
+      address_type: billing
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: 'NULL'
+      middlename: 'NULL'
+      lastname: 'NULL'
+      suffix: 'NULL'
+      company: 'NULL'
+      street: 'NULL'
+      city: 'NULL'
+      region: 'NULL'
+      region_id: 'NULL'
+      postcode: 'NULL'
+      country_id: 'NULL'
+      telephone: 'NULL'
+      fax: 'NULL'
+      same_as_billing: 0
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method:
+      shipping_description:
+      weight: 0.0000
+      subtotal: 0.0000
+      base_subtotal: 0.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 0.0000
+      base_grand_total: 0.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 'NULL'
+      base_hidden_tax_amount: 'NULL'
+      shipping_hidden_tax_amount: 'NULL'
+      base_shipping_hidden_tax_amount: 'NULL'
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description: 'NULL'
+      shipping_discount_amount: 'NULL'
+      base_shipping_discount_amount: 'NULL'
+      subtotal_incl_tax: 0.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 32
+      quote_id: 8
+      created_at: 2011-09-14 12:43:55
+      updated_at: 2011-09-14 12:43:55
+      customer_id: 3
+      save_in_address_book: 0
+      customer_address_id: 'NULL'
+      address_type: shipping
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: 'NULL'
+      middlename: 'NULL'
+      lastname: 'NULL'
+      suffix: 'NULL'
+      company: 'NULL'
+      street: 'NULL'
+      city: 'NULL'
+      region: 'NULL'
+      region_id: 'NULL'
+      postcode: 'NULL'
+      country_id: 'NULL'
+      telephone: 'NULL'
+      fax: 'NULL'
+      same_as_billing: 1
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method:
+      shipping_description:
+      weight: 5.0000
+      subtotal: 321.0000
+      base_subtotal: 321.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 321.0000
+      base_grand_total: 321.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amount: 0.0000
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description:
+      shipping_discount_amount: 0.0000
+      base_shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 321.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 35
+      quote_id: 10
+      created_at: 2011-09-19 05:50:13
+      updated_at: 2011-09-19 05:56:05
+      customer_id: 'NULL'
+      save_in_address_book: 0
+      customer_address_id: 'NULL'
+      address_type: billing
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: 'NULL'
+      middlename: 'NULL'
+      lastname: 'NULL'
+      suffix: 'NULL'
+      company: 'NULL'
+      street: 'NULL'
+      city: 'NULL'
+      region: 'NULL'
+      region_id: 'NULL'
+      postcode: 'NULL'
+      country_id: 'NULL'
+      telephone: 'NULL'
+      fax: 'NULL'
+      same_as_billing: 0
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method:
+      shipping_description:
+      weight: 0.0000
+      subtotal: 0.0000
+      base_subtotal: 0.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 0.0000
+      base_grand_total: 0.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 'NULL'
+      base_hidden_tax_amount: 'NULL'
+      shipping_hidden_tax_amount: 'NULL'
+      base_shipping_hidden_tax_amount: 'NULL'
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description: 'NULL'
+      shipping_discount_amount: 'NULL'
+      base_shipping_discount_amount: 'NULL'
+      subtotal_incl_tax: 0.0000
+      base_subtotal_total_incl_tax: 'NULL'
+    -
+      address_id: 36
+      quote_id: 10
+      created_at: 2011-09-19 05:50:13
+      updated_at: 2011-09-19 05:56:05
+      customer_id: 'NULL'
+      save_in_address_book: 0
+      customer_address_id: 'NULL'
+      address_type: shipping
+      email: 'NULL'
+      prefix: 'NULL'
+      firstname: 'NULL'
+      middlename: 'NULL'
+      lastname: 'NULL'
+      suffix: 'NULL'
+      company: 'NULL'
+      street: 'NULL'
+      city: 'NULL'
+      region: 'NULL'
+      region_id: 'NULL'
+      postcode: 'NULL'
+      country_id: 'NULL'
+      telephone: 'NULL'
+      fax: 'NULL'
+      same_as_billing: 1
+      free_shipping: 0
+      collect_shipping_rates: 0
+      shipping_method:
+      shipping_description:
+      weight: 4.6000
+      subtotal: 1010.0000
+      base_subtotal: 1010.0000
+      subtotal_with_discount: 0.0000
+      base_subtotal_with_discount: 0.0000
+      tax_amount: 0.0000
+      base_tax_amount: 0.0000
+      shipping_amount: 0.0000
+      base_shipping_amount: 0.0000
+      shipping_tax_amount: 0.0000
+      base_shipping_tax_amount: 0.0000
+      discount_amount: 0.0000
+      base_discount_amount: 0.0000
+      grand_total: 1010.0000
+      base_grand_total: 1010.0000
+      customer_notes: 'NULL'
+      applied_taxes: 'a:0:{}'
+      gift_message_id: 'NULL'
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amount: 0.0000
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      discount_description:
+      shipping_discount_amount: 0.0000
+      base_shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 1010.0000
+      base_subtotal_total_incl_tax: 'NULL'

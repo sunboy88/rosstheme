@@ -1,0 +1,90 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Collpur
+ * @version    1.0.6
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+ 
+<?php if($this->isNative()): ?>
+<div class="awcp-navigation">
+ <ul>
+    <?php foreach($this->getMenus() as $menu): ?>
+       <?php if($this->_tabIsAllowed($menu)): ?>
+            <li <?php echo $this->checkCurrentTab($menu['key']); ?>><a href="<?php echo $this->getDealTabUrl($menu['key']); ?>"><?php echo $menu['title']; ?></a></li>
+       <?php endif; ?>
+    <?php endforeach; ?>
+ </ul> 
+ <div class="clearer"></div>
+</div>
+ <?php endif; ?>
+ 
+<?php if($this->getAvailableDeals()->count() == 0):  ?>
+    <h2  id = "awcp-nodeals-available"><?php echo $this->__('No deals available'); ?></h2>
+    <?php return; ?>
+<?php endif; ?>
+
+
+<?php echo $this->getChildHtml('available_deals_pager'); ?>
+<div>
+
+
+    
+ <ul  class="awcp-category-grid">
+     <?php $i = 0; foreach($this->getAvailableDeals() as $deal): ?>
+      <li class="awcp-item <?php if(!$i || $i%2 == 0) { echo 'first'; } else { echo 'last'; } ?>">
+        <a class="awcp-product-image" href="<?php echo $this->getDealPageLink($deal->getId()); ?>"><img src="<?php echo $this->getDealImage($deal->getDealImage()); ?>" alt="<?php echo $deal->getDealName(); ?>" /></a>
+           <div class="awcp-mark-left"><div class="awcp-mark-right"><div class="awcp-mark-center">             <div class="awcp-details inprogress">
+              <h2 class="awcp-title"><a href="<?php echo $this->getDealPageLink($deal->getId()); ?>"><?php echo $deal->getDealName(); ?></a></h2>
+               <?php if(!$deal->isClosed()): ?>
+                    <?php $container = "awcp_timer_".rand(); ?>
+                   <?php if($deal->isNotRunning() && $deal->getAvailableFrom()): ?>
+                        <div class="awcp-date" id = "<?php echo $container; ?>"><?php echo $this->getTimeLeftToBuy($deal,$time = 'available_from'); ?></div>
+                    <?php elseif($deal->isRunning() && $deal->getAvailableTo()): ?>
+                        <div class="awcp-date" id = "<?php echo $container; ?>"><?php echo $this->getTimeLeftToBuy($deal); ?></div>
+                    <?php else: ?>
+                         <div  class="awcp-date awcp-date-empty" id = "<?php echo $container; ?>">&nbsp;</div>
+                    <?php endif; ?>
+ 
+                      <?php if($data = $this->getJsonConfig($deal->getId())): ?>
+                        <script type = "text/javascript">
+                            document.observe("dom:loaded", function() {
+                               new AwcpCollpur(<?php echo $this->getJsonConfig($deal->getId()) ; ?>,"<?php echo $container; ?>");
+                            });
+                        </script>
+                      <?php endif; ?>
+               <?php endif; ?>
+              <button class="button awcp-button" onclick="setLocation('<?php echo $this->getDealPageLink($deal->getId()); ?>')"><span><span><?php echo $this->__('View This Deal!'); ?></span></span></button>
+              <div class="clearer"></div>
+             </div>
+           </div></div></div>
+     </li>      
+     <?php $i++; endforeach; ?> 
+ </ul>
+ <div class="clearer"></div>
+</div>
+
+<?php echo $this->getChildHtml('available_deals_pager'); ?>
+ <!-- Incorrect view of buttons in catalog -->
+ <style>
+ button.button span span {height:auto!important;}
+ </style>

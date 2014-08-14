@@ -1,0 +1,9 @@
+<?php $this->setPriceDataObject($this->getSource()) ?>
+<?php if ((float) $this->getSource()->getReferralrewardAmount()): ?>
+    <tr>
+        <td class="label"><?php echo Mage::helper('referralreward')->getLabelTotal() ?></td>
+        <td>
+            <?php echo $this->displayPrices($this->getSource()->getBaseReferralrewardAmount(), $this->getSource()->getReferralrewardAmount()) ?>
+        </td>
+    </tr>
+<?php endif ?>

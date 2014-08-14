@@ -1,0 +1,51 @@
+<?php
+/**
+ * Widget Product List Template
+ */
+?>
+
+<?php $productCollection = $this->getCollection() ?>
+<?php $_helper = $this->helper('catalog/output') ?>
+
+<?php $widgetData = $this->getWidgetData() ?>
+
+<?php $_columnCount = $widgetData['columns'] ?>
+<?php $maxWidth = floor(($widgetData['width']-18) / $_columnCount) ?>
+<?php $maxHeight = floor(($widgetData['height']-64) / $widgetData['rows']) ?>
+
+<?php // Product Grid ?>
+<?php $_collectionSize = $productCollection->count() ?>
+<?php $i=0; foreach($productCollection as $product): ?>
+	<?php if ($i++%$_columnCount == 0): ?>
+	<ul class="affiliatepluswidget_products_grid">
+	<?php endif ?>
+		<li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>" style="width:<?php echo $maxWidth-4 ?>px;height:<?php echo $maxHeight-4 ?>px;margin:2px;overflow:hidden;">
+			<?php if ($widgetData['is_image']): ?>
+			<a href="<?php echo $this->getProductUrl($product) ?>" title="<?php echo $product->getName() ?>" class="product-image" target="_blank">
+				<img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize(36,54) ?>" width="36" height="54" alt="<?php echo $product->getName() ?>" style="color:#<?php echo $widgetData['textlink'] ?>;" />
+			</a>
+			<?php endif ?>
+			<div class="affiliatepluswidget_right_box" style="<?php if ($widgetData['is_image']): ?>margin-left:38px;position:absolute;top:0px;<?php endif ?>">
+				<h2 class="product-name">
+					<a href="<?php echo $this->getProductUrl($product) ?>" title="<?php echo $product->getName() ?>"  style="color:#<?php echo $widgetData['textlink'] ?>;" target="_blank"><?php echo $_helper->productAttribute($product, $product->getName(), 'name') ?></a>
+				</h2>
+				<?php if ($widgetData['is_price']): ?>
+				<div class="affiliatepluswidget_price_box" style="color:#<?php echo $widgetData['textbody'] ?>;height:15px;">
+					<?php echo $this->getPriceHtml($product, true) ?>
+				</div>
+				<?php endif ?>
+				<?php if ($widgetData['is_rated']): ?>
+					<?php echo $this->getReviewsSummaryHtml($product,'widget') ?>
+				<?php endif ?>
+				<?php if ($widgetData['is_short_desc']): ?>
+				<div class="desc std">
+					<?php $_short_description = $_helper->productAttribute($product, $product->getShortDescription(), 'short_description') ?>
+					<?php echo Mage::helper('core/string')->truncate($_short_description,45) ?>
+				</div>
+				<?php endif ?>
+			</div>
+		</li>
+	<?php if ($i%$_columnCount == 0 || $i == $_collectionSize): ?>
+	</ul>
+	<?php endif ?>
+<?php endforeach ?>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<catalog_category_layered>
+		<reference name="content">
+			<block type="seonavigation/seonavigation" name="seonavigation_metadata" />
+		</reference>
+	</catalog_category_layered>
+	<catalogsearch_result_index>
+		<reference name="content">
+			<block type="seonavigation/seonavigation" name="seonavigation_metadata" />
+		</reference>
+	</catalogsearch_result_index>
+</layout>

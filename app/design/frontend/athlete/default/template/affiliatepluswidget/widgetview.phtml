@@ -1,0 +1,18 @@
+<?php
+/**
+ * Affiliate Plus Widget HTML Template
+ */
+?>
+<html>
+	<head>
+		<script type="text/javascript" src="<?php echo $this->getJsUrl('prototype/prototype.js') ?>"></script>
+		<script type="text/javascript" src="<?php echo $this->getJsUrl('magestore/affiliatepluswidget.js') ?>"></script>
+		<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/styles.css') ?>" media="all">
+		<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/affiliatepluswidget/widget.css') ?>" media="all">
+	</head>
+	<body style="border:0px;margin:0px;padding:0px;background:none;">
+		<div class="main" style="width:auto;height:auto;margin:0px;border:0px;padding:0px;min-height:0px;background:none;">
+			<?php echo $this->getWidgetHtml() ?>
+		</div>
+	</body>
+</html>

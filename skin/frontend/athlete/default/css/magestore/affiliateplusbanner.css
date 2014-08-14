@@ -1,0 +1,74 @@
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Design
+ * @package     Magestore_AffiliateplusBanner
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+ 
+/** ---------------- Banner view page ---------------- */
+
+.share_twitter iframe{
+    width: 88px !important;
+}
+
+.share_facebook .fb_button{
+    background: url("images/fb_share_button.png") no-repeat;
+    border: none;
+    height: 20px;
+    width: 70px;
+    cursor: pointer;
+    position: relative;
+    bottom: 8px;
+    color: #FFF;
+    font-size: 12px;
+    padding-top: 2px;
+    padding-left: 16px;
+}
+
+.banner-share .share_facebook .fb_button{
+    bottom: 1px;
+}
+
+.banner-share .button-code-action{
+    float: left;
+    margin-bottom: 7px;
+}
+
+#banner-view-list li.banner-view-item{
+    border: 1px solid #DDD;
+    margin-bottom: 20px;
+}
+
+#banner-view-list li.banner-view-item .banner-title{
+    background-color: #F2F2F2;
+    padding: 10px;
+}
+
+#banner-view-list li.banner-view-item .banner-preview{
+    padding: 10px;
+}
+
+#banner-view-list li.banner-view-item .banner-share{
+    padding: 10px;
+}
+
+#banner-view-list table td{
+    font-weight: bold;
+}
+
+#banner-custom-link-form{
+    text-align: left;
+}

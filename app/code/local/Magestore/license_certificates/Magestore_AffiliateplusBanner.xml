@@ -1,0 +1,7 @@
+<config>
+   <Magestore_AffiliateplusBanner>
+      <name>Advanced Banner plugin (2.0)</name>
+      <type>depend</type>
+      <depend>Magestore_Affiliateplus</depend>
+   </Magestore_AffiliateplusBanner>
+</config>

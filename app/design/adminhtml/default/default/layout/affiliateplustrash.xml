@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_AffiliateplusTrash
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<layout version="0.1.0">
+    <affiliateplustrashadmin_adminhtml_transaction_deleted>
+        <reference name="content">
+            <block type="affiliateplustrash/adminhtml_transaction_deleted" name="transaction" />
+        </reference>
+    </affiliateplustrashadmin_adminhtml_transaction_deleted>
+    <affiliateplustrashadmin_adminhtml_transaction_deletedgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="affiliateplustrash/adminhtml_transaction_deleted_grid" name="transaction" />
+        </block>
+    </affiliateplustrashadmin_adminhtml_transaction_deletedgrid>
+    
+    <affiliateplustrashadmin_adminhtml_payment_deleted>
+        <reference name="content">
+            <block type="affiliateplustrash/adminhtml_payment_deleted" name="payment" />
+        </reference>
+    </affiliateplustrashadmin_adminhtml_payment_deleted>
+    <affiliateplustrashadmin_adminhtml_payment_deletedgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="affiliateplustrash/adminhtml_payment_deleted_grid" name="payment" />
+        </block>
+    </affiliateplustrashadmin_adminhtml_payment_deletedgrid>
+</layout>

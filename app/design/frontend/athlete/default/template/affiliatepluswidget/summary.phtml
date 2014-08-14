@@ -1,0 +1,12 @@
+<?php
+/**
+ * Review Product
+ */
+?>
+<?php if ($this->getRatingSummary()):?>
+<div class="affiliatepluswidget_ratings">
+	<div class="affiliatepluswidget_rating_box" style="height:10px;width:60px;background:url(<?php echo $this->getSkinUrl('images/affiliatepluswidget/bkg_rating.gif') ?>) 0 0 repeat-x;">
+		<div class="affiliatepluswidget_rating" style="width:<?php echo $this->getRatingSummary() ?>%;height:10px;background:url(<?php echo $this->getSkinUrl('images/affiliatepluswidget/bkg_rating.gif') ?>) 0 100% repeat-x;"></div>
+	</div>
+</div>
+<?php endif ?>

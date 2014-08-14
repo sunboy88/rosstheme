@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category 	Magestore
+ * @package 	Magestore_PaypalBNCode
+ * @copyright 	Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license 	http://www.magestore.com/license-agreement.html
+ */
+-->
+<config>
+    <modules>
+        <Magestore_PaypalBNCode>
+            <version>0.1.0</version>
+        </Magestore_PaypalBNCode>
+    </modules>
+    <global>
+        <models>
+            <paypalbncode>
+                <class>Magestore_PaypalBNCode_Model</class>
+            </paypalbncode>
+            <paypal>
+                <rewrite>
+                    <config>Magestore_PaypalBNCode_Model_Config</config>
+                </rewrite>
+            </paypal>			
+        </models>
+        <helpers>
+            <paypalbncode>
+                <class>Magestore_PaypalBNCode_Helper</class>
+            </paypalbncode>
+        </helpers>
+    </global>
+</config>

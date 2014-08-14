@@ -1,0 +1,9 @@
+/* Widget Style */
+
+#affiliatepluswidget_product_list {}
+
+#affiliatepluswidget_product_list ul.affiliatepluswidget_products_grid { list-style:none; }
+#affiliatepluswidget_product_list ul.affiliatepluswidget_products_grid li { position:relative; float:left; }
+
+div.affiliatepluswidget_price_box div.price-box span.regular-price { color:inherit !important; }
+div.affiliatepluswidget_price_box div.price-box span.regular-price span.price { color:inherit !important; font-size:11px; }

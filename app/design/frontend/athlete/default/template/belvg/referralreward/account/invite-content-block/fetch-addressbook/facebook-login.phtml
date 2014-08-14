@@ -1,0 +1,42 @@
+<?php
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+/******************************************
+ *      MAGENTO EDITION USAGE NOTICE      *
+ ******************************************/
+ /* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+/******************************************
+ *      DISCLAIMER                        *
+ ******************************************/
+/* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ ******************************************
+ * @category   Belvg
+ * @package    Belvg_Referralreward
+ * @copyright  Copyright (c) 2010 - 2011 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+?>
+<img src="<?php echo $this->getSkinUrl('belvg/images/referralreward/facebook-logo.png') ?>">
+<p><?php echo $this->__('You can share us with your contacts via Facebook') ?></p>
+<div class="facebook-avatar" style="display:none;">
+    <img src="#"><p><?php echo $this->__('Is it you?') ?>
+    <br><?php echo $this->__("Move to 'Send Invites' tab") ?>
+</div>
+<div class="facebook-button">
+	<a href="javascript:;" onclick="return fblogin();" class="fb_button_ps">
+        <img src="<?php echo $this->getSkinUrl('belvg/images/referralreward/fb-login.gif') ?>" alt="<?php echo $this->__("Connect with Facebook")?>" />
+    </a>
+</div>

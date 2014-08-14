@@ -1,0 +1,6 @@
+tables:
+ downloadable/link_purchased:
+  - order_id: 1
+ downloadable/link_purchased_item:
+  - purchased_id: 1
+    order_item_id: 1

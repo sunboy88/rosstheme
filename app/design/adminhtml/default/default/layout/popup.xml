@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="1.0">
+    <popup_admin_adminhtml_popup_index>
+        <reference name="content">
+            <block type="popup/adminhtml_popup" name="popup"/>
+        </reference>
+    </popup_admin_adminhtml_popup_index>
+    <popup_admin_adminhtml_popup_edit>
+        <update handle="editor"/>
+    </popup_admin_adminhtml_popup_edit>
+</layout>

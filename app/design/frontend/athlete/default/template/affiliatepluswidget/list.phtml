@@ -1,0 +1,38 @@
+<?php
+/**
+ * List Widget Template
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<div class="page-title">
+	<h2><?php echo $this->__('My Widgets') ?></h2>
+</div>
+
+<?php if ($this->getCollection()->getSize()): ?>
+	<?php echo $this->getPagerHtml() ?>
+	<?php echo $this->getGridHtml() ?>
+	<?php echo $this->getPagerHtml() ?>
+<?php else: ?>
+<div>
+	<p class="note-msg">
+		<?php echo $this->__('You have no widget!') ?>
+	</p>
+</div>
+<?php endif ?>
+
+<div class="buttons-set">
+	<button class="button" type="button" onclick='setLocation("<?php echo $this->getUrl('affiliatepluswidget/index/new') ?>")'>
+		<span>
+			<span><?php echo $this->__('New Widget') ?></span>
+		</span>
+	</button>
+</div>
+<script type="text/javascript">
+    function deleteWidget() {
+        if (confirm('<?php echo $this->__('Are you sure?') ?>')) {
+            return true;
+        }
+        return false;
+    }
+</script>

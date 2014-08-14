@@ -1,0 +1,70 @@
+<?php 
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_AffiliateplusBanner
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/**
+ * Affiliateplusbanner template
+ * 
+ * @see Magestore_AffiliateplusBanner_Block_View
+ */
+?>
+
+<?php $_banner  = $this->getBanner() ?>
+<?php $_type    = $this->getRenderType() ?>
+
+<?php if ($_type == 'code' || $_type == 'rotator'): ?>
+
+<a href="<?php echo $this->getBannerUrl() ?>"<?php if($_banner->getTarget()): ?> target="<?php echo $_banner->getTarget() ?>"<?php endif ?><?php if ($_banner->getRelNofollow()): ?> rel="nofollow"<?php endif ?> onclick="return false;">
+    <embed src="<?php echo ($_type == 'code') ? $this->getPhpBannerMedia() : $this->getDirectBannerMedia() ?>" title="<?php echo $_banner->getTitle() ?>"<?php if ($_banner->getWidth()): ?> width="<?php echo $_banner->getWidth() ?>"<?php endif ?><?php if ($_banner->getHeight()): ?> height="<?php echo $_banner->getHeight() ?>"<?php endif ?> type="application/x-shockwave-flash" wmode="transparent" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" onmouseup="return _affiliateplusClickFlashBanner(event, this);" />
+</a>
+<script type="text/javascript">
+function _affiliateplusClickFlashBanner(e, aLink) {
+    if (typeof e == "undefined") e = window.event;
+    var isLeftClick = false;
+    if (window.attachEvent) {
+        if (window.addEventListener) {
+            if (e instanceof window.Event) {
+                isLeftClick = e.which ? (e.which === 1) : (e.button === 0);
+            } else {
+                isLeftClick = (e.button === 1);
+            }
+        } else {
+            isLeftClick = (e.button === 1);
+        }
+    } else if (navigator.userAgent.indexOf('AppleWebKit/') > -1) {
+        isLeftClick = (e.which == 1) && !e.metaKey;
+    } else {
+        isLeftClick = e.which ? (e.which === 1) : (e.button === 0);
+    }
+    if (!isLeftClick) return false;
+    var outOfRange = (0 > e.offsetX) || (<?php echo $_banner->getWidth() ? $_banner->getWidth() : 'aLink.offsetWidth' ?> < e.offsetX) || (0 > e.offsetY) || (<?php echo $_banner->getHeight() ? $_banner->getHeight() : 'aLink.offsetHeight' ?> < e.offsetY);
+    if (outOfRange) return false;
+    window.open(aLink.parentNode.href, aLink.parentNode.target);
+    return false;
+}
+</script>
+
+<?php elseif ($_type == 'preview'): ?>
+
+<a href="<?php echo $this->getBannerUrl() ?>"<?php if($_banner->getTarget()): ?> target="<?php echo $_banner->getTarget() ?>"<?php endif ?><?php if ($_banner->getRelNofollow()): ?> rel="nofollow"<?php endif ?>>
+    <embed src="<?php echo $this->getDirectBannerMedia() ?>" title="<?php echo $_banner->getTitle() ?>"<?php if ($_banner->getWidth()): ?> width="<?php echo $_banner->getWidth() ?>"<?php endif ?><?php if ($_banner->getHeight()): ?> height="<?php echo $_banner->getHeight() ?>"<?php endif ?> type="application/x-shockwave-flash" wmode="transparent" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" />
+</a>
+
+<?php endif; ?>

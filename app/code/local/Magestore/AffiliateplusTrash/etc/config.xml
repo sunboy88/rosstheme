@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_AffiliateplusTrash
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config>
+    <modules>
+        <Magestore_AffiliateplusTrash>
+            <version>0.1.0</version>
+        </Magestore_AffiliateplusTrash>
+    </modules>
+    <frontend>
+        <routers>
+            <affiliateplustrash>
+                <use>standard</use>
+                <args>
+                    <module>Magestore_AffiliateplusTrash</module>
+                    <frontName>affiliateplustrash</frontName>
+                </args>
+            </affiliateplustrash>
+        </routers>
+        <translate>
+            <modules>
+                <Magestore_AffiliateplusTrash>
+                    <files>
+                        <default>Magestore_AffiliateplusTrash.csv</default>
+                    </files>
+                </Magestore_AffiliateplusTrash>
+            </modules>
+        </translate>
+    </frontend>
+    <admin>
+        <routers>
+            <affiliateplustrashadmin>
+                <use>admin</use>
+                <args>
+                    <module>Magestore_AffiliateplusTrash</module>
+                    <frontName>affiliateplustrashadmin</frontName>
+                </args>
+            </affiliateplustrashadmin>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <affiliateplustrash>
+                    <file>affiliateplustrash.xml</file>
+                </affiliateplustrash>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Magestore_AffiliateplusTrash>
+                    <files>
+                        <default>Magestore_AffiliateplusTrash.csv</default>
+                    </files>
+                </Magestore_AffiliateplusTrash>
+            </modules>
+        </translate>
+        <events>
+            <affiliateplus_adminhtml_add_massaction_transaction_grid>
+                <observers>
+                    <affiliateplustrash_observers>
+                        <class>affiliateplustrash/observer</class>
+                        <method>adminhtmlAddMassactionTransactionGrid</method>
+                    </affiliateplustrash_observers>
+                </observers>
+            </affiliateplus_adminhtml_add_massaction_transaction_grid>
+            <affiliateplus_adminhtml_update_transaction_action>
+                <observers>
+                    <affiliateplustrash_observers>
+                        <class>affiliateplustrash/observer</class>
+                        <method>adminhtmlUpdateTransactionAction</method>
+                    </affiliateplustrash_observers>
+                </observers>
+            </affiliateplus_adminhtml_update_transaction_action>
+            
+            <affiliateplus_adminhtml_payment_massaction>
+                <observers>
+                    <affiliateplustrash_observers>
+                        <class>affiliateplustrash/observer</class>
+                        <method>adminhtmlPaymentMassaction</method>
+                    </affiliateplustrash_observers>
+                </observers>
+            </affiliateplus_adminhtml_payment_massaction>
+            <affiliateplus_adminhtml_payment_edit_form_action>
+                <observers>
+                    <affiliateplustrash_observers>
+                        <class>affiliateplustrash/observer</class>
+                        <method>adminhtmlPaymentEditFormAction</method>
+                    </affiliateplustrash_observers>
+                </observers>
+            </affiliateplus_adminhtml_payment_edit_form_action>
+        </events>
+    </adminhtml>   
+    <global>
+        <models>
+            <affiliateplus>
+                <rewrite>
+                    <transaction>Magestore_AffiliateplusTrash_Model_Transaction</transaction>
+                    <payment>Magestore_AffiliateplusTrash_Model_Payment</payment>
+                </rewrite>
+            </affiliateplus>
+            <affiliateplustrash>
+                <class>Magestore_AffiliateplusTrash_Model</class>
+                <resourceModel>affiliateplustrash_mysql4</resourceModel>
+            </affiliateplustrash>
+            <affiliateplustrash_mysql4>
+                <class>Magestore_AffiliateplusTrash_Model_Mysql4</class>
+            </affiliateplustrash_mysql4>
+            <affiliateplus_mysql4>
+                <rewrite>
+                    <transaction_collection>Magestore_AffiliateplusTrash_Model_Mysql4_Transaction_Collection</transaction_collection>
+                    <payment_collection>Magestore_AffiliateplusTrash_Model_Mysql4_Payment_Collection</payment_collection>
+                </rewrite>
+            </affiliateplus_mysql4>
+            <affiliateplusstatistic_mysql4>
+                <rewrite>
+                    <sales_collection>Magestore_AffiliateplusTrash_Model_Mysql4_Sales_Collection</sales_collection>
+                </rewrite>
+            </affiliateplusstatistic_mysql4>
+        </models>
+        <resources>
+            <affiliateplustrash_setup>
+                <setup>
+                    <module>Magestore_AffiliateplusTrash</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </affiliateplustrash_setup>
+            <affiliateplustrash_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </affiliateplustrash_write>
+            <affiliateplustrash_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </affiliateplustrash_read>
+        </resources>
+        <blocks>
+            <affiliateplustrash>
+                <class>Magestore_AffiliateplusTrash_Block</class>
+            </affiliateplustrash>
+        </blocks>
+        <helpers>
+            <affiliateplustrash>
+                <class>Magestore_AffiliateplusTrash_Helper</class>
+            </affiliateplustrash>
+        </helpers>
+    </global>
+</config>

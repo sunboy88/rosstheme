@@ -1,0 +1,260 @@
+<?php
+/**
+ * Widget Form Template
+ */
+?>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl()?>/js/affiliatepluswidget/jscolor.js" ></script>
+<?php $widget = $this->getWidget() ?>
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<div class="page-title">
+	<h2>
+	<?php if ($widget->getId()): ?>
+		<?php echo $this->__('Edit Widget "%s"',$widget->getName()) ?>
+	<?php else: ?>
+		<?php echo $this->__('New Widget') ?>
+	<?php endif ?>
+	</h2>
+</div>
+
+<form id="affiliateplus-widget-form" method="post" action="<?php echo $this->getFormPostUrl() ?>">
+	<div class="fieldset" id="affiliateplus-widget-fieldset">
+		<h2 class="legend"><?php echo $this->__('Widget Information') ?></h2>
+		<ul class="form-list">
+			<?php // widget name ?>
+			<li class="fields">
+				<div class="field">
+					<label for="name"><?php echo $this->__('Name') ?></label>
+					<div class="input-box">
+						<input type="text" name="name" id="name" class="input-text" value="<?php echo $widget->getName() ?>" />
+					</div>
+				</div>
+			</li>
+			
+			<?php // categories or product ?>
+			<?php if ($this->getProductId()): ?>
+				<?php $default_width = 168; $default_height=145; $default_rows=1; $default_columns=1; ?>
+			<li class="fields">
+				<div class="field">
+					<label><?php echo $this->__('Product') ?></label>
+					<div class="input-box">
+						<input type="hidden" name="product_id" value="<?php echo $this->getProductId() ?>" />
+						<a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->getProductName() ?>">
+							<span><?php echo $this->getProductName() ?></span>
+						</a>
+					</div>
+				</div>
+			</li>
+			<?php else: ?>
+				<?php $default_width = 300; $default_height=250; $default_rows=3; $default_columns=2; ?>
+			<li class="fields">
+				<div class="field">
+					<label for="category_ids" class="required"><em>*</em><?php echo $this->__('Categories') ?></label>
+					<div class="input-box">
+						<select id="category_ids" name="category_ids[]" class="required-entry" multiple="multiple" size='6'>
+						<?php foreach ($this->getStoreCategories() as $category): ?>
+							<option <?php if (in_array($category->getId(),$widget->getCategoryIds())) echo 'selected' ?> value="<?php echo $category->getId() ?>" ><?php echo $category->getName() ?></option>
+						<?php endforeach ?>
+						</select>
+					</div>
+				</div>
+			</li>
+			<?php endif ?>
+			<?php // custom show ?>
+			<li class="fields">
+				<div class="field">
+					<label for="is_image"><?php echo $this->__('Show Image') ?></label>
+					<div class="input-box custom-show">
+						<input type="checkbox" id="is_image" name="is_image" <?php if ($widget->getIsImage() || !$widget->getId()) echo 'checked' ?> value="1" />
+					</div>
+				</div>
+			</li>
+			<li class="fields">
+				<div class="field">
+					<label for="is_price"><?php echo $this->__('Show Price') ?></label>
+					<div class="input-box custom-show">
+						<input type="checkbox" id="is_price" name="is_price" <?php if ($widget->getIsPrice() || !$widget->getId()) echo 'checked' ?> value="1" />
+					</div>
+				</div>
+			</li>
+			<li class="fields">
+				<div class="field">
+					<label for="is_rated"><?php echo $this->__('Show Rate') ?></label>
+					<div class="input-box custom-show">
+						<input type="checkbox" id="is_rated" name="is_rated" <?php if ($widget->getIsRated() || !$widget->getId()) echo 'checked' ?> value="1" />
+					</div>
+				</div>
+			</li>
+			<li class="fields">
+				<div class="field">
+					<label for="is_short_desc"><?php echo $this->__('Short Description') ?></label>
+					<div class="input-box custom-show">
+						<input type="checkbox" id="is_short_desc" name="is_short_desc" <?php if ($widget->getIsShortDesc()) echo 'checked' ?> value="1" />
+					</div>
+				</div>
+			</li>
+			
+			<?php // widget size ?>
+			<li class="fields">
+				<div class="field">
+					<label for="widget_size"><?php echo $this->__('Size') ?></label>
+					<div class="input-box">
+						<select id="widget_size" name="widget_size" onclick="widgetChangeSize(this)">
+						<?php foreach($this->getSizesOption() as $value => $label): ?>
+							<option <?php if ($widget->getWidgetSize() == $value) echo 'selected' ?> value="<?php echo $value ?>"><?php echo $label ?></option>
+						<?php endforeach ?>
+							<option <?php if ($widget->getId() && !$widget->getWidgetSize()) echo 'selected' ?> value=""><?php echo $this->__('Custom Size') ?></option>
+						</select>
+					</div>
+				</div>
+			</li>
+			
+			<li id="widget_custom_size" style="<?php if (!$widget->getId() || $widget->getWidgetSize()) echo 'display:none;' ?>">
+				<ul class="form-list">
+					<li class="fields">
+						<div class="field">
+							<label for="width" class="required"><em>*</em><?php echo $this->__('Width') ?></label>
+							<div class="input-box">
+								<input type="text" id="width" name="width" class="input-text required-entry validate-greater-than-zero" value="<?php echo $widget->getWidth() ? $widget->getWidth() : $default_width ?>" />
+							</div>
+						</div>
+					</li>
+					<li class="fields">
+						<div class="field">
+							<label for="height" class="required"><em>*</em><?php echo $this->__('Height') ?></label>
+							<div class="input-box">
+								<input type="text" id="height" name="height" class="input-text required-entry validate-greater-than-zero" value="<?php echo $widget->getHeight() ? $widget->getHeight() : $default_height ?>" />
+							</div>
+						</div>
+					</li>
+					<li class="fields">
+						<div class="field">
+							<label for="rows" class="required"><em>*</em><?php echo $this->__('Rows') ?></label>
+							<div class="input-box">
+								<input type="text" id="rows" name="rows" class="input-text required-entry validate-greater-than-zero" value="<?php echo $widget->getRows() ? $widget->getRows() : $default_rows ?>" />
+							</div>
+						</div>
+					</li>
+					<li class="fields">
+						<div class="field">
+							<label for="columns" class="required"><em>*</em><?php echo $this->__('Columns') ?></label>
+							<div class="input-box">
+								<input type="text" id="columns" name="columns" class="input-text required-entry validate-greater-than-zero" value="<?php echo $widget->getColumns() ? $widget->getColumns() : $default_columns ?>" />
+							</div>
+						</div>
+					</li>
+				</ul>
+			</li>
+			
+			<?php // default search term ?>
+			<?php if (!$this->getProductId()): ?>
+			<li class="fields">
+				<div class="field">
+					<label for="search"><?php echo $this->__('Default Search Term') ?></label>
+					<div class="input-box">
+						<input type="text" id="search" name="search" class="input-text" value="<?php echo $widget->getSearch() ?>" />
+					</div>
+				</div>
+			</li>
+			<?php endif ?>
+			
+			<?php // color fields ?>
+			<li class="fields">
+				<div class="field">
+					<label for="background"><?php echo $this->__('Background') ?></label>
+					<div class="input-box input-color">
+						<input type="text" id="background" name="background" class="input-text color" value="<?php echo $widget->getBackground() ? $widget->getBackground(): $this->getConfig('background') ?>" />
+					</div>
+				</div>
+			</li>
+			<li class="fields">
+				<div class="field">
+					<label for="border"><?php echo $this->__('Border') ?></label>
+					<div class="input-box input-color">
+						<input type="text" id="border" name="border" class="input-text color" value="<?php echo $widget->getBorder()  ? $widget->getBorder() : $this->getConfig('border') ?>" />
+					</div>
+				</div>
+			</li>
+			<li class="fields">
+				<div class="field">
+					<label for="textheader"><?php echo $this->__('Text Header') ?></label>
+					<div class="input-box input-color">
+						<input type="text" id="textheader" name="textheader" class="input-text color" value="<?php echo $widget->getTextheader() ? $widget->getTextheader() : $this->getConfig('textheader') ?>" />
+					</div>
+				</div>
+			</li>
+			<li class="fields">
+				<div class="field">
+					<label for="textlink"><?php echo $this->__('Text Link') ?></label>
+					<div class="input-box input-color">
+						<input type="text" id="textlink" name="textlink" class="input-text color" value="<?php echo $widget->getTextlink() ? $widget->getTextlink() : $this->getConfig('textlink') ?>" />
+					</div>
+				</div>
+			</li>
+			<li class="fields">
+				<div class="field">
+					<label for="textbody"><?php echo $this->__('Text Body') ?></label>
+					<div class="input-box input-color">
+						<input type="text" id="textbody" name="textbody" class="input-text color" value="<?php echo $widget->getTextbody() ? $widget->getTextbody() : $this->getConfig('textbody') ?>" />
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</form>
+<div class="fieldset" id="affiliateplus-widget-preview">
+	<h2 class="legend"><?php echo $this->__('Preview') ?></h2>
+	<input type="hidden" id="widget-ajax-url" value="<?php echo $this->getUrl("affiliatepluswidget/index/view") ?>" />
+	<div id="widget-container">
+	</div>
+	<div id="widget-ajax-load" style="display:none;">
+		<div style="min-height:45px">&nbsp;</div>
+		<center>
+			<img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Loading...') ?>" title="<?php echo $this->__('Loading...') ?>" />
+			<span style="color:#E76200"><?php echo $this->__('Loading...') ?></span>
+		</center>
+		<div style="min-height:45px">&nbsp;</div>
+	</div>
+	<div class="buttons-set">
+		<button class="button" type="button" onclick='getWidgetHtmlCode()'>
+			<span>
+				<span><?php echo $this->__('Get HTML Code') ?></span>
+			</span>
+		</button>
+	</div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+	var affiliateplusWidgetForm = new VarienForm('affiliateplus-widget-form',true);
+	function widgetChangeSize(el){
+		if (el.value)
+			$('widget_custom_size').hide();
+		else
+			$('widget_custom_size').show();
+	}
+	Form.getElements('affiliateplus-widget-form').each(function(el){
+		el.observe('change',changeFormValue);
+	});
+	function getWidgetHtmlCode(){
+		var url = '<?php echo $this->getUrl("affiliatepluswidget/index/code") ?>?'+$('affiliateplus-widget-form').serialize();
+		TINY.box.show(url,1,360,0,1);
+	}
+//]]>
+</script>
+
+<div class="buttons-set">
+	<p class="back-link">
+		<a href="javascript:history.go(-1)">
+			<button type="button" class="form-button button" onclick="javascript:history.go(-1)">
+				<span><?php echo $this->__('Back')?></span>
+			</button>
+		</a>
+	</p>
+	<button class="button" type="button" onclick='affiliateplusWidgetForm.submit()'>
+		<span>
+			<span><?php echo $this->__('Save Widget') ?></span>
+		</span>
+	</button>
+</div>

@@ -1,0 +1,611 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+/******************************************
+ *      MAGENTO EDITION USAGE NOTICE      *
+ ******************************************/
+ /* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+/******************************************
+ *      DISCLAIMER                        *
+ ******************************************/
+/* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ ******************************************
+ * @category   Belvg
+ * @package    Belvg_Referralreward
+ * @copyright  Copyright (c) 2010 - 2011 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+-->
+
+<config>
+    <sections>
+        <referralreward translate="label">
+            <label>Referral and Reward System</label>
+            <tab>belvg</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1111</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <info translate="label">
+                    <label>Info</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment>        
+                    <![CDATA[
+                    <div style="padding:10px;background-color:#fff;border:1px solid #ddd;margin-bottom:7px;">
+                    <div style="float:left;margin-right:10px;background:url('data:image/png;base64,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') no-repeat; width: 54px; height: 54px;"></div>
+                    This module was developed by <a href="http://www.belvg.com" target="_blank">www.BelVG.com</a>.<br>
+                    For docs & examples refer to the BelVG <a href="http://www.belvg.com" target="_blank">web site</a>.
+                    <br/>We have the largest selections of  <a href="http://store.belvg.com/extensions.html" target="_blank">extensions</a> and <a href="http://store.belvg.com/themes.html" target="_blank">themes</a> on Magento.
+                    </div>
+                    ]]>
+                    </comment>
+                    <fields>
+                        <info>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>referralreward/adminhtml_config_info</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </info>
+                    </fields>
+                </info>
+                <settings translate="label">
+                    <label>Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <pointcost translate="label tooltip">
+                            <label>One Point Costs</label>
+                            <tooltip>The cost of 1 point in your store currency</tooltip>
+                            <validate>validate-not-negative-number required-entry</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pointcost>
+                        <point_lifetime_enabled translate="label tooltip">
+                            <label>Point has Life Time</label>
+                            <tooltip>If enabled points will expire after certain period after being added</tooltip>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </point_lifetime_enabled>
+                        <point_lifetime translate="label comment">
+                            <label>Points expire period</label>
+                            <comment>days</comment>
+                            <validate>validate-greater-than-zero required-entry</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <point_lifetime_enabled>1</point_lifetime_enabled>
+                            </depends>
+                        </point_lifetime>
+                        <transfer translate="label tooltip">
+                            <label>Points Transfer</label>
+                            <tooltip>If enabled – users will be able to transfer their points to other users</tooltip>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </transfer>
+                        <email_template_notification translate="label tooltip">
+                            <label>Notification Email Template</label>
+                            <tooltip>Template used for notification emais</tooltip>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_template_notification>
+                        <invitation_title translate="label">
+                            <label>Invitation</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>referralreward/adminhtml_title</frontend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invitation_title>
+                        <email_template_invitation translate="label tooltip">
+                            <label>Invitation Email Template</label>
+                            <tooltip>Template used for an invite email</tooltip>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_template_invitation>
+                        <individual_registration_page translate="label tooltip">
+                            <label>Individual registration page for invited users</label>
+                            <tooltip>Allows you to set a separate registration page for referrals</tooltip>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </individual_registration_page>
+                        <product_points_title translate="label">
+                            <label>Points for the Purchase of Products</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>referralreward/adminhtml_title</frontend_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_points_title>
+                        <product_points_attribute_code translate="label tooltip">
+                            <label>Product Attribute Code</label>
+                            <tooltip>Attribute code that indicates the number of points for charging after purchase</tooltip>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_points_attribute_code>
+                        <discard_points translate="label tooltip">
+                            <label>Using points makes you earn less points for purchase</label>
+                            <tooltip>If enabled — using points will lower the earnings. The less points you spend the more you earn</tooltip>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </discard_points>
+                        <cart_checkout_title translate="label">
+                            <label>Cart / Checkout</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>referralreward/adminhtml_title</frontend_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cart_checkout_title>
+                        <use_coupon translate="label">
+                            <label>Use Coupon Code</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>310</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </use_coupon>
+                        <total_label translate="label">
+                            <label>Label on Total Block</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>320</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <use_coupon>0</use_coupon>
+                            </depends>
+                        </total_label>
+                        <cart_or_onepage translate="label">
+                            <label>Use in the Cart / in the Onepage</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>referralreward/source_cartonepage</source_model>
+                            <sort_order>330</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cart_or_onepage>
+                        <!--<slider_use translate="label tooltip">
+                            <label>Points Slider</label>
+                            <tooltip>Enables a slider that lets you set the amount of points you use</tooltip>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>340</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </slider_use>-->
+                    </fields>
+                </settings>
+                <points translate="label">
+                    <label>Points</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>110</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <registration_title translate="label">
+                            <label>Registration</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>referralreward/adminhtml_title</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </registration_title>
+                        <registration translate="label tooltip">
+                            <label>Registration of Customer, Points</label>
+                            <tooltip>Amount of points added for a successful referral registration</tooltip>
+                            <validate>validate-not-negative-number required-entry</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </registration>
+                        <invitation_title translate="label">
+                            <label>Invitation</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>referralreward/adminhtml_title</frontend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invitation_title>
+                        <inviter translate="label tooltip">
+                            <label>Inviter's Points</label>
+                            <tooltip>Amount of points added to the inviter</tooltip>
+                            <validate>validate-not-negative-number required-entry</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </inviter>
+                        <invitee translate="label tooltip">
+                            <label>Invitee's Points</label>
+                            <tooltip>Amount of points added to invitee</tooltip>
+                            <validate>validate-not-negative-number required-entry</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invitee>
+                        <minorder translate="label tooltip">
+                            <label>Minimal Order Amount</label>
+                            <tooltip>Minimal amount the customer is allowed to use receive on</tooltip>
+                            <validate>validate-not-negative-number required-entry</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </minorder>
+                        <invitation_order_status translate="label tooltip">
+                            <label>Order Status for the application of invite points</label>
+                            <tooltip>Customer should have an order with this status to count as a successful referral</tooltip>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status</source_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </invitation_order_status>
+                        <order_cancel translate="label">
+                            <label>Remove Points if Order was Canceled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </order_cancel>
+                        <to_all translate="label comment">
+                            <label>Points get all inviters</label>
+                            <comment>No - Points gets only one, whose invitation received</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </to_all>
+                        <newsletter_title translate="label">
+                            <label>Newsletter registration reward</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>referralreward/adminhtml_title</frontend_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </newsletter_title>
+                        <newsletter translate="label">
+                            <label>Points for successful subscription</label>
+                            <validate>validate-not-negative-number required-entry</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </newsletter>
+                        <newsletter_remove_points translate="label">
+                            <label>Remove Points if Unsubscribed</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </newsletter_remove_points>
+                        <review_title translate="label">
+                            <label>Review (add points for user reviews)</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>referralreward/adminhtml_title</frontend_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </review_title>
+                        <review translate="label tooltip">
+                            <label>Review, Points (if approved)</label>
+                            <tooltip>Amount of points added for approved review</tooltip>
+                            <validate>validate-not-negative-number required-entry</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>310</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </review>
+                        <!--<social_title translate="label">
+                            <label>Social</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>referralreward/adminhtml_title</frontend_model>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </social_title>
+                        <social_registration translate="label">
+                            <label>Facebook Registration Without Invitation, Points</label>
+                            <validate>validate-not-negative-number required-entry</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>410</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </social_registration>
+                        <social_share_product translate="label">
+                            <label>Share of Products, Points</label>
+                            <validate>validate-not-negative-number required-entry</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>420</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </social_share_product>
+                        <social_share_store translate="label">
+                            <label>Share of Store, Points</label>
+                            <validate>validate-not-negative-number required-entry</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>430</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </social_share_store>-->
+                    </fields>
+                </points>
+                <move_group translate="label">
+                    <label>Move to a Customer Group</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>120</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <to translate="label">
+                            <label>Groups</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>referralreward/adminhtml_groups</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                            </depends>
+                        </to>
+                    </fields>
+                </move_group>
+                <!--<facebook translate="label">
+                    <label>Facebook Api</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>130</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <appid translate="label">
+                            <label>Application ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </appid>
+                        <secret translate="label">
+                            <label>Secret Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </secret>
+                    </fields>
+                </facebook>-->
+                <gmail translate="label">
+                    <label>Google Api</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>130</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <appid translate="label">
+                            <label>Client ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </appid>
+                        <secret translate="label">
+                            <label>Client Secret</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </secret>
+                    </fields>
+                </gmail>
+                <yahoo translate="label">
+                    <label>Yahoo Api</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>140</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <key translate="label">
+                            <label>Consumer Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </key>
+                        <secret translate="label">
+                            <label>Consumer Secret</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </secret>
+                        <appid translate="label">
+                            <label>Application ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </appid>
+                    </fields>
+                </yahoo>
+                <hotmail translate="label">
+                    <label>Hotmail (Live) Api</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>150</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <appid translate="label">
+                            <label>Client ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </appid>
+                        <secret translate="label">
+                            <label>Client Secret</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </secret>
+                    </fields>
+                </hotmail>
+            </groups>
+        </referralreward>
+    </sections>
+</config>

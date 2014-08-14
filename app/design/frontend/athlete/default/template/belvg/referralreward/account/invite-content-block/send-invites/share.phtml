@@ -1,0 +1,48 @@
+<?php
+    $link   = $this->getUrl('invite/'.$this->getItem()->getUrl());
+    $title  = $this->__('This is a personal registration link to the site');
+?>
+<ul class="share-links">
+    <li class="title"><?php echo $this->__('Share on') ?>:</li>
+    <li><a class="icosoc google"        title="<?php echo $this->__('Share on') ?> Google Plus" target="_blank" rel="nofollow"
+            href="https://plus.google.com/share?url=<?php echo $link ?>&t=<?php echo $title ?>&gpsrc=frameless">
+        </a>
+    </li>
+    <li><a class="icosoc facebook"      title="<?php echo $this->__('Share on') ?> Facebook"    target="_blank" rel="nofollow"
+            href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $link ?>">
+        </a>
+    </li>
+    <li><a class="icosoc twitter"       title="<?php echo $this->__('Share on') ?> Twitter"     target="_blank" rel="nofollow"
+            href="http://twitter.com/share?url=<?php echo $link ?>&text=<?php echo $title ?>">
+        </a>
+    </li>
+    <li><a class="icosoc pinterest"     title="<?php echo $this->__('Share on') ?> Pinterest"   target="_blank" rel="nofollow"
+            href="http://pinterest.com/pin/create/button/?url=<?php echo $link ?>">
+        </a>
+    </li>
+    <li><a class="icosoc linkedin"      title="<?php echo $this->__('Share on') ?> LinkedIn"    target="_blank" rel="nofollow"
+            href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $link ?>&title=<?php echo $title ?>&summary=">
+        </a>
+    </li>
+    <li><a class="icosoc myspace"		title="<?php echo $this->__('Share on') ?> MySpace"		target="_blank" rel="nofollow"
+            href="http://www.myspace.com/Modules/PostTo/Pages/?u=<?php echo $link ?>&t=<?php echo $title ?>">
+        </a>
+    </li>
+    <li><a class="icosoc livejournal"	title="<?php echo $this->__('Share on') ?> LiveJournal"	target="_blank" rel="nofollow"
+            href="http://www.livejournal.com/update.bml?event=<br /><br /><a href='<?php echo $link ?>' target='_blank' rel='nofollow'><?php echo $title ?></a>">
+        </a>
+    </li>
+    <li><a class="icosoc delicious"		title="<?php echo $this->__('Share on') ?> Delicious"	target="_blank" rel="nofollow"
+            href="http://delicious.com/save?url=<?php echo $link ?>&title=<?php echo $title ?>">
+        </a>
+    </li>
+    <li><a class="icosoc stumbleupon"	title="<?php echo $this->__('Share on') ?> Stumbleupon"	target="_blank" rel="nofollow"
+            href="http://www.stumbleupon.com/submit?url=<?php echo $link ?>&title=<?php echo $title ?>">
+        </a>
+    </li>
+    <li><a class="icosoc reddit"		title="<?php echo $this->__('Share on') ?> Reddit"	target="_blank" rel="nofollow"
+            href="http://www.reddit.com/submit?url=<?php echo $link ?>&title=<?php echo $title ?>">
+        </a>
+    </li>
+        
+</ul>

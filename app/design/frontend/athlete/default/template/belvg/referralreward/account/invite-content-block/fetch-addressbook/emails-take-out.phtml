@@ -1,0 +1,11 @@
+<?php $providers = $this->getProviders() ?>
+<p><?php echo $this->__('Choose a provider:') ?></p>
+<ul class="lables">
+    <?php foreach ($providers as $name => $provider): ?>
+        <li><a rel="<?php echo $name ?>" target="_blank" href="javascript:;" onclick="popWin('<?php echo $provider['url'] ?>', 'provider', 'width=700,height=550,left=50%,top=5%,location=no,status=yes,scrollbars=yes,resizable=yes'); return false;">
+                <span class="lable_provider_<?php echo $name ?>"></span>
+            </a>
+        </li>
+    <?php endforeach ?>
+</ul>
+<div class="fetch-description"><?php echo $this->__('We do not keep your passwords') ?></div>

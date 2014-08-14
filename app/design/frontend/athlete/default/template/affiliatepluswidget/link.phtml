@@ -1,0 +1,19 @@
+<?php
+/**
+ * Link to get Widget in Product page
+ */
+?>
+<a href="#" onclick="return false;">
+	<span onclick="getWidgetOfProduct()">
+		<span><?php echo $this->__('Get Affiliate Widget') ?></span>
+	</span>
+</a>
+
+<script type="text/javascript">
+//<![CDATA[
+function getWidgetOfProduct(){
+	var url = '<?php echo $this->getWidgetUrl() ?>';
+	TINY.box.show(url,1,360,0,1);
+}
+//]]>
+</script>

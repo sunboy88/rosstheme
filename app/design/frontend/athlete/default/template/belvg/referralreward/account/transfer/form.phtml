@@ -1,0 +1,122 @@
+<?php
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+/******************************************
+ *      MAGENTO EDITION USAGE NOTICE      *
+ ******************************************/
+ /* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+/******************************************
+ *      DISCLAIMER                        *
+ ******************************************/
+/* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ ******************************************
+ * @category   Belvg
+ * @package    Belvg_Referralreward
+ * @copyright  Copyright (c) 2010 - 2011 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+
+    $helper      = Mage::helper('referralreward');
+    $itemCurrent = $helper->getItemCurrentCustomer();
+    $hasOrder    = $helper->hasOrderCurrentCustomer();
+?>
+
+<div class="my-account">
+    <div class="page-title">
+        <h1><?php echo $this->__('Transfer to Other Customers') ?></h1>
+    </div>
+    <div class="title-description">
+        <?php echo $this->__('You currently have %s.', $this->__(($itemCurrent->getPoints() == 1) ? '%s point' : '%s points', $itemCurrent->getPoints())) ?>
+        <?php if (!$hasOrder): ?>
+            <div class="transfer-points-disable">
+                <?php echo $this->__('The function will be available when you make your first order') ?>
+            </div>
+        <?php endif ?>
+    </div>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+    <?php if ($hasOrder): ?>
+        <form action="<?php echo $this->getUrl('referralreward/customer/transferPost') ?>" method="post" id="referralreward-transfer-form">
+            <div class="fieldset">
+                <h2 class="legend"><?php echo $this->__('Enter email and check the customer') ?></h2>
+                <ul class="form-list">
+                    <li class="fields">
+                        <div class="field">
+                            <label for="transfer-email"><?php echo $this->__('Customer Email') ?></label>
+                            <div class="input-box">
+                                <input type="text" name="transfer-email" id="transfer-email" value="" class="input-text required-entry validate-email">
+                            </div>
+                        </div>
+                        <div class="field transfer-email-button">
+                            <button type="button" onclick="transferEmailCheck()" title="Check Customer" class="button"><span><span><?php echo $this->__('Check') ?></span></span></button>
+                        </div>
+                    </li>
+                    <li class="fields" style="display:none" id="transfer-points-block">
+                        <div class="wide">
+                            <p id="transfer-customer-info"></p>
+                        </div>
+                        <div class="field">
+                            <label for="transfer-points"><?php echo $this->__('Points') ?></label>
+                            <div class="input-box">
+                                <input type="text" name="transfer-points" id="transfer-points" value="" class="input-text required-entry validate-number-range number-range-0-<?php echo $itemCurrent->getPoints() ?>">
+                            </div>
+                        </div>
+                        <div class="field">
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="buttons-set">
+                <button type="submit" title="Transfer" class="button disabled" disabled><span><span><?php echo $this->__('Transfer') ?></span></span></button>
+            </div>
+        </form>
+        <script>
+            var transferForm = new VarienForm('referralreward-transfer-form', true);
+
+            function transferEmailCheck()
+            {
+                loader.show();
+                var url       = $('referralreward-transfer-form').readAttribute('action');
+                var parametrs = $('referralreward-transfer-form').serialize(true);
+                parametrs['transfer-email-check'] = 1;
+                new Ajax.Request(url, {
+                    method:     'post',
+                    parameters: parametrs,
+                    onSuccess:  function(result) {
+                        loader.hide();
+                        var result = eval('(' + result.responseText + ')');
+                        if (result.error =='1') {
+                            if (typeof result.message != 'undefined') {
+                                alert(result.message);
+                            }
+                        } else {
+                            $('transfer-points-block').show();
+                            var submit = $('transfer-points-block').up('form').select('button[type=submit]')[0];
+                            submit.disabled = false;
+                            submit.removeClassName('disabled');
+                            if (typeof result.info != 'undefined') {
+                                $('transfer-customer-info').update(result.info);
+                            }
+                        }
+                    }
+                });
+
+                return false;
+            }
+        </script>
+    <?php endif ?>
+</div>

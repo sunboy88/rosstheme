@@ -1,0 +1,19 @@
+<!--@subject Deal {{var deal.getName()}} expiration warning @-->
+
+<table cellspacing="0" cellpadding="0" border="0" height="100%" width="100%">
+    <tr>
+        <td>
+            Dear Administrator,
+        </td>
+    </tr>
+    <tr>
+        <td>
+            The deal {{var deal.getDealName()}} will expire after {{var deal.getExpireAfterDays()}} days(s)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            You can view the deal status, deal coupons, and other information on the edit deal page - {{var deal.getEditPage()}}
+        </td>
+    </tr>
+</table>

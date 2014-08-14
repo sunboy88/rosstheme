@@ -1,0 +1,39 @@
+<?php
+/**
+ * Email recurring payment for sales
+ */
+?>
+
+<?php $_statusLabels = $this->getStatusLabels() ?>
+
+<?php $_transactions = $this->getTransactions()  ?>
+<?php foreach ($_transactions as $tran): ?>
+<?php $_account = $tran['account'] ?>
+<?php $_payment = $tran['payment'] ?>
+<tr>
+    <td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; border-right: 0; background:#f8f7f5;">
+        #<?php echo $_payment->getId() ?>
+    </td>
+    <td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; border-right: 0; background:#f8f7f5;">
+        <?php echo $_account->getEmail() ?>
+    </td>
+    <td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; border-right: 0; background:#f8f7f5;">
+        <?php echo $this->getFormatBaseCurrency($_payment->getAmount()) ?>
+    </td>
+    <td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; border-right: 0; background:#f8f7f5;">
+        <?php echo $this->getFormatBaseCurrency($_payment->getFee()) ?>
+    </td>
+    <td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; border-right: 0; background:#f8f7f5;">
+        <?php echo ucfirst($_payment->getData('payment_method')) ?>
+    </td>
+    <td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; border-right: 0; background:#f8f7f5;">
+        <?php echo $_account->getData($_payment->getData('payment_method').'_email') ?>
+    </td>
+    <td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; border-right: 0; background:#f8f7f5;">
+        <?php echo $_statusLabels[$_payment->getData('status')] ?>
+    </td>
+    <td valign="top" style="padding:7px 9px 9px 9px; border:1px solid #bebcb7; border-top:0; background:#f8f7f5;">
+        <?php echo $this->getFormatBaseCurrency($_account->getBalance()) ?>
+    </td>
+</tr>
+<?php endforeach; ?>

@@ -1,0 +1,39 @@
+<!--@subject {{var sendername}} has invited you! @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"htmlescape var=$sendername":"Sender Customer Name",
+"htmlescape var=$link":"Referral Link",
+"htmlescape var=$message":"Description"}
+@-->
+
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<body style="background:#FFFFFF; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+	<div style="background:#FFFFFF; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+	<table cellspacing="0" cellpadding="0" border="0" height="100%" width="100%">
+		<tr>
+			<td align="left" valign="top" style="padding:20px 0 20px 0">
+				<table bgcolor="FFFFFF" cellspacing="0" cellpadding="10" border="0" width="470">
+					<tr><td align="left" valign="top"  style="border-bottom:1px solid #E0E0E0;">
+							{{htmlescape var=$sendername}} wanted to send you this <a href="{{htmlescape var=$link}}">invitation</a>.
+						</td>
+					</tr>
+					<tr><td align="left" valign="top">
+							<a href="{{store url=""}}">
+								<img src="{{skin url="images/logo_email.gif" _area='frontend'}}" alt="{{var store.getFrontendName()}}" border="0"/>
+							</a>
+						</td>
+					</tr>
+					<tr><td align="left" valign="top">
+							<p style="color:#ee3088;">{{htmlescape var=$message}}</p>
+						</td>
+					</tr>
+				</table>
+				<hr>
+			</td>
+		</tr>
+	</table>
+	</div>
+</body>

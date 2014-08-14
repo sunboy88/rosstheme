@@ -1,0 +1,345 @@
+.title-description {
+    /*border-bottom: 1px solid #ccc;
+    margin: 0 0 25px;*/
+    border: 1px solid #bbafa0;
+    background: #fbfaf6;
+    padding: 22px 25px 18px 33px;
+    margin: 28px 0;
+}
+
+.referralreward-index-invitepage .messages{margin:0px 0px 10px 0px !important}
+    .referralreward-index-invitepage .messages li{margin-bottom:0px !important}
+
+.col-invite{}
+    .col-invite .cols{}
+        .col-invite .col-1{float:left}
+        .col-invite .col-2{float:left}
+
+        .col-invite .fetch-addressbook .col-1{width:295px}
+        .col-invite .fetch-addressbook .col-2{width:350px}
+        .col-invite .send-invites-info .col-1{width:40%}
+        .col-invite .send-invites-info .col-2{width:60%}
+        .col-invite .send-invites .col-1{/*width:67%*/}
+        .col-invite .send-invites .col-2{/*width:33%*/}
+
+        .col-invite .fetch-description{margin-bottom:18px; clear:both;}
+            .col-invite .fetch-description p{font-size:14px}
+        .col-invite .fetch-block{border:1px solid #c1c1c1; background:#ebeae6; padding:15px; display:inline-block; position:relative; margin-bottom:15px}
+            .col-invite .fetch-block .ico{position:absolute; top:-17px; right:15px; padding:0px 8px; background:#fff; border:1px solid #ccc; font-size:18px; font-weight:700}
+        .col-invite .col-1 .fetch-block{margin-right:25px; width:235px}
+        .col-invite .col-1 .fetch-block.facebook-login{}
+        .col-invite .fetch-addressbook .emails-pick-up{width:320px}
+
+        .col-invite .send-block{}
+            .col-invite .send-block .btn-set-tabs{padding-left:4px}
+            .col-invite .send-block .btn-set-tabs label{color:#a8a8a8; font-size:13px; font-weight:400}
+        .col-invite .col-1 .send-block {margin-right:25px}
+        .col-invite .send-block.facebook{padding-top:31px}
+
+        .col-invite .cols.send-invites{margin-top:25px}
+
+    .col-invite .lables{margin-top:20px}
+        .col-invite .lables li{
+            float:left;
+        }
+        .col-invite .lables li a{
+            padding:1px 9px;
+            display:block;
+        }
+        .col-invite .lables li a span{
+            background:url(../images/referralreward/providers.png) no-repeat;
+            display:block;
+            width:60px;
+            height:40px;
+        }
+        .col-invite .lables li a:hover{
+            background-color:#fff;
+            -webkit-box-shadow: 0 0 6px #aaaaaa;
+            -moz-box-shadow:    0 0 6px #aaaaaa;
+            box-shadow:         0 0 6px #aaaaaa;
+            -webkit-transition: background 0.9s linear 0s;
+            -moz-transition:    background 0.9s linear 0s;
+            -ms-transition:     background 0.9s linear 0s;
+            -o-transition:      background 0.9s linear 0s;
+            transition:         background 0.9s linear 0s;
+       }
+
+       .lable_provider_gmail{background-position:0 -200px !important}
+       .lable_provider_yahoo{background-position:0 -1280px !important}
+       .lable_provider_hotmail{background-position:0 -278px !important}
+
+
+    .col-invite .emails-pick-up{}
+        .col-invite .emails-pick-up li{margin-bottom:10px}
+        .col-invite .emails-pick-up li.actions{/*margin-bottom:0px*/}
+        .col-invite .emails-pick-up li.checked{background:url(../images/referralreward/checket.png) 100% 50% no-repeat}
+        .col-invite .emails-pick-up li.checked-error{background:url(../images/referralreward/checket-error.png) 100% 50% no-repeat}
+            .col-invite .emails-pick-up label{width:90px; display:block; float:left}
+            .col-invite .emails-pick-up input{padding: 4px 8px; width:180px}
+            .col-invite .emails-pick-up select{width:198px}
+            .col-invite .emails-pick-up button{width:290px}
+        .col-invite .emails-pick-up p{margin-bottom:10px}
+
+    .col-invite .emails-add{margin-bottom:25px; width: 100%;}
+        .col-invite .emails-add textarea{width: 225px; margin-bottom:10px; padding:2px 4px; width: 100%;}
+        .col-invite .emails-add button{width:100%}
+
+    .col-invite .facebook-login{}
+        .col-invite .facebook-login .facebook-avatar,
+        .col-invite .facebook-login .facebook-button{margin-top:10px}
+            .col-invite .facebook-avatar img{float:left; margin-right:10px}
+
+    .col-invite .friendslist-message{}
+        .col-invite .friendslist-message textarea{width:235px; padding:2px 4px}
+        .col-invite .friendslist-message button{width:245px; margin-top:10px}
+
+    .col-invite .invite-url{}
+        .col-invite .invite-url strong{color:#966; margin:10px 0; display:block}
+            .col-invite .invite-url-rename{float:right}
+
+    .col-invite .facebook{}
+        .col-invite .facebook .fb-head input{margin-bottom:3px; background:#fff}
+        .col-invite .facebook .fb-head label{font-weight:700; font-size:11px; color:#848484}
+        .col-invite .facebook .fb-head img{margin-left:15px}
+
+    .friendslist-block{margin-bottom:8px; height:300px; overflow-x:hidden; overflow-y:scroll}
+        .friendslist-block th{padding:3px 7px; font-weight:700; font-size:11px; color:#848484}
+        .friendslist-block td{padding:3px 7px; font-weight:400}
+            .friendslist-block .disable td{color:#bbb; text-decoration:line-through}
+            .friendslist-block td.odd{background:#f3f3f3}
+            .friendslist-block td.even{background:#fff}
+            .friendslist-block th input,
+            .friendslist-block td input{margin-bottom:3px; background:#fff}
+            .friendslist-block th label{font-weight:700; font-size:11px; color:#848484}
+            .friendslist-block td label{font-weight:400; font-size:11px}
+    .fb-friendslist-block{height:341px; overflow-x:hidden; overflow-y:scroll}
+    .fb-friendslist-block label:hover img{filter:progid:DXImageTransform.Microsoft.Alpha(opacity=80); -moz-opacity:0.8; -khtml-opacity:0.8; opacity:0.8}
+
+    #friendslist{margin-top:10px}
+        #friendslist li{float:left; margin:2px 8px 2px 0px}
+        #friendslist .img{float:left; border:1px solid #aaa; padding:2px}
+        #friendslist .img img{border:1px solid #aaa}
+        #friendslist input{float:left; clear:both; margin:5px 0 10px 22px; background:#fff}
+
+    .tabs_title{list-style:none; padding:0px 10px 0px 10px; position:relative; z-index:11}
+    .tabs_title li{border:1px solid #c1c1c1; float:left; margin:5px 5px 0px 5px}
+    .tabs_title li.active{border-bottom:1px solid #fbfaf6}
+    .tabs_title li a{display:block; padding:4px 10px; text-decoration:none; color:#777; background:#ebeae6}
+    .tabs_title li.active a{color:#444; background:#fbfaf6}
+    .tabs_content{list-style:none; width:100%; padding:0px; border:1px solid #C1C1C1; background:#fbfaf6; position:relative; z-index:10; margin:-1px 0 15px 0; display:inline-block}    
+    .tabs_content > li{padding:15px}
+    .sub-tabs.tabs_title{}
+
+
+.share-links{float:right; width:100%}
+    .share-links li{float:left}
+    .share-links .title{margin-right:10px}
+    /*.icosoc{display:block; width:32px; height:32px; background:url(../images/referralreward/icons32x32.png); float:right; margin-left:10px}
+        .twitter{background-position: 0px -64px}
+        .google{background-position: 0px -96px}
+        .myspace{background-position: 0px -320px}
+        .linkedin{background-position: 0px -256px}
+        .reddit{background-position: 0px -288px}
+        .stumbleupon{background-position: 0px -224px}
+        .delicious{background-position: 0px -384px}
+        .livejournal{background-position: 0px -352px}
+        .pinterest{background-position: 0px -896px}*/
+    .icosoc {
+        display:block; width:24px; height:24px; background:url(../images/referralreward/icons24x24_black.png); float:right; margin-left:10px;
+    }
+        .twitter       {background-position: 0px -48px}
+        .google         {background-position: 0px -72px}
+        .myspace       {background-position: 0px -240px}
+        .linkedin      {background-position: 0px -192px}
+        .reddit         {background-position: 0px -216px; display: none;}
+        .stumbleupon {background-position: 0px -168px}
+        .delicious    {background-position: 0px -288px}
+        .livejournal {background-position: 0px -264px}
+        .pinterest    {background-position: 0px -672px}
+    .icosoc:hover {
+        background-image:url(../images/referralreward/icons24x24_color.png);
+    }
+
+.facebook-button a:hover img,
+.fb-head label:hover img{filter:progid:DXImageTransform.Microsoft.Alpha(opacity=80); -moz-opacity:0.8; -khtml-opacity:0.8; opacity:0.8}
+
+.credit-coupon-code{color:#fff; font-size:20px; font-weight:700; border:1px solid #900; padding:2px 8px; background:#a33; margin-left: 20px}
+
+.fb-head label{position:relative}
+    .fb-head label img{position:relative; top:-6px; right:-22px}
+    
+.cols-invite .col-left{width:550px;}
+.cols-invite .col-right{width:420px;}
+
+/*  SLIDER  */
+.referralreward-points-block .zoom {
+    width: 200px;
+    position: relative;
+    z-index: 9;
+    height: 18px;
+    margin: 0 0 13px;
+    padding: 0 28px;
+    background: url(../images/referralreward/slider_bg.gif) 50% 50% no-repeat;
+    cursor: pointer;
+}
+    .referralreward-points-block .zoom .btn-zoom-out {
+        position: absolute;
+        left: 2px;
+        top: 0;
+    }
+
+    .referralreward-points-block .zoom .btn-zoom-in {
+        position: absolute;
+        right: 2px;
+        top: 0;
+    }
+
+    .referralreward-points-block .zoom #track {
+        position: relative;
+        height: 18px;
+    }
+
+    .referralreward-points-block .zoom #handle {
+        position: absolute;
+        left: 0;
+        top: -1px;
+        width: 9px;
+        height: 22px;
+        background: url(../images/referralreward/magnifier_handle.gif) 0 0 no-repeat;
+    }
+
+#info_use_discount{width:35px;}
+.loadCheckoutTotal{filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30); -moz-opacity:0.3; -khtml-opacity:0.3; opacity:0.3}
+
+.referralreward-messages {
+    border: 1px dashed #C1C0C0;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+    .referralreward-message {
+        color: #9E173A;
+    }
+
+.referralreward-points-block {
+    border: 1px dashed #C1C0C0;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.referral-move-group-to {
+    width: 70%;
+    margin-bottom: 10px;
+    height: 30px;
+}
+    .referral-move-group-to-bg {
+        height: 24px;
+        /*background: #DDEEDD;*/
+        /*border: 1px solid #999;*/
+        background: url(../images/referralreward/group_progress_bg.gif) 0 0 repeat;
+    }
+        .referral-move-group-to-body {
+            height: 24px;
+            padding: 0 2px 0;
+            /*background: #66FF66;*/
+            background: url(../images/referralreward/group_progress_body.gif) 0 0 repeat;
+        }
+    .referral-move-group-to ol {
+        position: relative;
+    }
+        .referral-move-group-to ol li {
+            display: block;
+            height: 24px;
+            line-height: 24px;
+            color: #fff;
+            position: absolute;
+            border-left: 1px solid #999;
+            text-align: left;
+            /*top: -20px;*/
+            padding: 0 10px;
+            white-space: nowrap;
+        }
+        .referral-move-group-to ol li:last-child {
+            color: #000;
+            font-weight: 700;
+        }
+
+.transfer-email-button {
+    margin-top: 18px;
+}
+
+.transfer-points-disable {
+    margin-top: 20px;
+    font-weight: 700;
+    color: #9E173A;
+}
+
+.referralreward-log-list-table {
+
+}
+    .referralreward-log-list-table td:first-child {
+        white-space: nowrap;
+    }
+    .referralreward-log-list-table td p:last-child {
+        margin-bottom: 0px;
+    }
+    .points-empty td {
+        color: #bbb;
+    }
+    .points-soon-expire td.expire{
+        color: #b33;
+    }
+    .points-order-refund td {
+        color: #bbb;
+        text-decoration: line-through;
+    }
+
+#info_use_points,
+#info_quote_points {
+    color: #9E173A;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.referralreward-registration-info {
+    float: right;
+    width: 330px;
+    padding: 7px;
+    position: relative;
+    background: #2f4984;
+}
+    .referralreward-registration-info > div {
+        text-align: center;
+        padding: 30px 25px;
+        border: 1px solid #4a64a1;
+        color: #fff;
+    }
+        .referralreward-registration-info h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        .referralreward-registration-info p {
+            font-size: 16px;
+        }
+            .referralreward-registration-info small {
+                font-size: 11px;
+                color: #bbb;
+            }
+
+    .referralreward-registration-info img {
+        position: absolute;
+        bottom: -40px;
+        right: 15px;
+    }
+    
+.referralreward-registration-form {
+    width: 555px;
+}
+    .referralreward-registration-form li {
+        display: inline-block;
+    }
+
+    .referralreward-registration-form .buttons-set {
+        margin: 4em 20px 0 0;
+    }

@@ -1,0 +1,7 @@
+<config>
+   <Magestore_Affiliatepluswidget>
+      <name>Affiliate Widget  (4.0)</name>
+      <type>depend</type>
+      <depend>Magestore_Affiliateplus</depend>
+   </Magestore_Affiliatepluswidget>
+</config>

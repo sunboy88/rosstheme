@@ -1,0 +1,80 @@
+<?php 
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_AffiliateplusBanner
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/**
+ * Affiliateplusbanner template
+ * 
+ * @see Magestore_AffiliateplusBanner_Block_View
+ */
+?>
+
+<?php $_banner  = $this->getBanner() ?>
+<?php $_type    = $this->getRenderType() ?>
+
+<?php if ($_type == 'code' || $_type == 'rotator'): ?>
+
+<div id="affiliateplus-hover-container-<?php echo $_banner->getId() ?>" style="display: none;">
+    <div class="hover-popup_mask" onclick="return _affiliateplusHoverClose(this,1);"></div>
+    <div class="hover-popup_div">
+        <div class="hover-banner">
+            <div class="hover-banner_img">
+                <a href="<?php echo $this->getBannerUrl() ?>"<?php if($_banner->getTarget()): ?> target="<?php echo $_banner->getTarget() ?>"<?php endif ?><?php if ($_banner->getRelNofollow()): ?> rel="nofollow"<?php endif ?>>
+                    <img src="<?php echo ($_type == 'code') ? $this->getPhpBannerMedia() : $this->getDirectBannerMedia() ?>" alt="<?php echo $_banner->getTitle() ?>" title="<?php echo $_banner->getTitle() ?>"<?php if ($_banner->getWidth()): ?> width="<?php echo $_banner->getWidth() ?>"<?php endif ?><?php if ($_banner->getHeight()): ?> height="<?php echo $_banner->getHeight() ?>"<?php endif ?> style="border: 1px solid #888; margin-bottom: 5px;" />
+                </a>
+            </div>
+        </div>
+        <div class="hover-popup_close">
+            <a href="#" onclick="return _affiliateplusHoverClose(this,3);">
+                <?php echo $this->__('Close') ?><span>&nbsp;</span>
+            </a>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    div.affiliateplus-hover-container{position: absolute; width: 100%;}
+    div.affiliateplus-hover-container .hover-popup_mask{background:#000;opacity:0.4;filter:alpha(opacity=40);position:fixed;height:1500px;width:100%;top:0;left:0;z-index: 1500 ;margin:0;}
+    div.affiliateplus-hover-container .hover-popup_div{background:#fff;border:1px solid #ddd;border-radius:4px;position:relative;margin:75px auto;z-index:9999;padding:5px 5px 0;text-align:center;min-width:76px;width:<?php echo $_banner->getWidth()+2 ?>px;height:<?php echo $_banner->getHeight()+36 ?>px;}
+    div.affiliateplus-hover-container .hover-popup_close{float:right;padding:3px 0;line-height:20px;}
+    div.affiliateplus-hover-container .hover-popup_close a{text-decoration:none;color:#b0b0b0;font-family:tahoma;font-size:12px;line-height:20px;padding:3px 24px;position:relative;}
+    div.affiliateplus-hover-container .hover-popup_close a span{background:url("<?php echo $this->getMediaUrl('btn-close.png') ?>") no-repeat;float:right;color:#fff;line-height:15px;width:19px;height:19px;text-align:center;margin:1px 0 0 5px;position:absolute;top:0;right:0;}
+</style>
+<script type="text/javascript">
+    function _affiliateplusHoverClose(cEl, level) {
+        var pNode = cEl;
+        for (var i = 0; i < level; i++) pNode = pNode.parentNode;
+        pNode.style.display = 'none';
+        return false;
+    }
+    (function(){
+        var newDiv = document.createElement('div');
+        newDiv.className = 'affiliateplus-hover-container';
+        newDiv.innerHTML = document.getElementById('affiliateplus-hover-container-<?php echo $_banner->getId() ?>').innerHTML;
+        document.body.insertBefore(newDiv, document.body.firstChild);
+    })();
+</script>
+
+<?php elseif ($_type == 'preview'): ?>
+
+<a href="<?php echo $this->getBannerUrl() ?>"<?php if($_banner->getTarget()): ?> target="<?php echo $_banner->getTarget() ?>"<?php endif ?><?php if ($_banner->getRelNofollow()): ?> rel="nofollow"<?php endif ?>>
+    <img src="<?php echo $this->getDirectBannerMedia() ?>" title="<?php echo $_banner->getTitle() ?>"<?php if ($_banner->getWidth()): ?> width="<?php echo $_banner->getWidth() ?>"<?php endif ?><?php if ($_banner->getHeight()): ?> height="<?php echo $_banner->getHeight() ?>"<?php endif ?> />
+</a>
+
+<?php endif; ?>

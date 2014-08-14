@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <affiliateplus_account_edit>
+        <remove name="affiliateplus_register" />
+        <reference name="content">
+            <block type="affiliatepluspayment/recurring_payment" name="payment_edit_account"/>
+        </reference>
+    </affiliateplus_account_edit>
+    <affiliatepluspayment_index_confirm>
+        <update handle="affiliateplus_default" />
+        <reference name="content">
+            <block type="affiliatepluspayment/confirm" name="affiliatepluspayment_confirm" template="affiliatepluspayment/confirm.phtml" />
+        </reference>
+    </affiliatepluspayment_index_confirm>
+    
+    <affiliatepluspayment_recurring_adminemail>
+        <block type="affiliatepluspayment/email_admin" name="affiliatepluspayment_recurring_adminemail" template="affiliatepluspayment/email/admin.phtml" />
+    </affiliatepluspayment_recurring_adminemail>
+</layout>

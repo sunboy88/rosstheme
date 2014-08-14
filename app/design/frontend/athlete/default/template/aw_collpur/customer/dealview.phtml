@@ -1,0 +1,64 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Collpur
+ * @version    1.0.6
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?> 
+<?php if (!$this->validateCustomer() || (!$purchase = $this->getPurchase()))
+    return; ?>
+
+<div class="fieldset">
+    <h2 class="legend"><?php echo $this->__('Purchase Information') ?></h2>
+    <ul class="form-list">
+        <li class="fields">
+            <div class="field">
+                <strong><?php echo $this->__('ID: ') ?></strong><?php echo $purchase->getId(); ?>
+            </div>
+            <div class="field">
+                <strong><?php echo $this->__('Deal name: ') ?></strong><a href = "<?php echo $this->getDealUrl(); ?>"><?php echo $this->getDealByPurchase($purchase->getDealId())->getName(); ?></a>
+            </div>
+            <div class="field">
+                <strong><?php echo $this->__('Price paid: ') ?></strong><?php echo $this->getPricePaid($purchase->getOrderId()); ?>
+            </div>
+
+            <div class="field">
+                <strong><?php echo $this->__('Deal status: ') ?></strong><?php echo $this->getDealStatus(); ?>
+            </div>
+
+            <div class="field">
+                <strong><?php echo $this->__('Payment status: ') ?></strong><?php echo $this->getPurchaseStatus($purchase->getOrderItemId()); ?>
+            </div>
+            <div class="field">
+                <strong><?php echo $this->__('Purchased at: ') ?></strong><?php echo $this->getLocalDate($purchase->getPurchaseDateTime()); ?>
+            </div>
+            <div class="field">
+                <strong><?php echo $this->__('Expires at: ') ?></strong><?php echo $this->getLocalDate($this->getDealByPurchase($purchase->getDealId())->getAvailableTo()); ?>
+            </div>
+                </li>
+            </ul>
+        </div>
+<?php echo $this->getChildHtml('awcp_coupons_grid'); ?>
+
+<div class="buttons-set">
+      <p class="back-link"><a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>
+</div>

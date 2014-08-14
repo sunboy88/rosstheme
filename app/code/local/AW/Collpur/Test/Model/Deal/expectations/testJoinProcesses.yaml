@@ -1,0 +1,11 @@
+deal-1:
+  progress: running
+deal-2:
+  progress: not_running
+deal-3:
+  progress: expired
+deal-4:
+  progress: closed
+deal-5:
+  progress: archived
+  

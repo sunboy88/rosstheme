@@ -1,0 +1,58 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Collpur
+ * @version    1.0.6
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><?php
+?>
+<script type="text/javascript">
+    //<![CDATA[
+    var generateCoupons = function(url) {
+
+        Validation.add('validate-greater-than-zero-not-empty','<?php echo Mage::helper('collpur')->__('Please enter a number greater than 0 in this field') ?>', function(v) {
+            return !Validation.get('IsEmpty').test(v) && !/[^\d]/.test(v) && v!=0
+        });
+        if(Validation.validate('coupons-qty')) {
+
+            var couponPrefix = '';
+            var prefixData = '';
+            var expireAfter = '';
+            var expireData = '';
+             
+            try {
+                couponPrefix = $('deal_coupon_prefix').value;
+                prefixData = '/prefix/' + couponPrefix;
+            } catch (e) { }
+            try { 
+                expireAfter =  $('deal_coupon_expire_after_days').value;
+                expireData = '/expire/' + expireAfter;
+            } catch (e) { }
+  
+            var dealId = <?php echo Mage::app()->getRequest()->getParam('id') ?>;
+            setLocation(url + 'qty/' + $('coupons-qty').value + '/deal/' + dealId + prefixData + expireData + '/tab/' + collpur_info_tabsJsTabs.activeTab.id);
+
+        }
+    }
+
+    //]]>
+</script>

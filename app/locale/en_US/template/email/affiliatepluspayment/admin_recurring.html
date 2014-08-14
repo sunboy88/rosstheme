@@ -1,0 +1,57 @@
+<!--@subject {{var store.getFrontendName()}}: Recurring Payment @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"skin url=\"images/logo_email.gif\" _area='frontend'":"Email Logo Image",
+"var store.getFrontendName()":"Store Name",
+"store url=\"customer/account/\"":"Customer Account Url"}
+@-->
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+<table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top:10px; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+<tr>
+    <td align="center" valign="top">
+        <!-- [ header starts here] -->
+        <table cellspacing="0" cellpadding="0" border="0" width="650">
+            <tr>
+                <td valign="top"><a href="{{store url=""}}"><img src="{{skin url="images/logo_email.gif" _area='frontend'}}" alt="{{var store.getFrontendName()}}"  style="margin-bottom:10px;" border="0"/></a></td>
+            </tr>
+        </table>
+        <!-- [ middle starts here] -->
+        <table cellspacing="0" cellpadding="0" border="0" width="650">
+            <tr>
+                <td valign="top">
+                    <p>
+                        <strong>Hello Admin</strong>,<br/>
+                        There is a recurring payment that system payout for your affiliates.
+                        Please login to admin page at <a href="{{store url="adminhtml/index/"}}" style="color:#1E7EC8;">logging into admin page</a> to recheck these recurring payment.
+                    </p>
+                    <h3 style="border-bottom:2px solid #eee; font-size:1.05em; padding-bottom:1px; ">Recurring Payment <small>(on {{var request_time}})</small></h3>
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th align="left" width="15%" bgcolor="#d9e5ee" style="font-size:12px;padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; border-right: none; line-height:1em;">ID</th>
+                            <th align="left" width="15%" bgcolor="#d9e5ee" style="font-size:12px;padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; border-right: none; line-height:1em;">Account Email</th>
+							<th align="left" width="15%" bgcolor="#d9e5ee" style="font-size:12px;padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; border-right: none; line-height:1em;">Amount</th>
+							<th align="left" width="15%" bgcolor="#d9e5ee" style="font-size:12px;padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; border-right: none; line-height:1em;">Fee</th>
+                            <th align="left" width="15%" bgcolor="#d9e5ee" style="font-size:12px;padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; border-right: none; line-height:1em;">Payment Mehod</th>
+                            <th align="left" width="15%" bgcolor="#d9e5ee" style="font-size:12px;padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; border-right: none; line-height:1em;">Pay to Email</th>
+							<th align="left" width="15%" bgcolor="#d9e5ee" style="font-size:12px;padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; border-right: none; line-height:1em;">Status</th>
+                            <th align="left" width="15%" bgcolor="#d9e5ee" style="font-size:12px;padding:5px 9px 6px 9px; border:1px solid #bebcb7; border-bottom:none; line-height:1em;">Rest Balance</th>
+						</tr>
+                        </thead>
+                        <tbody>
+                            {{layout handle="affiliatepluspayment_recurring_adminemail" transactions=$transactions store=$store}}
+                        </tbody>
+                    </table>
+                    <br/>
+                    <p>Thank you,<br/><strong>{{var store.getFrontendName()}}</strong></p>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+</table>
+</div>

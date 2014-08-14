@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+/******************************************
+ *      MAGENTO EDITION USAGE NOTICE      *
+ ******************************************/
+ /* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+/******************************************
+ *      DISCLAIMER                        *
+ ******************************************/
+/* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ ******************************************
+ * @category   Belvg
+ * @package    Belvg_Referralreward
+ * @copyright  Copyright (c) 2010 - 2011 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+-->
+<layout version="1.0.0">
+    <default>
+        <reference name="head">
+            <action method="addJs"	ifconfig="referralreward/settings/enabled"><script>prototype/window.js</script></action>
+            <action method="addJs"	ifconfig="referralreward/settings/enabled"><script>belvg/prototype_loader.js</script></action>
+            <action method="addJs"	ifconfig="referralreward/settings/enabled"><script>belvg/tabs.js</script></action>
+            <action method="addJs"	ifconfig="referralreward/settings/enabled"><script>belvg/referralreward/functions.js</script></action>
+            <action method="addCss"	ifconfig="referralreward/settings/enabled"><stylesheet>belvg/css/lighting_window.css</stylesheet></action>
+            <action method="addCss"	ifconfig="referralreward/settings/enabled"><stylesheet>belvg/css/prototype_loader.css</stylesheet></action>
+            <action method="addCss"	ifconfig="referralreward/settings/enabled"><stylesheet>belvg/css/referralreward.css</stylesheet></action>
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template"	name="loader-js">
+                <action method="setTemplate" ifconfig="referralreward/settings/enabled"><template>belvg/referralreward/loader-js.phtml</template></action>
+            </block>
+        </reference>
+    </default>
+
+    <customer_account>
+        <reference name="left">
+            <block type="customer/account_navigation" name="referralreward.invite.leftnav" after="customer_account_navigation" as="referralreward_invite_leftnav">
+                <action method="setTemplate" ifconfig="referralreward/settings/enabled"><template>belvg/referralreward/account/navigation.phtml</template></action>
+                <action method="addLink" translate="label" module="referralreward"><name>customer</name><path>referralreward/customer/</path><label>Send invite</label></action>
+                <action method="addLink" translate="label" module="referralreward"><name>customer_transfer</name><path>referralreward/customer/transfer/</path><label>Transfer</label></action>
+                <action method="addLink" translate="label" module="referralreward"><name>customer_log</name><path>referralreward/customer/log/</path><label>Log</label></action>
+            </block>
+            <remove name="belvg.facebookall.block"/>
+            <remove name="belvg.facebookfree.block"/>
+            <remove name="belvg.facebookconnect.block"/>
+        </reference>
+    </customer_account>
+
+    <referralreward_customer_index>
+        <update handle="customer_account"/>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="referralreward/invite" name="invite-content-block">
+                <action method="setTemplate" ifconfig="referralreward/settings/enabled"><template>belvg/referralreward/account/invite-content-block.phtml</template></action>
+                <block type="referralreward/account_group" name="referral-account-group" as="referral-account-group" template="belvg/referralreward/account/invite-content-block/group.phtml"/>
+                <block type="referralreward/invite" name="send-invites" as="send-invites" template="belvg/referralreward/account/invite-content-block/send-invites.phtml">
+                    <block type="referralreward/invite" name="addressbook" as="addressbook" template="belvg/referralreward/account/invite-content-block/send-invites/addressbook.phtml"/>
+                    <block type="referralreward/invite" name="accepted-invitations" as="accepted-invitations" template="belvg/referralreward/account/invite-content-block/send-invites/accepted-invitations.phtml"/>
+                    <block type="referralreward/invite" name="share-links" as="share-links" template="belvg/referralreward/account/invite-content-block/send-invites/share.phtml"/>
+                    <block type="referralreward/invite" name="facebook-friends" as="facebook-friends" template="belvg/referralreward/account/invite-content-block/send-invites/facebook-friends.phtml"/>
+                    <block type="referralreward/invite" name="referral-link-renameform" as="referral-link-renameform" template="belvg/referralreward/account/invite-content-block/send-invites/rename-form.phtml"/>
+                </block>
+                <block type="referralreward/fetch" name="fetch-addressbook" as="fetch-addressbook" template="belvg/referralreward/account/invite-content-block/fetch-addressbook.phtml">
+                    <block type="core/template" name="emails-add" as="emails-add" template="belvg/referralreward/account/invite-content-block/fetch-addressbook/emails-add.phtml"/>
+                    <block type="core/template" name="facebook-login" as="facebook-login" template="belvg/referralreward/account/invite-content-block/fetch-addressbook/facebook-login.phtml" />
+                    <block type="referralreward/fetch" name="emails-take-out" as="emails-take-out" template="belvg/referralreward/account/invite-content-block/fetch-addressbook/emails-take-out.phtml" />
+                </block>
+                <block type="referralreward/facebook" name="facebook-script-block" as="fb-block" template="belvg/referralreward/account/invite-content-block/fb-block.phtml"/>
+            </block>
+        </reference>
+    </referralreward_customer_index>
+
+    <referralreward_customer_transfer>
+        <update handle="customer_account"/>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="referralreward/invite" name="transfer-form">
+                <action method="setTemplate" ifconfig="referralreward/settings/enabled"><template>belvg/referralreward/account/transfer/form.phtml</template></action>
+            </block>
+        </reference>
+    </referralreward_customer_transfer>
+
+    <referralreward_customer_log>
+        <update handle="customer_account"/>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="referralreward/account_log" name="log-list">
+                <action method="setTemplate" ifconfig="referralreward/settings/enabled"><template>belvg/referralreward/account/log/list.phtml</template></action>
+                <block type="referralreward/account_log_item" name="log-list-item" template="belvg/referralreward/account/log/item.phtml" />
+            </block>
+        </reference>
+    </referralreward_customer_log>
+
+    <checkout_cart_index>
+        <reference name="head">
+            <action method="addJs" ifconfig="referralreward/settings/enabled"><script>belvg/referralreward/slider.js</script></action>
+        </reference>
+        <reference name="content">
+            <block type="referralreward/checkout_cart" name="referralreward.checkout.cart.message" before="-">
+                <action method="setTemplate" ifconfig="referralreward/settings/enabled"><template>belvg/referralreward/checkout/message.phtml</template></action>
+            </block>
+            <block type="referralreward/checkout_cart" name="referralreward.checkout.cart.form" after="referralreward.checkout.cart.message">
+                <action method="setTemplate" ifconfig="referralreward/settings/enabled"><template>belvg/referralreward/checkout/form.phtml</template></action>
+            </block>
+        </reference>
+    </checkout_cart_index>
+
+    <init_chackout_payment_referralreward>
+        <reference name="head">
+            <action method="addJs" ifconfig="referralreward/settings/enabled"><script>belvg/referralreward/slider.js</script></action>
+            <action method="addCss"	ifconfig="referralreward/settings/enabled"><stylesheet>belvg/css/referralreward.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="referralreward/checkout_onepage" name="referralreward.checkout.onepage.message" before="-">
+                <action method="setTemplate" ifconfig="referralreward/settings/enabled"><template>belvg/referralreward/checkout/message.phtml</template></action>
+            </block>
+        </reference>
+        <block type="referralreward/checkout_onepage" name="referralreward.checkout.onepage.form">
+            <!--
+                inserted through Observer
+            -->
+            <action  method="setTemplate" ifconfig="referralreward/settings/enabled"><template>belvg/referralreward/checkout/form.phtml</template></action>
+        </block>
+    </init_chackout_payment_referralreward>
+
+    <checkout_onepage_index>
+        <update handle="init_chackout_payment_referralreward" />
+    </checkout_onepage_index>
+
+    <opc_index_index>
+        <update handle="init_chackout_payment_referralreward" />
+    </opc_index_index>
+
+    <!--
+        Totals
+    -->
+
+    <sales_order_view>
+        <reference name="order_totals">
+            <block type="referralreward/total" name="referralreward.sales.order.total" />
+        </reference>
+    </sales_order_view>
+    <sales_order_print>
+        <reference name="order_totals">
+            <block type="referralreward/total" name="referralreward.sales.order.total" />
+        </reference>
+    </sales_order_print>
+    <sales_email_order_items>
+        <reference name="order_totals">
+           <block type="referralreward/total" name="referralreward.sales.order.total" />
+        </reference>
+    </sales_email_order_items>
+
+    <sales_order_invoice>
+        <reference name="invoice_totals">
+            <block type="referralreward/total" name="referralreward.sales.order.total" />
+        </reference>
+    </sales_order_invoice>
+    <sales_order_printinvoice>
+        <reference name="invoice_totals">
+            <block type="referralreward/total" name="referralreward.sales.order.total" />
+        </reference>
+    </sales_order_printinvoice>
+    <sales_email_order_invoice_items>
+        <reference name="invoice_totals">
+            <block type="referralreward/total" name="referralreward.sales.order.total" />
+        </reference>
+    </sales_email_order_invoice_items>
+
+    <sales_order_creditmemo>
+        <reference name="creditmemo_totals">
+            <block type="referralreward/total" name="referralreward.sales.order.total" />
+        </reference>
+    </sales_order_creditmemo>
+    <sales_order_printcreditmemo>
+        <reference name="creditmemo_totals">
+            <block type="referralreward/total" name="referralreward.sales.order.total" />
+        </reference>
+    </sales_order_printcreditmemo>
+    <sales_email_order_creditmemo_items>
+        <reference name="creditmemo_totals">
+            <block type="referralreward/total" name="referralreward.sales.order.total" />
+        </reference>
+    </sales_email_order_creditmemo_items>
+
+</layout> 

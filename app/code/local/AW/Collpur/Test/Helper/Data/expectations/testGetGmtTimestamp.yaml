@@ -1,0 +1,31 @@
+1-1-4:
+  purchases_count: 4
+  is_success: 0 
+  close_state: 1
+  exception_message: null
+  purchases_left: 1
+1-1-5:
+  purchases_count: 5
+  is_success: 1
+  close_state: 2
+  exception_message: null
+  purchases_left: 0
+1-1-6:
+  purchases_count: 0
+  is_success: 0
+  close_state: 1
+  exception_message: 'Qty is not available, available qty: 5'
+  purchases_left: 5
+2-1-10:
+  purchases_count: 10
+  is_success: 1
+  close_state: 1
+  exception_message: null
+  purchases_left: 0
+2-1-11:
+  purchases_count: 0
+  is_success: 0
+  close_state: 1
+  exception_message: 'Qty is not available, available qty: 10'
+  purchases_left: 5
+  

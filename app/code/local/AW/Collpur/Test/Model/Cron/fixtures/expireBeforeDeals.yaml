@@ -1,0 +1,90 @@
+tables:
+ collpur/deal:
+  - id: 1 
+    product_id: 16
+    product_name: Nokia 2610 Phone
+    is_success: 1
+    coupon_expire_after_days: 4
+    sent_before_flag: 0
+    expired_flag: 1
+    close_state: 1
+    is_featured: 1
+    available_from: 2010-07-28 11:28:59
+    available_to: 2099-08-27 11:28:59
+    store_ids: 0
+    is_active: 1 
+  - id: 2
+    product_id: 16
+    is_success: 1
+    sent_before_flag: 0
+    coupon_expire_after_days: 5
+    sent_before_flag: 0
+    expired_flag: 1
+    close_state: 1
+    is_featured: 0
+    auto_close: 1
+    qty_to_reach_deal: 15
+    is_active: 1
+    store_ids: 0
+    price: 20
+    maximum_allowed_purchases: 1000
+  - id: 3
+    product_id: 1
+    is_success: 1
+    coupon_expire_after_days: 5
+    sent_before_flag: 1
+    expired_flag: 0
+    close_state: 1
+    is_featured: 0
+    is_active: 1
+    store_ids: 0
+    available_from: 2011-07-28 11:28:59
+    available_to: 2011-07-29 11:28:59
+  - id: 4
+    product_id: 1
+    is_success: 1
+    coupon_expire_after_days: 5
+    sent_before_flag: 0
+    expired_flag: 1
+    close_state: 3
+    is_featured: 0
+    is_active: 1
+    store_ids: 0
+    auto_close: 1
+    purchases_count: 4
+    qty_to_reach_deal: 1
+    available_from: 2011-07-28 11:28:59
+  - id: 5
+    product_id: 1
+    is_success: 1
+    coupon_expire_after_days: 5
+    sent_before_flag: 0
+    expired_flag: 1
+    close_state: 1
+    is_featured: 0
+    is_active: 1
+    store_ids: 0
+    available_to: 2099-07-28 11:28:59
+  - id: 6
+    product_id: 1
+    is_success: 1
+    coupon_expire_after_days: 5
+    sent_before_flag: 0
+    expired_flag: 1
+    close_state: 1
+    is_featured: 0
+    is_active: 1
+    store_ids: 0
+    available_from: 2050-07-28 11:28:59
+  - id: 7
+    product_id: 1
+    is_success: 1
+    coupon_expire_after_days: 5
+    sent_before_flag: 0
+    expired_flag: 1
+    close_state: 1
+    is_featured: 1
+    is_active: 1
+    store_ids: 0
+    available_from: 2010-07-28 11:28:59
+    available_to: 2020-07-28 11:28:50

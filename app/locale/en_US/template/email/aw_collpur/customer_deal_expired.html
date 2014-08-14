@@ -1,0 +1,26 @@
+<!--@subject Deal "{{var deal.getName()}}" expired @-->
+
+<table cellspacing="0" cellpadding="0" border="0" height="100%" width="100%">
+    <tr>
+        <td>
+            Dear {{var order.getCustomerFirstname()}}  {{var order.getCustomerLastname()}}
+        </td>
+    </tr>
+     <tr>
+        <td>
+           Unfortunately, there were not enough participants for the {{var deal.getDealName()}} deal you were taking part in and it fell through.
+        </td>
+    </tr>
+    <tr>
+        <td>
+          If you meet any problems with refund, please contact us at {{var deal.getStoreEmailAddress()}}
+        </td>
+    </tr>
+     <tr>
+        <td>
+          You can manage your deals from your account page - {{var order.getAccountLink()}}
+        </td>
+    </tr>
+</table>
+
+

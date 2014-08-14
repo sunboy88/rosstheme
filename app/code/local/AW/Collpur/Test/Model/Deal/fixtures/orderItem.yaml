@@ -1,0 +1,10 @@
+tables:
+ sales/order_item:
+  - item_id: 1
+    store_id: 1
+    order_id: 1
+    product_options: 'a:1:{s:15:"info_buyRequest";a:3:{s:7:"product";s:3:"156";s:7:"deal_id";s:1:"2";s:3:"qty";i:1;}}'
+  - item_id: 2
+    store_id: 1
+    order_id: 1
+    product_options: 'a:1:{s:15:"info_buyRequest";a:3:{s:7:"product";s:3:"16";s:7:"deal_id";s:1:"2";s:3:"qty";i:1;}}'

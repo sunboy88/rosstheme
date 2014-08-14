@@ -1,0 +1,152 @@
+<?php
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+/******************************************
+ *      MAGENTO EDITION USAGE NOTICE      *
+ ******************************************/
+ /* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+/******************************************
+ *      DISCLAIMER                        *
+ ******************************************/
+/* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ ******************************************
+ * @category   Belvg
+ * @package    Belvg_Referralreward
+ * @copyright  Copyright (c) 2010 - 2011 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+
+    $uid	= $this->checkFbUser();
+?>
+<script language="JavaScript" type="text/javascript">
+/*<![CDATA[*/
+    window.fbAsyncInit = function(){
+        FB.init({	appId:	'<?php echo $this->getAppId()?>',
+                    status:	true,
+                    cookie:	true,
+                    xfbml:	true,
+                    oauth:	true,
+                    channelUrl: '<?php echo $this->getUrl()."channel.html" ?>'});
+
+        FB.Event.subscribe('auth.logout', function(response){
+            logout();
+        });
+
+        FB.getLoginStatus(function(response){
+            if(response.status == 'connected'){
+            <?php if(Mage::getSingleton('customer/session')->isLoggedIn() && $uid):?>
+                greet('<?php echo $uid ?>');
+            <?php endif ?>
+            }else{
+                /*$$('.quick-access a.fb_button')[0].remove();*/
+            }
+        });
+    };
+
+    (function(d){
+        var js, id	= 'facebook-jssdk'; if(d.getElementById(id)){return;}
+        js		= d.createElement('script'); js.id = id; js.async	= true;
+        js.src	= "//connect.facebook.net/en_US/all.js";
+        d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+
+    function login(){
+        document.location.href	= "<?php echo $this->helper('core/url')->getCurrentUrl() ?>";
+    }
+    function logout(){
+        //document.location.href	= "<?php echo $this->getUrl('customer/logout')?>";
+    }
+
+    function greet(id){
+        FB.api('/me', function(response){
+            var src	= 'https://graph.facebook.com/'+id+'/picture?type=normal';
+            $('send-invites-col-1').setStyle({width:'67%'});
+            $('send-invites-col-2').setStyle({width:'33%', display:'block'});
+            $$('.facebook-avatar img')[0].replace('<img height="50" src="'+src+'"/>');
+            $$('.facebook-avatar')[0].show();
+            $$('.facebook-button')[0].update('');
+        });
+        
+        if(<?php echo $uid ?>){
+            FB.api({
+                    method:	'fql.query',
+                    query:	'SELECT uid1 FROM friend WHERE uid2='+<?php echo $uid ?>
+                },function(response){
+                    var friendId;
+                    for(i=0; i<response.length; i++){
+                        FB.api({
+                                method:	'fql.query',
+                                query:	'SELECT uid,name,pic_square,email FROM user WHERE uid='+response[i].uid1
+                            },
+                            function(response){
+                                friendId	= response[0].uid;
+                                htmlcontent	= '<li><label class="img" for="friend'+friendId+'"><img src='+response[0].pic_square+' title='+response[0].name+' /></label><input class="invite" name="fb-friends[]" type="checkbox" id="friend'+friendId+'" value="'+friendId+'"/></li>';
+                                $("friendslist").insert(htmlcontent);
+                            }
+                        );
+                    }
+                }
+            );
+            FB.login(function(response){
+                $("access_token").value	= response.authResponse.accessToken;
+                $("app_id").value		= '<?php echo $this->getAppId()?>';
+                $("api_key").value		= '<?php echo $this->getSecret()?>';
+            });
+        }
+    }
+    
+    function fblogin(){
+        FB.login(function(response){
+            if(response.status == 'connected')
+                 login();
+            else window.location.reload(); // user is not logged in
+        }, {scope:'email, read_friendlists, publish_stream'});
+        return false;
+    }
+
+    function facebook_send_dialog(){
+        loader.show();
+        var friendslistCheckbox	= $('friendslist').select('input:checked');
+        var strId		= '';
+        var recipients	= '';
+        var count		= 0;
+        friendslistCheckbox.each(function(index){
+            if(count!=0)
+                strId	= strId + ',';
+            strId		= strId + index.value;
+            recipients	= recipients + '<input type="hidden" name="recipients[]" value="'+index.value+'">';
+            count		= count + 1;
+        });
+        $('description').value	= $('invite-textarea-message').value;
+        $('recipients').update(recipients);
+        $('to').value	= strId;
+
+        new Ajax.Request('<?php echo $this->getUrl('referralreward/facebook/sendids') ?>',{
+            method:		'post',
+            parameters:	$('uiserver_form').serialize(),
+            onSuccess:	function(result){
+                loader.hide();
+                var result = eval('(' + result.responseText + ')');
+                if (result.error=='1') {
+                    alert(result.message);
+                } else {
+                    window.location.href = $('current-url').value;
+                }
+            }
+        });
+    }
+/*]]>*/
+</script>

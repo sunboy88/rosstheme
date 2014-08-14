@@ -1,0 +1,105 @@
+<?php 
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_AffiliateplusBanner
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/**
+ * Affiliateplus Banner Preview template
+ * 
+ * @see Magestore_AffiliateplusBanner_Block_Adminhtml_Banner_View
+ */
+?>
+<?php
+    $_banner = $this->getBannerObj();
+    $_vPos   = 'top';
+    if ($_banner->getPeelDirection() > 2) $_vPos  = 'bottom';
+    $_hPos  = 'right';
+    if ($_banner->getPeelDirection()%2) $_hPos = 'left';
+?>
+<div class="preview" style="width: 274px;">
+
+<div class="afffiliateplusbanner-peel-preview" style="position: relative; width: <?php echo max($_banner->getWidth(),$_banner->getPeelWidth()) ?>px; height: <?php echo max($_banner->getHeight(),$_banner->getPeelHeight())+2 ?>px;">
+    
+<div id="affiliateplus-banner-<?php echo $_banner->getBannerId() ?>" class="affiliateplus-peel-container" style="<?php echo $_vPos ?>: 0px; <?php echo $_hPos ?>: 0px; width: <?php echo $_banner->getWidth() ?>px; height: <?php echo $_banner->getHeight()+2 ?>px;">
+    <div class="peel-image" style="float: <?php echo $_hPos ?>; <?php echo $_vPos ?>: 0px; <?php echo $_hPos ?>: 0px;">
+        <div style="position: absolute;<?php echo $_vPos ?>: 0px; <?php echo $_hPos ?>: 0px;">
+            <img class="small-image" src="<?php echo $this->getBannerUrl($_banner->getSourceFile()) ?>" />
+            <img class="large-image" src="<?php echo $this->getLargeImage() ?>" style="display:none;" />
+        </div>
+    </div>
+    <div class="peel-animation" onmouseover="affiliateplusPeel<?php echo $_banner->getBannerId() ?>Over()" onmouseout="affiliateplusPeel<?php echo $_banner->getBannerId() ?>Out()">
+        <img class="image-animation" src="<?php echo $this->getMediaUrl('peel-'.$_banner->getPeelDirection().'.png') ?>" style="width: 100%; height: 100%;" />
+    </div>
+</div>
+
+<style type="text/css">
+    div.affiliateplus-peel-container{position: absolute; padding: 0px; border: 0px; margin: 0px; overflow: hidden;}
+    div.affiliateplus-peel-container img {border: 0px;}
+    div.affiliateplus-peel-container .peel-image{position: absolute; background-color: #FFF; width: 100%; height: 97%; overflow: hidden;}
+    div.affiliateplus-peel-container .peel-animation{position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;background-color: transparent;}
+</style>
+<script type="text/javascript">
+    var animatePeel<?php echo $_banner->getBannerId() ?>IntervalFlag = false;
+    function affiliateplusPeel<?php echo $_banner->getBannerId() ?>Animation(){
+        if (typeof jQuery != 'function') return false;
+        if (animatePeel<?php echo $_banner->getBannerId() ?>IntervalFlag) return false;
+        var $ = jQuery;
+        $('#affiliateplus-banner-<?php echo $_banner->getBannerId() ?>').animate({width:<?php echo $_banner->getWidth()+5 ?>, height:<?php echo $_banner->getHeight()+7 ?>},500,'linear',function(){
+            if (animatePeel<?php echo $_banner->getBannerId() ?>IntervalFlag) return false;
+            $('#affiliateplus-banner-<?php echo $_banner->getBannerId() ?>').animate({width:<?php echo $_banner->getWidth() ?>, height:<?php echo $_banner->getHeight()+2 ?>},500,'linear');
+        });
+    }
+    function noConflictJquery() {
+        if (typeof jQuery != 'function') {
+            setTimeout(noConflictJquery,100);
+        } else {
+            jQuery.noConflict();
+            setInterval(affiliateplusPeel<?php echo $_banner->getBannerId() ?>Animation, 1000);
+        }
+    }
+    Event.observe(window, 'load', function(){
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = '<?php echo $this->getJsUrl('affiliateplusbanner/jquery-1.8.2.min.js') ?>';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+        setTimeout(noConflictJquery,100);
+    });
+    function affiliateplusPeel<?php echo $_banner->getBannerId() ?>Over(){
+        var $ = jQuery;
+        animatePeel<?php echo $_banner->getBannerId() ?>IntervalFlag = true;
+        $('#affiliateplus-banner-<?php echo $_banner->getBannerId() ?>').stop(true);
+        $('#affiliateplus-banner-<?php echo $_banner->getBannerId() ?> .small-image').hide();
+        $('#affiliateplus-banner-<?php echo $_banner->getBannerId() ?> .large-image').show();
+        $('#affiliateplus-banner-<?php echo $_banner->getBannerId() ?>').animate({width:<?php echo $_banner->getPeelWidth() ?>, height:<?php echo $_banner->getPeelHeight()+2 ?>},1000);
+    }
+    function affiliateplusPeel<?php echo $_banner->getBannerId() ?>Out(){
+        var $ = jQuery;
+        $('#affiliateplus-banner-<?php echo $_banner->getBannerId() ?>').stop(true);
+        $('#affiliateplus-banner-<?php echo $_banner->getBannerId() ?>').animate({width:<?php echo $_banner->getWidth() ?>, height:<?php echo $_banner->getHeight()+2 ?>},1000,'',function(){
+            $('#affiliateplus-banner-<?php echo $_banner->getBannerId() ?> .large-image').hide();
+            $('#affiliateplus-banner-<?php echo $_banner->getBannerId() ?> .small-image').show();
+            animatePeel<?php echo $_banner->getBannerId() ?>IntervalFlag = false;
+        });
+    }
+</script>
+    
+</div>
+
+</div>

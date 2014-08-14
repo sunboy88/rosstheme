@@ -1,0 +1,6 @@
+tables:
+ catalog/product_website:
+  - website_id: 1 
+    product_id: 16
+  - website_id: 1 
+    product_id: 17

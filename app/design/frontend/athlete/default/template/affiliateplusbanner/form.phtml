@@ -1,0 +1,52 @@
+<?php 
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_AffiliateplusBanner
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/**
+ * Affiliateplusbanner template
+ * 
+ * @see Magestore_AffiliateplusBanner_Block_Form
+ */
+?>
+
+<form id="banner-custom-link-form" action="<?php echo $this->getUrl('*/*/customLink') ?>" method="post" onsubmit="submitCustomLinkForm('<?php echo $this->getBannerId() ?>'); return false;">
+    <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Custom Link') ?></h2>
+        <ul class="form-list">
+            <li class="wide">
+                <label for="banner-link" class="required"><em>*</em><?php echo $this->__('Please fill one of links from our store such as: product url, category url or another pages into the text box below:') ?></label>
+                <div class="input-box">
+                    <input id="banner-link" name="custom_link" class="input-text required-entry" />
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="buttons-set">
+        <p class="required">* <?php echo $this->__('Required Fields') ?></p>
+        <button id="banner-button-customlink" type="button" class="button" title="<?php echo $this->__('Change and Get Code') ?>" onclick="submitCustomLinkForm('<?php echo $this->getBannerId() ?>')">
+            <span>
+                <span><?php echo $this->__('Change and Get Code') ?></span>
+            </span>
+        </button>
+        <span id="banner-please-wait-customlink" style="display:none;" class="opc-please-wait">
+            <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" class="v-middle" alt="" /> &nbsp; <?php echo $this->__('Loading') ?>...
+        </span>
+    </div>
+</form>

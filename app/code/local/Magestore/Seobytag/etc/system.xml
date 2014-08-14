@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<config>
+	<sections>
+		<seoplus>
+			<groups>
+				<seobytag translate="label">
+					<label>SEO for Tag Configuration</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enable translate="label">
+							<label>Enable URL Rewrite for Tags</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment></comment>
+						</enable>
+						<cache translate="label">
+							<label>Enable Cache Rewrite</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>15</sort_order>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Enable cache rewrite when loading lists of popular or all tags</comment>
+						</cache>
+						<url_key_prefix translate="label">
+							<label>URL Key Prefix</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment></comment>
+						</url_key_prefix>
+						<url_suffix translate="label">
+							<label>URL Suffix</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment></comment>
+						</url_suffix>
+						<meta_title translate="label">
+							<label>Title Template</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[{tag}: tag text<br /> {ftag}: formatted tag text]]></comment>
+						</meta_title>
+						<meta_keywords translate="label">
+							<label>Meta Keywords Template</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[{tag}: tag text<br /> {ftag}: formatted tag text<br />{words}: words in tag text<br />{fwords}: words in formatted tag text]]></comment>
+						</meta_keywords>
+						<meta_description translate="label">
+							<label>Meta Description Template</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[{tag}: tag text<br /> {ftag}: formatted tag text]]></comment>
+						</meta_description>
+					</fields>
+				</seobytag>
+			</groups>
+		</seoplus>
+	</sections>
+</config>

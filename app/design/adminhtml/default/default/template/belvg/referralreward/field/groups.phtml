@@ -1,0 +1,214 @@
+<?php
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+/**********************************************
+ *        MAGENTO EDITION USAGE NOTICE        *
+ **********************************************/
+/* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+/**********************************************
+ *        DISCLAIMER                          *
+ **********************************************/
+/* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ **********************************************
+ * @category   Belvg
+ * @package    Belvg_Referralreward
+ * @copyright  Copyright (c) 2010 - 2013 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+
+    $_priceValueValidation = $this->getPriceValidation('validate-zero-or-greater');
+
+    $_htmlId    = $this->getElement()->getHtmlId();
+    $_htmlClass = $this->getElement()->getClass();
+    $_htmlName  = $this->getElement()->getName();
+    $_htmlValue = $this->getElement()->getValue();
+    $_readonly  = $this->getElement()->getReadonly();
+
+    $_items     = $this->getValues();
+?>
+
+<tr>
+    <td class="label"><?php echo $this->getElement()->getLabel() ?></td>
+    <td class="grid gradualgroups<?php echo ($this->getTooltip()) ? ' with-tooltip' : '' ?>" id="gradual_groups" style="padding:5px">
+        <table cellspacing="0" class="data border" id="gradual_groups_table" style="width:280px">
+            <col />
+            <col width="75" />
+            <col width="1" />
+            <thead>
+                <tr class="headings">
+                    <th><?php echo Mage::helper('catalog')->__('Customer Group') ?> <span class="required">*</span></th>
+                    <th><?php echo Mage::helper('catalog')->__('Invited') ?> <span class="required">*</span></th>
+                    <th class="last"><?php echo Mage::helper('catalog')->__('Action') ?></th>
+                </tr>
+            </thead>
+            <tbody id="<?php echo $_htmlId ?>_container"></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="a-right"><?php echo $this->getChildHtml('add_gradual_groups_button') ?></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <input id="<?php echo $_htmlId ?>" name="<?php echo $_htmlName ?>" value="<?php echo $_htmlValue ?>" class="required-entry input-text" type="hidden">
+
+        <?php echo $this->getTooltip() ?>
+        <?php echo $this->getComment() ?>
+        <?php echo $this->getAfterElementHtml() ?>
+    </td>
+    <?php $useDefault = $this->getDefaultHtml() ?>
+    <?php if ($useDefault): ?>
+        <td class="use-default">
+            <?php echo $useDefault ?>
+        </td>
+    <?php endif ?>
+    <td class="scope-label">
+        <?php echo $this->getScope() ?>
+    </td>
+    <td>
+        <?php echo $this->getHint() ?>
+
+<script>
+    var gradualGroupsTemplate    = '  <select class="<?php echo $_htmlClass ?> gradual_groups required-entry" name="<?php echo 'gradual'//$_htmlName ?>[{{index}}][cust_group]" id="gradual_groups_row_{{index}}_cust_group">'
+                                   <?php foreach ($this->getCustomerGroups() as $_groupId => $_groupName): ?>
+                                   <?php if ($_groupId > 0 AND $_groupId < 30000): ?>
+                                   + '    <option value="<?php echo $_groupId ?>" {{group<?php echo $_groupId ?>}}><?php echo $this->jsQuoteEscape($this->escapeHtml($_groupName)) ?></option>'
+                                   <?php endif ?>
+                                   <?php endforeach ?>
+                                   + '</select>';
+    var gradualInvitedTemplate   = '<input class="<?php echo $_htmlClass ?> gradual_invited required-entry" type="text" name="<?php echo 'gradual'//$_htmlName ?>[{{index}}][invited]" value="{{invited}}" id="gradual_groups_row_{{index}}_invited" />';
+    var gradualGroupsRowTemplate =
+        '<tr rel="{{index}}">'
+        + '<td>'
+        +   gradualGroupsTemplate
+        + '</td>'
+        + '<td class="gradual_groups_invited">'
+        +   gradualInvitedTemplate
+        + '</td>'
+        + '<td class="last">'
+        + '    <input type="hidden" name="<?php echo 'gradual'//$_htmlName ?>[{{index}}][delete]" class="delete" value="" id="gradual_groups_row_{{index}}_delete" />'
+        + '    <button title="<?php echo Mage::helper('core')->__("Delete Invited Range") ?>" type="button" class="scalable delete icon-btn delete-product-option" id="gradual_groups_row_{{index}}_delete_button" onclick="return gradual_groupsPriceControl.deleteItem(event);">'
+        + '        <span><span><span><?php echo Mage::helper('core')->__("Delete") ?></span></span></span>'
+        + '    </button>'
+        + '</td>' +
+        '</tr>';
+
+    var gradual_groupsPriceControl = {
+        templateRow:     new Template(gradualGroupsRowTemplate, new RegExp('(^|.|\\r|\\n)({{\\s*(\\w+)\\s*}})', "")),
+        templateInvited: new Template(gradualInvitedTemplate,   new RegExp('(^|.|\\r|\\n)({{\\s*(\\w+)\\s*}})', "")),
+        itemsCount: 0,
+        addItem : function ()
+        {
+            //console.log(arguments);
+            var data = {
+                group:    '',
+                invited:  '',
+                readOnly: false,
+                index:    this.itemsCount++
+            };
+
+            data.group   = arguments[0];
+            data.invited = arguments[1];
+            if (data.group) {
+                data['group' + data.group] = 'selected';
+            }
+
+            //console.log(data);
+            Element.insert($('<?php echo $_htmlId ?>_container'), {
+                bottom : this.templateRow.evaluate(data)
+            });
+
+            if (typeof(data.invited) === 'undefined') {
+                this.updateLastItem();
+                this.serializeItem();
+            }
+
+            $('<?php echo $_htmlId ?>_container').select('input', 'select').each(function(el) {
+                el.observe('change', gradual_groupsPriceControl.serializeItem);
+            });
+        },
+        updateLastItem: function()
+        {
+            /*var thisCurrent = this;
+            $('<?php echo $_htmlId ?>_container').select('.last_grad:last').each(function(elem) {
+                elem.removeClassName('last_grad');
+                var data = {
+                    invited: '',
+                    index: elem.up('tr').readAttribute('rel')
+                };
+
+                elem.update(thisCurrent.templateInvited.evaluate(data));
+            });
+
+            var lastGrad = $('<?php echo $_htmlId ?>_container').select('tr:not(.no-display) .gradual_groups_invited:last');
+            if (lastGrad.length) {
+                lastGrad[lastGrad.length - 1].update('∞').addClassName('last_grad');
+            }*/
+        },
+        deleteItem: function(event)
+        {
+            var tr = Event.findElement(event, 'tr');
+            if (tr) {
+                Element.select(tr, '.delete').each(function(elem){elem.value='1'});
+                Element.select(tr, ['input', 'select']).each(function(elem){elem.hide()});
+                Element.hide(tr);
+                Element.addClassName(tr, 'no-display template');
+            }
+
+            this.updateLastItem();
+            this.serializeItem();
+
+            return false;
+        },
+        serializeItem: function()
+        {
+            //console.log('update');
+            var array = [];
+            $$('.gradual_groups').each(function(elem) {
+                var elemInvited  = elem.up('tr').select('.gradual_invited')[0];
+                var elemDelete   = elem.up('tr').select('.delete')[0];
+
+                if (!elemDelete || !elemDelete.value) {
+                    var item = {
+                        'g' : elem.value
+                    }
+
+                    if (elemInvited) {
+                        item.i = elemInvited.value;
+                    } else {
+                        item.i = '-';
+                    }
+
+                    array.push(item);
+                }
+            });
+            var json  = JSON.stringify(array);
+            $('referralreward_move_group_to').value = json.replace(/\"|\[|\]/g, '');
+            //console.log(json);
+        }
+    };
+
+    <?php foreach ($_items as $_item): ?>
+        gradual_groupsPriceControl.addItem(
+            '<?php echo $_item['group'] ?>',
+            '<?php echo $_item['invited'] ?>',
+             <?php echo (int)!empty($_item['readonly']) ?>
+        );
+    <?php endforeach ?>
+    gradual_groupsPriceControl.updateLastItem();
+</script>
+
+    </td>
+</tr>

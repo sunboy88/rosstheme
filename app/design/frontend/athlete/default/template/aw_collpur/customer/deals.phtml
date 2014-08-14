@@ -1,0 +1,70 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Collpur
+ * @version    1.0.6
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><?php if ($this->isEnabled()):  ?>
+    <div  id="awcp_customerdeals-history-box" >
+    <?php $purchases = $this->getCustomerPurchases(); ?>
+    <?php if($purchases->getSize()): ?>
+        <h4><?php echo $this->__('Deal Information') ?></h4>
+        <?php echo $this->getPagerHtml(); ?>
+        <table class="data-table" id="points-history-table">
+            <col class="id" />
+            <col class="points" />
+            <col class="comment" />
+            <col class="date" />
+            <thead>
+                <tr>
+                    <th><?php echo $this->__('ID') ?></th>
+                    <th><?php echo $this->__('Deal name') ?></th>
+                    <th><?php echo $this->__('Status') ?></th>
+                    <th><?php echo $this->__('Purchased') ?></th>
+                    <th><?php echo $this->__('Expires') ?></th>
+                    <th><?php echo $this->__('Action') ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($purchases as $purchase): ?>
+                <tr>
+                    <td><?php echo $purchase->getId(); ?></td>
+                    <td><?php  echo $this->getDealByPurchase($purchase->getDealId())->getName();  ?></td>
+                    <td><?php  echo $this->getPurchaseStatus($purchase->getOrderItemId()); ?></td>
+                    <td><?php echo $this->getLocalDate($purchase->getPurchaseDateTime()); ?></td>
+                    <td><?php echo $this->getLocalDate($this->getDealByPurchase($purchase->getDealId())->getAvailableTo()); ?></td>
+                    <td><a href = "../view/purchase_id/<?php echo $purchase->getId(); ?>">view</a></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <script type="text/javascript">decorateTable('awcp_customerdeals-history-box');</script>
+    <?php echo $this->getPagerHtml(); ?>    
+    <?php else: ?>
+        <h2><?php echo $this->__('No deals found'); ?></h2>
+     <?php endif; ?>
+    </div>
+<?php endif ?>
+
+<div class="buttons-set">
+    <p class="back-link"><a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>
+</div>

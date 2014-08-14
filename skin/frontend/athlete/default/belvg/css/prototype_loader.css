@@ -1,0 +1,12 @@
+.prototypeLoader {
+    background: url(../images/prototype_loader/bg.png) top left no-repeat;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+    z-index: 30000;
+}
+
+.prototypeLoader img {
+    display: block;
+    margin: 7px 0 0 7px;
+}

@@ -1,0 +1,94 @@
+<?php
+/**
+ * Payments confirm template
+ */
+?>
+<?php $payment = $this->getPayment() ?>
+<?php $statusOption = $this->getStatusArray() ?>
+
+<div class="page-title">
+	<h3><?php echo $this->__('Confirm Request'); ?></h3>
+</div>
+<div class="box-info box-account">
+	<div class="box-head">
+		<h2><?php echo $this->__('Withdrawal Information') ?></h2>
+	</div>
+	<ul class="form-list">
+		<!--li class="fields">
+			<div class="field">
+				<strong><?php echo $this->__('Status') ?></strong>
+			</div>
+			<div class="field">
+				<?php echo $statusOption[$payment->getStatus()] ?>
+			</div>
+		</li-->
+		<li class="fields">
+			<div class="field">
+				<strong><?php echo $this->__('Requested Date') ?></strong>
+			</div>
+			<div class="field">
+				<?php echo $this->formatDate($payment->getRequestTime(),'medium',false) ?>
+			</div>
+		</li>
+		<li class="fields">
+			<div class="field">
+				<strong><?php echo $this->__('Amount') ?></strong>
+			</div>
+			<div class="field">
+				<?php echo Mage::helper('core')->currency($payment->getAmount()) ?>
+			</div>
+		</li>
+		<li class="fields">
+			<div class="field">
+				<strong><?php echo $this->__('Fee') ?></strong>
+			</div>
+			<div class="field">
+				<?php if ($payment->getStatus() == 1): ?>
+					<?php echo $this->__('N/A') ?>
+				<?php elseif($payment->getIsPayerFee()): ?>
+					<?php echo Mage::helper('core')->currency(0) ?>
+				<?php else: ?>
+					<?php echo Mage::helper('core')->currency($payment->getFee()) ?>
+				<?php endif ?>
+			</div>
+		</li>
+		<li class="fields">
+			<div class="field">
+				<strong><?php echo $this->__('Payment Method') ?></strong>
+			</div>
+			<div class="field">
+				<?php echo $payment->getPaymentMethodHtml() ?>
+			</div>
+		</li>
+		<?php echo $this->getChildHtml('payment_method_info') ?>
+	</ul>
+</div>
+<div class="buttons-set">
+	<a class="left" href="javascript:history.go(-1)">
+		<button type="button" class="form-button button" onclick="javascript:history.go(-1)">
+			<span><?php echo $this->__('Back')?></span>
+		</button>
+	</a>
+    <button type="button" class="form-button button" onclick="requestPayment()">
+        <span><?php echo $this->__('Send Request')?></span>
+    </button>
+    <button type="button" class="form-button button" onclick="cancelRequest()">
+        <span><?php echo $this->__('Cancel')?></span>
+    </button>
+    
+</div>
+<?php
+    $paymentData = Mage::registry('confirm_payment_data')->getData();
+?>
+<script type="text/javascript">
+    
+    function requestPayment(){
+        var url = '<?php echo $this->getUrl('affiliatepluspayment/index/requestPayment');?>';
+        window.location.href = url;
+    }
+    
+    function cancelRequest(){
+        var url = '<?php echo $this->getUrl('affiliateplus/index/index');?>';
+        window.location.href = url;
+    }
+</script>

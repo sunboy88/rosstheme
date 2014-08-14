@@ -1,0 +1,9 @@
+<?php
+/**
+ * Affiliate Plus Widget Template
+ */
+?>
+<?php $widgetData = $this->getWidgetData() ?>
+
+var affiliatepluswidgetTransporter = <?php echo $this->getJsonUrl() ?>;
+document.write('<iframe src="'+affiliatepluswidgetTransporter.url+'" style="width:<?php echo $widgetData['width'] ?>px;height:<?php echo $widgetData['height'] ?>px;border:0px;"></iframe>');

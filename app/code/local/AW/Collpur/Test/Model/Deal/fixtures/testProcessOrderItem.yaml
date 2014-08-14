@@ -1,0 +1,20 @@
+tables:
+ collpur/deal:
+  - id: 1
+    product_id: 1
+    is_active: 1
+    close_state: 1
+  - id: 2
+    product_id: 1
+    is_active: 0
+    progress: open
+  - id: 3
+    product_id: 1
+    is_active: 1
+    close_state: 1
+    available_from: 2011-08-03 10:00:00
+  - id: 4
+    product_id: 1
+    is_active: 1
+    close_state: 1
+    available_to: 2015-08-03 17:46:11

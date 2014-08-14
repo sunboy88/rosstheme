@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config>
+	<acl>
+		<resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<affiliateplus translate="title">
+										<title>Affiliate Plus</title>
+										<sort_order>50</sort_order>
+									</affiliateplus>									
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

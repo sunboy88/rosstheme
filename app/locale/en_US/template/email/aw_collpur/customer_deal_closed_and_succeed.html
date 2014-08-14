@@ -1,0 +1,38 @@
+<!--@subject Deal "{{var deal.getName()}}" success @-->
+<table cellspacing="0" cellpadding="0" border="0" height="100%" width="100%">
+    <tr>
+        <td>
+            Dear {{var order.getCustomerFirstname()}}  {{var order.getCustomerLastname()}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            The {{var deal.getDealName()}} deal you were taking part in went through!
+        </td>
+    </tr>
+    {{depend order.getCouponCode()}}
+    <tr>
+        <td>
+            Your coupon for this deal is the following: {{var order.getCouponCode().format('html')}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            You can also print your personal coupon code {{var order.getCouponPrintPage()}}
+        </td>
+    </tr>
+    {{/depend}}
+
+    {{depend order.getCouponExpireDate()}}
+    <tr>
+        <td>
+            The coupon is valid through {{var order.getCouponExpireDate()}}
+        </td>
+    </tr>
+    {{/depend}}
+    <tr>
+        <td>
+            You can manage your deals from your account page - {{var order.getAccountLink()}}
+        </td>
+    </tr>
+</table>

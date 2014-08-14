@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * Moneybooker Payment Method template
+ */
+
+$account = $this->getAffiliateAcount();
+$moneybookerEmail = $account->getMoneybookerEmail();
+$data = $this->getRequest()->getParams();
+if(isset($data['moneybooker_email']) && $data['moneybooker_email'])
+    $moneybookerEmail = $data['moneybooker_email'];
+
+
+?>
+<?php $require = Mage::helper('affiliateplus/payment')->isRequireAuthentication('moneybooker');?>
+<?php $isVerified = $this->isVerified($account->getId(),$account->getMoneybookerEmail());?>
+<ul>
+    <li class="fields">
+        <div class="field">
+            <label class="required"><em>*</em><?php echo $this->__('Email');?></label>
+            <div class="input-box">
+                <input type="text" class="input-text required-entry validate-email" id="moneybooker_email" name="moneybooker_email" title="<?php echo $this->__('Moneybooker Email')?>" onchange="hideMoneybookerVerifyLink()" value="<?php echo $moneybookerEmail;?>"/>
+                <small><?php echo $this->__('This field will be updated to your profile.') ?></small>
+            </div>
+        </div>
+        <?php if($require):?>
+		 <?php if($isVerified): ?>
+        <div class="field" id="moneybooker-verified-div">
+            <label for="paypal_email" class="required"><?php echo $this->__('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;') ?></label>
+			<div class="input-box verified" >
+                <a href="javascript:void()"><?php echo $this->__('Verified');?></a>
+				<!--small><?php echo $this->__('This field will be updated to your profile.') ?></small-->
+			</div>
+		</div>
+        <?php else: ?>
+        <div class="field" id="moneybooker-notverified-div">
+            <label for="paypal_email" class="required"><?php echo $this->__('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;') ?></label>
+			<div class="input-box not-verified" >
+                <a href="javascript:void()"><?php echo $this->__('Not verified');?></a>
+				<!--small><?php echo $this->__('This field will be updated to your profile.') ?></small-->
+			</div>
+		</div>
+        <?php endif;?>
+        <?php endif;?>
+    </li>
+</ul>
+<script type="text/javascript">
+    function hideMoneybookerVerifyLink(){
+        var verifiedDiv = $('moneybooker-verified-div');
+        var notverifiedDiv = $('moneybooker-notverified-div');
+        if(verifiedDiv){
+            verifiedDiv.style.display = 'none';
+        }
+        if(notverifiedDiv){
+            notverifiedDiv.style.display = 'none';
+        }
+    }
+</script>

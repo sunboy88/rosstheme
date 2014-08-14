@@ -1,0 +1,427 @@
+<?xml version="1.0"?>
+<config>
+
+    <modules>
+        <AW_Collpur>
+            <version>1.0.6</version><platform>ce</platform>
+        </AW_Collpur>
+    </modules>
+
+    <admin>
+        <routers>
+            <collpur_admin>
+                <use>admin</use>
+                <args>
+                    <module>AW_Collpur</module>
+                    <frontName>deals_admin</frontName>
+                </args>
+            </collpur_admin>
+        </routers>
+    </admin>
+
+    <global>
+        <blocks>
+            <collpur>
+                <class>AW_Collpur_Block</class>
+            </collpur>
+            <checkout>
+                <rewrite></rewrite>
+                <drewrite>
+                    <cart_item_renderer>AW_Collpur_Block_Renderer</cart_item_renderer>
+                </drewrite>
+            </checkout>
+        </blocks>
+        <models>
+            <collpur>
+                <class>AW_Collpur_Model</class>
+                <resourceModel>collpur_mysql4</resourceModel>
+            </collpur>
+            <collpur_mysql4>
+                <class>AW_Collpur_Model_Mysql4</class>
+                <entities>
+                    <deal>
+                        <table>aw_collpur_deal</table>
+                    </deal>
+                    <dealpurchases>
+                        <table>aw_collpur_deal_purchases</table>
+                    </dealpurchases>
+                    <coupon>
+                        <table>aw_collpur_coupon</table>
+                    </coupon>
+                    <rewrite>
+                        <table>aw_collpur_rewrite</table>
+                    </rewrite>
+                </entities>
+            </collpur_mysql4>
+            <catalog>
+                <rewrite>
+                    <product_url>AW_Collpur_Model_Catalog_Product_Url</product_url>
+                </rewrite>
+            </catalog>
+        </models>
+        <helpers>
+            <collpur>
+                <class>AW_Collpur_Helper</class>
+            </collpur>
+        </helpers>
+        <resources>
+            <collpur_setup>
+                <setup>
+                    <module>AW_Collpur</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </collpur_setup>
+            <collpur_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </collpur_write>
+            <collpur_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </collpur_read>
+        </resources>
+
+        <events>
+            <sales_order_save_after>
+                <observers>
+                    <collpur_order_save_after>
+                        <class>collpur/observer</class>
+                        <method>orderSaveAfter</method>
+                    </collpur_order_save_after>
+                </observers>
+            </sales_order_save_after>
+            <model_save_before>
+                <observers>
+                    <downloadable_link_before_save>
+                        <class>collpur/observer</class>
+                        <method>downloadableLinkSave</method>
+                    </downloadable_link_before_save>
+                </observers>
+            </model_save_before>
+            <controller_front_init_routers>
+                <observers>
+                    <collpur>
+                        <type>singleton</type>
+                        <class>AW_Collpur_Controller_Router</class>
+                        <method>initControllerRouters</method>
+                    </collpur>
+                </observers>
+            </controller_front_init_routers>
+        </events>
+
+        <template>
+            <email>
+                <collpur_notifications_deal_failed_template_admin translate="label" module="collpur">
+                    <label>Admin deal expired</label>
+                    <file>aw_collpur/admin_deal_expired.html</file>
+                    <type>html</type>
+                </collpur_notifications_deal_failed_template_admin>
+                <collpur_notifications_deal_succeed_template_admin translate="label" module="collpur">
+                    <label>Admin deal succeed</label>
+                    <file>aw_collpur/admin_deal_succeed.html</file>
+                    <type>html</type>
+                </collpur_notifications_deal_succeed_template_admin>
+                <collpur_notifications_deal_succeed_template_customer translate="label" module="collpur">
+                    <label>Customer deal closed and succeed</label>
+                    <file>aw_collpur/customer_deal_closed_and_succeed.html</file>
+                    <type>html</type>
+                </collpur_notifications_deal_succeed_template_customer>
+                <collpur_notifications_deal_failed_template_customer translate="label" module="collpur">
+                    <label>Customer deal expired</label>
+                    <file>aw_collpur/customer_deal_expired.html</file>
+                    <type>html</type>
+                </collpur_notifications_deal_failed_template_customer>
+                <collpur_notifications_notify_admin_before_deal_expired_template translate="label" module="collpur">
+                    <label>Deal expires before</label>
+                    <file>aw_collpur/admin_deal_expires_before.html</file>
+                    <type>html</type>
+                </collpur_notifications_notify_admin_before_deal_expired_template>
+            </email>
+        </template>
+    </global>
+
+    <frontend>
+        <events>
+            <catalog_product_get_final_price>
+                <observers>
+                    <collpur>
+                        <class>collpur/observer</class>
+                        <method>getFinalPrice</method>
+                    </collpur>
+                </observers>
+            </catalog_product_get_final_price>
+
+            <awcp_menu_init_after>
+                <observers>
+                    <collpur>
+                        <class>collpur/observer</class>
+                        <method>processMenu</method>
+                    </collpur>
+                </observers>
+            </awcp_menu_init_after>
+
+            <catalog_product_type_prepare_cart_options>
+                <observers>
+                    <collpur_preparecart>
+                        <class>collpur/observer</class>
+                        <method>prepareCart</method>
+                    </collpur_preparecart>
+                </observers>
+            </catalog_product_type_prepare_cart_options>
+
+            <catalog_product_type_prepare_full_options>
+                <observers>
+                    <collpur_preparecart>
+                        <class>collpur/observer</class>
+                        <method>prepareCart</method>
+                    </collpur_preparecart>
+                </observers>
+            </catalog_product_type_prepare_full_options>
+
+            <checkout_cart_update_items_before>
+                <observers>
+                    <collpur_preparecart>
+                        <class>collpur/observer</class>
+                        <method>updateCheckoutCartItemsBefore</method>
+                    </collpur_preparecart>
+                </observers>
+            </checkout_cart_update_items_before>
+
+            <checkout_cart_update_items_after>
+                <observers>
+                    <collpur_preparecart>
+                        <class>collpur/observer</class>
+                        <method>updateCheckoutCartItemsAfter</method>
+                    </collpur_preparecart>
+                </observers>
+            </checkout_cart_update_items_after>
+
+            <controller_action_predispatch>
+                <observers>
+                    <front_controller_predispatch>
+                        <type>singleton</type>
+                        <class>collpur/observer</class>
+                        <method>prepareRewirtes</method>
+                    </front_controller_predispatch>
+                </observers>
+            </controller_action_predispatch>
+
+        </events>
+
+        <layout>
+            <updates>
+                <collpur module="AW_Collpur">
+                    <file>aw_collpur.xml</file>
+                </collpur>
+            </updates>
+        </layout>
+        <routers>
+            <awcollpur>
+                <use>standard</use>
+                <args>
+                    <module>AW_Collpur</module>
+                    <frontName>deals</frontName>
+                </args>
+            </awcollpur>
+        </routers>
+        <translate>
+            <modules>
+                <AW_Collpur>
+                    <files>
+                        <default>AW_Collpur.csv</default>
+                    </files>
+                </AW_Collpur>
+            </modules>
+        </translate>
+    </frontend>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <collpur>
+                    <file>aw_collpur.xml</file>
+                </collpur>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <AW_Collpur>
+                    <files>
+                        <default>AW_Collpur.csv</default>
+                    </files>
+                </AW_Collpur>
+            </modules>
+        </translate>
+        <menu>
+            <collpur>
+                <title>Group Deals</title>
+                <sort_order>90</sort_order>
+                <children>
+                    <new_deal>
+                        <title>New Deal</title>
+                        <sort_order>10</sort_order>
+                        <action>collpur_admin/adminhtml_deal/new</action>
+                    </new_deal>
+                    <deals>
+                        <title>Deals</title>
+                        <sort_order>20</sort_order>
+                        <children>
+                            <all_deals>
+                                <title>All Deals</title>
+                                <sort_order>50</sort_order>
+                                <action>collpur_admin/adminhtml_deal/index</action>
+                            </all_deals>
+                            <active_deals>
+                                <title>Active Deals</title>
+                                <sort_order>20</sort_order>
+                                <action>collpur_admin/adminhtml_deal/index/deal_filter/active</action>
+                            </active_deals>
+                            <current_succeed_deals>
+                                <title>Current Succeed Deals</title>
+                                <sort_order>30</sort_order>
+                                <action>collpur_admin/adminhtml_deal/index/deal_filter/succeed</action>
+                            </current_succeed_deals>
+                            <pending_deals>
+                                <title>Pending Deals</title>
+                                <sort_order>40</sort_order>
+                                <action>collpur_admin/adminhtml_deal/index/deal_filter/pending</action>
+                            </pending_deals>
+                        </children>
+                    </deals>
+                    <settings>
+                        <title>Settings</title>
+                        <sort_order>30</sort_order>
+                        <action>adminhtml/system_config/edit/section/collpur</action>
+                    </settings>
+                </children>
+            </collpur>
+        </menu>
+        <enterprise>
+            <admingws>
+                <collection_load_before>
+                    <collpur__deal_collection>addStoreFilter</collpur__deal_collection>
+                </collection_load_before>
+            </admingws>
+        </enterprise>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <collpur>
+                                            <title>aheadWorks - Group Deals Configuration</title>
+                                        </collpur>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                        <collpur>
+                            <title>Collective Purchases</title>
+                            <sort_order>90</sort_order>
+                            <children>
+                                <new_deal>
+                                    <title>New Deal</title>
+                                    <sort_order>10</sort_order>
+                                    <action>collpur_admin/adminhtml_deal/new</action>
+                                </new_deal>
+                                <deals>
+                                    <title>Deals</title>
+                                    <sort_order>20</sort_order>
+                                    <children>
+                                        <all_deals>
+                                            <title>All Deals</title>
+                                            <sort_order>50</sort_order>
+                                            <action>collpur_admin/adminhtml_deal/index</action>
+                                        </all_deals>
+                                        <active_deals>
+                                            <title>Active Deals</title>
+                                            <sort_order>20</sort_order>
+                                            <action>collpur_admin/adminhtml_deal/index</action>
+                                        </active_deals>
+                                        <current_succeed_deals>
+                                            <title>Current Succeed Deals</title>
+                                            <sort_order>30</sort_order>
+                                            <action>collpur_admin/adminhtml_deal/index</action>
+                                        </current_succeed_deals>
+                                        <pending_deals>
+                                            <title>Pending Deals</title>
+                                            <sort_order>40</sort_order>
+                                            <action>collpur_admin/adminhtml_deal/index</action>
+                                        </pending_deals>
+                                    </children>
+                                </deals>
+                                <settings>
+                                    <title>Settings</title>
+                                    <sort_order>30</sort_order>
+                                    <action>adminhtml/system_config/edit/section/collpur</action>
+                                </settings>
+                            </children>
+                        </collpur>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+    <default>
+        <collpur>
+            <general>
+                <enable>1</enable>
+                <enable_toplinks>1</enable_toplinks>
+                <purchased_deal_order_status>complete</purchased_deal_order_status>
+                <thumbnailsize>325</thumbnailsize>
+                <imagesize>669</imagesize>
+            </general>
+            <all>
+                <enabled>1</enabled>
+                <order>10</order>
+                <title>Active deals</title>
+            </all>
+            <future>
+                <enabled>1</enabled>
+                <order>15</order>
+                <title>Upcoming deals</title>
+            </future>
+            <closed>
+                <enabled>1</enabled>
+                <order>20</order>
+                <title>Closed deals</title>
+            </closed>
+            <featured>
+                <enabled>1</enabled>
+                <order>5</order>
+                <title>Featured deal</title>
+            </featured>
+        </collpur>
+    </default>
+    <crontab>
+        <jobs>
+            <awcp_deals_notifications>
+                <schedule>
+                    <cron_expr>* 1 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>collpur/cron::checkAndSendEmails</model>
+                </run>
+            </awcp_deals_notifications>
+        </jobs>
+    </crontab>
+    <phpunit>
+        <suite>
+            <modules>
+                <AW_Collpur/>
+            </modules>
+        </suite>
+    </phpunit>
+
+</config>

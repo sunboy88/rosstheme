@@ -1,0 +1,16 @@
+<?php if($this->getSource() instanceof Mage_Sales_Model_Order): ?>
+    <?php if ((float) $this->getSource()->getReferralrewardAmountRefunded()): ?>
+        <tr>
+            <td class="label"><strong><?php echo Mage::helper('referralreward')->getLabelTotal() . ' ' . $this->__('Refunded to Customer') ?></strong></td>
+            <td><strong><?php echo $this->getSource()->getReferralrewardAmountRefunded() ?></strong></td>
+        </tr>
+    <?php endif ?>
+<?php else: ?>
+    <?php if ((float) $this->getSource()->getFeeAmount()): ?>
+        <tr>
+            <td class="label"><strong><?php echo Mage::helper('referralreward')->getLabelTotal() . ' ' . $this->__('Discount Refunded') ?></strong></td>
+            <td><strong><?php echo $this->getSource()->getReferralrewardAmount() ?></strong></td>
+        </tr>
+    <?php endif ?>
+<?php endif ?>
+

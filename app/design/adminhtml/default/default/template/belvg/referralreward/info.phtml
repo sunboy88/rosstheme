@@ -1,0 +1,53 @@
+<div id="points_tabs_info_content">
+    <?php
+        $customerId =
+        $frends   = $this->getAllFriends();
+        $friends0 = $this->getFriends(Belvg_Referralreward_Model_Friends::FRIEND_NO_BRING);
+        $friends2 = $this->getFriends(Belvg_Referralreward_Model_Friends::FRIEND_BRING);
+        $friends3 = $this->getFriends(Belvg_Referralreward_Model_Friends::FRIEND_INVITED_ACTIVE);
+
+        $activeFrends = $this->getFriends(Belvg_Referralreward_Model_Friends::FRIEND_INVITED);
+        $activeFrends->addFieldToFilter('count_send', array('gt' => 0))->load();
+
+        $noSendFrends = $this->getFriends(Belvg_Referralreward_Model_Friends::FRIEND_INVITED);
+        $noSendFrends->addFieldToFilter('count_send', 0)->load();
+    ?>
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-edit-form fieldset-legend">Info</h4>
+            <div class="form-buttons"></div>
+        </div>
+        <div class="fieldset fieldset-wide" id="general">
+            <div class="hor-scroll">
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <tr>
+                            <td class="label"><label>Friends in Address Book</label></td>
+                            <td class="value"><?php echo $frends->count() ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label>Non-referral friends</label></td>
+                            <td class="value"><?php echo $friends0->count() ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label>Invited friends</label></td>
+                            <td class="value"><?php echo $activeFrends->count() ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label>Non-invited friends</label></td>
+                            <td class="value"><?php echo $noSendFrends->count() ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label>Invited friends with no orders made</label></td>
+                            <td class="value"><?php echo $friends2->count() ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label>Successful referrals</label></td>
+                            <td class="value"><?php echo $friends3->count() ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+tables:
+ collpur/deal:
+  - id: 1
+    product_id: 1
+  - id: 2
+    product_id: 2
+ collpur/dealpurchases:
+  - id: 1
+    deal_id: 2
+    qty_purchased: 1
+    qty_with_coupons: 0

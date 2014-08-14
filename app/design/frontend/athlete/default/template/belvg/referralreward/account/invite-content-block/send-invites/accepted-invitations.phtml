@@ -1,0 +1,88 @@
+<?php
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+/******************************************
+ *      MAGENTO EDITION USAGE NOTICE      *
+ ******************************************/
+ /* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+/******************************************
+ *      DISCLAIMER                        *
+ ******************************************/
+/* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ ******************************************
+ * @category   Belvg
+ * @package    Belvg_Referralreward
+ * @copyright  Copyright (c) 2010 - 2011 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+?>
+<div class="friendslist-block">
+    <table class="table-invitation" width="100%">
+        <thead>
+            <tr>
+                <th align="left"><?php echo $this->__('Friends') ?></th>
+                <th><?php echo $this->__('Status') ?></th>
+            </tr>
+        </thead>
+        <tbody id="table-accepted-invitation-emails">
+        <?php
+            $friends   = $this->getFriends(Belvg_Referralreward_Model_Friends::FRIEND_BRING);
+            $i         = 0;
+            foreach ($friends AS $friend) {
+                $i++;
+                $class = ($i % 2) ? 'odd' : 'even';
+                echo'<tr>
+                        <td class="email ' . $class . '">' . $friend->getFriendEmail() . '</td>
+                        <!--<td>' . $friend->getFriendName() . '</td>-->
+                        <td class="' . $class . '">' . $this->__('registered via the invite, not bought anything yet') . '</td>
+                     </tr>';
+            }
+
+            $friends   = $this->getFriends(Belvg_Referralreward_Model_Friends::FRIEND_INVITED_ACTIVE);
+            if ($i && count($friends)) {
+                echo'<tr><td colspan="2"><th></td></tr>';
+            }
+
+            $i         = 0;
+            foreach ($friends AS $friend) {
+                $i++;
+                $class = ($i % 2) ? 'odd' : 'even';
+                echo'<tr class="disable">
+                        <td class="email ' . $class . '">' . $friend->getFriendEmail() . '</td>
+                        <!--<td>' . $friend->getFriendName() . '</td>-->
+                        <td class="' . $class . '">' . $this->__('registered and purchased – profit added') . '</td>
+                     </tr>';
+            }
+
+            $friends   = $this->getFriends(Belvg_Referralreward_Model_Friends::FRIEND_NO_BRING);
+            if ($i && count($friends)) {
+                echo'<tr><td colspan="2"><th></td></tr>';
+            }
+
+            $i         = 0;
+            foreach ($friends AS $friend) {
+                $i++;
+                $class = ($i % 2) ? 'odd' : 'even';
+                echo'<tr class="disable">
+                        <td class="email ' . $class . '">' . $friend->getFriendEmail() . '</td>
+                        <!--<td>' . $friend->getFriendName() . '</td>-->
+                        <td class="' . $class . '">' . $this->__('user already registered on the site') . '</td>
+                     </tr>';
+            }
+        ?>
+        </tbody>
+    </table>
+</div>

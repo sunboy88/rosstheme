@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_Simisalestrackingapi
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config>
+    <api>
+        <resources>
+            <simisalestrackingapi translate="title" module="simisalestrackingapi">
+                <model>simisalestrackingapi/api</model> <!-- our model -->
+                <title>Simisalestrackingapi Dashboard Resource</title>
+                <acl>simisalestrackingapi</acl>
+                <methods>
+                    <dashboard translate="title" module="simisalestrackingapi">
+                        <title>Retrive customers</title>
+                        <method>dashboard</method> <!-- we have another method name inside our resource -->
+                        <acl>simisalestrackingapi/dashboard</acl>
+                    </dashboard>
+                </methods>
+                <faults module="simisalestrackingapi">
+                    <data_invalid>
+                        <code>100</code >
+                        <message>Invalid Data. Details in error message.</message>
+                    </data_invalid>
+                </faults>
+            </simisalestrackingapi>
+        </resources>
+        <acl>
+            <resources>
+                <simisalestrackingapi translate="title" module="simisalestrackingapi">
+                    <title>Simisalestrackingapi</title>
+                    <dashboard translate="title" module="simisalestrackingapi">
+                       <title>Use Simi Salestracking Api</title>
+                    </dashboard>
+               </simisalestrackingapi>
+            </resources>
+        </acl>
+    </api>
+</config>

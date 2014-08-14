@@ -1,0 +1,146 @@
+<?php
+/**
+ * Offline payment method form template
+ */
+?>
+<?php $bank = $this->getBank();?>
+<?php $require = Mage::helper('affiliateplus/payment')->isRequireAuthentication('bank');?>
+<?php $data = $this->getRequest()->getParams(); ?>
+<?php $back = (isset($data['bank_statement']) && $data['bank_statement']) ?>
+<ul>
+    <?php if ($this->hasBankAccount()): ?>
+        <li class="wide">
+            <label for="payment-bank-select"><?php echo $this->__('Select an existing bank account or enter a new account.') ?></label>
+            <div class="input-box">
+                <?php echo $this->getBankAccountHtmlSelect('payment') ?>
+            </div>
+        </li>
+        
+    <?php endif; ?>
+    <li id="account-new-bankaccount-form" <?php if ($this->hasBankAccount() && !$this->isShowForm()): ?> style="display:none;"<?php endif; ?>>
+        <fieldset>
+            <ul>
+                <li class="wide">
+                    <label for="bank:name" class="required"><em>*</em><?php echo $this->__('Bank name') ?></label>
+                    <div class="input-box">
+                        <input type="text" title="<?php echo $this->__('Bank name') ?>" name="bank[name]" id="bank:name" class="input-text required-entry" value="<?php echo $bank->getName();?>" />
+                    </div>
+                </li>
+                <li class="fields">
+                    <div class="field">
+                        <label for="bank:account_name" class="required"><em>*</em><?php echo $this->__('Bank account name') ?></label>
+                        <div class="input-box">
+                            <input type="text" title="<?php echo $this->__('Bank account name') ?>" name="bank[account_name]" id="bank:account_name" class="input-text required-entry" value="<?php echo $bank->getAccountName();?>"/>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="bank:account_number" class="required"><em>*</em><?php echo $this->__('Bank account number') ?></label>
+                        <div class="input-box">
+                            <input type="text" title="<?php echo $this->__('Bank account number') ?>" name="bank[account_number]" id="bank:account_number" class="input-text required-entry" value="<?php echo $bank->getAccountNumber();?>" />
+                        </div>
+                    </div>
+                </li>
+
+                <li class="fields">
+                    <div class="field">
+                        <label for="bank:routing_code"><?php echo $this->__('Bank routing code') ?></label>
+                        <div class="input-box">
+                            <input type="text" title="<?php echo $this->__('Bank routing code') ?>" name="bank[routing_code]" id="bank:routing_code" class="input-text" value="<?php echo $bank->getRoutingCode();?>" />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="bank:swift_code"><?php echo $this->__('Bank SWIFT code') ?></label>
+                        <div class="input-box">
+                            <input type="text" title="<?php echo $this->__('Bank SWIFT code') ?>" name="bank[swift_code]" id="bank:swift_code" class="input-text" value="<?php echo $bank->getSwiftCode();?>" />
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="wide">
+                    <label for="bank:address"><?php echo $this->__('Bank address') ?></label>
+                    <div class="input-box">
+                        <textarea title="<?php echo $this->__('Bank address') ?>" name="bank[address]" id="bank:address"><?php echo $bank->getAddress();?></textarea>
+                    </div>
+                </li>
+                
+            </ul>
+        </fieldset>
+    </li>
+    <?php if($require):?>
+    <li id="verify-li-bank" style="<?php if($this->bankAccountIsVerified()):?>display:none<?php endif;?>">
+        <div class="field">
+            <label for="account:bank_statement" class="required"><em id="bank_statement_em" style="<?php if($back): ?>display:none;<?php endif;?>">*</em><?php echo $this->__('Bank Statement') ?></label>
+			<!--div class="bank-statement-image">
+			</div-->
+            <div class="input-box" style="width:310px" >
+				<?php if($back): ?>
+				<a href="<?php echo Mage::getBaseUrl('media').'/affiliateplus/payment/'.$data['bank_statement']; ?>" onclick="window.open(this.href, 'preview', 'resizable=1,scrollbars=1'); return false;"><img width="22" height="22" src="<?php echo Mage::getBaseUrl('media').'/affiliateplus/payment/'.$data['bank_statement']; ?>" /></a>
+				<?php endif;?>
+                <input type="file" name="bank_statement" value="" title="<?php echo $this->__('Bank Statement') ?>" <?php if(!$back): ?> class="required-entry" <?php endif;?> id="bank_statement" />
+            </div>
+            <p class="authentication-comment note">
+                <?php echo $this->__('You need to upload an image of  your Bank Statement to verify your account.');?>
+            </p>
+        </div>
+    </li>
+    <?php endif;?>
+</ul>
+<script type="text/javascript">
+    //<![CDATA[
+    var currentBankAccountId = $('payment-bank-select') ? $('payment-bank-select').value : false;
+    function lsRequestTrialNewAccount(bankAccountId) {
+        if (bankAccountId == "") {
+            $('account-new-bankaccount-form').show();
+        <?php if($require):?>
+            $('verify-li-bank').style.display = 'block';
+            <?php if($back): ?>
+                if (currentBankAccountId == bankAccountId) {
+                    $$('#verify-li-bank .input-box a').each(function(el){
+                        el.show();
+                    });
+                    $('bank_statement').removeClassName('required-entry');
+                    $('bank_statement_em').hide();
+                } else {
+                    $$('#verify-li-bank .input-box a').each(function(el){
+                        el.hide();
+                    });
+                    $('bank_statement').addClassName('required-entry');
+                    $('bank_statement_em').show();
+                }
+            <?php endif ?>
+        <?php endif;?>
+        } else {
+            $('account-new-bankaccount-form').hide();
+            <?php if($require):?>
+            var url = '<?php echo $this->getUrl('affiliateplus/index/checkVerify');?>?payment_method=bank&email='+bankAccountId;
+            var request = new Ajax.Request(url,
+            {
+                onSuccess: function(response){
+                    if(response.responseText)
+                        $('verify-li-bank').style.display = 'none';
+                    else {
+                        $('verify-li-bank').style.display = 'block';
+                    <?php if($back): ?>
+                        if (currentBankAccountId == bankAccountId) {
+                            $$('#verify-li-bank .input-box a').each(function(el){
+                                el.show();
+                            });
+                            $('bank_statement').removeClassName('required-entry');
+                            $('bank_statement_em').hide();
+                        } else {
+                            $$('#verify-li-bank .input-box a').each(function(el){
+                                el.hide();
+                            });
+                            $('bank_statement').addClassName('required-entry');
+                            $('bank_statement_em').show();
+                        }
+                    <?php endif ?>
+                    }
+                }
+            }
+            );
+            <?php endif;?>
+        }
+    }
+    //]]>
+</script>

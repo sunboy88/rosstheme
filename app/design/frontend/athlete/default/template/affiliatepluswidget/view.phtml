@@ -1,0 +1,58 @@
+<?php
+/**
+ * View Widget Template
+ */
+?>
+
+<?php $widgetData = $this->getWidgetData() ?>
+<?php $account = $this->getAccount() ?>
+
+<div id="affiliatepluswidget_outer_body" style="display:block;width:<?php echo $widgetData['width'] ?>px;height:<?php echo $widgetData['height'] ?>px;">
+	<div>
+		<div style="margin:0 9px 0 9px; background-color:#<?php echo $widgetData['border'] ?>;height:1px;"></div>
+		<div style="margin:0 7px 0 7px; background-color:#<?php echo $widgetData['border'] ?>;height:1px;"></div>
+		<?php for($i=0;$i<5;$i++): ?>
+			<div style="margin:0 <?php echo 5-$i ?>px 0 <?php echo 5-$i ?>px; background-color:#<?php echo $widgetData['border'] ?>;height:<?php echo ($i<3)?1:2 ?>px;"></div>
+		<?php endfor ?>
+	</div>
+	<div id="affiliatepluswidget_body" style="width:<?php echo $widgetData['width'] ?>px;height:<?php echo $widgetData['height']-18 ?>px;background-color:#<?php echo $widgetData['border'] ?>;color:#<?php echo $widgetData['textbody'] ?>;font-size:10px;">
+		<div id="affiliatepluswidget_search_form" style="text-align:center;height:20px;">
+			<form onsubmit="return false;">
+				<input id="affiliatepluswidget_search" name="search" value="<?php echo $widgetData['search'] ?>" style="border:1px solid #B6B6B6;max-width:<?php echo $widgetData['width']-48 ?>px;" />
+				<button id="affiliatepluswidget_submit" style="border:1px solid #<?php echo $widgetData['border'] ?>;background-color:#F18200;cursor:pointer;min-width:24px;" onclick="affiliatepluswidgetInstanceSearch();">
+					<span>
+						<span><?php echo $this->__('Go') ?></span>
+					</span>
+				</button>
+			</form>
+		</div>
+		<div id="affiliatepluswidget_content" style="height:<?php echo $widgetData['height']-38 ?>px;">
+			<?php $requestParam = $this->getRequest()->getParams() ?>
+			<?php unset($requestParam['search']) ?>
+			<input type="hidden" id="affiliatepluswidget_search_url" value="<?php echo $this->getUrl("affiliatepluswidget/index/products",array("_query" => $requestParam)) ?>" />
+			<div class="affiliatepluswidget_product_list_container" style="margin:3px 9px 3px 9px;background-color:#<?php echo $widgetData['background'] ?>;height:<?php echo $widgetData['height']-64 ?>px;">
+				<div id="affiliatepluswidget_product_list">
+					<?php echo $this->getChildHtml('affiliatepluswidget_products') ?>
+				</div>
+				<div id="widget-products-ajax-load" style="display:none;padding-top:10px;">
+					<center>
+						<img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Loading...') ?>" title="<?php echo $this->__('Loading...') ?>" />
+						<span style="color:#E76200"><?php echo $this->__('Loading...') ?></span>
+					</center>
+				</div>
+			</div>
+			<div id="affiliatepluswidget_footer" style="height:20px;text-align:center;">
+				<a href="<?php echo $this->getUrl(null,array('_query' => array('acc' => $account->getIdentifyCode()))) ?>" style="color:#<?php echo $widgetData['textlink'] ?>;">
+					<?php echo Mage::app()->getStore()->getFrontendName() ?>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div>
+		<?php for($i=1;$i<6;$i++): ?>
+			<div style="margin:0 <?php echo $i ?>px 0 <?php echo $i ?>px; background-color:#<?php echo $widgetData['border'] ?>;height:<?php echo ($i<3)?2:1 ?>px;"></div>
+		<?php endfor ?>
+		<div style="margin:0 7px 0 7px; background-color:#<?php echo $widgetData['border'] ?>;height:1px;"></div>
+		<div style="margin:0 9px 0 9px; background-color:#<?php echo $widgetData['border'] ?>;height:1px;"></div>
+	</div>
+</div>

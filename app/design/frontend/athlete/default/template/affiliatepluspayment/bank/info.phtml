@@ -1,0 +1,45 @@
+<?php
+/**
+ * Offline payment method info template
+ */
+?>
+<?php if ($paymentMethod = $this->getPaymentMethod()): ?>
+<li class="fields">
+	<div class="field">
+		<strong><?php echo $this->__('Bank Account') ?></strong>
+	</div>
+	<div class="field">
+		<?php echo $paymentMethod->getBankaccountHtml() ?>
+	</div>
+</li>
+<?php if($this->getBankStatement()): ?>
+<li class="fields">
+	<div class="field">
+		<strong><?php echo $this->__('Bank Statement') ?></strong>
+	</div>
+	<div class="field">
+		<img width="250" src="<?php echo Mage::getBaseUrl('media').'/affiliateplus/payment/'.$this->getBankStatement(); ?>" />
+	</div>
+</li>
+<?php endif;?>
+	<?php if ($paymentMethod->getInvoiceNumber()): ?>
+	<li class="fields">
+		<div class="field">
+			<strong><?php echo $this->__('Invoice Number') ?></strong>
+		</div>
+		<div class="field">
+			<?php echo $paymentMethod->getInvoiceNumber() ?>
+		</div>
+	</li>
+	<?php endif ?>
+	<?php if ($paymentMethod->getMessage()): ?>
+	<li class="fields">
+		<div class="field">
+			<strong><?php echo $this->__('Admin Message') ?></strong>
+		</div>
+		<div class="field">
+			<?php echo $paymentMethod->getMessage() ?>
+		</div>
+	</li>
+	<?php endif ?>
+<?php endif ?>

@@ -1,0 +1,66 @@
+<?php
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+/******************************************
+ *      MAGENTO EDITION USAGE NOTICE      *
+ ******************************************/
+ /* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+/******************************************
+ *      DISCLAIMER                        *
+ ******************************************/
+/* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ ******************************************
+ * @category   Belvg
+ * @package    Belvg_Referralreward
+ * @copyright  Copyright (c) 2010 - 2011 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+
+    $providers = $this->getProviders();
+?>
+<div class="fetch-description">
+    <p><b>1.</b> <?php echo $this->__("Add new emails to addressbook") ?></p>
+    <?php if (is_array($providers) && count($providers)): ?>
+        <p><b>2.</b> <?php echo $this->__("Download your e-mail address book") ?></p>
+    <?php endif ?>
+    <?php if (Mage::getStoreConfig('referralreward/facebook/enabled')): ?>
+        <p><b>3.</b> <?php echo $this->__("Authorize with facebook and share it with friends") ?></p>
+    <?php endif ?>
+</div>
+<div class="cols fetch-addressbook">
+    <?php if (is_array($providers) && count($providers)): ?>
+    <div class="col-1">
+    <?php endif ?>
+        <div class="fetch-block emails-add">
+            <div class="ico">1</div>
+            <?php echo $this->getChildHtml('emails-add') ?>
+        </div>
+        <?php if(Mage::getStoreConfig('referralreward/facebook/enabled')): ?>
+            <div class="fetch-block facebook-login">
+                <div class="ico">3</div>
+                <?php echo $this->getChildHtml('facebook-login') ?>
+            </div>
+        <?php endif ?>
+    <?php if (is_array($providers) && count($providers)): ?>
+    </div>
+    <div class="col-2">
+        <div class="fetch-block emails-pick-up">
+            <div class="ico">2</div>
+            <?php echo $this->getChildHtml('emails-take-out') ?>
+        </div>
+    </div>
+    <?php endif ?>
+</div>

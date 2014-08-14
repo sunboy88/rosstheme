@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_Simisalestrackingapi
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config>
+    <default>
+        <simisalestrackingapi>
+            <setting>
+                <limit>10</limit>
+                <status_orders>complete</status_orders>
+                <time_bestsellers>30d</time_bestsellers>
+            </setting>
+        </simisalestrackingapi>
+    </default>
+    <modules>
+        <Magestore_Simisalestrackingapi>
+            <version>0.1.0</version>
+        </Magestore_Simisalestrackingapi>
+    </modules>
+    <admin>
+        <routers>
+            <simisalestrackingapi>
+                <use>admin</use>
+                <args>
+                    <module>Magestore_Simisalestrackingapi</module>
+                    <frontName>simisalestrackingapi</frontName>
+                </args>
+            </simisalestrackingapi>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <simisalestrackingapi>
+                    <file>simisalestrackingapi.xml</file>
+                </simisalestrackingapi>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Magestore_Simisalestrackingapi>
+                    <files>
+                        <default>Magestore_Simisalestrackingapi.csv</default>
+                    </files>
+                </Magestore_Simisalestrackingapi>
+            </modules>
+        </translate>
+    </adminhtml>   
+    <global>
+        <models>
+            <simisalestrackingapi>
+                <class>Magestore_Simisalestrackingapi_Model</class>
+                <resourceModel>simisalestrackingapi_mysql4</resourceModel>
+            </simisalestrackingapi>
+            <simisalestrackingapi_mysql4>
+                <class>Magestore_Simisalestrackingapi_Model_Mysql4</class>
+                <entities>
+                    <bestsellers_daily>
+                        <table>simisalestrackingapi_bestsellers_aggregated_daily</table>
+                    </bestsellers_daily>
+                    <bestsellers_monthly>
+                        <table>simisalestrackingapi_bestsellers_aggregated_monthly</table>
+                    </bestsellers_monthly>
+                    <bestsellers_yearly>
+                        <table>simisalestrackingapi_bestsellers_aggregated_yearly</table>
+                    </bestsellers_yearly>
+                    <bestsellers_orderchange>
+                        <table>simisalestrackingapi_bestsellers_order_change</table>
+                    </bestsellers_orderchange>
+                </entities>
+            </simisalestrackingapi_mysql4>
+            
+            <!--rewrite model-->
+            <sales>
+                <rewrite>
+                    <order>Magestore_Simisalestrackingapi_Model_Bestsellers_Order</order>
+                </rewrite>
+            </sales>
+        </models>
+        <resources>
+            <simisalestrackingapi_setup>
+                <setup>
+                    <module>Magestore_Simisalestrackingapi</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </simisalestrackingapi_setup>
+            <simisalestrackingapi_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </simisalestrackingapi_write>
+            <simisalestrackingapi_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </simisalestrackingapi_read>
+        </resources>
+        <blocks>
+            <simisalestrackingapi>
+                <class>Magestore_Simisalestrackingapi_Block</class>
+            </simisalestrackingapi>
+        </blocks>
+        <helpers>
+            <simisalestrackingapi>
+                <class>Magestore_Simisalestrackingapi_Helper</class>
+            </simisalestrackingapi>
+        </helpers>
+        <events>
+            <sales_order_status_before>
+                <observers>
+                    <simisalestrackingapi_observer>
+                        <class>simisalestrackingapi/observer</class>
+                        <method>logOrderChangeBefore</method>
+                    </simisalestrackingapi_observer>
+                </observers>
+            </sales_order_status_before>
+            <sales_order_status_after>
+                <observers>
+                    <simisalestrackingapi_observer>
+                        <class>simisalestrackingapi/observer</class>
+                        <method>logOrderChangeAfter</method>
+                    </simisalestrackingapi_observer>
+                </observers>
+            </sales_order_status_after>
+        </events>
+    </global>
+</config>

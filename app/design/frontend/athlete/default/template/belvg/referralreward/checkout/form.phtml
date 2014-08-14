@@ -1,0 +1,116 @@
+<?php
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+/******************************************
+ *      MAGENTO EDITION USAGE NOTICE      *
+ ******************************************/
+ /* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+/******************************************
+ *      DISCLAIMER                        *
+ ******************************************/
+/* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ ******************************************
+ * @category   Belvg
+ * @package    Belvg_Referralreward
+ * @copyright  Copyright (c) 2010 - 2011 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+
+    $helper   = Mage::helper('referralreward');
+    $settings = $helper->getSettings();
+?>
+
+<?php if ($this->isFormShow()): ?>
+    <div class="referralreward-points-block">
+        <?php if ($settings['sliderUse']): ?>
+            <div class="zoom">
+                <img id="zoom_out" src="<?php echo $this->getSkinUrl('images/slider_btn_zoom_out.gif') ?>" alt="<?php echo $this->__('Zoom Out') ?>" title="<?php echo $this->__('Zoom Out') ?>" class="btn-zoom-out" />
+                <div id="track">
+                    <div id="handle"></div>
+                </div>
+                <img id="zoom_in" src="<?php echo $this->getSkinUrl('images/slider_btn_zoom_in.gif') ?>" alt="<?php echo $this->__('Zoom In') ?>" title="<?php echo $this->__('Zoom In') ?>" class="btn-zoom-in" />
+            </div>
+        <?php endif ?>
+        <div>
+            <?php
+                $infoUsePoints   = '<span id="info_use_points">1</span>';
+                $infoUseDiscount = '<input id="info_use_discount" value="' . $settings['pointCost'] . '" type="text" name="payment[use_points]">';
+                $infoQuotePoints = '<span id="info_quote_points">' . $this->getQuotePoints() . '</span>';
+                $currencyCode    = Mage::app()->getStore()->getCurrentCurrencyCode();
+                $currencySymbol  = Mage::app()->getLocale()->currency($currencyCode)->getSymbol();
+            ?>
+            <p><?php echo $this->__("Points you want to use: %s. The discount you receive is %s%s", $infoUsePoints, $currencySymbol, $infoUseDiscount) ?></p>
+            <p>
+                <input name="all_point_discount" id="all_point_discount" type="checkbox">
+                <label for="all_point_discount"><?php echo $this->__("Use all points available") ?></label>
+            </p>
+            <?php if ($this->getQuotePoints()): ?>
+                <p>
+                    <?php echo $this->__("You will earns: %s %s", $infoQuotePoints, $this->__(($this->getQuotePoints() == 1) ? "point" : "points")) ?>
+                    <?php if ($settings['discardPoints']): ?>
+                        <?php echo $this->__("(the less points you use the more points you will earn from this purchase)") ?>
+                    <?php endif ?>
+                </p>
+            <?php endif ?>
+        </div>
+        <?php if ($settings['sliderUse']): ?>
+            <?php
+                $options = array(
+                    'totalUrl'  => $this->getUrl('referralreward/customer/total'),
+                    'elements'  => array(
+                        'checkout'   => array(
+                            'total'       => 'shopping-cart-totals-table',
+                        ),
+                        'slider'     => array(    
+                            'track'       => 'track',
+                            'handle'      => 'handle',
+                            'zoomIn'      => 'zoom_in',
+                            'zoomOut'     => 'zoom_out',
+                        ),
+                        'info'       => array(
+                            'usePoints'   => 'info_use_points',
+                            'useDiscount' => 'info_use_discount',
+                            'applyAll'    => 'all_point_discount',
+                            'quotePoints' => 'info_quote_points',
+                        ),
+                    ),
+                    'points' => $this->getSliderPointsSettings(),
+                )
+            ?>
+        <?php endif ?>
+    </div>
+    <script>
+        function initReferralSlider()
+        {
+            slider = new referralSlider(<?php echo json_encode($options) ?>);
+            slider.toggleFull();
+        }
+        
+        if (typeof Payment != 'undefined') {
+            Payment.prototype.afterInit = function(){
+                $$('.referralreward-points-block')[0].select('input').each(function(input) {
+                    input.disabled = false;
+                });
+
+                initReferralSlider();
+            }
+        } else {
+            Event.observe(window, 'load', function() {
+                initReferralSlider();
+            });
+        }
+    </script>
+<?php endif ?>

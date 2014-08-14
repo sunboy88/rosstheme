@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <AW_Collpur>
+            <active>true</active>
+            <codePool>local</codePool>
+        </AW_Collpur>
+    </modules>
+</config> 

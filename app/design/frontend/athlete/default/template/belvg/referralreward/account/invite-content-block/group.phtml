@@ -1,0 +1,34 @@
+<?php if ($this->isEnabled()): ?>
+    <?php
+        $moveGroupTo  = $this->getCustomerGroups();
+        $max          = (int) $this->getMaxGroupInvited();
+        $invitedCount = (int) $this->getInvitedCount();
+        if ($invitedCount > $max) {
+            $count = $max;
+        } else {
+            $count = $invitedCount;
+        }
+    ?>
+    <?php if ($max): ?>
+        <p>
+            <?php echo $this->__('%s invited users made a purchase.', $invitedCount) ?><br>
+            <?php echo $this->__('More succesful referals will get you into another user group. Track your progress below.') ?>
+        </p>
+        <div class="referral-move-group-to">
+            <div class="referral-move-group-to-bg" style="widht: 100%">
+                <ol>
+                    <?php foreach ($moveGroupTo AS $group): ?>
+                        <?php if (isset($group['group']) && isset($group['invited']) && $group['group'] && $group['invited']): ?>
+                            <?php $_group = Mage::getModel('customer/group')->load($group['group']) ?>
+                            <?php if ($_group->getId()): ?>
+                                <li style="left: <?php echo floor($group['invited'] / $max * 100) ?>%"><?php echo $_group->getCustomerGroupCode() ?> (<?php echo $group['invited'] ?>)</li>
+                            <?php endif ?>
+                        <?php endif ?>
+                    <?php endforeach ?>
+                </ol>
+                <div class="referral-move-group-to-body" style="width: <?php echo floor($count / $max * 100) ?>%">
+                </div>
+            </div>
+        </div>
+    <?php endif ?>
+<?php endif ?>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magestore_Affiliatepluswidget>
+            <active>true</active>
+            <codePool>local</codePool>
+            <aliasName>Affiliate Plus Widget</aliasName>
+            <depends>
+            	<Magestore_Affiliateplus />
+            </depends>
+        </Magestore_Affiliatepluswidget>
+    </modules>
+</config> 

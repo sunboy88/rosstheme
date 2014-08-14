@@ -31,21 +31,21 @@
  */
  -->
 <config>
-	<modules>
-		<Belvg_All>
-			<version>1.0.0</version>
-		</Belvg_All>
-	</modules>
-	<global>
-		<blocks>
-			<belvgall>
-				<class>Belvg_All_Block</class>
-			</belvgall>
-		</blocks>
+    <modules>
+        <Belvg_All>
+            <version>1.0.0</version>
+        </Belvg_All>
+    </modules>
+    <global>
+        <blocks>
+            <belvgall>
+                <class>Belvg_All_Block</class>
+            </belvgall>
+        </blocks>
         <helpers>
             <belvgall>
                 <class>Belvg_All_Helper</class>
             </belvgall>
         </helpers>
-	</global>
+    </global>
 </config>

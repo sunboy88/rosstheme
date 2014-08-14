@@ -1,0 +1,45 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Popup
+ * @version    1.2.4
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><div id="aw_popup_wraper" style="display: none;"></div>
+<div id="aw_popup_window" style="display: none;">
+    <div id="aw_popup_header">
+        <span id="aw_popup_title"></span>
+        <img id="aw_popup_close_btn" onclick="Popup.hideWindow();return false;"
+             src="<?php echo $this->getSkinUrl('popup/images/close_label.gif'); ?>">
+    </div>
+    <div id="aw_popup_content">
+    </div>
+</div>
+
+<script type="text/javascript">
+    document.observe('dom:loaded', function () {
+        var ajaxUrl = '<?php echo $this->getAjaxUrl();?>';
+        if (window.location.href.match('https://') && !ajaxUrl.match('https://')) {
+            ajaxUrl = ajaxUrl.replace('http://', 'https://');
+        }
+        Popup.init(ajaxUrl + 'rand/' + Math.round(Math.random() * 1000000));
+    });
+</script>

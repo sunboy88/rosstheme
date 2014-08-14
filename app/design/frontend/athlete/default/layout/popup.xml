@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<layout version="1.0">
+    <default>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>popup/css/style.css</stylesheet>
+            </action>
+            <action method="addJs">
+                <script>prototype/effects.js</script>
+            </action>
+            <action method="addJs">
+                <script>prototype/window.js</script>
+            </action>
+            <action method="addJs">
+                <script>popup/popup.js</script>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="popup/popup" name="aw.popup.product" template="popup/popup.phtml" after="-" />
+        </reference>
+    </default>
+</layout>

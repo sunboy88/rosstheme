@@ -1,0 +1,12 @@
+1-1-1-0:
+  purchases_count: 1
+  exception_message: null
+2-1-1-0:
+  exception_message: 'Deal #2 is not available more'
+3-1-1-0:
+  purchases_count: 1
+  exception_message: null
+4-1-1-0:
+  purchases_count: 1
+  exception_message: null
+  

@@ -1,0 +1,12 @@
+tables:
+ collpur/coupon:
+  - id: 1
+    deal_id: 1
+    status: not_used
+    purchase_id: 1
+    coupon_code: COUPON1
+  - id: 2
+    deal_id: 2
+    status: pending
+    purchase_id: 1
+    coupon_code: COUPON2

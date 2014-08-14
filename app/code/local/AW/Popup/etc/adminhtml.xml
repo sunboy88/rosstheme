@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <cms>
+            <children>
+                <popup>
+                    <title>Popup management</title>
+                    <sort_order>50</sort_order>
+                    <children>
+                        <add_new>
+                            <title>Add new</title>
+                            <action>popup/adminhtml_popup/new</action>
+                            <sort_order>10</sort_order>
+                        </add_new>
+                        <list_popups>
+                            <title>List popups</title>
+                            <action>popup/adminhtml_popup/index</action>
+                            <sort_order>20</sort_order>
+                        </list_popups>
+                        <settings>
+                            <title>Settings</title>
+                            <action>adminhtml/system_config/edit/section/popup/</action>
+                            <sort_order>30</sort_order>
+                        </settings>
+                    </children>
+                </popup>
+            </children>
+        </cms>
+    </menu>
+    <translate>
+        <modules>
+            <AW_Popup>
+                <files>
+                    <default>AW_Popup.csv</default>
+                </files>
+            </AW_Popup>
+        </modules>
+    </translate>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <popup translate="title" module="popup">
+                                <title>Popup</title>
+                                <sort_order>150</sort_order>
+                                <children>
+                                    <add_new>
+                                        <title>Add new</title>
+                                    </add_new>
+                                    <list_popups>
+                                        <title>List popups</title>
+                                    </list_popups>
+                                    <settings>
+                                        <title>Settings</title>
+                                    </settings>
+                                </children>
+                            </popup>
+                        </children>
+                    </cms>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <popup>
+                                        <title>aheadWorks - Popup</title>
+                                    </popup>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <layout>
+        <updates>
+            <popup>
+                <file>popup.xml</file>
+            </popup>
+        </updates>
+    </layout>
+</config>

@@ -1,0 +1,59 @@
+<!--@subject {{var store.getFrontendName()}}: Approved Affiliate account @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"skin url=\"images/logo_email.gif\" _area='frontend'":"Email Logo Image",
+"htmlescape var=$referral.getReferralName()":"Customer Name",
+"store url=\"customer/account/\"":"Customer Account Url",
+"var referral.getEmail()":"Customer Email",
+"htmlescape var=$referral.getPassword()":"Customer Password"}
+@-->
+
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+    <table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top:10px; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+        <tr>
+            <td align="center" valign="top">
+                <!-- [ header starts here] -->
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top"> <!--edit by Sally-->
+                            <a href="{{store url=""}}"><img src="{{var logo_url}}"  alt="{{var store.getFrontendName()}}"  style="margin-bottom:10px;" border="0"/></a></td>
+                    </tr> <!--end by Sally-->
+                </table>
+
+                <!-- [ middle starts here] -->
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top">
+                            <p><strong>Hi {{htmlescape var=$account.getName()}}</strong>,<br/>
+							We are glad to inform you that your affiliate account at {{var store.getFrontendName()}} has been approved.<br/>
+							To log in to our system, please click on <a href="{{store url="affiliateplus/index/login"}}">Login</a> or <a href="{{store url="affiliateplus/index/"}}">My Account</a> at the top right of every page in our shop.</p>
+                            <br/>
+                            <p style="border:1px solid #BEBCB7; padding:13px 18px; background:#F8F7F5; ">
+                                Then use the account email and password you set earlier to log in:<br/>
+                                E-mail: {{var account.getEmail()}}<br/>
+                                Password: {{var account.getPassword()}}
+							</p>
+                            <br/>
+							<p>Your account information is below. Thank you for choosing to work with {{var store.getFrontendName()}}.</p>
+							<br/>
+                            <p style="border:1px solid #BEBCB7; padding:13px 18px; background:#F8F7F5; ">
+                                Account Name: {{var account.getName()}}<br/>
+                                PayPal Email: {{var account.getPaypalEmail()}}
+							</p>
+                            <br/>
+                            <p>
+								If you have any questions about your account, or any other matters, please feel free to contact us at <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a>.
+						    </p>
+							<br/>
+							<p>Thanks again,<br/><strong>{{var store.getFrontendName()}}</strong></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

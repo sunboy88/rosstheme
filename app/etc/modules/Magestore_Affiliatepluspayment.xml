@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magestore_Affiliatepluspayment>
+            <active>true</active>
+            <codePool>local</codePool>
+            <aliasName>Affiliate Plus Advanced Payment</aliasName>
+            <depends>
+            	<Magestore_Affiliateplus />
+            </depends>
+        </Magestore_Affiliatepluspayment>
+    </modules>
+</config>

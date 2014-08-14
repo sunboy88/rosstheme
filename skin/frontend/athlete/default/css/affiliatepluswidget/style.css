@@ -1,0 +1,14 @@
+/* Affiliate Plus Widget Style */
+
+#affiliateplus-widget-fieldset { width: 265px; }
+#affiliateplus-widget-form { float: left; }
+#affiliateplus-widget-preview { float: left; margin-left: 12px; width: 500px; }
+#affiliateplus-widget-form div.custom-show { clear: right; float: right; width: 156px; }
+#widget_custom_size div.input-box { width: 136px; position:relative; float: right; margin-right: 20px; clear: right; }
+#widget_custom_size div.input-box input.input-text { width: 136px; }
+#affiliateplus-widget-form  div.input-color { width: 136px; position:relative; float: right; margin-right: 20px; clear: right; }
+#affiliateplus-widget-form  div.input-color input.color { width: 136px; }
+
+#tinybox {position:absolute; display:none; padding:10px; background:#fff url(../../images/opc-ajax-loader.gif) no-repeat 50% 50%; border:10px solid #e3e3e3; z-index:2000}
+#tinymask {position:absolute; display:none; top:0; left:0; height:100%; width:100%; background:#000; z-index:1500}
+#tinycontent {background:#fff}

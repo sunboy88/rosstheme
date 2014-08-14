@@ -1,0 +1,5 @@
+tables:
+ collpur/deal:
+  - id: 1
+    product_id: 1
+    is_success: 1

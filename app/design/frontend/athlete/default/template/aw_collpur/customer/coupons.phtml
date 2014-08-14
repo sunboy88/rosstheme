@@ -1,0 +1,69 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Collpur
+ * @version    1.0.6
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><?php if ($this->isAvailable()):  ?>
+    <div  id="awcp_customercoupons-history-box" >
+    <?php $coupons = $this->getCustomerCoupons(); ?>
+    <?php if($coupons->getSize()): ?>
+        <h4><?php echo $this->__('Available Coupons') ?></h4>
+        <?php echo $this->getPagerHtml(); ?>
+        <table class="data-table" id="points-history-table">
+            <col class="id" />
+            <col class="points" />
+            <col class="comment" />
+            <col class="date" />
+            <thead>
+                <tr>
+                    <th><?php echo $this->__('Coupon code') ?></th>
+                    <th><?php echo $this->__('Status') ?></th>
+                    <th><?php echo $this->__('Expires at') ?></th>
+                    <th><?php echo $this->__('Action') ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($coupons as $coupon): ?>
+                <tr>
+                    <td><?php echo $coupon->getCouponCode(); ?></td>
+                    <td><?php echo $coupon->getStatuses();  ?></td>
+                    <td><?php echo $this->calculateCouponExpires(); ?></td>                   
+                    <td>
+                        <?php if(strtolower($coupon->getStatuses()) == 'not used'): ?>
+                        <a target="_blank" href="<?php echo $this->getUrl('deals/customer/printcoupon', array('_secure' => Mage::app()->getStore(true)->isCurrentlySecure(), 'id' => $coupon->getId())) ?>"><?php echo $this->__('print') ?></a>
+                        <?php else: ?> 
+                               --
+                        <?php endif; ?>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <?php echo $this->getPagerHtml(); ?>
+        <script type="text/javascript">decorateTable('awcp_customercoupons-history-box');</script>     
+    <?php else: ?>
+        <h2><?php echo $this->__('No coupons found'); ?></h2>
+     <?php endif; ?>
+    </div>
+<?php endif ?>
+ 

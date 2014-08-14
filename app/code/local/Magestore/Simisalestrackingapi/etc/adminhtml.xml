@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_Simisalestrackingapi
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config>
+	<acl>
+        <resources>
+            <admin>
+                <children>
+                    <simisalestrackingapi module="simisalestrackingapi" translate="title">
+                        <title>Simi Salestracking API</title>
+                        <children>
+                            <api translate="title">
+                                <title>Api</title>
+                                <sort_order>1</sort_order>
+                            </api>
+                            <!--
+                             <index translate="title">
+                                <title>Index</title>
+                                <sort_order>10</sort_order>
+                             </index>
+                             <bestsellers translate="title">
+                                <title>Bestsellers</title>
+                                <sort_order>20</sort_order>
+                             </bestsellers>
+                             <customers translate="title">
+                                <title>Customer</title>
+                                <sort_order>30</sort_order>
+                             </customers>
+                             <orders translate="title">
+                                <title>Orders</title>
+                                <sort_order>60</sort_order>
+                             </orders>
+                             <setting translate="title">
+                                <title>Setting</title>
+                                <sort_order>70</sort_order>
+                             </setting>
+                             -->
+                        </children>
+                    </simisalestrackingapi>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

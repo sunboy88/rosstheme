@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_AffiliateplusBanner
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config>
+    <modules>
+        <Magestore_AffiliateplusBanner>
+            <version>0.2.0</version>
+        </Magestore_AffiliateplusBanner>
+    </modules>
+    <frontend>
+        <routers>
+            <affiliateplusbanner>
+                <use>standard</use>
+                <args>
+                    <module>Magestore_AffiliateplusBanner</module>
+                    <frontName>affiliateplusbanner</frontName>
+                </args>
+            </affiliateplusbanner>
+        </routers>
+        <layout>
+            <updates>
+                <affiliateplusbanner>
+                    <file>affiliateplusbanner.xml</file>
+                </affiliateplusbanner>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Magestore_AffiliateplusBanner>
+                    <files>
+                        <default>Magestore_AffiliateplusBanner.csv</default>
+                    </files>
+                </Magestore_AffiliateplusBanner>
+            </modules>
+        </translate>
+    </frontend>
+    <admin>
+        <routers>
+            <affiliateplusbanneradmin>
+                <use>admin</use>
+                <args>
+                    <module>Magestore_AffiliateplusBanner</module>
+                    <frontName>affiliateplusbanneradmin</frontName>
+                </args>
+            </affiliateplusbanneradmin>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <affiliateplusbanner>
+                    <file>affiliateplusbanner.xml</file>
+                </affiliateplusbanner>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Magestore_AffiliateplusBanner>
+                    <files>
+                        <default>Magestore_AffiliateplusBanner.csv</default>
+                    </files>
+                </Magestore_AffiliateplusBanner>
+            </modules>
+        </translate>
+    </adminhtml>   
+    <global>
+        <models>
+            <affiliateplusbanner>
+                <class>Magestore_AffiliateplusBanner_Model</class>
+                <resourceModel>affiliateplusbanner_mysql4</resourceModel>
+            </affiliateplusbanner>
+            <affiliateplusbanner_mysql4>
+                <class>Magestore_AffiliateplusBanner_Model_Mysql4</class>
+                <entities>
+                    <rotator>
+                        <table>affiliateplusbanner_rotator</table>
+                    </rotator>
+                </entities>
+            </affiliateplusbanner_mysql4>
+        </models>
+        <resources>
+            <affiliateplusbanner_setup>
+                <setup>
+                    <module>Magestore_AffiliateplusBanner</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </affiliateplusbanner_setup>
+            <affiliateplusbanner_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </affiliateplusbanner_write>
+            <affiliateplusbanner_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </affiliateplusbanner_read>
+        </resources>
+        <blocks>
+            <affiliateplusbanner>
+                <class>Magestore_AffiliateplusBanner_Block</class>
+            </affiliateplusbanner>
+        </blocks>
+        <helpers>
+            <affiliateplusbanner>
+                <class>Magestore_AffiliateplusBanner_Helper</class>
+            </affiliateplusbanner>
+        </helpers>
+        <events>
+            <controller_action_predispatch_affiliateplus_banner_image>
+                <observers>
+                    <affiliateplusbanner_observers>
+                        <class>affiliateplusbanner/observer</class>
+                        <method>affiliateplusBannerImage</method>
+                    </affiliateplusbanner_observers>
+                </observers>
+            </controller_action_predispatch_affiliateplus_banner_image>
+        </events>
+    </global>
+</config>

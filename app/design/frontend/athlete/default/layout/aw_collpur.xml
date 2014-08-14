@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addJs" ifconfig="collpur/general/enable">
+                <script>varien/configurable.js</script>
+            </action>
+            <action method="addJs" ifconfig="collpur/general/enable">
+                <script>aw_collpur/timer.js</script>
+            </action>
+            <action method="addJs" ifconfig="collpur/general/enable">
+                <script>varien/product.js</script>
+            </action>
+            <action method="addItem" ifconfig="collpur/general/enable">
+                <type>skin_js</type>
+                <name>js/bundle.js</name>
+            </action>
+            <action method="addCss" ifconfig="collpur/general/enable">
+                <stylesheet>aw_collpur/css/styles.css</stylesheet>
+            </action>
+        </reference>
+        <reference name="top.links" ifconfig="collpur/general/enable">
+            <block type="collpur/links" name="deal_link">
+                <action method="addDealsLink"></action>
+            </block>
+        </reference>
+    </default>
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" ifconfig="collpur/general/enable" translate="label" module="collpur">
+                <name>awdeals</name>
+                <path>deals/customer/index</path>
+                <label>My Deals</label>
+                <urlParams><_secure>true</_secure></urlParams>
+            </action>
+        </reference>
+    </customer_account>
+    <awcollpur_customer_index>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="collpur/customer_deals" name="awcp.deals.list"/>
+        </reference>
+    </awcollpur_customer_index>
+    <awcollpur_customer_view>
+        <update handle="customer_account"/>
+        <reference name="content">
+            <block type="collpur/customer_dealview" name="awcp.deals.view"
+                   template="aw_collpur/customer/dealview.phtml"/>
+        </reference>
+    </awcollpur_customer_view>
+    <awcollpur_customer_printcoupon translate="label">
+        <label>Coupon Print View</label>
+        <reference name="content">
+            <block type="core/template" name="collpur.coupon.print" template="aw_collpur/customer/couponprint.phtml"/>
+        </reference>
+    </awcollpur_customer_printcoupon>
+    <awcollpur_index_list>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+    </awcollpur_index_list>
+    <awcollpur_index_view>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="collpur/dealview" name="aw_collpur_deal_view" as="aw_collpur_deal_view" />
+        </reference>
+    </awcollpur_index_view>
+    <awcollpur_index_empty>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="collpur/empty" name="aw_collpur_deal_empty" as="aw_collpur_deal_empty"></block>
+        </reference>
+    </awcollpur_index_empty>
+</layout>

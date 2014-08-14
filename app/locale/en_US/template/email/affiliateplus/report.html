@@ -1,0 +1,43 @@
+<!--@subject {{var store.getFrontendName()}}: Affiliate Statistic Report@-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"skin url=\"images/logo_email.gif\" _area='frontend'":"Email Logo Image",
+"htmlescape var=$transaction.getReferralName()":"Referral Name",
+"var store.getFrontendName()":"Store Name",
+"store url=\"customer/account/\"":"Customer Account Url"}
+@-->
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+<table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top:10px; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+<tr>
+    <td align="center" valign="top">
+        <!-- [ header starts here] -->
+        <table cellspacing="0" cellpadding="0" border="0" width="650">
+            <tr> <!--eidt by Sally-->
+                <td valign="top"><a href="{{store url=""}}"><img src="{{var logo_url}}"  alt="{{var store.getFrontendName()}}"  style="margin-bottom:10px;" border="0"/></a></td>
+            </tr> <!--end by Sally-->
+        </table>
+        <!-- [ middle starts here] -->
+        <table cellspacing="0" cellpadding="0" border="0" width="650">
+            <tr>
+                <td valign="top">
+                    <p>
+                    	<strong>Hi {{htmlescape var=$account.getName()}}</strong>,<br/>
+                    	Here are your affiliate stats for {{var from}} to {{var to}}:
+					</p>
+					{{layout handle="affiliateplus_email_report" account=$account statistic=$statistic store=$store}}
+					<p>
+						If you'd like to see more details, please <a href="{{store url="affiliates/account/edit"}}">login</a> your account.<br />
+						To unsubscribe these emails, please go to your <a href="{{store url="affiliateplus/account/login"}}">account information</a> page and uncheck 'Send me Notification Emails'.
+					</p>
+					<p>Thanks,<br/><strong>{{var store.getFrontendName()}}</strong></p>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+</table>
+</div>

@@ -1,0 +1,4 @@
+tables:
+ cataloginventory/stock:
+  - stock_id: 1
+    stock_name: 'Default'

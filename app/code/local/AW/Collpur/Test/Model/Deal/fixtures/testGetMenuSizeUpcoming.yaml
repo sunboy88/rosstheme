@@ -1,0 +1,100 @@
+tables:
+ collpur/deal:
+  - id: 1
+    product_id: 16
+    product_name: Nokia 2610 Phone
+    is_success: 1
+    coupon_expire_after_days: 4
+    sent_before_flag: 1
+    expired_flag: 1
+    close_state: 2 
+    is_featured: 1
+    available_from: 2011-07-28 11:28:59
+    available_to: 2011-08-27 11:28:59
+    store_ids: 0
+    is_active: 0
+# the deal above is not active and should not be visible  $this
+#               ->getSelect()
+#               ->where('main_table.is_active = 1')
+  - id: 2
+    product_id: 16
+    product_name: Nokia 2610 Phone
+    is_success: 1
+    coupon_expire_after_days: 4
+    sent_before_flag: 1
+    expired_flag: 1
+    close_state: 1
+    is_featured: 1
+    available_from: 2011-07-28 11:28:59
+    available_to: 2099-08-27 11:28:59
+    store_ids: 1
+    is_active: 1
+# DEAL 2 is Active:
+  # is_active - 1
+  # close_state -1
+  # date range is OK
+  # store_ids is OK
+  # related product is on the same website
+  # related product is in stock
+  # related product status is on
+  # maxcount is NULL which means no limit
+  - id: 3
+    product_id: 16
+    product_name: Nokia 2610 Phone
+    is_success: 1
+    coupon_expire_after_days: 4
+    sent_before_flag: 1
+    expired_flag: 1
+    close_state: 1
+    is_featured: 1
+    available_from: 2011-07-28 11:28:59
+    available_to: 2010-08-27 11:28:59
+    store_ids: 0
+    is_active: 1
+  # DEAL 3 will not be shown, only because available to is not validated
+  - id: 4
+    product_id: 16
+    product_name: Nokia 2610 Phone
+    is_success: 1
+    coupon_expire_after_days: 4
+    sent_before_flag: 1
+    expired_flag: 1
+    close_state: 2
+    is_featured: 1
+    available_from: 2011-07-28 11:28:59
+    available_to: 2099-08-27 11:28:59
+    store_ids: 0
+    is_active: 1
+ # DEAL 4 will not be shown, only because it is close status is not 1
+  - id: 5
+    product_id: 16
+    product_name: Nokia 2610 Phone
+    is_success: 1
+    coupon_expire_after_days: 4
+    sent_before_flag: 1
+    expired_flag: 1
+    close_state: 1
+    is_featured: 1
+    available_from: 2099-07-28 11:28:59
+    available_to: 2099-08-27 11:28:59
+    store_ids: 0
+    is_active: 1
+ # DEAL 5 will not be shown, only because available form is in future
+  - id: 6
+    product_id: 16
+    product_name: Nokia 2610 Phone
+    is_success: 1
+    coupon_expire_after_days: 4
+    sent_before_flag: 1
+    expired_flag: 1
+    close_state: 1
+    is_featured: 1
+    available_from: 2099-07-28 11:28:59
+    available_to: 2099-08-27 11:28:59
+    store_ids: 0
+    is_active: 1
+    maximum_allowed_purchases: 100
+ # DEAL 6 will not be shown, only because maximum_allowed_purchases equals to qty_purchased 100 it should be less
+ collpur/dealpurchases:
+  - deal_id: 6
+    qty_purchased: 100

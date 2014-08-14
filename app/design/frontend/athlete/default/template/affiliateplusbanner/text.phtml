@@ -1,0 +1,51 @@
+<?php 
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_AffiliateplusBanner
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/**
+ * Affiliateplusbanner template
+ * 
+ * @see Magestore_AffiliateplusBanner_Block_View
+ */
+?>
+
+<?php $_banner  = $this->getBanner() ?>
+<?php $_type    = $this->getRenderType() ?>
+
+<?php if ($_type == 'code'): ?>
+
+<a href="<?php echo $this->getBannerUrl() ?>"<?php if($_banner->getTarget()): ?> target="<?php echo $_banner->getTarget() ?>"<?php endif ?><?php if ($_banner->getRelNofollow()): ?> rel="nofollow"<?php endif ?> title="<?php echo $_banner->getTitle() ?>">
+<script type="text/javascript" src="<?php echo $this->getJsBannerUrl() ?>"></script>
+</a>
+
+<?php elseif ($_type == 'preview'): ?>
+    <?php // Banner Preview ?>
+    <strong><?php echo $this->__('Preview') ?>:</strong>
+    <a href="<?php echo $this->getBannerUrl() ?>"<?php if($_banner->getTarget()): ?> target="<?php echo $_banner->getTarget() ?>"<?php endif ?><?php if ($_banner->getRelNofollow()): ?> rel="nofollow"<?php endif ?> title="<?php echo $_banner->getTitle() ?>"><?php echo $_banner->getTitle() ?></a>
+
+<?php elseif ($_type == 'javascript'): ?>
+
+document.write('<?php echo $this->jsQuoteEscape($_banner->getTitle()) ?>');
+
+<?php elseif ($_type == 'rotator'): ?>
+
+<a href="<?php echo $this->getBannerUrl() ?>"<?php if($_banner->getTarget()): ?> target="<?php echo $_banner->getTarget() ?>"<?php endif ?><?php if ($_banner->getRelNofollow()): ?> rel="nofollow"<?php endif ?> title="<?php echo $_banner->getTitle() ?>"><?php echo $_banner->getTitle() ?></a>
+
+<?php endif; ?>

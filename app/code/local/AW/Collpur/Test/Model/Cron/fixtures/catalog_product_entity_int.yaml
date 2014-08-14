@@ -1,0 +1,32 @@
+eav:
+  catalog_product: 
+    - entity_id: 16
+      type_id: simple
+      sku: book
+      name: Book
+      short_description: Book
+      description: Book
+      url_key: book
+      stock:
+        qty: 100.00
+        is_in_stock: 1
+      website_ids:
+        - usa_website
+        - canada_website
+        - german_website
+      category_ids:
+        - 2 # Default Category
+      price: 12.99
+      tax_class_id: 2 # Taxable Goods
+      status: 1
+      # Enabled
+      visibility: 4
+      # Visible in Catalog & Search
+      websites:
+      # Set different prices per website
+        usa_website:
+          special_price: 9.99
+        german_website:
+          price: 9.99
+      special_price: 5.99
+  

@@ -1,0 +1,78 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Collpur
+ * @version    1.0.6
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><?php
+?>
+  
+<?php $_product = $this->getProduct(); ?> 
+<?php if($_product->getTypeId() !== 'bundle'):   ?>
+ 
+  <script type="text/javascript">
+        optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+        optionsPrice.productType = '<?php echo $_product->getTypeId() ?>';
+ </script>
+<?php else: ?>
+  <?php echo $this->getChildHtml('bundle_config_helper'); ?> 
+ <script type="text/javascript">
+//<![CDATA[
+    var bundle = new Product.Bundle(<?php echo $this->getJsonConfig() ?>);
+//]]>
+</script>
+
+<?php endif; ?>
+
+
+     <div style = "display:none;"><?php echo preg_replace("#_clone#is","",$this->getChildHtml('product_price'));?></div>
+        <input type="hidden" value="<?php echo $_product->getId() ?>" name="product">
+        <?php echo $this->getChildHtml('product_js');?>
+        <div id="awcp_product_options">
+            <div class="product-options" id="awcp-product-options-wrapper" style="margin:0">
+                <div class="product-name"><?php echo $_product->getName() ?></div>
+                <div style="display:none">
+                    <?php echo $this->getChildHtml('product_type_data') ?>
+                </div>
+                <?php echo str_replace('var ', '', $this->getChildHtml('product_options'));?>
+                <?php echo $this->getChildHtml('product_configurable_options');?>
+                <?php echo $this->getChildHtml('product_downloadable_options');?>
+                <?php echo $this->getChildHtml('bundle_product_options'); ?>
+                <?php echo $this->getChildHtml('product_price');
+				
+				if($this->getCmsDeal()) {
+					Mage::unregister('product');
+					Mage::unregister('current_product');			 
+				}
+				if($this->getMageProduct()) {
+					Mage::regsiter('product',$this->getMageProduct(),true);				 
+				}
+				if($this->getMageCurrentProduct()) {
+					Mage::regsiter('current_product',$this->getMageProduct(),true);						 
+				}
+			 	
+				?>
+               
+            </div>
+        </div>
+   
+ 

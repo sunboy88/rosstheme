@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <tag_product_list>
+        <reference name="content">
+            <block type="seobytag/seobytag" name="seobytag_metadata" />
+        </reference>
+    </tag_product_list>
+</layout>

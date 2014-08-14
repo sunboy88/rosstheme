@@ -1,0 +1,20 @@
+<?php
+/**
+ * Link to get Widget Code Product page
+ */
+?>
+
+<div class="affiliatepluswidget_code">
+	<?php echo $this->__('Copy code below and then paste into your webpage') ?><br />
+	<textarea onclick="this.select()" readonly cols="65" rows="11"><?php echo $this->getHtmlCode() ?></textarea>
+</div>
+
+<div class="buttons-set" style="margin-top:18px;">
+	<a href="<?php echo $this->getCustomizeUrl() ?>" title="<?php echo $this->__('Preview Widget') ?>" target="_blank" style="text-decoration:none;">
+		<button type="button" class="button">
+			<span>
+				<span><?php echo $this->__('Preview Widget') ?></span>
+			</span>
+		</button>
+	</a>
+</div>
