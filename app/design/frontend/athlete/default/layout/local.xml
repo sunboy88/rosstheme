@@ -296,7 +296,7 @@
 		</reference>
 
 		<reference name="product.info">
-			<block type="newsletter/subscribe" name="details.newsletter" template="newsletter/subscribe.phtml"/>
+			<block type="newsletter/subscribe" name="details.newsletter" template="newsletter/subscribe_product.phtml"/>
 			<action method="unsetChild"><name>additional</name></action>
 			<block type="cms/block" name="athlete_addthis">
 				<action method="setBlockId"><block_id>athlete_addthis</block_id></action>
