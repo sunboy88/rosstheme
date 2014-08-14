@@ -1,0 +1,37 @@
+<div id="popup-wishlist">
+    <?php echo $this->getChildHtml('belvg.multiplewishlist.popup.content')?>
+</div>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+        wishlistPopup.init();
+
+     if (typeof productAddToCartForm !='undefined')
+        productAddToCartForm.submitLight = function(button, url){
+            if(this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                // Remove custom datetime validators
+                for (var methodName in Validation.methods) {
+                    if (methodName.match(/^validate-datetime-.*/i)) {
+                        delete Validation.methods[methodName];
+                    }
+                }
+
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    wishlistPopup.show(this.form);
+                    //this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(productAddToCartForm);
+        else
+            wishlistPopup.listenLink();
+    //]]>
+    </script>

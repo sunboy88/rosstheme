@@ -1,0 +1,26 @@
+<form>
+    <fieldset>
+        <legend><?php echo $this->__("Select wishlist or create:")?></legend>
+        <div id="wishlists">
+            <?php foreach ($this->getTabs() as $wishlist):?>
+                <input type="radio" class="wishlist-tab-radio" id="wishlist-id-<?php echo $wishlist->getId()?>" value="<?php echo $wishlist->getId()?>" <?php if ($wishlist->getId()==0): ?> checked="checked" <?php endif;?> name="wishlist[id]"/><label for="wishlist-id-<?php echo $wishlist->getId()?>"><?php echo htmlspecialchars($wishlist->getWishlistName())?></label><br />
+            <?php endforeach;?>
+
+            <input type="text" name="wishlist[name]" id="wishlist-name" />
+
+        </div>
+        
+        <div class="actions">
+            <button class="button" id="popup-add-to-wish" title="<?php echo $this->__("Add to Wishlist")?>" type="button">
+                <span>
+                    <span><?php echo $this->__("Add to Wishlist")?></span>
+                </span>
+            </button>
+            <button class="button" id="popup-cancel" title="<?php echo $this->__("Cancel")?>" type="button">
+                <span>
+                    <span><?php echo $this->__("Cancel")?></span>
+                </span>
+            </button>
+        </div>
+    </fieldset>
+</form>

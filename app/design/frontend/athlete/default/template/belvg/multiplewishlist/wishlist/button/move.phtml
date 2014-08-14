@@ -1,0 +1,8 @@
+<?php if($this->isShow()): ?>
+<select  name="moveto" class="moveto">
+    <?php foreach ($this->getOptions() as $option):?>
+        <option value="<?php echo $option->getId();?>"><?php echo htmlspecialchars($option->getWishlistName())?></option>
+    <?php endforeach;?>
+</select>
+    <button type="button" name="move" onclick="wishlist.moveItems(this.form, this)" title="<?php echo $this->__('Move') ?>" class="button btn-move"><span><span><?php echo $this->__('Move') ?></span></span></button>
+<?php endif;?>

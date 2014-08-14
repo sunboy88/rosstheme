@@ -1,0 +1,155 @@
+@CHARSET "UTF-8";
+
+#popup-wishlist {
+	width: 300px;
+    margin-left: -150px;
+	position: fixed;
+	left: 50%;
+    top: 30%;
+    background: #FBFAF6;
+    padding-top: 10px;
+    text-align: left;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    z-index : 1000;
+    display: none;
+    max-height: 250px;
+}
+
+#wishlists {
+        max-height: 180px;
+    overflow-y: scroll;
+}
+
+#popup-wishlist legend {
+	display: block;
+    font-weight: bold;
+}
+
+
+#popup-wishlist fieldset {
+    padding: 5px;
+}
+
+#popup-wishlist .actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+#popup-wishlist #wishlist-name {
+	display: none;
+    width: 150px;
+}
+
+#popup-wishlist input[type=radio] {
+	margin-right: 5px;
+}
+
+.wrapper-tabs {
+    width:100%;
+    min-width: 400px;
+    margin: 0 0 30px;
+}
+
+ul.header-tabs {
+    margin:0px;
+    padding:0px;
+    height: 28px;
+    line-height: 25px;
+    list-style: none;
+    border-bottom: 1px solid #DDD;
+}
+
+.header-tabs li {
+    float: left;
+    display: inline;
+    margin: 0 1px -1px 0;
+    padding: 0 13px 1px;
+    color: #777;
+    font-weight:bold;
+    cursor: pointer;
+    background: #F9F9F9;
+    border: 1px solid #E4E4E4;
+    border-bottom: 1px solid #F9F9F9;
+    position: relative;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d3d3d3', endColorstr='#F9F9F9');
+    background: -webkit-linear-gradient(top, #d3d3d3, #F9F9F9);
+    background: -moz-linear-gradient(top,  #d3d3d3,  #F9F9F9);
+    background: -o-linear-gradient(top,  #d3d3d3,  #F9F9F9);
+    background: -ms-linear-gradient(top,  #d3d3d3,  #F9F9F9);
+    text-shadow: #ffffff 1px 1px 1px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+     user-select: none;
+}
+
+.header-tabs li:hover,
+.vertical .header-tabs li:hover {
+    color: #FFFFFF;
+    padding: 0 13px;
+    background: #F18200;
+    border: 1px solid #de5400;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F18200', endColorstr='#F18200');
+    background: -webkit-linear-gradient(top, #F18200, #F18200);
+    background: -moz-linear-gradient(top,  #F18200,  #F18200);
+    background: -o-linear-gradient(top,  #F18200,  #F18200);
+    background: -ms-linear-gradient(top,  #F18200,  #F18200);
+    text-shadow:none;
+}
+
+.header-tabs li.current {
+    color: #3d3d3d;
+    background: #FFFFFF;
+    padding: 0 13px 3px;
+    border: 1px solid #D4D4D4;
+    border-bottom-width: 0px;
+    filter:none;
+}
+
+.body-tabs {
+    display: none;
+    border: 1px solid #D4D4D4;
+    border-width: 0 1px 1px;
+    background: #FFFFFF;
+    padding: 12px 12px 0 ;
+    -moz-box-shadow: 2px 2px 4px #aaa;
+    -webkit-box-shadow: 2px 2px 4px #aaa;
+    box-shadow: 2px 2px 4px #aaa;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#aaaaaa')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#aaaaaa');
+}
+
+.body-tabs.visible {
+    display: block;
+    min-height: 150px;
+}
+
+div.my-wishlist select.moveto {
+    max-width: 150px;
+}
+
+#create-new-wishlist {
+    float: right;
+}
+
+
+#create-new-wishlist .wishlist-name-input {
+    float: left;
+    margin-right: 15px;
+}
+
+#create-new-wishlist .wishlist-name-input  input{
+    width : 160px;
+}
+
+#create-new-wishlist .wishlist-name-button  {
+    display: inline;
+}

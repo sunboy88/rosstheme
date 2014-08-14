@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- /** * BelVG LLC. * * NOTICE OF LICENSE * * This source file is subject 
+	to the EULA * that is bundled with this package in the file LICENSE.txt. 
+	* It is also available through the world-wide-web at this URL: * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt 
+	* /*************************************** * MAGENTO EDITION USAGE NOTICE 
+	* *****************************************/ /* This package designed for 
+	Magento COMMUNITY edition * BelVG does not guarantee correct work of this 
+	extension * on any other Magento edition except Magento COMMUNITY edition. 
+	* BelVG does not provide extension support in case of * incorrect edition 
+	usage. /*************************************** * DISCLAIMER * *****************************************/ 
+	/* Do not edit or add to this file if you wish to upgrade Magento to newer 
+	* versions in the future. ***************************************************** 
+	* @category Belvg * @package Belvg_MultipleWishlist * @author Victor Potseluyonok 
+	* @copyright Copyright (c) 2010 - 2012 BelVG LLC. (http://www.belvg.com) 
+	* @license http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt */ -->
+<config>
+	<modules>
+		<Belvg_MultipleWishlist>
+			<version>1.0.0</version>
+		</Belvg_MultipleWishlist>
+	</modules>
+	<frontend>
+		<layout>
+			<updates>
+				<multiplewishlist>
+					<file>belvg/multiplewishlist.xml</file>
+				</multiplewishlist>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Belvg_MultipleWishlist>
+					<files>
+						<default>Belvg_MultipleWishlist.csv</default>
+					</files>
+				</Belvg_MultipleWishlist>
+			</modules>
+		</translate>
+		<routers>
+			<wishlist>
+				<args>
+					<modules>
+						<multiplewishlist before="Mage_Wishlist">Belvg_MultipleWishlist</multiplewishlist>
+					</modules>
+				</args>
+			</wishlist>
+		</routers>
+		<events>
+			<wishlist_add_product>
+				<observers>
+					<belvgmultiplewishlist_add_wishlist>
+						<type>singleton</type>
+						<class>multiplewishlist/observer</class>
+						<method>addWishlist</method>
+					</belvgmultiplewishlist_add_wishlist>
+				</observers>
+			</wishlist_add_product>
+			<!--<wishlist_update_item>
+			     <observers>
+			         <belvgmultiplewishlist_update_item_wishlist>
+			             <type>singleton</type>
+                        <class>multiplewishlist/observer</class>
+                        <method>updateWishlistItem</method>
+			         </belvgmultiplewishlist_update_item_wishlist>
+			     </observers>
+			</wishlist_update_item>
+			<multiplewishlist_update_item>
+                 <observers>
+                     <belvgmultiplewishlist_update_item>
+                        <type>singleton</type>
+                        <class>multiplewishlist/observer</class>
+                        <method>setWislistItem</method>
+                     </belvgmultiplewishlist_update_item>
+                 </observers>
+            </multiplewishlist_update_item>-->
+		</events>
+	</frontend>
+	<global>
+		<helpers>
+			<multiplewishlist>
+				<class>Belvg_MultipleWishlist_Helper</class>
+			</multiplewishlist>
+		</helpers>
+		<blocks>
+			<multiplewishlist>
+				<class>Belvg_MultipleWishlist_Block</class>
+			</multiplewishlist>
+			<wishlist>
+				<rewrite>
+					<customer_wishlist>Belvg_MultipleWishlist_Block_Frontend_Wishlist_Customer_Wishlist</customer_wishlist>
+					<share_email_items>Belvg_MultipleWishlist_Block_Frontend_Wishlist_Customer_Share_Email_Items</share_email_items>
+					<share_wishlist>Belvg_MultipleWishlist_Block_Frontend_Share_Wishlist</share_wishlist>
+				</rewrite>
+			</wishlist>
+			<adminhtml>
+				<rewrite>
+					<customer_edit_tab_wishlist>Belvg_MultipleWishlist_Block_Adminhtml_Customer_Edit_Tab_Wishlist</customer_edit_tab_wishlist>
+				</rewrite>
+			</adminhtml>
+		</blocks>
+		<models>
+			<wishlist>
+				<rewrite>
+					<wishlist>Belvg_MultipleWishlist_Model_Wishlist</wishlist>
+				</rewrite>
+			</wishlist>
+			<multiplewishlist>
+				<class>Belvg_MultipleWishlist_Model</class>
+				<resourceModel>multiplewishlist_mysql4</resourceModel>
+			</multiplewishlist>
+			<multiplewishlist_mysql4>
+				<class>Belvg_MultipleWishlist_Model_Mysql4</class>
+				<entities>
+					<tab>
+						<table>belvg_wishlist_tab</table>
+					</tab>
+					<item>
+						<table>belvg_wishlist_tab_item</table>
+					</item>
+				</entities>
+			</multiplewishlist_mysql4>
+		</models>
+		<resources>
+			<multiplewishlist_setup>
+				<setup>
+					<module>Belvg_MultipleWishlist</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</multiplewishlist_setup>
+			<multiplewishlist_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</multiplewishlist_write>
+			<multiplewishlist_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</multiplewishlist_read>
+		</resources>
+	</global>
+</config>
