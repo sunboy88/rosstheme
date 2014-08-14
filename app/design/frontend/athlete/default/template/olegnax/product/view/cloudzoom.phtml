@@ -46,6 +46,30 @@ $config['lens_opacity'] = intval($config['lens_opacity']) / 100;
 $config['tint_opacity'] = intval($config['tint_opacity']) / 100;
 
 ?>
+
+<?php if (count($this->getGalleryImages()) > 0): ?>
+<div class="more-views">
+	<div class="more-views-nav" id="thumbs_slider_nav"><ul><li><a class="prev" href="#"></a></li><li><a class="next" href="#"></a></li></ul></div>
+    <ul class="carousel-slider slides" id="thumbs_slider" data-items="[ [0, 3], [426, 4] ]">
+    <?php foreach ($this->getGalleryImages() as $_image): ?>
+	    <?php //Skip, if no image
+	    if ($_image->getFile() == NULL)
+		    continue; ?>
+	    <li>
+		    <a href='<?php echo $this->helper('catalog/image')->init($_product, 'image', $_image->getFile())->resize($config['big_image_width'], $config['big_image_height']); ?>' class='cloud-zoom-gallery' title='<?php echo $this->escapeHtml($_image->getLabel()) ?>'
+		       rel="useZoom: 'cloud_zoom', smallImage: '<?php echo $this->helper('catalog/image')->init($_product, 'image', $_image->getFile())->resize($imgX, $imgY); ?>' " data-srcX2="<?php echo $this->helper('catalog/image')->init($_product, 'image', $_image->getFile())->resize($imgX*2, $imgY*2); ?>">
+			    <span></span>
+			    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail', $_image->getFile())->resize($thumbX, $thumbY);
+			    ?>" data-srcX2="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail', $_image->getFile())->resize($thumbX*2, $thumbY*2);
+			    ?>" width="<?php echo $thumbX; ?>" height="<?php echo $thumbY; ?>" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>"/>
+		    </a>
+	    </li>
+
+    <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>
+
 <?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
 
 	<?php
@@ -101,27 +125,11 @@ $config['tint_opacity'] = intval($config['tint_opacity']) / 100;
     ?>
 </div>
 <?php endif; ?>
-<?php if (count($this->getGalleryImages()) > 0): ?>
-<div class="more-views">
-	<div class="more-views-nav" id="thumbs_slider_nav"><ul><li><a class="prev" href="#"></a></li><li><a class="next" href="#"></a></li></ul></div>
-    <ul class="carousel-slider slides" id="thumbs_slider" data-items="[ [0, 3], [426, 4] ]">
-    <?php foreach ($this->getGalleryImages() as $_image): ?>
-	    <?php //Skip, if no image
-	    if ($_image->getFile() == NULL)
-		    continue; ?>
-	    <li>
-		    <a href='<?php echo $this->helper('catalog/image')->init($_product, 'image', $_image->getFile())->resize($config['big_image_width'], $config['big_image_height']); ?>' class='cloud-zoom-gallery' title='<?php echo $this->escapeHtml($_image->getLabel()) ?>'
-		       rel="useZoom: 'cloud_zoom', smallImage: '<?php echo $this->helper('catalog/image')->init($_product, 'image', $_image->getFile())->resize($imgX, $imgY); ?>' " data-srcX2="<?php echo $this->helper('catalog/image')->init($_product, 'image', $_image->getFile())->resize($imgX*2, $imgY*2); ?>">
-			    <span></span>
-			    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail', $_image->getFile())->resize($thumbX, $thumbY);
-			    ?>" data-srcX2="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail', $_image->getFile())->resize($thumbX*2, $thumbY*2);
-			    ?>" width="<?php echo $thumbX; ?>" height="<?php echo $thumbY; ?>" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>"/>
-		    </a>
-	    </li>
-
-    <?php endforeach; ?>
-    </ul>
+<?php if ($athleteHelper->getCfg('product_info/social')) : ?>
+<div class="social-share">
+	<div class="addthis_sharing_toolbox"></div>
 </div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50de8d2e40b6193d"></script>
 <?php endif; ?>
 <script type="text/javascript">
 	jQuery(function($){

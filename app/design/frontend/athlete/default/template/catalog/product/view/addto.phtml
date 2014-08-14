@@ -35,13 +35,11 @@ $athleteHelper = $this->helper('athlete');
 	<?php if ($this->helper('wishlist')->isAllow()) : ?>
 	    <li><a class="link-wishlist  icon-<?php echo $athleteHelper->getCfg('product_info/action_btn_list_icons', 'athlete_appearance'); ?>" href="<?php echo $_wishlistSubmitUrl ?>" onclick="productAddToCartForm.submitLight(this, this.href); return false;"><span class="link_i"></span><?php echo $this->__('Add to Wishlist') ?></a></li>
 	<?php endif; ?>
-	<?php
-	    $_compareUrl = $this->helper('catalog/product_compare')->getAddUrl($_product);
-	?>
+	<?php /*$_compareUrl = $this->helper('catalog/product_compare')->getAddUrl($_product); ?>
 	<?php if($_compareUrl) : ?>
 	    <li><a class="link-compare  icon-<?php echo $athleteHelper->getCfg('product_info/action_btn_list_icons', 'athlete_appearance'); ?>" href="<?php echo $_compareUrl ?>"><span class="link_i"></span><?php echo $this->__('Add to Compare') ?></a></li>
 	<?php endif; ?>
 	<?php if ($this->canEmailToFriend()): ?>
 		<li><a class="link-email-friend  icon-<?php echo $athleteHelper->getCfg('product_info/action_btn_list_icons', 'athlete_appearance'); ?>" href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><span class="link_i"></span><?php echo $this->__('Email to a Friend') ?></a></li>
-	<?php endif; ?>
+	<?php endif;*/ ?>
 </ul>

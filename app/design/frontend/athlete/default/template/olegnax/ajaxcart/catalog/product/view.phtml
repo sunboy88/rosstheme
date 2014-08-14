@@ -79,18 +79,18 @@ if ($athleteHelper->isOnSale($_product)) {
 					<h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
 				</div>
 
-				<?php echo $this->getReviewsSummaryHtml($_product, false, true) ?>
+				<?php //echo $this->getReviewsSummaryHtml($_product, false, true) ?>
 				<?php echo $this->getChildHtml('alert_urls') ?>
 				<?php echo $this->getChildHtml('product_type_data') ?>
-				<?php echo $this->getTierPriceHtml() ?>
+				<?php //echo $this->getTierPriceHtml() ?>
 				<?php echo $this->getChildHtml('extrahint') ?>
 
-				<?php if ($_product->getShortDescription()): ?>
+				<?php /*if ($_product->getShortDescription()): ?>
 					<div class="short-description">
 						<div
 							class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
 					</div>
-				<?php endif; ?>
+				<?php endif;*/ ?>
 
 				<?php echo $this->getChildHtml('other'); ?>
 
@@ -108,13 +108,6 @@ if ($athleteHelper->isOnSale($_product)) {
 				<?php endif; ?>
 
 				<?php echo $this->getChildHtml('addto') ?>
-
-				<?php if ($athleteHelper->getCfg('product_info/social')) : ?>
-					<div class="social">
-						<?php echo $this->getChildHtml('athlete_addthis') ?>
-					</div>
-				<?php endif; ?>
-
 			</div>
 
 			<div class="clearer"></div>

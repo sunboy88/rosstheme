@@ -20,7 +20,7 @@
                     <label>Installed aheadWorks Extensions</label>
                     <frontend_type>text</frontend_type>
                     <frontend_model>awall/system_config_form_fieldset_awall_extensions</frontend_model>
-                    <sort_order>10</sort_order>
+                    <sort_order>2</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
@@ -28,7 +28,7 @@
                 <feed>
                     <label>Notifications</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>100</sort_order>
+                    <sort_order>60</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
@@ -57,15 +57,6 @@
 
                     </fields>
                 </feed>
-                <additional translate="label">
-                    <label>Additional Info</label>
-                    <frontend_type>text</frontend_type>
-                    <frontend_model>awall/system_config_form_fieldset_awall_additional</frontend_model>
-                    <sort_order>110</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                </additional>
             </groups>
         </awall>
         <awstore>
