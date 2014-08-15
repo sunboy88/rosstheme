@@ -414,7 +414,8 @@
 	.main .sidebar {margin-top: 15px }
     .wrapper_filter,
     .main-container .col-main .block-subscribe,
-    .main-container .col-main .slideshow-container{width: 100%!important;}
+    .main-container .col-main .slideshow-container,
+    .slider-homepage{width: 100%!important;}
 
 	/* 	header banner */
 	.clearfix-resize:before, .clearfix-resize:after { content: ""; display: table; }
