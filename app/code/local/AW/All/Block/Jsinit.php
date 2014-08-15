@@ -1,35 +1,31 @@
 <?php
 /**
-* aheadWorks Co.
+ * aheadWorks Co.
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the EULA
  * that is bundled with this package in the file LICENSE.txt.
  * It is also available through the world-wide-web at this URL:
- * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
  *
  * =================================================================
  *                 MAGENTO EDITION USAGE NOTICE
  * =================================================================
- * This package designed for Magento COMMUNITY edition
- * aheadWorks does not guarantee correct work of this extension
- * on any other Magento edition except Magento COMMUNITY edition.
- * aheadWorks does not provide extension support in case of
- * incorrect edition usage.
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
  * =================================================================
  *
  * @category   AW
- * @package    AW_All
- * @version    2.2.1
+ * @package    AW_Points
+ * @version    1.7.2
  * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
- * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
  */
 
 class AW_All_Block_Jsinit extends Mage_Adminhtml_Block_Template
 {
-
-
     protected $_platform = -1;
     protected $_extensions_cache = array();
     protected $_extensions;
@@ -103,19 +99,31 @@ class AW_All_Block_Jsinit extends Mage_Adminhtml_Block_Template
 
             // Detect installed version
             $ver = (Mage::getConfig()->getModuleConfig($moduleName)->version);
+            if ((bool)$ver === false) {
+                $_moduleConfigFilePath = Mage::getConfig()->getModuleDir('etc', $moduleName) . DS . 'config.xml';
+                if (file_exists($_moduleConfigFilePath)) {
+                    $_configXml = new SimpleXMLElement(file_get_contents($_moduleConfigFilePath));
+                    $ver = (string)$_configXml->modules->$moduleName->version;
+                }
+            }
             $isPlatformValid = $platform >= $this->getPlatform();
             $feedInfo = $this->getExtensionInfo($moduleName);
-
             $upgradeAvailable = ($this->_convertVersion($feedInfo->getLatestVersion()) - $this->_convertVersion($ver)) > 0;
 
-            $extensions[] = new Varien_Object(array(
-                                                   'version' => $ver,
-                                                   'name' => $moduleName,
-                                                   'is_platform_valid' => $isPlatformValid,
-                                                   'platform' => $platform,
-                                                   'feed_info' => $feedInfo,
-                                                   'upgrade_available' => $upgradeAvailable
-                                              ));
+            if (null !== $feedInfo->getDisplayName()) {
+                $moduleName = $feedInfo->getDisplayName();
+            }
+
+            $extensions[] = new Varien_Object(
+                array(
+                    'version'           => $ver,
+                    'name'              => $moduleName,
+                    'is_platform_valid' => $isPlatformValid,
+                    'platform'          => $platform,
+                    'feed_info'         => $feedInfo,
+                    'upgrade_available' => $upgradeAvailable
+                )
+            );
         }
         return $extensions;
     }
@@ -176,7 +184,7 @@ class AW_All_Block_Jsinit extends Mage_Adminhtml_Block_Template
             $title = "Wrong Extension Platform";
         } else {
             $icon = 'aw_all/images/ok.gif';
-            $title = "Installed and up to date";
+            $title = "Extension is up-to-date";
         }
         return new Varien_Object(array('title' => $title, 'source' => $this->getSkinUrl($icon)));
     }
