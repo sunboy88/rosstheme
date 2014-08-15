@@ -1018,7 +1018,7 @@ body.cms-index-index{background: #fff;}
 
 .jssort03:before{width: 100%;height: 7px;content: "";background: #000;position: absolute;top: 7px;left: 0;}
 .pav{color: #78c613;}
-.jssort03 .pav:before{width: 96%;height: 5px;content: "";background: #78c613;position: absolute;top: -6px;left: 2%;z-index: 10;}
+.jssort03 .pav:before{width: 96%;height: 5px;content: "";background: #78c613;position: absolute;top: -6px;left: 1%;z-index: 10;}
 .jssort03 .p:after{width: 1px;height: 5px;content: "";background: #2e2e2e;position: absolute;top: -6px;right: 0;z-index: 10;}
 
 /* Clears ================================================================================ */
