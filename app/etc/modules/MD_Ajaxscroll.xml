@@ -2,7 +2,7 @@
 <config>
         <modules>
                 <MD_Ajaxscroll>
-                        <active>true</active>
+                        <active>false</active>
                         <codePool>local</codePool>
                 </MD_Ajaxscroll>
         </modules>
