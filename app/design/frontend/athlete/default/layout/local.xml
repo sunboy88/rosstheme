@@ -305,6 +305,9 @@
 				<action method="setProductColumns">
 					<product_columns>5</product_columns>
 				</action>
+			</block>
+			<block type="cms/block" name="join_afiliate">
+				<action method="setBlockId"><block_id>join_afiliate</block_id></action>
 			</block>			
 		</reference>
 

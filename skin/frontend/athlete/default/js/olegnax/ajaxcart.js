@@ -145,6 +145,9 @@ jQuery(function($) {
 		}
 		var url = onclick.replace("setLocation('",'').replace("')",'');
 		if ( url.indexOf("checkout/cart") != -1) {
+			if(jQuery(this).attr('data-qty') != ''){
+				url = url+"qty/"+jQuery('#qty_'+jQuery(this).attr('data-qty')).val()+"/";
+			}			
 			Olegnax.Ajaxcart.helpers.ajax(
 				url.replace("checkout/cart", "oxajax/cart"),
 				Olegnax.Ajaxcart.helpers.cartSuccessFunc

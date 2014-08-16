@@ -9,7 +9,7 @@ $slider_id = uniqid('athlete_');
 <?php if($this->getItems()->getSize()): ?>
 	<div class="product-slider-container category-products product-columns-<?php echo $this->getProductColumns() ?>">
 		<div class="clearfix title-container">
-			<h3><?php echo $this->__('Related Products') ?></h3><div class="slider-nav" id="slider_<?php echo $slider_id; ?>_nav" ><ul><li><a class="prev icon-<?php echo $athleteHelper->getCfg('arrows/products_slider_icons', 'athlete_appearance'); ?>" href="#"></a></li><li><a class="next icon-<?php echo $athleteHelper->getCfg('arrows/products_slider_icons', 'athlete_appearance'); ?>" href="#"></a></li></ul></div>
+			<h3><?php echo $this->__('Customer Also Bought') ?></h3><div class="slider-nav" id="slider_<?php echo $slider_id; ?>_nav" ><ul><li><a class="prev icon-<?php echo $athleteHelper->getCfg('arrows/products_slider_icons', 'athlete_appearance'); ?>" href="#"></a></li><li><a class="next icon-<?php echo $athleteHelper->getCfg('arrows/products_slider_icons', 'athlete_appearance'); ?>" href="#"></a></li></ul></div>
 		</div>
 		<div class="slider-container">
 			<ul id="slider_<?php echo $slider_id; ?>" class="carousel-slider products-grid clearfix" data-items="<?php echo Mage::helper('athlete/layout')->getSliderItems($this->getProductColumns()) ?>" >
@@ -70,7 +70,8 @@ $slider_id = uniqid('athlete_');
 							<?php if( $athleteHelper->getCfg('listing/grid_cart') ): ?>
 								<div class="btn-cart-container clearfix">
 									<?php if($_product->isSaleable()): ?>
-										<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart icon-<?php echo $athleteHelper->getCfg('main/button_icons', 'athlete_appearance'); ?>" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+										<input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty_<?php echo $_product->getId() ?>" name="qty[<?php echo $_product->getId() ?>]">
+										<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart icon-<?php echo $athleteHelper->getCfg('main/button_icons', 'athlete_appearance'); ?>" data-qty="<?php echo $_product->getId() ?>" onclick="setLocation('<?php echo $this->getAddToCartUrl( $_product ) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
 									<?php else: ?>
 										<span class="availability out-of-stock"><?php echo $this->__('Out of stock') ?></span>
 									<?php endif; ?>
