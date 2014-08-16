@@ -9,7 +9,7 @@
 }
 #product-attribute-specs-table .product-name a{font-size:30px; font-weight:bold; color:#1c9dd0; text-decoration:none;}
 #product-attribute-specs-table .short-desc{font-size:14px; font-weight:normal; color:#636363;}
-.deal-price{float:left; width:100%; margin:5px 0;}
+.deal-price{float:left; width:100%; margin:5px 0;display: none;}
 .price-statistic{
 	float:left;
 	padding:5px;
@@ -45,7 +45,7 @@
 .deal-time button.btn-cart span { height:37px;line-height:37px; border:0; padding:0; background:url(../../images/dailydeal/btn-buy-now.png) 0 0 no-repeat; width:95px; text-align:center;}
 .deal-time button.btn-cart span span {background:0 none; color:#996633; font-size:16px; font-weight:normal;}
 /* CSS FOR DEAL VIEW */
-.product-view-deal{float:left; width:78%; position: relative; margin: 10px 0 12px;padding: 5px 0;clear: both;}
+.product-view-deal{float:left; width:100%; position: relative; margin: 10px 0 12px;padding: 5px 0;clear: both;}
 .product-view-deal .i-box {
     background: none repeat scroll 0 0 #F1F1F1;
     border: 5px solid #FFFFFF;
