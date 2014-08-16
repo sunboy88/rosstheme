@@ -2199,6 +2199,7 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .product-tabs-content ul.disc li { width:auto; float:none; }
 
 .product-tabs-accordion {display:none; margin:25px 0 30px; border:0; }
+.product-tabs-container{margin-bottom: 28px;}
 .product-tabs-container h2.tab-heading { height:38px; line-height:38px; margin:0; position:relative; background: #000;}
 .product-tabs-container h2.tab-heading:hover { background-color:#ffe51e; }
 .product-tabs-container h2.tab-heading a { display:block; height:38px; padding:0px 13px; background: #000; color:#fff; font-size:16px;  font-weight: 800; text-transform: uppercase; text-decoration:none;  }
