@@ -318,6 +318,13 @@
 				<action method="addTab" translate="title" module="review" ><alias>reviews_tabbed</alias><title>Reviews</title><block>athlete/product_view_reviews</block><template>review/product_info_review.phtml</template></action>
 				<action ifconfig="athlete/product_info/tab_tags" method="addTab" translate="title" module="tag" ><alias>tags_tabbed</alias><title>Tags</title><block>tag/product_list</block><template>tag/list.phtml</template></action>
 
+				<action method="addTab" translate="title"><alias>tags_invite</alias><title>Invite friends</title>
+					<block>referralreward/invite</block><template>belvg\referralreward\account\invite-content-block.phtml</template>
+				</action>
+				<action method="addTab" translate="title" module="productquestions" ><alias>tags_question</alias><title>Question</title>
+					<block>productquestions/form</block><template>productquestions/form_product.phtml</template>
+				</action>
+
 				<block type="cms/block" name="athlete_custom_tab1" as="athlete_custom_tab1">
 					<action method="setBlockId"><block_id>athlete_custom_tab1</block_id></action>
 				</block>
