@@ -393,7 +393,7 @@
 						<width translate="label">
 							<label>Main Product Image Width (px)</label>
 							<comment>
-								<![CDATA[Max width is 590px.<br/>
+								<![CDATA[Max width is 695px.<br/>
 								Recommended width for 2 columns layout is 299px<br/>
 								Recommended width for 3 columns layout is 520px<br/>
 								If width is not specified, default <strong>width and height</strong> will be used (473 x 473 pixels).
