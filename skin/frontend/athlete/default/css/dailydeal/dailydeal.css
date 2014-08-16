@@ -9,7 +9,7 @@
 }
 #product-attribute-specs-table .product-name a{font-size:30px; font-weight:bold; color:#1c9dd0; text-decoration:none;}
 #product-attribute-specs-table .short-desc{font-size:14px; font-weight:normal; color:#636363;}
-.deal-price{float:left; width:100%; margin:5px 0;}
+.deal-price{float:left; width:100%; margin:5px 0;display: none;}
 .price-statistic{
 	float:left;
 	padding:5px;
