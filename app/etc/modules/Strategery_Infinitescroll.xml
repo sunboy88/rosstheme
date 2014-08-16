@@ -22,7 +22,7 @@
   <modules>
     <Strategery_Infinitescroll>
       <codePool>community</codePool>
-      <active>true</active>
+      <active>false</active>
     </Strategery_Infinitescroll>
   </modules>
 </config>
