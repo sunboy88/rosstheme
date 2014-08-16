@@ -54,7 +54,7 @@
 }
 @media only screen and (min-width: 1024px) and (max-width: 1279px) {
 	/* product page */
-	.main-container .product-view .product-img-box {width: auto; max-width: 50%;}
+	.main-container .product-view .product-img-box {width: auto; max-width: 74%;}
 	.product-view .product-img-box img {max-width: 100%;height: auto;}
 	.product-view .mousetrap {width: 100% !important;height: 100% !important;}
 }
@@ -308,7 +308,7 @@
 	.block-reorder button.button span, .block .actions a {padding: 0 8px;}
 
 	/* product page */
-	.main-container .product-view .product-img-box {width: auto; max-width: 40%;}
+	.main-container .product-view .product-img-box {width: auto; max-width: 67%;}
 	.product-view .product-tabs {margin-top: 20px;}
 
 	/*	Multiple checkout */
