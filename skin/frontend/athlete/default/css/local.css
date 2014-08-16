@@ -2070,7 +2070,7 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .product-view .product-img-box .product-name{position: absolute;top: 20px;left: 25px;}
 .product-view .product-img-box .wrap-product-image{padding: 70px 0 70px 130px;border: 1px solid #b0b0b0;position: relative;}
 .product-view .product-img-box .product-image { border: none; margin: 0; overflow: visible }
-.product-view .product-img-box img{max-width: 100%;}
+.product-view .product-img-box img{max-width: 100%;height: auto;}
 .product-view .product-img-box .social-share{position: absolute;text-align: center;bottom: 20px;}
 .product-view .product-img-box .social-share .at-share-btn{display: inline-block;margin: 0 5px;}
 .product-view .product-img-box .product-image .cloud-zoom {background: none;}
