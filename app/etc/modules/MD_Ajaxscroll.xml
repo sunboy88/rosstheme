@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+        <modules>
+                <MD_Ajaxscroll>
+                        <active>true</active>
+                        <codePool>local</codePool>
+                </MD_Ajaxscroll>
+        </modules>
+</config>
