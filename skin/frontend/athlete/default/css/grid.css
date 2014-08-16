@@ -181,7 +181,7 @@
 	.product-options dl dd {float: none;width: inherit; margin: 0 0 13px;}
 	.product-options dl dt, .product-options dl dd {border-top: 0; margin-top: 0; padding-top: 0;}
 
-	/* .col1-layout */.main-container .product-view .product-shop {left: inherit;padding-left: 0;}
+	/* .col1-layout */.main-container .product-view .product-shop {left: inherit;}
 	.main p.no-rating {margin-left: 0;}
 	.category-banner-container .text { line-height: 40px; font-size: 40px; letter-spacing: -3px !important; }
 
@@ -321,6 +321,7 @@
 	.my-account .dedicated-review-box .average-rating {margin: 0;}
 
     .main-container .footer-container:before{top: 310px;}
+    .catalog-category-view .product-columns-3 .products-grid li.item{width: 45%;}
 }
 @media only screen and (min-width: 600px) and (max-width: 1023px) {
 /* footer newsletter */
@@ -693,6 +694,7 @@
 		width: auto; right: -1px; padding: 0;
 	}
 	.grid-fluid .header-dropdown ul {padding: 15px;}
+    .catalog-category-view .product-columns-3 .products-grid li.item{width: 45%;}
 
 }
 
@@ -859,6 +861,8 @@
 	table.ox_table th, table.ox_table td, table.ox_table caption {padding: 7px;}
 
 	.page-title .link-rss { width: 13px; height: 13px; padding: 0; font-size: 0;}
+    .product-shop .occ-customer-info .buttons-set a{font-size: 11px;}
+    .catalog-category-view .product-columns-3 .products-grid li.item{width: 100%;}
 }
 @media only screen and (max-width: 400px) {
 	.grid-fluid .product-view .add-review .data-table td.selected-value { display: none;}
