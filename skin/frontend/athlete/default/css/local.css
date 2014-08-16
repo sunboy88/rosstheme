@@ -2081,6 +2081,7 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 
 .main-container .col-main .product-view .block-subscribe{width: 100%;margin: 60px 0 0;}
 
+.productquestions-container .button-set{display: inline-block;width: 100%;}
 
 .product-view .product-img-box .product-image-zoom {overflow: hidden}
 .product-view .product-img-box .zoom { position:absolute; z-index:10; right:11px; height:30px; margin:-41px 0 0; padding: 0; background:none }
@@ -2094,6 +2095,8 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .product-view .product-img-box .zoom #track {display: none}
 .product-view .product-img-box .zoom #handle {background: none}
 .product-view .product-img-box .more-views { position: absolute; margin: 0;left: 20px;top: 70px; width: 96px;}
+.product-view .product-img-box .more-views .youtube-video,
+.product-view .product-img-box .more-views .vimeo-video{display: block;width: 96px;height: 100px;background: url("../images/new/play.png") no-repeat center;font-size: 0;text-decoration: none;}
 .product-view .product-img-box .more-views img{max-width: 100%;}
 .product-view .product-img-box .more-views ul {margin:0 }
 .product-view .product-img-box .more-views li {padding: 0; margin: 5px 0; background:transparent none;border: 1px solid #b0b0b0;display: block;width: 100%; }
