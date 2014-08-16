@@ -25,6 +25,7 @@ $slider_id = uniqid('athlete_');
 					?>
 					<li class="item <?php echo $liClass ?>">
 						<div class="item-wrap">
+                            <div class="img-name">
 						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
 							<?php echo $this->helper('athlete')->getLabel($_product);  ?>
 							<?php echo $athleteImgHelper->getAdditionalImage($_product, $imgX, $imgY ); ?>
@@ -32,15 +33,19 @@ $slider_id = uniqid('athlete_');
 								.'" data-srcX2="'. $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgX*2, $imgY*2)
 								.'" width="'.$imgX.'" height="'.$imgY.'" alt="'. $this->stripTags($this->getImageLabel
 									($_product, 'small_image'), null, true) .'" />'; ?>
-						</a>
+
+                        </a>
 						<div class="product-hover">
-							<?php if( $athleteHelper->getCfg('listing/grid_name') ): ?>
-								<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2><br/>
-							<?php endif; ?>
+
+                            <?php if( $athleteHelper->getCfg('listing/grid_name') ): ?>
+                                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                            <?php endif; ?>
+
 							<?php if( $athleteHelper->getCfg('listing/grid_price') ): ?>
 								<?php echo $this->getPriceHtml($_product, true, '-related') ?>
 							<?php endif; ?>
 						</div>
+                            </div>
 						<div class="name">
 							<?php if( $athleteHelper->getCfg('listing/hover_rating') && $_product->getRatingSummary() ): ?>
 								<?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
