@@ -2094,8 +2094,9 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .product-view .product-img-box .zoom #track {display: none}
 .product-view .product-img-box .zoom #handle {background: none}
 .product-view .product-img-box .more-views { position: absolute; margin: 0;left: 20px;top: 70px; width: 96px;}
+.product-view .product-img-box .more-views img{max-width: 100%;}
 .product-view .product-img-box .more-views ul {margin:0 }
-.product-view .product-img-box .more-views li {padding: 0; margin: 0; background:transparent none; }
+.product-view .product-img-box .more-views li {padding: 0; margin: 5px 0; background:transparent none;border: 1px solid #b0b0b0;display: block;width: 100%; }
 .product-view .product-img-box .more-views ul.slides li {float:none; display: block; padding: 0 5px; }
 .product-view .product-img-box .more-views-nav a {position: absolute; z-index: 3; top:50%; display:block; width: 26px; height: 26px; margin:-13px 0 0; padding: 0; line-height:26px; background:#000 url('../images/athlete/slider_arrows.png') 2px 0 no-repeat; overflow:hidden; text-indent: 99em; }
 .product-view .product-img-box .more-views-nav a.prev{left:-5px; }
