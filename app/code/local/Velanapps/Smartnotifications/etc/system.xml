@@ -1,0 +1,361 @@
+<?xml version="1.0"?>
+<!--
+  * Velan Info Services India Pvt Ltd.
+  *
+  * NOTICE OF LICENSE
+  *
+  * This source file is subject to the EULA
+  * that is bundled with this package in the file LICENSE.txt.
+  * It is also available through the world-wide-web at this URL:
+  * http://store.velanapps.com/License.txt
+  *
+  /***************************************
+  *         MAGENTO EDITION USAGE NOTICE *
+  * *************************************** */
+  /* This package designed for Magento COMMUNITY edition
+  * Velan Info Services does not guarantee correct work of this extension
+  * on any other Magento edition except Magento COMMUNITY edition.
+  * Velan Info Services does not provide extension support in case of
+  * incorrect edition usage.
+  /***************************************
+  *         DISCLAIMER   *
+  * *************************************** */
+  /* Do not edit or add to this file if you wish to upgrade Magento to newer
+  * versions in the future.
+  * ****************************************************
+  * @category   Velanapps
+  * @package    Smartnotifications
+  * @author     Velan Team
+  * @copyright  Copyright (c) 2013 Velan Info Services India Pvt Ltd. (http://www.velanapps.com)
+  * @license    http://store.velanapps.com/License.txt
+-->
+<config>
+    <tabs>
+        <myconf-smartnotifications translate="label" module="smartnotifications">
+            <label>VelanApps</label>
+            <sort_order>2</sort_order>
+        </myconf-smartnotifications>
+    </tabs>	
+    <sections>
+        <smartnotifications_tab translate="label" module="smartnotifications">
+            <label>Smart Notifications</label>
+            <tab>myconf-smartnotifications</tab>
+            <sort_order>1</sort_order>
+            <show_in_default></show_in_default>
+            <show_in_website></show_in_website>
+            <show_in_store></show_in_store>
+            <groups>
+				<!-- information bar tab-->
+                <information_bar translate="label comment">
+                    <label>Information Bar</label>
+                    <sort_order>500</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>                    
+                    <fields>
+                        <informationbar translate="label comment">
+                            <label>Information Bar</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<comment>Enabling this will show the information bar</comment>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </informationbar>
+						<height translate="label comment">
+                            <label>Height</label>							
+							<frontend_type>text</frontend_type>
+							<validate>required-entry validate-number validate-digits-range digits-range-50-100</validate>
+							<comment>Value taken as pixel. Range-50-100</comment>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </height>
+						<position translate="label comment">
+                            <label>Position</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>smartnotifications/dropdown_values</source_model>
+							<comment>Used to display the information bar either at the top or at the bottom</comment>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </position>
+						<fixed translate="label comment">
+                            <label>Fixed Position</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<comment>Used to make information bar stable.Default fixed for bottom</comment>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+						<content translate="label comment">
+                            <label>Content</label>
+							<frontend_type>editor</frontend_type>
+							<validate>required-entry</validate>
+							<frontend_model>smartnotifications/adminhtml_system_config_editor</frontend_model>
+							<comment>Display the content in the information bar</comment>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </content>
+						<color_pallet translate="label comment">
+							<label>Color Pallet</label>
+							<frontend_type>text</frontend_type>
+							<validate>required-entry </validate>							
+                            <frontend_model>smartnotifications/adminhtml_system_config_form_field_colorpicker</frontend_model>
+							<validate>required-entry </validate>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color_pallet>										
+						<from_date translate="label comment">
+							<label>From Date</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>smartnotifications/adminhtml_system_config_date</frontend_model>
+							<comment>Set the start date for the content</comment>
+							<sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</from_date>
+						<to_date translate="label comment">
+                            <label>To Date</label>
+							<frontend_type>text</frontend_type>  
+							<frontend_model>smartnotifications/adminhtml_system_config_date</frontend_model>
+							<comment>Set the expiry date for the content</comment>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </to_date>
+                     </fields>
+                </information_bar>				
+				<!-- pop-up tab-->
+                <pop_up translate="label comment">
+                    <label>Pop-Up</label>
+                    <sort_order>501</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <popup translate="label comment">
+                            <label>Pop-up</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<comment>Enabling this will show the pop up</comment>	
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </popup>
+						<content translate="label comment">
+                            <label>Content</label>
+							<frontend_type>editor</frontend_type>
+							<validate>required-entry</validate>
+							<frontend_model>smartnotifications/adminhtml_system_config_editor</frontend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </content>
+						<effects translate="label comment">
+                            <label>Effects</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>smartnotifications/dropdown_alignment</source_model>
+							<comment>Select the pop up display effect</comment>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </effects>
+						<show translate="label comment">
+                            <label>Show</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>smartnotifications/dropdown_show</source_model>
+							<comment>Select the pop-up banner type</comment>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show>
+                     </fields>
+                </pop_up>				
+				<!-- Bottom to top tab-->
+                <bottom_to_top translate="label comment">
+                    <label>Back to Top</label>
+                    <sort_order>502</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>                    
+                    <fields>
+                       <scroller translate="label comment">
+                            <label>Scroller</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<comment>Enabling this will show the bottom to top scroller</comment>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </scroller>
+						<position translate="label comment">
+                            <label>Position</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>smartnotifications/dropdown_align</source_model>
+							<comment>Select the bottom to top scroller position</comment>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </position>
+						<speed translate="label comment">
+                            <label>Speed</label>
+							<frontend_type>select</frontend_type>
+							<source_model>smartnotifications/dropdown_speed</source_model>
+							<comment>Select the speed</comment>							
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </speed>
+						<image translate="label comment">
+                            <label>Image</label>
+							<frontend_type>radios</frontend_type>
+                            <source_model>smartnotifications/dropdown_imagepallet</source_model>
+							<comment>Selected image will be displayed for bottom to top scroller</comment>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </image> 
+                     </fields>
+                </bottom_to_top>
+				<!-- reference header tab-->
+                <reference_header translate="label comment">
+                    <label>Style/Script Injector</label>
+                    <sort_order>503</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <referenceheader translate="label comment">
+                            <label>Style/Script Injector</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<comment>Enabling this will show the reference header</comment>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </referenceheader>
+						<script_area translate="label comment">
+                            <label>Script</label>
+							<frontend_type>textarea</frontend_type>
+							<comment>No need to add script tag</comment>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </script_area>
+						<style translate="label comment">
+                            <label>Style</label>
+							<frontend_type>textarea</frontend_type>
+                            <comment>No need to add style tag</comment>							
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </style>
+                     </fields>
+                </reference_header>	
+				<sidebar translate="label comment">
+					<label>Sidebar Injector</label>
+                    <sort_order>504</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+							<side translate="label comment">
+								<label>Sidebar</label>
+								<frontend_type>select</frontend_type>
+								<source_model>adminhtml/system_config_source_enabledisable</source_model>
+								<comment>Enabling this will show the sidebar</comment>
+								<sort_order>1</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+							</side>		
+							<side_pallet translate="label comment">
+								<label>Background Color</label>
+								<frontend_type>text</frontend_type>
+								<validate>required-entry </validate>							
+								<frontend_model>smartnotifications/adminhtml_system_config_form_field_colorpicker</frontend_model>
+								<validate>required-entry </validate>
+								<sort_order>2</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+							</side_pallet>	
+							<side_border translate="label comment">
+								<label>Border Color</label>
+								<frontend_type>text</frontend_type>
+								<validate>required-entry </validate>							
+								<frontend_model>smartnotifications/adminhtml_system_config_form_field_colorpicker</frontend_model>
+								<validate>required-entry </validate>
+								<sort_order>3</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+							</side_border>								
+							<sidecontent translate="label comment">
+                            <label>Content</label>
+							<frontend_type>editor</frontend_type>
+							<validate>required-entry</validate>
+							<frontend_model>smartnotifications/adminhtml_system_config_editor</frontend_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sidecontent>
+					</fields>				
+				</sidebar>				
+            </groups>
+        </smartnotifications_tab>
+
+		<activation_tab translate="label" module="smartnotifications">
+            <label>Smart Notifications Activation</label>
+            <tab>myconf-smartnotifications</tab>
+            <sort_order>2</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+				<!-- Activation Setting Tab -->
+                <active_group translate="label comment">
+                    <label>Activation Setting</label>
+                    <sort_order>500</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>	
+						<activation_key translate="label">
+                            <label>Activation Key</label>
+                            <frontend_type>text</frontend_type>							
+                            <sort_order>2</sort_order>                            
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </activation_key>
+                     </fields>
+                </active_group>
+            </groups>
+        </activation_tab>		
+    </sections>
+</config>

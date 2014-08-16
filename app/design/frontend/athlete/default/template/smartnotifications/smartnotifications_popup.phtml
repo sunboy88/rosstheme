@@ -1,0 +1,186 @@
+<?php 
+/*
+  * Velan Info Services India Pvt Ltd.
+  *
+  * NOTICE OF LICENSE
+  *
+  * This source file is subject to the EULA
+  * that is bundled with this package in the file LICENSE.txt.
+  * It is also available through the world-wide-web at this URL:
+  * http://store.velanapps.com/License.txt
+  *
+  /***************************************
+  *         MAGENTO EDITION USAGE NOTICE *
+  * *************************************** */
+  /* This package designed for Magento COMMUNITY edition
+  * Velan Info Services does not guarantee correct work of this extension
+  * on any other Magento edition except Magento COMMUNITY edition.
+  * Velan Info Services does not provide extension support in case of
+  * incorrect edition usage.
+  /***************************************
+  *         DISCLAIMER   *
+  * *************************************** */
+  /* Do not edit or add to this file if you wish to upgrade Magento to newer
+  * versions in the future.
+  * ****************************************************
+  * @category   Velanapps
+  * @package    Smartnotifications
+  * @author     Velan Team
+  * @copyright  Copyright (c) 2013 Velan Info Services India Pvt Ltd. (http://www.velanapps.com)
+  * @license    http://store.velanapps.com/License.txt
+*/
+
+	 //Loading SmartNotifications Helper-Data
+	$helperData = Mage::helper('smartnotifications/data');
+
+	//Get the Effect of the Popup in Helper-Data
+	$popupAnimateEffect = $helperData->effect();
+
+	//Get the content of the Popup in Helper-Data
+	$popupContent = $helperData->popupContent();
+
+	//Get the Status of the  Popup in Helper-Data
+	$popupActive = $helperData->popupActivation();
+
+	//Get the Show(once/all) of the in Pop-up in Helper-Data
+	$popupShow = $helperData->show();
+
+	//popupCookie variable assignment
+	$popupCookie = "";
+	
+	//set cookie if popup is once
+	if($popupShow == "once")
+	{
+		$expire = time()+3600;
+		$popupCookie = $_COOKIE["popupCookie"];
+		setcookie("popupCookie", "MxyiTyZl", $expire);
+	}
+	
+	//Proceed if the Status is Enabled
+	if($popupActive == 1 && ($popupShow == "all" || ($popupShow == "once" &&  $popupCookie != "MxyiTyZl" )))
+	{
+	?>
+		<div class="smartnotificationsPopupBg" id="smartnotificationsPopupBg"></div> 
+			<div class="smartnotificationsPopupOutter" id="smartnotificationsPopupOutter" >
+				<div class="smartnotificationsPopupInner"  id="smartnotificationsPopupInner">
+					<div id="PopupContPart">
+						<?php echo Mage::helper('cms')->getBlockTemplateProcessor()->filter($popupContent);?>
+					</div>			
+				</div>
+				<a title="Close" id="popUpCloseButton" class="PopupClose" href="javascript:"></a>
+			</div>
+
+			<script  type="text/javascript">
+			
+				var windowWidth ="";
+				var windowHeight = "";
+				if (document.body && document.body.offsetWidth) {
+				 windowWidth = document.body.offsetWidth;
+				 windowHeight = document.body.offsetHeight;
+				}
+				if (document.compatMode == 'CSS1Compat' && document.documentElement && document.documentElement.offsetWidth ) { 
+				 windowWidth = document.documentElement.offsetWidth;
+				 windowHeight = document.documentElement.offsetHeight;
+				}
+				
+				if (window.innerWidth && window.innerHeight) {
+				 windowWidth = window.innerWidth;
+				 windowHeight = window.innerHeight;
+				}			
+				//var jQuery = jQuery.noConflict();
+				//var windowWidth = jQuery(window).width();
+				//var windowHeight = jQuery(window).height();
+				
+				var popupMaxWidth = (windowWidth/2);
+				var popupLeft = (windowWidth - jQuery('#smartnotificationsPopupOutter').width())/2;
+				var popupRight = popupLeft;
+				var popupTop = (windowHeight - jQuery('#smartnotificationsPopupOutter').height())/2;;
+				var popupBottom = popupTop;
+				
+				var leftAnimate = (windowWidth/2);
+				var animateEff = "<?php echo $popupAnimateEffect?>";
+				var animateEffect =animateEff;
+				
+				var popupHeight = jQuery('#smartnotificationsPopupOutter').height() - 20;
+
+				jQuery( document ).ready(function() {
+					jQuery("#smartnotificationsPopupBg" ).css({'display' : 'block'});
+					jQuery("#smartnotificationsPopupOutter").css({ 'max-width' : popupMaxWidth});
+					jQuery("#smartnotificationsPopupInner").css({ 'height' : popupHeight});
+					
+					if(animateEffect == "left")
+					{
+						jQuery("#smartnotificationsPopupOutter").css({'left' : '-800px','display' : 'block','top' : popupTop});			
+						jQuery("#smartnotificationsPopupOutter").animate({'left' : popupLeft }, 750, function() {});			
+					}
+					else if(animateEffect == "top")
+					{
+						jQuery("#smartnotificationsPopupOutter").css({'left' : popupLeft,'display' : 'block', 'top' : '-800px' });
+						jQuery("#smartnotificationsPopupOutter").animate({'top' : popupTop }, 750, function() {});
+					}
+					else if(animateEffect == "bottom")
+					{
+						jQuery("#smartnotificationsPopupOutter").css({'left' : popupLeft,'display' : 'block','bottom' : '-800px' });			
+						jQuery("#smartnotificationsPopupOutter").animate({'bottom' : popupBottom  }, 750, function() {});
+					}
+					
+					else if(animateEffect == "right")
+					{
+						jQuery("#smartnotificationsPopupOutter").css({'top' : popupTop,'display' : 'block','right' : '-800px' });			
+						jQuery("#smartnotificationsPopupOutter").animate({'right' : popupRight  }, 750, function() {});
+					}					
+					else if(animateEffect == "glow")
+					{
+						jQuery("#smartnotificationsPopupOutter").css({'top' : popupTop,'display' : 'block','left' : popupLeft });	
+					}
+
+					jQuery( "#smartnotificationsPopupBg" ).click(function() {	
+						popupClose(animateEffect);		
+					});
+					
+					jQuery("#popUpCloseButton" ).click(function() {
+						popupClose(animateEffect);
+					});
+				});
+			
+				function popupClose(animateEffect)
+				{
+					if(animateEffect == "left")
+					{
+						jQuery("#smartnotificationsPopupOutter").animate({'left' : '-800px' }, 750, function() {
+							jQuery("#smartnotificationsPopupOutter").css({'display' : 'none'});
+							jQuery("#smartnotificationsPopupBg").css({'display' : 'none'});
+						});			
+					}
+					else if(animateEffect == "top")
+					{
+						jQuery("#smartnotificationsPopupOutter").animate({'top' : '-800px' }, 750, function() {
+							jQuery("#smartnotificationsPopupOutter").css({'display' : 'none'});
+							jQuery("#smartnotificationsPopupBg").css({'display' : 'none'});
+						});
+					}
+					else if(animateEffect == "bottom")
+					{
+						jQuery("#smartnotificationsPopupOutter").animate({'bottom' : '-800px'}, 750, function() {
+							jQuery("#smartnotificationsPopupOutter").css({'display' : 'none'});
+							jQuery("#smartnotificationsPopupBg").css({'display' : 'none'});
+						});
+					}
+					else if(animateEffect == "right")
+					{
+						jQuery("#smartnotificationsPopupOutter").animate({'right' : '-800px'}, 750, function() {
+							jQuery("#smartnotificationsPopupOutter").css({'display' : 'none'});
+							jQuery("#smartnotificationsPopupBg").css({'display' : 'none'});
+						});
+					}					
+					else if(animateEffect == "glow")
+					{
+						jQuery("#smartnotificationsPopupOutter").css({'display' : 'none'});
+						jQuery("#smartnotificationsPopupBg").css({'display' : 'none'});
+					}
+					
+				}
+		</script>
+	<?php
+	} //** PopupShow
+	?>

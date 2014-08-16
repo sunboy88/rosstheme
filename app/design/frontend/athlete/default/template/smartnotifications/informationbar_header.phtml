@@ -1,0 +1,219 @@
+<?php 
+/*
+  * Velan Info Services India Pvt Ltd.
+  *
+  * NOTICE OF LICENSE
+  *
+  * This source file is subject to the EULA
+  * that is bundled with this package in the file LICENSE.txt.
+  * It is also available through the world-wide-web at this URL:
+  * http://store.velanapps.com/License.txt
+  *
+  /***************************************
+  *         MAGENTO EDITION USAGE NOTICE *
+  * *************************************** */
+  /* This package designed for Magento COMMUNITY edition
+  * Velan Info Services does not guarantee correct work of this extension
+  * on any other Magento edition except Magento COMMUNITY edition.
+  * Velan Info Services does not provide extension support in case of
+  * incorrect edition usage.
+  /***************************************
+  *         DISCLAIMER   *
+  * *************************************** */
+  /* Do not edit or add to this file if you wish to upgrade Magento to newer
+  * versions in the future.
+  * ****************************************************
+  * @category   Velanapps
+  * @package    Smartnotifications
+  * @author     Velan Team
+  * @copyright  Copyright (c) 2013 Velan Info Services India Pvt Ltd. (http://www.velanapps.com)
+  * @license    http://store.velanapps.com/License.txt
+*/
+
+
+	//Loading Smartnotifications Helper-Data
+	$helperData = Mage::helper('smartnotifications/data');
+
+	// Get the Status of the Informationbar in helperData
+	$informationBarHeaderActive = $helperData->headerActive();
+
+	// Get the Height of the Informationbar in helperData
+	$inforamtionBarHeight = $helperData->height();
+
+	// Get the Position of the Informationbar in helperData
+	$inforamtionBarPosition = $helperData->informationBarPosition();
+
+	// Get the Position of the Fixed Header in helperData
+	$informationBarFixedHeader = $helperData->informationBarFixedHeader();
+
+	// Get the Content of the Informationbar in helperData
+	$informationBarContent = $helperData->informationBarContent();
+
+	// Get the Pallet of the Informationbar in helperData
+	$informationBarColor = $helperData->informationBarColorPallet();
+
+	// Get the Start Date of the Informationbar Content in helperData
+	$informationBarFromDate = $helperData->informationBarFromDate();
+	
+	// Get the End Date of the Informationbar Content in helperData
+	$informationBarToDate = $helperData->informationBarToDate();
+
+	//** Get current date
+	$currentDate = date("m/d/Y", Mage::getModel('core/date')->timestamp(time()));
+
+	//Check for Status is Enable , Position is Header , Validate the Date
+	if($informationBarHeaderActive == 1 && $inforamtionBarPosition == "top" &&(( $currentDate >= $informationBarFromDate && $currentDate <= $informationBarToDate )||($informationBarFromDate == "" || $informationBarToDate =="" )))
+	{
+		//Set Default Class
+		$closeHeader = "infoHeaderCloseAbs";
+		
+		if($informationBarFixedHeader == "1") {
+			$closeHeader = "infoHeaderCloseFix";
+		}
+		
+		?>
+			<div class="informationHeaderBar"  id="smartnotificationsHeader">
+				<div id="smartnotificationsHeaderContent" class="informationHeaderContent">		
+					<?php
+						// Display the content
+						echo Mage::helper('cms')->getBlockTemplateProcessor()->filter($informationBarContent);
+					?>
+				</div>
+			</div>
+			<div id="smartOpen" class="smartArrowUp" onclick="return infoHeadHide();"></div>
+			<script type="text/javascript">
+				var winWidth ="";
+				var winHeight = "";
+				if (document.body && document.body.offsetWidth) {
+				 winWidth = document.body.offsetWidth;
+				 winHeight = document.body.offsetHeight;
+				}
+				if (document.compatMode == 'CSS1Compat' && document.documentElement && document.documentElement.offsetWidth ) { 
+				 winWidth = document.documentElement.offsetWidth;
+				 winHeight = document.documentElement.offsetHeight;
+				}
+				
+				if (window.innerWidth && window.innerHeight) {
+				 winWidth = window.innerWidth;
+				 winHeight = window.innerHeight;
+				}
+				
+				//** Get the information bar height
+				var barHeight = "<?php echo $inforamtionBarHeight ; ?>";
+				var dynamicHeight =  parseInt(barHeight);
+				var marTop = "-"+(dynamicHeight+4);
+				var windowWidth = winWidth;//jQuery(window).width();
+				var imgHidePosition = (windowWidth - 105);
+				imgHidePosition = (imgHidePosition/2);
+				var imgPosition = ((dynamicHeight-44)/2);
+				// Get JS cookie Value
+				var infoCookie = getCookie("info");
+
+				//** Get the fixed header or not
+				var fixedHeader = <?php echo $informationBarFixedHeader ; ?>;
+				var setValue = fixedHeader;
+				
+				//**Show hide of information bar
+				var defaultShow = 1;
+				
+				jQuery(document).ready(function() { 
+				
+					
+					jQuery("#smartOpen").css({"top" : imgPosition,'display':'block'});
+					
+				
+					// Check Fixed header or not
+					if(setValue == 1)
+					{
+						var div = jQuery("#smartnotificationsHeader");
+						var start = jQuery(div).offset().top; 
+						jQuery.event.add(window, "scroll", function() {
+							var p = jQuery(window).scrollTop();
+							jQuery(div).css("position",((p)>start) ? "fixed" : "static");
+							jQuery(div).css("top",((p)>start) ? "0px" : '');
+						});
+						
+						var img = jQuery("#smartOpen");
+						var st = jQuery(img).offset().top; 
+						jQuery.event.add(window, "scroll", function() {
+							var p = jQuery(window).scrollTop();
+							jQuery(img).css("position",((p)>st) ? "fixed" : "absolute");
+							//jQuery(img).css("top",((p)>st) ? imgPosition : imgPosition);
+						});
+					}
+					
+					// Header Show/Hide
+					if(infoCookie == null || infoCookie == "" || infoCookie == false )
+						infoHeadShow();
+					else
+						infoHeadHide();
+
+					// Set the dynamic height in div's
+					jQuery("#smartnotificationsHeader").css({'height' : dynamicHeight+6 });
+					jQuery("#smartnotificationsHeaderContent").css({'background-color':'<?php echo $informationBarColor;?>','height' : dynamicHeight-10,'line-height' : dynamicHeight-24+"px"  });
+				});
+
+				function infoHeadShow()
+				{	
+					// Remove Cookie Value
+					del_cookie("info");
+					
+					jQuery("#smartnotificationsHeader" ).animate({"marginTop": "0px" },"slow", function() {
+						jQuery("#smartOpen").attr("onclick","infoHeadHide()");
+					});
+					jQuery("#smartOpen").removeClass("smartRotate" );						
+				}
+				
+				function infoHeadHide()
+				{
+					// Set Java-script cookie value
+					setCookie("info",true,1);
+					
+					jQuery("#smartnotificationsHeader" ).animate({"marginTop": marTop  },"slow", function() {
+						jQuery("#smartOpen").attr("onclick","infoHeadShow()");
+					}); 
+					jQuery("#smartOpen").addClass("smartRotate");
+					
+				}
+				
+				/*-----------------------set JS Cookie------------------*/
+				function setCookie(c_name,value,exdays)
+				{
+					var exdate=new Date();
+					exdate.setDate(exdate.getDate() + exdays);
+					var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+					document.cookie=c_name + "=" + c_value;
+				}
+								
+				function getCookie(c_name)
+				{
+					var c_value = document.cookie;
+					var c_start = c_value.indexOf(" " + c_name + "=");
+					if (c_start == -1)
+					{
+						c_start = c_value.indexOf(c_name + "=");
+					}
+					if (c_start == -1)
+					{
+						c_value = null;
+					}
+					else
+					{
+						c_start = c_value.indexOf("=", c_start) + 1;
+						var c_end = c_value.indexOf(";", c_start);
+						if (c_end == -1)
+						{
+							c_end = c_value.length;
+						}
+						c_value = unescape(c_value.substring(c_start,c_end));
+					}
+					return c_value;
+				}
+				function del_cookie(name)
+				{
+					document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+				}
+			</script>
+	<?php  
+	}
+?>

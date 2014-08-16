@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!--
+  * Velan Info Services India Pvt Ltd.
+  *
+  * NOTICE OF LICENSE
+  *
+  * This source file is subject to the EULA
+  * that is bundled with this package in the file LICENSE.txt.
+  * It is also available through the world-wide-web at this URL:
+  * http://store.velanapps.com/License.txt
+  *
+  /***************************************
+  *         MAGENTO EDITION USAGE NOTICE *
+  * *************************************** */
+  /* This package designed for Magento COMMUNITY edition
+  * Velan Info Services does not guarantee correct work of this extension
+  * on any other Magento edition except Magento COMMUNITY edition.
+  * Velan Info Services does not provide extension support in case of
+  * incorrect edition usage.
+  /***************************************
+  *         DISCLAIMER   *
+  * *************************************** */
+  /* Do not edit or add to this file if you wish to upgrade Magento to newer
+  * versions in the future.
+  * ****************************************************
+  * @category   Velanapps
+  * @package    Smartnotifications
+  * @author     Velan Team
+  * @copyright  Copyright (c) 2013 Velan Info Services India Pvt Ltd. (http://www.velanapps.com)
+  * @license    http://store.velanapps.com/License.txt
+-->
+
+
+<config>
+    <modules>
+        <Velanapps_Smartnotifications>
+            <version>1.0.0</version>
+        </Velanapps_Smartnotifications>
+    </modules>	
+	<frontend>
+		<routers>
+			<smartnotifications>
+				<use>standard</use>
+				<args>
+					<module>Velanapps_Smartnotifications</module>
+					<frontName>smartnotifications</frontName>
+				</args>
+			</smartnotifications>
+		</routers>
+		<layout>
+			<updates>
+				<smartnotifications>
+					<file>smartnotifications.xml</file>
+				</smartnotifications>
+			</updates>
+		</layout>
+	</frontend>
+    <global>
+		<!-- Initialize the Block class -->
+		<blocks>
+            <smartnotifications>
+                <class>Velanapps_Smartnotifications_Block</class>
+            </smartnotifications>
+        </blocks>
+		<!-- Initialize the Model class -->
+		<models>
+            <smartnotifications>
+                <class>Velanapps_Smartnotifications_Model</class>
+            </smartnotifications>
+        </models>		
+		<!-- Initialize the Helper class -->
+		<helpers>
+			<smartnotifications>
+				<class>Velanapps_Smartnotifications_Helper</class>
+			</smartnotifications>
+		</helpers>
+		<!-- Initialization of Event Observer -->
+			<events>
+				<admin_system_config_changed_section_activation_tab>
+					<observers>
+						<smartnotifications>
+							<type>singleton</type>
+							<class>smartnotifications/observer</class>
+							<method>registration</method>
+						</smartnotifications>
+					</observers>
+				</admin_system_config_changed_section_activation_tab>
+            </events>
+    </global>
+	
+	<adminhtml>
+		<layout>
+			<updates>
+				<smartnotifications module="smartnotifications">
+					<file>smartnotifications.xml</file>
+				</smartnotifications>
+			</updates>
+		</layout>
+	</adminhtml>
+	
+<!-- Setting of Default Values -->
+	<default>	
+		<smartnotifications_tab>		
+			<information_bar>
+				<informationbar>0</informationbar>
+				<position>bottom</position>	
+				<height>50</height>		
+				<pallet>1</pallet>							
+			</information_bar>
+			<pop_up>
+				<popup>0</popup>
+				<effects>bottom</effects>
+				<show>one</show>
+			</pop_up>
+			<bottom_to_top>
+				<scroller>0</scroller>
+				<position>right</position>
+				<speed>medium</speed>
+				<image>1</image>
+			</bottom_to_top>
+			<reference_header>
+				<referenceheader>0</referenceheader>
+			</reference_header>
+		</smartnotifications_tab>		
+	</default>
+</config>

@@ -1,0 +1,90 @@
+<?php 
+/*
+  * Velan Info Services India Pvt Ltd.
+  *
+  * NOTICE OF LICENSE
+  *
+  * This source file is subject to the EULA
+  * that is bundled with this package in the file LICENSE.txt.
+  * It is also available through the world-wide-web at this URL:
+  * http://store.velanapps.com/License.txt
+  *
+  /***************************************
+  *         MAGENTO EDITION USAGE NOTICE *
+  * *************************************** */
+  /* This package designed for Magento COMMUNITY edition
+  * Velan Info Services does not guarantee correct work of this extension
+  * on any other Magento edition except Magento COMMUNITY edition.
+  * Velan Info Services does not provide extension support in case of
+  * incorrect edition usage.
+  /***************************************
+  *         DISCLAIMER   *
+  * *************************************** */
+  /* Do not edit or add to this file if you wish to upgrade Magento to newer
+  * versions in the future.
+  * ****************************************************
+  * @category   Velanapps
+  * @package    Smartnotifications
+  * @author     Velan Team
+  * @copyright  Copyright (c) 2013 Velan Info Services India Pvt Ltd. (http://www.velanapps.com)
+  * @license    http://store.velanapps.com/License.txt
+*/
+
+	//Loading Smartnotifications Helper-Data
+	$helperData = Mage::helper('smartnotifications/data');
+
+	// Get the Status of the Scroller in helperData
+	$scrollerActive = $helperData->scrollerStatus();
+	
+	// Get the Position of the Scroller in helperData
+	$scrollerPosition = $helperData->scrollerPosition();
+	
+	// Get the Speed of the Scroller in helperData
+	$scrollerSpeed =  $helperData->scrollerSpeed();
+	
+	// Get the Image of the  Scroller in helperData
+	$scrollerImage = $helperData->scrollerImage();
+
+	// Set the Scroll Image
+	$scrollImageNumber = "scrollImg".$scrollerImage; 
+
+	// Check the Scroll Image position
+	if($scrollerPosition=="left")
+		$Position = "scrollLeft";
+	else
+		$Position = "scrollRight";
+
+	//Scroll Image Class Set
+	$scrollClass = "class=\"scrollup ".$scrollImageNumber." ".$Position."\"";
+
+	//Proceed if the Status is Enabled
+	if($scrollerActive == 1):
+	
+	?>
+		<a href="javascript:" id="smartnotificationsScrollup"  <?php echo $scrollClass; ?> >Scroll</a> 
+		
+	<script type="text/javascript">
+		jQuery(document).ready(function () {
+			//Get the Scroll Speed Value
+			var speed = '<?php echo $scrollerSpeed ; ?>';
+			var scrollSpeed = speed;
+			jQuery(window).scroll(function () {
+				if (jQuery(this).scrollTop() > 150) {
+					jQuery('#smartnotificationsScrollup').show('slow');
+				} else {
+					jQuery('#smartnotificationsScrollup').hide('slow');
+				}
+			});
+
+			jQuery('#smartnotificationsScrollup').click(function () {
+				jQuery("html, body").animate({
+					scrollTop: 0
+				}, scrollSpeed);
+				return false;
+			});
+
+		});
+	</script>
+
+	<?php endif;?>
+
