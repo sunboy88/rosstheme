@@ -4,7 +4,7 @@
 
 	<div id="occ-customer-login" <?php if ($this->isCustomerLoggedIn()): ?>style="display:none;"<?php endif; ?>>	
     	<div class="buttons-set" id="login-buttons-container">
-			<a href="javascript:void(0);" onClick="occLogin.loadLoginPopup();"><?php echo $this->__('Log In to use One Click Checkout') ?></a>	
+			<a href="javascript:void(0);" onClick="occLogin.loadLoginPopup();"><?php echo $this->__('One Click Checkout') ?></a>	
 
 			<span class="please-wait" id="login-please-wait" style="display:none;">
     			<img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Please wait...') ?>" title="<?php echo $this->__('Please wait...') ?>" class="v-middle" /> <?php echo $this->__('Please wait...') ?>
