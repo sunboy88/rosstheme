@@ -80,6 +80,7 @@ if ($athleteHelper->isOnSale($_product)) {
 			</div>
 
 			<div class="product-shop <?php echo $liClass ?>">
+                <div class="wrap-product-shop">
 				<?php //echo $this->getReviewsSummaryHtml($_product, false, true) ?>
 				<?php echo $this->getChildHtml('alert_urls') ?>
 				<?php echo $this->getChildHtml('product_type_data') ?>
@@ -111,7 +112,7 @@ if ($athleteHelper->isOnSale($_product)) {
 				<?php echo $this->getChildHtml('addto') ?>
 
 				<?php echo $this->getChildHtml('occ') ?>
-
+</div>
 				<div class="details_product_banner">
 					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('details_product_banner')->toHtml(); ?> 
 				</div>
