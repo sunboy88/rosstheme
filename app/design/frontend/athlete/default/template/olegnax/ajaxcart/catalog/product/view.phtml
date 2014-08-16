@@ -70,6 +70,9 @@ if ($athleteHelper->isOnSale($_product)) {
 			?>
 
 			<div class="product-img-box">
+				<div class="product-name">
+					<h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+				</div>
                 <div class="wrap-product-image">
 				    <?php echo $this->getChildHtml('media') ?>
                 </div>
@@ -77,11 +80,6 @@ if ($athleteHelper->isOnSale($_product)) {
 			</div>
 
 			<div class="product-shop <?php echo $liClass ?>">
-
-				<div class="product-name">
-					<h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
-				</div>
-
 				<?php //echo $this->getReviewsSummaryHtml($_product, false, true) ?>
 				<?php echo $this->getChildHtml('alert_urls') ?>
 				<?php echo $this->getChildHtml('product_type_data') ?>

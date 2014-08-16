@@ -31,13 +31,13 @@
 -->
 <config>
     <tabs>
-        <myconf-smartnotifications translate="label" module="smartnotifications">
+        <myconf-smartnotifications translate="label">
             <label>VelanApps</label>
             <sort_order>2</sort_order>
         </myconf-smartnotifications>
     </tabs>	
     <sections>
-        <smartnotifications_tab translate="label" module="smartnotifications">
+        <smartnotifications_tab translate="label">
             <label>Smart Notifications</label>
             <tab>myconf-smartnotifications</tab>
             <sort_order>1</sort_order>
@@ -329,7 +329,7 @@
             </groups>
         </smartnotifications_tab>
 
-		<activation_tab translate="label" module="smartnotifications">
+		<activation_tab translate="label">
             <label>Smart Notifications Activation</label>
             <tab>myconf-smartnotifications</tab>
             <sort_order>2</sort_order>
