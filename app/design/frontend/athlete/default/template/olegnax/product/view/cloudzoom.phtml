@@ -51,8 +51,7 @@ $vimeo = $_product->getResource()->getAttribute('vimeo_video')->getFrontend()->g
 
 <?php if (count($this->getGalleryImages()) > 0): ?>
 <div class="more-views">
-	<div class="more-views-nav" id="thumbs_slider_nav"><ul><li><a class="prev" href="#"></a></li><li><a class="next" href="#"></a></li></ul></div>
-    <ul class="carousel-slider slides" id="thumbs_slider" data-items="[ [0, 3], [426, 4] ]">
+    <ul class="more-views-list">
     <?php foreach ($this->getGalleryImages() as $_image): ?>
 	    <?php //Skip, if no image
 	    if ($_image->getFile() == NULL)
