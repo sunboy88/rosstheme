@@ -80,4 +80,21 @@
 			<block type="core/template" name="ajaxscroll_js" template="md/ajaxscroll/ajaxscroll.phtml" after="-" />
 		</reference>
 	 </tag_product_list>
+
+	 <cms_index_index translate="label">
+		<reference name="head">
+			<action method="addJs"><script>md/ajaxscroll/jquery-1.7.2.min.js</script></action>
+			<action method="addJs"><script>md/ajaxscroll/jquery-noconflict.js</script></action>
+			<action method="addJs"><script>md/ajaxscroll/jquery.ajaxscroll.min.js</script></action>
+			<action method="addJs"><script>md/ajaxscroll/easing.js</script></action>
+			<action method="addJs"><script>md/ajaxscroll/jquery.ui.totop.js</script></action>
+			<action method="addItem">
+				<type>skin_css</type>
+				<name>md/ajaxscroll/css/ajaxscroll.css</name>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="core/template" name="ajaxscroll_js" template="md/ajaxscroll/ajaxscroll.phtml" after="-" />
+		</reference>
+	 </cms_index_index>
 </layout>
