@@ -629,6 +629,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 /* Product Images */
 .product-view{clear: both;}
+.product-view img{max-width: 100%;}
 .product-view .product-img-box { float:left; width:267px; }
 .col3-layout .product-view .product-img-box { float:none; margin:0 auto; }
 .product-view .product-img-box .product-image { border:1px solid #ddd; }
