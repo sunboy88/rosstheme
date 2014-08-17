@@ -1718,6 +1718,7 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 }
 .slider-container .products-grid li.item .item-wrap .btn-cart-container .btn-cart span{background: none;padding: 0;font: 700 12px 'open sans';color: #fff;line-height: 32px;text-transform: uppercase;height: 32px;display: block;letter-spacing: 0;}
 
+.product-img-wrap{position: relative;}
 .products-grid .product-image { width:auto; height:auto; margin:0 auto 9px; text-align: center;position: relative;}
 .products-grid .product-image, .products-grid:hover .product-image {background: transparent;}
 .products-grid .product-image img {	max-width:100%;	height:auto;}
@@ -2369,7 +2370,7 @@ ul.tier-prices.product-pricing {margin-top: 14px;}
 
 .product-slider-container {border-top: 1px solid #d5d5d5; margin: 89px 0 0; -webkit-transform: translateZ(0);}
 .product-slider-container a {padding: 0;}
-.product-slider-container a.minimal-price-link { display: block;}
+.product-slider-container a.minimal-price-link { display: block;margin: -20px 0 0;}
 .product-slider-container ul {list-style:none; margin: 0; padding: 0;}
 .title-container { text-align: center; line-height: 36px; margin: -19px 0 15px;}
 .title-container h3 {

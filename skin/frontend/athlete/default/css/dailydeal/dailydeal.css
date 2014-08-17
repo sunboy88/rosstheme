@@ -45,7 +45,8 @@
 .deal-time button.btn-cart span { height:37px;line-height:37px; border:0; padding:0; background:url(../../images/dailydeal/btn-buy-now.png) 0 0 no-repeat; width:95px; text-align:center;}
 .deal-time button.btn-cart span span {background:0 none; color:#996633; font-size:16px; font-weight:normal;}
 /* CSS FOR DEAL VIEW */
-.product-view-deal{float:left; width:100%; position: relative; margin: 10px 0 12px;padding: 5px 0;clear: both;}
+.product-view-deal{float:left; width:76%; position: relative; margin: 10px 0 12px;padding: 5px 0;clear: both;}
+.product-view .product-view-deal{width: 100%;}
 .product-view-deal .i-box {
     background: none repeat scroll 0 0 #F1F1F1;
     border: 5px solid #FFFFFF;
