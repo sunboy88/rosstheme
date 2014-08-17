@@ -1993,9 +1993,9 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 		/* for test position p.no-rating */
 		.main p.no-rating {margin: 13px 0 0 -4px;}
 
-        .wrap-product-shop .sendasgift-btn{font: 600 12px 'open sans';color: #2b2b2b;line-height: 18px;display: inline-block;padding-left: 22px;position: relative;text-decoration: none;margin: 15px 0 0;}
+        .wrap-product-shop .sendasgift-btn{font: 600 12px 'open sans';color: #2b2b2b;line-height: 18px;display: inline-block;padding-left: 23px;position: relative;text-decoration: none;margin: 5px 0 0;}
 .wrap-product-shop .sendasgift-btn:hover{background: none;text-decoration: none;color: #333;}
-.wrap-product-shop .sendasgift-btn:before{width: 18px;height: 18px;background: #fff;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; border: solid 1px #b0b0b0;content: "";position: absolute;top: 0;left: 0;}
+.wrap-product-shop .sendasgift-btn:before{width: 16px;height: 16px;background: #fff;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; border: solid 1px #b0b0b0;content: "";position: absolute;top: 0;left: 0;}
 .wrap-product-shop .sendasgift-btn:after{width: 7px;height: 7px;content: "";border-radius: 10px;-moz-border-radius: 10px;-webkit-border-radius: 10px;background: #78c613;position: absolute;top: 6px;left: 6px;}
 .product-name h1 {font-size: 28px;}
 
