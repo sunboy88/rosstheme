@@ -1,0 +1,327 @@
+<h3 id="billing_step_header" class="step_1"><?php echo($this->__("BILLING ADDRESS")); ?></h3>
+<?php if ($this->customerHasAddresses()): ?>
+	<p><?php echo $this->__('Select a billing address from your address book or enter a new address.') ?></p>
+	<ul>	
+		<li>
+			<p><?php echo $this->getAddressesHtmlSelect('billing') ?></p>			
+		</li>
+	</ul>
+<?php endif; ?>
+<fieldset class="group-select" id="billing-new-address-form" <?php if ($this->customerHasAddresses()): ?> style="display:none;"<?php endif; ?>>	
+	<input type="hidden" name="billing[address_id]" value="<?php echo $this->getBillingAddress()->getId() ?>" id="billing:address_id" />
+	<ul>
+		<?php $helper = Mage::helper('onestepcheckout') ?>
+		<?php $fieldValue = $helper->getFieldValue() ?>
+		<?php $checkCountry = 0 ?>
+		<?php $checkRegion = 0 ?>
+		<?php for($i=0;$i<20;$i++): ?>
+			<?php if($helper->getFieldEnable($i)=='country') $checkCountry = 1 ?>
+			<?php if($helper->getFieldEnable($i)=='region') $checkRegion = 1 ?>
+			<?php if(Mage::getSingleton('customer/session')->isLoggedIn() && $helper->getFieldEnable($i)=='email') continue; ?>
+			<?php if(!$helper->getFieldEnable($i)||$helper->getFieldEnable($i)=='0') continue; ?>
+			<?php if(($i%2==0) || (($i%2!=0)&&(!$helper->getFieldEnable($i-1)||$helper->getFieldEnable($i-1)=='0'||(Mage::getSingleton('customer/session')->isLoggedIn() && $helper->getFieldEnable($i-1)=='email')))): ?>
+				<li>
+			<?php endif ?>
+				<?php if((($i%2==0) && ($helper->getFieldEnable($i)&&$helper->getFieldEnable($i)!='0') && (!$helper->getFieldEnable($i+1)||$helper->getFieldEnable($i+1)=='0'||(Mage::getSingleton('customer/session')->isLoggedIn() && $helper->getFieldEnable($i+1)=='email')))
+						|| (($i%2!=0) && ($helper->getFieldEnable($i)&&$helper->getFieldEnable($i)!='0') && (!$helper->getFieldEnable($i-1) || $helper->getFieldEnable($i-1)=='0'||(Mage::getSingleton('customer/session')->isLoggedIn() && $helper->getFieldEnable($i-1)=='email')))): ?>
+					<div class="one-field">
+				<?php else: ?>
+					<div class="two-fields">
+				<?php endif ?>
+				<?php if(!$helper->getFieldEnable($i)||$helper->getFieldEnable($i)=='0') continue; ?>
+						<?php if($helper->getFieldEnable($i)=='street'): ?>
+							<label for="billing:street1"><?php echo $this->__('Address') ?>
+								<?php if($helper->getFieldRequire($helper->getFieldEnable($i))): ?>
+									<span class="required">*</span>
+								<?php endif ?>
+							</label><br />
+							<input style="margin-bottom:10px;" type="text" title="<?php echo $this->__('Street Address') ?>" name="billing[street][]" id="billing:street1" value="<?php echo $this->htmlEscape($this->getBillingAddress()->getStreet(1)) ?>" class="<?php if($helper->getFieldRequire($helper->getFieldEnable($i))) echo 'required-entry'; ?> input-text"/>
+							<?php for ($_i=2, $_n=$this->helper('customer/address')->getStreetLines(); $_i<=$_n; $_i++): ?>
+								<input style="margin-bottom:10px;" type="text" title="<?php echo $this->__('Street Address '.$_i) ?>" name="billing[street][]" id="billing:street<?php echo $_i?>" value="<?php echo $this->htmlEscape($this->getBillingAddress()->getStreet($_i)) ?>" class="input-text" />
+							<?php endfor ?>
+						<?php elseif($helper->getFieldEnable($i)=='country'): ?>
+							<label for="billing:country_id"><?php echo $this->__('Country') ?>
+								<?php if($helper->getFieldRequire($helper->getFieldEnable($i))): ?>
+									<span class="required">*</span>
+								<?php endif ?>
+							</label><br />
+							<?php echo $this->getCountryHtmlSelect('billing') ?>
+							<?php if(!$helper->getFieldRequire($helper->getFieldEnable($i))): ?>	
+								<script type="text/javascript">
+									if($('billing:country_id'))
+										$('billing:country_id').removeClassName('validate-select');
+								</script>
+							<?php endif ?>
+						<?php elseif($helper->getFieldEnable($i)=='region'): ?>
+							<label for="billing:region"><?php echo $this->__('State/Province') ?>
+							<?php if($helper->getFieldRequire($helper->getFieldEnable($i))): ?>
+								<span class="required">*</span>
+							<?php endif ?>
+							</label><br/>
+							<select id="billing:region_id" name="billing[region_id]" title="<?php echo $this->__('State/Province') ?>" class="<?php if($helper->getFieldRequire($helper->getFieldEnable($i))) echo "validate-select"; ?>" style="display:none;width:135px;" >
+								<option value=""><?php echo $this->__('Please select region, state or province') ?></option>
+							</select>
+							<?php if(!$helper->enableGeoip()):?>
+								<script type="text/javascript">
+										$('billing:region_id').setAttribute('defaultValue',  "<?php echo $this->htmlEscape($this->getBillingAddress()->getRegionId()) ?>");
+								</script>
+							<?php endif;?>
+							<input type="text" id="billing:region" name="billing[region]" value="<?php echo $this->htmlEscape($this->getBillingAddress()->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="<?php if($helper->getFieldRequire($helper->getFieldEnable($i))) echo 'required-entry'; ?> input-text" style="display:none" />
+							<?php if(!$helper->getFieldRequire($helper->getFieldEnable($i))): ?>	
+								<script type="text/javascript">
+									if($('billing:region_id'))
+										$('billing:region_id').removeClassName('validate-select');
+								</script>
+							<?php endif ?>
+						<?php elseif($helper->getFieldEnable($i)=='prefix'): ?>
+							<?php $customerNameBlock = Mage::getBlockSingleton('customer/widget_name') ?>
+							<label for="billing:prefix"><?php echo $this->__('Prefix Name') ?>
+								<?php if($helper->getFieldRequire($helper->getFieldEnable($i))): ?>
+									<span class="required">*</span>
+								<?php endif ?>
+							</label><br />
+							<?php if ($customerNameBlock->getPrefixOptions()===false): ?>
+								<input type="text" id="<?php echo $customerNameBlock->getFieldId('prefix')?>" name="billing[<?php echo $customerNameBlock->getFieldName('prefix')?>]" value="" title="<?php echo $this->__('Prefix') ?>" class="input-text <?php if($helper->getFieldRequire($helper->getFieldEnable($i))) echo "required-entry"; ?>" <?php echo $customerNameBlock->getFieldParams() ?> />
+							<?php else: ?>
+								<select id="<?php echo $customerNameBlock->getFieldId('prefix')?>" name="billing[<?php echo $customerNameBlock->getFieldName('prefix')?>]" title="<?php echo $this->__('Prefix') ?>" class="<?php if($helper->getFieldRequire($helper->getFieldEnable($i))) echo "required-entry"; ?>" <?php echo $customerNameBlock->getFieldParams() ?>>
+									<?php foreach ($customerNameBlock->getPrefixOptions() as $_option): ?>
+										<option value="<?php echo $_option?>"><?php echo $this->__($_option)?></option>
+									<?php endforeach ?>
+								</select>
+							<?php endif; ?>
+						<?php elseif($helper->getFieldEnable($i)=='suffix'): ?>
+							<?php $customerNameBlock = Mage::getBlockSingleton('customer/widget_name') ?>
+							<label for="billing:prefix"><?php echo $this->__('Suffix Name') ?>
+								<?php if($helper->getFieldRequire($helper->getFieldEnable($i))): ?>
+									<span class="required">*</span>
+								<?php endif ?>
+							</label><br />
+							<?php if ($customerNameBlock->getSuffixOptions()===false): ?>
+								<input type="text" id="<?php echo $customerNameBlock->getFieldId('suffix')?>" name="billing[<?php echo $customerNameBlock->getFieldName('suffix')?>]" value="" title="<?php echo $this->__('Suffix') ?>" class="input-text <?php if($helper->getFieldRequire($helper->getFieldEnable($i))) echo "required-entry"; ?>" <?php echo $customerNameBlock->getFieldParams() ?> />
+							<?php else: ?>
+								<select id="<?php echo $customerNameBlock->getFieldId('suffix')?>" name="billing[<?php echo $customerNameBlock->getFieldName('suffix')?>]" title="<?php echo $this->__('Suffix') ?>" class="<?php if($helper->getFieldRequire($helper->getFieldEnable($i))) echo "required-entry"; ?>" <?php echo $customerNameBlock->getFieldParams() ?>>
+									<?php foreach ($customerNameBlock->getSuffixOptions() as $_option): ?>
+										<option value="<?php echo $_option?>"><?php echo $this->__($_option)?></option>
+									<?php endforeach ?>
+								</select>
+							<?php endif; ?>
+						<?php elseif($helper->getFieldEnable($i)=='birthday'): ?>
+							<?php $_dob = $this->getLayout()->createBlock('onestepcheckout/widget_dob') ?>
+							<?php echo $_dob->setDate($this->getQuote()->getCustomerDob())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
+						<?php elseif($helper->getFieldEnable($i)=='gender'): ?>
+							<?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
+							<label for="<?php echo $_gender->getFieldId('gender')?>"><?php echo $this->__('Gender') ?>
+								<?php if($helper->getFieldRequire($helper->getFieldEnable($i))): ?>
+									<span class="required">*</span>
+								<?php endif ?>
+							</label><br />
+							<select id="<?php echo $_gender->getFieldId('gender')?>" name="billing[<?php echo $_gender->getFieldName('gender')?>]" title="<?php echo $this->__('Gender') ?>" class="<?php if($helper->getFieldRequire($helper->getFieldEnable($i))) echo "validate-select"; ?>" <?php echo $_gender->getFieldParams() ?>>
+								<?php $options = Mage::getResourceSingleton('customer/customer')->getAttribute('gender')->getSource()->getAllOptions();?>
+								<?php $value = $_gender->getGender();?>
+								<?php foreach ($options as $option):?>
+									<option value="<?php echo $option['value'] ?>"<?php if ($option['value'] == $value) echo ' selected="selected"' ?>><?php echo $option['label'] ?></option>
+								<?php endforeach;?>
+							</select>
+						<?php else: ?>
+							<label for="billing:<?php echo $helper->getFieldEnable($i); ?>"><?php echo $this->__($fieldValue[$helper->getFieldEnable($i)]) ?>
+								<?php if($helper->getFieldRequire($helper->getFieldEnable($i)) || $helper->getFieldEnable($i)=='firstname'||$helper->getFieldEnable($i)=='lastname'|| $helper->getFieldEnable($i)=='email'): ?>
+									<span class="required">*</span>
+								<?php endif ?>
+							</label><br/>
+							<input type="text" id="billing:<?php echo $helper->getFieldEnable($i); ?>" name="billing[<?php echo $helper->getFieldEnable($i); ?>]" value="<?php echo $this->htmlEscape($this->getBillingAddress()->getData($helper->getFieldEnable($i))) ?>" title="<?php echo $this->__($fieldValue[$helper->getFieldEnable($i)]) ?>" class="input-text <?php if($helper->getFieldRequire($helper->getFieldEnable($i))||$helper->getFieldEnable($i)=='firstname'||$helper->getFieldEnable($i)=='lastname'||$helper->getFieldEnable($i)=='email') echo 'required-entry'; ?>" />
+							<?php if($helper->enableGeoip()):?>
+								<?php if(($helper->getFieldEnable($i) == 'postcode') && $helper->allowDetectByPostcode()): ?>
+									<span id="billing_<?php echo $helper->getFieldEnable($i)?>_autocomplete_indicator" class="autocomplete-indicator" style="display:none;">
+										<img class="v-middle" alt="Loading..." src="<?php echo $this->getSkinUrl('images/geoip/indicator.gif')?>">
+									</span>
+									<div id="billing:<?php echo $helper->getFieldEnable($i).'_autocomplete';?>" class="autocomplete" style="display:none; position:absolute; background-color:#FFFFFF; max-height:230px; overflow:auto; border:1px solid #B6B6B6"></div>
+								<?php endif;?>
+								<?php if(($helper->getFieldEnable($i) == 'city') && $helper->allowDetectByCity()): ?>
+									<span id="billing_<?php echo $helper->getFieldEnable($i)?>_autocomplete_indicator" class="autocomplete-indicator" style="display:none;">
+										<img class="v-middle" alt="Loading..." src="<?php echo $this->getSkinUrl('images/geoip/indicator.gif')?>">
+									</span>
+									<div id="billing:<?php echo $helper->getFieldEnable($i).'_autocomplete';?>" class="autocomplete" style="display:none; position:absolute; background-color:#FFFFFF; max-height:230px; overflow:auto; border:1px solid #B6B6B6"></div>
+								<?php endif;?>
+							<?php endif;?>
+							<?php if($helper->getFieldEnable($i)=='email'): ?>
+								<span id="valid_email_address_image" style="display:none;"><img src="<?php echo $this->getSkinUrl('images/onestepcheckout/valid.gif')?>" title="<?php echo $this->__('Valid Email Address');?>" alt="<?php echo $this->__('Valid Email Address');?>" width="18"/></span>				
+								<div id="email-error-message" class="error-message"></div>	
+							<?php endif ?>
+						<?php endif ?>
+					</div>
+			<?php if(($i%2!=0)||(($i%2==0)&&(!$helper->getFieldEnable($i+1)||$helper->getFieldEnable($i+1)=='0'||(Mage::getSingleton('customer/session')->isLoggedIn() && $helper->getFieldEnable($i+1)=='email')))): ?>
+				</li>
+			<?php endif ?>
+		<?php endfor ?>
+		<?php if($checkCountry==0): ?>
+			<div style="display:none;">
+				<?php echo $this->getCountryHtmlSelect('billing') ?>
+			</div>
+		<?php endif ?>
+		<?php if (!$this->isCustomerLoggedIn() && Mage::helper('onestepcheckout')->enableRegistration() && Mage::helper('onestepcheckout')->allowGuestCheckout()):?>
+		<li>
+			<div>
+				<input id="create_account_checkbox_id" type="checkbox" name="create_account_checkbox" value="1" />
+				<label for="create_account_checkbox_id"><?php echo $this->__('Create an account for later use') ?></label>
+			</div>
+		</li>
+		<script type="text/javascript">
+			Event.observe('create_account_checkbox_id', 'click', function() {
+				if ($('create_account_checkbox_id').checked) 
+					$('password_section_id').show();
+				else 
+					$('password_section_id').hide();
+			});
+		</script>
+		<?php endif;?>
+		<?php if (!$this->isCustomerLoggedIn() && (Mage::helper('onestepcheckout')->enableRegistration() || !Mage::helper('onestepcheckout')->allowGuestCheckout())):?>
+		<li id="password_section_id" <?php if (!Mage::helper('onestepcheckout')->allowGuestCheckout()):?>style="display:block"<?php else:?>style="display:none"<?php endif?>>
+			<div class="two-fields">
+				<label for="billing:customer_password"><?php echo $this->__('Password') ?> <span class="required">*</span></label><br/>
+				<input type="password" name="billing[customer_password]" id="billing:customer_password" title="<?php echo $this->__('Password') ?>" class="input-text required-entry validate-password" />
+			</div>
+			<div class="two-fields">
+				<label for="billing:confirm_password"><?php echo $this->__('Confirm Password') ?> <span class="required">*</span></label><br/>
+				<input type="password" name="billing[confirm_password]" title="<?php echo $this->__('Confirm Password') ?>" id="billing:confirm_password" class="input-text required-entry validate-cpassword" />
+			</div>
+		</li>			
+		<?php endif?>		
+		<?php if ($this->isCustomerLoggedIn() && $this->customerHasAddresses()):?>
+		<li class="control">
+			<input type="checkbox" name="billing[save_in_address_book]" value="1" title="<?php echo $this->__('Save in address book') ?>" id="billing:save_in_address_book" onchange="if(window.shipping) shipping.setSameAsBilling(false);"<?php if ($this->getBillingAddress()->getSaveInAddressBook()):?> checked="checked"<?php endif;?> class="checkbox" /><label for="billing:save_in_address_book"><?php echo $this->__('Save in address book') ?></label>
+		</li>
+		<?php else:?>
+		<li class="no-display"><input type="hidden" name="billing[save_in_address_book]" value="1" /></li>
+		<?php endif;?>
+		<li>
+			<input type="hidden" name="billing[use_for_shipping]" id="billing:use_for_shipping" value="1" />
+		</li>
+	</ul>
+</fieldset>
+<script type="text/javascript">var countryRegions = <?php echo $this->helper('directory')->getRegionJson() ?></script>
+<script type="text/javascript">
+//<![CDATA[
+	<?php if($checkRegion == 1): ?>
+		var billingRegionUpdater = new RegionUpdater('billing:country_id', 'billing:region', 'billing:region_id', countryRegions);
+	<?php endif ?>
+	<?php if(!$helper->getFieldRequire('region')): ?>	
+		if($('billing:region_id')){
+			$('billing:region_id').removeClassName('validate-select');
+			$('billing:region_id').removeClassName('required-entry');
+		}
+	<?php endif ?>
+	if ($('billing:email')) {
+		Event.observe('billing:email', 'blur', function() {
+			var url = '<?php echo $this->getUrl('onestepcheckout/index/is_valid_email', array('_secure'=>true))?>';
+			var email_address = $('billing:email').value;
+			var parameters = {email_address: email_address};
+			var request = new Ajax.Request(
+					url,
+					{
+					parameters: parameters,
+					onComplete: check_valid_email.bindAsEventListener(this),
+					onFailure: ''				
+					});
+		});
+	}
+	if ($('billing-address-select')) {
+		Event.observe('billing-address-select', 'change', function() {
+			var isNew = $('billing-address-select').value ? false : true;
+			setNewAddress(isNew, 'billing', save_address_url);
+		});
+	}	
+//]]>
+</script>
+
+<?php if($helper->enableGeoip()):?>	
+	<script type="text/javascript">
+		/*
+			Show list postcode billing
+		*/
+		<?php if($helper->allowDetectByPostcode()):?>
+			new Ajax.Autocompleter(		
+				'billing:postcode',
+				'billing:postcode_autocomplete',		
+				'<?php echo $this->getUrl('onestepcheckout/geoip/checkPostcode')?>',		
+				{
+					paramName:'postcode',
+					minChars:<?php echo $helper->getMinCharsPostcode()?>,
+					indicator: 'billing_postcode_autocomplete_indicator',
+					updateElement:fillFilterBilling,
+					evalJSON:'force'
+				}
+			);
+		<?php endif;?>
+		
+		/*
+			Show list city billing
+		*/
+		<?php if($helper->allowDetectByCity()):?>
+			new Ajax.Autocompleter(		
+				'billing:city',
+				'billing:city_autocomplete',		
+				'<?php echo $this->getUrl('onestepcheckout/geoip/checkCity')?>',		
+				{
+					paramName:'city',
+					minChars:<?php echo $helper->getMinCharsCity()?>,
+					indicator: 'billing_city_autocomplete_indicator',
+					updateElement:fillFilterBilling,
+					evalJSON:'force'
+				}
+			);
+		<?php endif;?>
+		
+		function fillFilterBilling(li) 
+		{		
+			var country = li.getAttribute('country');
+			var region = li.getAttribute('region');
+			var region_id = li.getAttribute('region_id');
+			var city = li.getAttribute('city');
+			var postcode = li.getAttribute('postcode');
+			if(city != '') {		
+				if ($('billing:postcode')) {
+					$('billing:postcode').value = postcode;
+				}
+			}
+			if(country != '') {			
+				if ($('billing:country_id')) {				
+					$('billing:country_id').value = country;					
+				}
+			}
+			if(region != '') {			
+				if ($('billing:region')) {
+					$('billing:region').value = region;
+				}
+			}
+			
+			if(region_id != '') {		
+				if ($('billing:region_id')) {
+					$('billing:region_id').value = region_id;
+				}				
+			}
+			
+			if(city != '') {		
+				if ($('billing:city')) {
+					$('billing:city').value = city;
+				}
+			}
+			
+			updateBillingRegion();
+					
+		} 
+		
+		function updateBillingRegion() {		
+			var countryEl = $('billing:country_id');
+			var regionTextEl = $('billing:region');
+			var regionSelectEl = $('billing:region_id');
+			var regions = <?php echo $this->helper('directory')->getRegionJson() ?>;
+			var config = regions['config'];
+			delete regions.config;
+			var regions = regions;
+			var zipEl = $(zipEl);	
+			disableAction = (typeof disableAction=='undefined') ? 'hide' : disableAction;		
+			
+			updateRegion(countryEl, regionTextEl, regionSelectEl, regions, disableAction, zipEl);		
+		}		
+	</script>
+<?php endif;?>

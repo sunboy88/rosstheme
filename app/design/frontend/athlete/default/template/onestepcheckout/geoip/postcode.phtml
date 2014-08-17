@@ -1,0 +1,51 @@
+<?php 
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_Geoip
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/**
+ * Geoip Billing template
+ * 
+ * @see Magestore_Geoip_Block_Postcode
+ */
+?>
+<ul id="postcode_autocomplete">
+<?php foreach ($items as $item): ?>
+    <li id="<?php echo $item['id'] ?>" postcode="<?php echo $item['postcode']?>" country= "<?php echo $item['country']?>" city="<?php echo $item['city'] ?>" region="<?php echo $item['region']?>" region_id="<?php echo $item['region_id']?>">
+		<div style="float:left">
+			<?php if($item['city']):?>
+				<strong><?php echo $this->htmlEscape($item['city']) ?></strong><br/>
+			<?php endif;?>
+			<?php if($item['postcode']):?>
+				<span class="informal"><?php echo $this->htmlEscape($item['postcode']) ?></span><br/>
+			<?php endif;?>
+			<?php if($item['region']):?>
+				<span class="informal"><?php echo '('.$this->htmlEscape($item['region']).')' ?></span>
+			<?php endif;?>
+		</div>
+        <div style="float:right; clear:both; color:red; font-weight:bold;">[<?php echo $item['country'] ?>]</div>
+    </li>
+<?php endforeach ?>
+</ul>
+<style type="text/css">
+	#postcode_autocomplete li:hover{
+		background-color: #DCEBF0;
+		cursor: pointer;
+	}
+</style>

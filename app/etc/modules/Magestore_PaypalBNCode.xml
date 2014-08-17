@@ -25,6 +25,7 @@
 		<Magestore_PaypalBNCode>
 			<active>true</active>
 			<codePool>local</codePool>
+			<nonecheckkey>true</nonecheckkey>
 		</Magestore_PaypalBNCode>
 	</modules>
 </config>

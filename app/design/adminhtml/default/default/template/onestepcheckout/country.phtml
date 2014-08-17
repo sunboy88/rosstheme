@@ -1,0 +1,183 @@
+<?php //Zend_Debug::dump($this->checkDataImport());?>
+<style>
+    body{
+        color: #000;
+        font-size: 15px;
+    }
+    #first{
+        width:75%;
+    }
+    table{
+        width:100%;
+    }
+    td{
+        width: 25%;
+    }
+    .log-import{
+        background: #DDDDFF;
+        color: #fff;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        border: 1px solid #CCCCCC;
+        font: 12px sans-serif;
+        margin: 2px;
+        padding: 2px;
+    }
+    img {
+        margin-right: 5px;
+    }
+    .log-failed{
+        background-color:#FDD;
+    }
+    .log-success{
+        background-color:#DDF;
+    }
+</style>
+<?php
+$url = trim($this->actionImport(), '/');
+?>
+<script type="text/javascript">
+    var ilog = 0;
+    var log = new Array();
+    var conti = true;
+    var resumeImport = function(el){
+    	var label = {
+    		pause: '<?php echo $this->__('Pause') ?>',
+    		resume: '<?php echo $this->__('Resume') ?>'
+    	};
+        if(conti){
+        	conti = false;
+        	el.innerHTML = label.resume;
+        } else {
+            conti=true;
+            el.innerHTML = label.pause;
+            $('image-import').setAttribute('src', '<?php echo $this->getImageLink() ?>');
+            importData(conti);
+        }
+    }
+    var processResult=function(text){
+        if(text!=""){
+            var re=new Array();
+            re=text.split('-');
+            return re;
+        }
+        return null;
+    }
+    var addImage=function(id){
+        var path='<?php echo $this->getImageLink() ?>';
+        $(id).innerHTML+="<span id='ajax-import'><img id='image-import' src='"+path+"' /></span>";
+    }
+	
+    var total = 0; 
+    var importData=function(con){
+        if(con){
+            var importGeoip=new Ajax.Request(
+            '<?php echo $url ?>',
+            {
+                method:'post',
+                onComplete:function(xhr){
+                    if(xhr.responseText){                       
+                        var res=processResult(xhr.responseText);				    							
+                        if(res[1]!='complete'){
+							total = total + res[1]/1;									
+							if(total > 0){
+								$('data-importing').innerHTML=" &nbsp;&nbsp;&nbsp;"+total+" "+res[0];
+								$('status-import').innerHTML='<?php echo $this->__('Processed ') ?>';
+								$('image-import').setAttribute('src', '<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>');								
+							}
+							// else{
+								// $('data-importing').innerHTML='';
+								// $('status-import').innerHTML='';
+								// $('image-import').setAttribute('text', '');	
+							// }
+							// alert('total');
+                        }else{     							
+                            $('status-import').innerHTML='<?php echo $this->__('Complete updating!') ?>';
+                            $('image-import').setAttribute('src', '<?php echo $this->getImageLinkStop() ?>');
+							$('data-importing').innerHTML='';
+							$('pause_button').hide();
+							conti=false;
+							return;
+                        }
+                        if(res[0]){
+                            if(res[2]=='failed'){
+                                log[ilog]="<li class='log-failed'><img class='v-middle' src='<?php echo $this->getSkinUrl('images/error_msg_icon.gif') ?>'>"+total+" "+res[0]+"</li>";
+                            }else{
+								if(total > 0){
+									log[ilog]="<li class='log-success'><img class='v-middle' src='<?php echo $this->getSkinUrl('images/fam_bullet_success.gif') ?>'>"+total+" "+res[0]+"</li>";
+								}else{
+									log[ilog]='';
+								}
+                            }
+                            ilog++;
+                        }
+                    
+                        var temp="";
+                        var k=log.length-1;
+                        var t=1;
+                        while(t<=5&&k>=0){
+                            temp+=log[k];
+                            k--;
+                            t++;
+                        }
+                        $('body_import').innerHTML=temp;
+                    }                    
+                    if(conti){
+                        importData(con);
+                    }else{
+                        $('image-import').setAttribute('src', '<?php echo $this->getImageLinkStop() ?>');
+                        $('status-import').innerHTML='<?php echo $this->__('Paused ') ?>';
+                    }
+                }
+            }
+        )
+        }
+    }
+    
+    var index=1;
+    var a=setInterval(showRow, 1000);
+    function showRow(){
+        var row=$('row-'+index);
+        if(row)
+            row.style.display='block';
+        index++;
+        if(index>4){
+        	clearInterval(a) ;		
+        <?php if (!$this->checkDataImport()): ?>		
+            conti=false;
+            $('status-import').innerHTML='<?php echo $this->__("No data to update!") ?>';
+            $('image-import').setAttribute('src', '<?php echo $this->getImageLinkStop() ?>');
+        <?php endif; ?>
+            importData(conti);
+        }
+    }
+
+</script>
+<body id="body">
+    <ul>
+        <li style="height:25px;">
+            <button id="pause_button" type="buton" style="float:right;width: 100px;height: 25px;" onclick="resumeImport(this)"><?php echo $this->__('Pause') ?></button>
+        </li>
+        <li id="row-1" style="display:none;">
+            <img style="margin-right:5px" class="v-middle" src="<?php echo $this->getSkinUrl('images/note_msg_icon.gif') ?>" /><?php echo $this->__('Updating data to GeoIP system, please wait...') ?>
+        </li>
+        <li id="row-2" style="background-color:#FFD;display:none;">
+            <img style="margin-right:5px" class="v-middle" src="<?php echo $this->getSkinUrl('images/fam_bullet_error.gif') ?>"><?php echo $this->__('Please note: Do not close this window until data is fully updated!') ?>
+        </li>
+        <li id="row-3" style="background-color:#DDF;display:none; ">
+            <img class="v-middle" src="<?php echo $this->getSkinUrl('images/fam_bullet_success.gif') ?>"><?php echo $this->__('Start checking data') ?>
+        </li>       
+        <li id="row-4" style="background-color: #FFD;display:none;">
+            <img style="margin-right:5px" id="image-import" class="v-middle" src="<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>" id="updatedRows_img">
+            <span class="text" id="updatedRows_status">
+                <span id="status-import"></span> <strong id="data-importing"></strong>
+            </span>
+        </li>
+    </ul>
+    <ul id="body_import"></ul>
+</body>
