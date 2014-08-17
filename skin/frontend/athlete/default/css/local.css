@@ -1735,7 +1735,7 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .products-grid .price-box:after { content: ''; position: absolute; left: 0; top: 0; width: 0; height: 100%; z-index: -1;}
 .products-grid .price-box .price,
 .products-grid .new-product .price-box .price{color: #fff;font: bold 13px 'open sans';line-height: 30px;}
-.products-grid .save-price{float: right;width: 50%;border-radius: 0 5px 5px 0;-moz-border-radius: 0 5px 5px 0;-webkit-border-radius: 0 5px 5px 0;background: #00b6ff;color: #fff;font: bold 13px 'open sans';line-height: 30px;}
+.products-grid .save-price{float: right;width: 50%;border-radius: 0 5px 5px 0;-moz-border-radius: 0 5px 5px 0;-webkit-border-radius: 0 5px 5px 0;background: #00b6ff;color: #fff;font: bold 13px 'open sans';line-height: 30px;text-align: center;}
 
 .products-grid .minimal-price-link { text-decoration: none; background-color: transparent;}
 .products-grid .minimal-price-link .label, .products-grid .minimal-price-link .price {display: inline-block;}
