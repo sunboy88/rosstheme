@@ -1,0 +1,174 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php
+$_productCollection=$this->getLoadedProductCollection();
+
+$_helper = $this->helper('catalog/output');
+$athleteHelper = $this->helper('athlete');
+$athleteImgHelper = $this->helper('athlete/image');
+$imgX = $athleteImgHelper->getListingWidth();
+$imgY = $athleteImgHelper->calculateHeight($imgX);
+$slider_id = uniqid('_athlete_');
+
+$blockTitle = $this->getBlockTitle();
+$blockClass = '';
+$blockTitleSize = $this->getBlockTitleSize();
+if ( $this->getBlockTitleSize() == 'big' ) {
+    $blockClass = 'product-slider-container-big';
+}
+$blockClass .= ' product-columns-' . $this->getProductColumns();
+if ( empty($blockTitle) ) {
+    $blockClass .= ' no-border';
+}
+
+$athleteHelper = $this->helper('athlete');
+
+?>
+
+    <script type="text/javascript">
+        typedisplay	=	'grid';
+        displaytotal	=	<?php echo $this->getProductsCount(); ?>;
+        totalproduct	=	<?php echo $this->_getProductCollection()->getSize(); ?>;
+        totalpager		=	Math.ceil(totalproduct/displaytotal);
+        <?php $currentpage	=	$this->getRequest()->getParam("p"); ?>
+        ocurrentpage	=	<?php if($currentpage>1){echo $currentpage;}else{echo 1;} ?>;
+        currentpage		=   ocurrentpage;
+        currenturl		=	"<?php  echo $this->helper('core/url')->getCurrentUrl(); ?>";
+        if(currenturl.lastIndexOf("p=")>-1){
+            replacepager =	"p="+"<?php echo $currentpage; ?>";
+            currenturl.replace(replacepager,"");
+        }
+        ishomepage  =   true;
+        catid   =   <?php echo $this->getCategoryId(); ?>
+    </script>
+<?php if($_productCollection->count()): ?>
+
+            <?php foreach ($_productCollection as $_product): ?>
+                <?php
+                $deal = Mage::helper('dailydeal')->getDealByProductId($_product->getId());
+                $liClass = '';
+                if ( $this->helper('athlete')->isNew($_product) ) {
+                    $liClass = ' new-product';
+                }
+                if ( $this->helper('athlete')->isOnSale($_product) ) {
+                    $liClass = ' sale-product';
+                }
+                ?>
+                <li class="item <?php echo $liClass ?>">
+                    <div class="item-wrap">
+
+                        <div class="product-img-wrap"> <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                                <?php echo $this->helper('athlete')->getLabel($_product);  ?>
+                                <?php echo $athleteImgHelper->getAdditionalImage($_product, $imgX, $imgY ); ?>
+                                <?php echo '<img class="regular_img" src="'. $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgX,$imgY)
+                                    .'" data-srcX2="'. $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgX*2, $imgY*2)
+                                    .'" width="'.$imgX.'" height="'.$imgY.'" alt="'. $this->stripTags($this->getImageLabel
+                                        ($_product, 'small_image'), null, true) .'" />'; ?>
+
+
+                                <div class="product-hover">
+                                    <?php if( $athleteHelper->getCfg('listing/grid_price') ): ?>
+                                        <?php echo $this->getPriceHtml($_product, true) ?>
+                                        <?php
+                                        $_regular_price = floatval($_product->getPrice());
+                                        $_special_price = floatval($_product->getFinalPrice());
+                                        $_deal_price 	= floatval($deal->getDealPrice());
+                                        if($_deal_price){
+                                            $save = round(100 * ($_regular_price - $_deal_price) / $_regular_price, 0);
+                                        } else {
+                                            $save = round(100 * ($_regular_price - $_special_price) / $_regular_price, 0);
+                                        }
+                                        if((int)$save > 0):
+                                            ?>
+                                            <div class="save-price"><?php echo $this->__('Save')." ".$save."%" ?></div>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                </div>
+                            </a>
+                        </div>
+                        <?php if( $athleteHelper->getCfg('listing/grid_name') ): ?>
+                            <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2><br/>
+                        <?php endif; ?>
+                        <div class="name">
+                            <?php if( $athleteHelper->getCfg('listing/hover_rating') && $_product->getRatingSummary() ): ?>
+                                <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                            <?php endif; ?>
+                        </div>
+                        <div class="product-view-deal">
+                            <?php $now_time=Mage::getModel('core/date')->timestamp(time()); ?>
+                            <?php $end_time = Mage::getModel('core/date')->timestamp($deal->getEndTime()) ?>
+                            <?php if(($end_time > $now_time) && ($deal->getQuantity())):?>
+                                <div id="timeleft" class="timeleft"> </div>
+                                <script type="text/javascript">
+                                    //<![CDATA[
+                                    var dealTimeCounter = new DealTimeCounter('<?php echo $now_time ?>', '<?php echo $end_time ?>','<?php echo $deal->getId() ?>');
+                                    dealTimeCounter.setTimeleft('timeleft');
+                                    //]]>
+                                </script>
+                            <?php endif;?>
+                        </div>
+                        <div class="product-action">
+                            <ul class="add-to-links">
+                                <li><span class='st_sharethis_large' displayText='ShareThis'></span></li>
+                                <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                    <li><a title="<?php echo $this->__('Add to Wishlist') ?>" href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist icon-<?php echo $athleteHelper->getCfg('product_listing/action_btn_icons', 'athlete_appearance'); ?>"><?php echo $this->__('Add to Wishlist') ?></a></li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+                        <?php if( $athleteHelper->getCfg('listing/grid_cart') ): ?>
+                            <?php
+                            $targetArray = array("blue", "green","red");
+                            $targetArrayStandard = $targetArray;
+                            $i = 0;
+
+                            if(empty($targetArray)) {
+                                $targetArray = $targetArrayStandard;
+                            }
+                            $rand = array_rand($targetArray);
+
+                            $class= $targetArray[$rand];
+                            unset($targetArray[$rand]);
+                            ?>
+                            <div class="btn-cart-container clearfix <?php echo $class?>">
+                                <?php if($_product->isSaleable()): ?>
+                                    <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart icon-<?php echo $athleteHelper->getCfg('main/button_icons', 'athlete_appearance'); ?>" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                                <?php else: ?>
+                                    <span class="availability out-of-stock"><?php echo $this->__('Out of stock') ?></span>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </li>
+            <?php endforeach ?>
+<?php endif; ?>
