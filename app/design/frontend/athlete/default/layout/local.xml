@@ -22,7 +22,7 @@
 		<remove name="tags_popular"/>
 		<remove name="right.poll"/>
 		<remove name="paypal.partner.right.logo"/>
-		<remove name="reorder"/>
+		<remove name="reodrer"/>
 		-->
 		<!-- Remove callouts and rarely used stuff -->
 		<remove name="right.poll"/>
@@ -308,7 +308,7 @@
 			</block>
 			<block type="cms/block" name="join_afiliate">
 				<action method="setBlockId"><block_id>join_afiliate</block_id></action>
-			</block>			
+			</block>
 		</reference>
 
 		<reference name="product.info.additional">
@@ -423,7 +423,7 @@
             <action method="setTemplate">
 				<template>page/1column.phtml</template>
 			</action>
-        </reference>       
+        </reference>
     </rss_index_index>
 
 
