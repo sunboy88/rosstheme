@@ -15,7 +15,7 @@ $jq=jQuery.noConflict();
 	var stopscroll		= false;
     var ishomepage      = false;
     var catid           = '';
-
+    var urlajaxhome     = '';
 	var ajaxcatalog	=	function(){
 		function ReplaceAll(Source,stringToFind,stringToReplace){
 		  var temp = Source;
@@ -79,7 +79,7 @@ $jq=jQuery.noConflict();
 					param	=	{ajaxcatalog:1,p:page};
 				}
                 if(ishomepage==true){
-                    url =   catalogBaseurl+'index.php/ajaxcatalog/';
+                    url =   urlajaxhome;
                     param	=	{ajaxcatalog:1,p:page,category:catid,limit:displaytotal};
                 }
 				new Ajax.Request(url,

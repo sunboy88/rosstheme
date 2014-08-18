@@ -70,6 +70,7 @@ $athleteHelper = $this->helper('athlete');
             currenturl.replace(replacepager,"");
         }
         ishomepage  =   true;
+        urlajaxhome =   "<?php echo $this->getUrl('ajaxcatalog'); ?>";
         catid   =   <?php echo $this->getCategoryId(); ?>
     </script>
 <?php endif; ?>

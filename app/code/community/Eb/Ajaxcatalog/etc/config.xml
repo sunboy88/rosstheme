@@ -35,19 +35,7 @@
         </routers>
     </admin>
     <adminhtml>
-		<menu>
-			<ajaxcatalog module="ajaxcatalog">
-				<title>Ajaxcatalog</title>
-				<sort_order>71</sort_order>               
-				<children>
-					<items module="ajaxcatalog">
-						<title>Manage Items</title>
-						<sort_order>0</sort_order>
-						<action>ajaxcatalog/adminhtml_ajaxcatalog</action>
-					</items>
-				</children>
-			</ajaxcatalog>
-		</menu>
+
 		<acl>
 			<resources>
 				<all>
