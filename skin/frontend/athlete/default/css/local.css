@@ -133,6 +133,7 @@ p.control input.radio { margin-right:6px; }
 .header-container {background:#000;}
 .header { margin:0 auto; padding:0px; border:none; }
 .logo-container {background:#ffe51e; min-height:107px;}
+.header .logo-container{background: #78C513;}
 .logo-container-indent {padding:30px;}
 .header-info-container {position:relative; padding:0 }
 
