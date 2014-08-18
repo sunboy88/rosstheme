@@ -321,11 +321,16 @@
 				<action method="addTab" translate="title" module="review" ><alias>reviews_tabbed</alias><title>Reviews</title><block>athlete/product_view_reviews</block><template>review/product_info_review.phtml</template></action>
 				<action ifconfig="athlete/product_info/tab_tags" method="addTab" translate="title" module="tag" ><alias>tags_tabbed</alias><title>Tags</title><block>tag/product_list</block><template>tag/list.phtml</template></action>
 
-				<action method="addTab" translate="title"><alias>tags_invite</alias><title>Invite friends</title>
+				<action ifconfig="athlete/product_info/tab_qa" method="addTab" translate="title" module="productquestions" ><alias>tags_question</alias><title>Q&amp;A</title>
+					<block>productquestions/form</block><template>productquestions/form_product.phtml</template>
+				</action>
+
+				<action ifconfig="athlete/product_info/tab_bulkprices" method="addTab" translate="title"><alias>tags_bulkprices</alias><title>Bulk Prices</title>
 					<block>referralreward/invite</block><template>belvg\referralreward\account\invite-content-block.phtml</template>
 				</action>
-				<action method="addTab" translate="title" module="productquestions" ><alias>tags_question</alias><title>Q&amp;A</title>
-					<block>productquestions/form</block><template>productquestions/form_product.phtml</template>
+
+				<action ifconfig="athlete/product_info/tab_refertoearn" method="addTab" translate="title"><alias>tags_invite</alias><title>Refer To Earn</title>
+					<block>referralreward/invite</block><template>belvg\referralreward\account\invite-content-block.phtml</template>
 				</action>
 
 				<block type="cms/block" name="athlete_custom_tab1" as="athlete_custom_tab1">
