@@ -303,7 +303,7 @@
 			</block>
 			<block type="catalog/product_list_related" name="content.product.related" as="content_related" template="catalog/product/list/related_content.phtml">
 				<action method="setProductColumns">
-					<product_columns>5</product_columns>
+					<product_columns>4</product_columns>
 				</action>
 			</block>
 			<block type="cms/block" name="join_afiliate">
