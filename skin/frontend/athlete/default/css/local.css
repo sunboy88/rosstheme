@@ -374,7 +374,7 @@ p.control input.radio { margin-right:6px; }
 
 .header-nav-wide{-webkit-box-shadow: 0 2px 6px rgba(94,95,95,.32); -moz-box-shadow: 0 2px 6px rgba(94,95,95,.32); box-shadow: 0 2px 6px rgba(94,95,95,.32);background: #2b2b2b;}
 .header-nav-wide #nav {margin: 23px auto 0;padding: 0;max-width: 960px;}
-.header-nav-wide #nav > li > a{font-size: 12px;}
+.header-nav-wide #nav > li > a{font-size: 12px;letter-spacing: 0;}
 
 .header-nav-txt.std { padding: 24px 54px 22px 24px;}
 .header-nav-txt.std, .header-nav-txt.std a {color: #fff;}

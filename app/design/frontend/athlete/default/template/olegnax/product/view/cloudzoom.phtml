@@ -44,9 +44,15 @@ $config = $athleteHelper->getCfg('cloudzoom');
 $config['position'] =  empty($config['position']) ? 'right' : $config['position'];
 $config['lens_opacity'] = intval($config['lens_opacity']) / 100;
 $config['tint_opacity'] = intval($config['tint_opacity']) / 100;
+$youtube = "";
+if($_product->getResource()->getAttribute('youtube_video')){
 
 $youtube = $_product->getResource()->getAttribute('youtube_video')->getFrontend()->getValue($_product);
-$vimeo = $_product->getResource()->getAttribute('vimeo_video')->getFrontend()->getValue($_product);
+}
+$vimeo = "";
+if($_product->getResource()->getAttribute('vimeo_video')){
+	$vimeo = $_product->getResource()->getAttribute('vimeo_video')->getFrontend()->getValue($_product);
+}
 ?>
 
 <?php if (count($this->getGalleryImages()) > 0): ?>
