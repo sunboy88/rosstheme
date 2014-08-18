@@ -2193,6 +2193,8 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .product-tabs-container h2.tab-heading {display:none}
 .product-tabs { margin:50px 0 0; border:0; }
 .product-tabs li { float:left; height:34px; line-height:34px; position:relative;border: 1px solid #b0b0b0;border-bottom: none;margin-right: 7px;z-index: 1;}
+.product-tabs-container .product-tabs li#product_tabs_tags_bulkprices a{background: #89cd32;}
+.product-tabs-container .product-tabs li#product_tabs_tags_invite a{background: #f29a00;}
 .product-tabs-container .product-tabs li.active{border-bottom: none;z-index: 3;}
 .product-tabs-container .product-tabs a {
 	display:block; height: 34px; padding:0px 15px;
