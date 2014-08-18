@@ -326,11 +326,11 @@
 				</action>
 
 				<action ifconfig="athlete/product_info/tab_bulkprices" method="addTab" translate="title"><alias>tags_bulkprices</alias><title>Bulk Prices</title>
-					<block>referralreward/invite</block><template>belvg\referralreward\account\invite-content-block.phtml</template>
+					<block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template>
 				</action>
 
 				<action ifconfig="athlete/product_info/tab_refertoearn" method="addTab" translate="title"><alias>tags_invite</alias><title>Refer To Earn</title>
-					<block>referralreward/invite</block><template>belvg\referralreward\account\invite-content-block.phtml</template>
+					<block>referralreward/invite</block><template>belvg/referralreward/account/invite-content-block.phtml</template>
 				</action>
 
 				<block type="cms/block" name="athlete_custom_tab1" as="athlete_custom_tab1">
