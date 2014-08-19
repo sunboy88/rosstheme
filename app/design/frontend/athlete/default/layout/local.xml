@@ -328,10 +328,26 @@
 				<action ifconfig="athlete/product_info/tab_bulkprices" method="addTab" translate="title"><alias>tags_bulkprices</alias><title>Bulk Prices</title>
 					<block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template>
 				</action>
+				
+				<block type="core/template" name="guest_invite" as="guest_invite" template="belvg/referralreward/guest.phtml"/>
 
-				<action ifconfig="athlete/product_info/tab_refertoearn" method="addTab" translate="title"><alias>tags_invite</alias><title>Refer To Earn</title>
-					<block>referralreward/invite</block><template>belvg/referralreward/account/invite-content-block.phtml</template>
-				</action>
+				<block type="referralreward/invite" name="invite-friends">
+	                <action method="setTemplate" ifconfig="referralreward/settings/enabled"><template>belvg/referralreward/account/invite-content-block.phtml</template></action>
+	                <block type="referralreward/account_group" name="referral-account-group" as="referral-account-group" template="belvg/referralreward/account/invite-content-block/group.phtml"/>
+	                <block type="referralreward/invite" name="send-invites" as="send-invites" template="belvg/referralreward/account/invite-content-block/send-invites.phtml">
+	                    <block type="referralreward/invite" name="addressbook" as="addressbook" template="belvg/referralreward/account/invite-content-block/send-invites/addressbook.phtml"/>
+	                    <block type="referralreward/invite" name="accepted-invitations" as="accepted-invitations" template="belvg/referralreward/account/invite-content-block/send-invites/accepted-invitations.phtml"/>
+	                    <block type="referralreward/invite" name="share-links" as="share-links" template="belvg/referralreward/account/invite-content-block/send-invites/share.phtml"/>
+	                    <block type="referralreward/invite" name="facebook-friends" as="facebook-friends" template="belvg/referralreward/account/invite-content-block/send-invites/facebook-friends.phtml"/>
+	                    <block type="referralreward/invite" name="referral-link-renameform" as="referral-link-renameform" template="belvg/referralreward/account/invite-content-block/send-invites/rename-form.phtml"/>
+	                </block>
+	                <block type="referralreward/fetch" name="fetch-addressbook" as="fetch-addressbook" template="belvg/referralreward/account/invite-content-block/fetch-addressbook.phtml">
+	                    <block type="core/template" name="emails-add" as="emails-add" template="belvg/referralreward/account/invite-content-block/fetch-addressbook/emails-add.phtml"/>
+	                    <block type="core/template" name="facebook-login" as="facebook-login" template="belvg/referralreward/account/invite-content-block/fetch-addressbook/facebook-login.phtml" />
+	                    <block type="referralreward/fetch" name="emails-take-out" as="emails-take-out" template="belvg/referralreward/account/invite-content-block/fetch-addressbook/emails-take-out.phtml" />
+	                </block>
+	                <block type="referralreward/facebook" name="facebook-script-block" as="fb-block" template="belvg/referralreward/account/invite-content-block/fb-block.phtml"/>
+	            </block>
 
 				<block type="cms/block" name="athlete_custom_tab1" as="athlete_custom_tab1">
 					<action method="setBlockId"><block_id>athlete_custom_tab1</block_id></action>

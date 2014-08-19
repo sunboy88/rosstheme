@@ -46,22 +46,34 @@ if($tab = $this->getChildHtml('athlete_custom_tab2')) {
 		'title' => $custom_tab->getTitle(),
 	);
 }
-
+if(($tab = $this->getChildHtml('invite-friends')) && (Mage::getStoreConfig('athlete/product_info/tab_refertoearn'))) {	
+	if(Mage::getSingleton("customer/session")->isLoggedIn()){
+		$tabs[] = array(
+			'alias' => 'invite-friends',
+			'title' => $this->__('Refer To Earn'),
+		);
+	} else {
+		$tabs[] = array(
+			'alias' => 'guest_invite',
+			'title' => $this->__('Refer To Earn'),
+		);
+	}
+}
 ?>
 <div class="product-tabs-container clearfix">
 
 	<ul class="product-tabs clearfix">
 	    <?php foreach ($tabs as $_index => $_tab): ?>
-	        <?php //if($this->getChildHtml($_tab['alias'])): ?>
+	        <?php if($this->getChildHtml($_tab['alias'])): ?>
 	            <li id="product_tabs_<?php echo $_tab['alias'] ?>" class="<?php echo !$_index?' first':(($_index==count($this->getTabs())-1)?' last':'')?>"><a href="#"><?php echo $_tab['title']?></a></li>
-	        <?php //endif; ?>
+	        <?php endif; ?>
 	    <?php endforeach; ?>
 	</ul>
 	<?php foreach ($tabs as $_index => $_tab): ?>
-	    <?php //if($this->getChildHtml($_tab['alias'])): ?>
+	    <?php if($this->getChildHtml($_tab['alias'])): ?>
 			<h2 id="product_acc_<?php echo $_tab['alias'] ?>" class="tab-heading"><a href="#"><?php echo $_tab['title']?></a></h2>
 			<div class="product-tabs-content tabs-content <?php echo ($_tab['alias'] == 'additional_tabbed' || $_tab['alias'] == 'tags_tabbed' ? '' : 'std'); ?>" id="product_tabs_<?php echo $_tab['alias'] ?>_contents"><?php echo $this->getChildHtml($_tab['alias']) ?></div>
-	    <?php //endif; ?>
+	    <?php endif; ?>
 	<?php endforeach; ?>
 
 </div>
