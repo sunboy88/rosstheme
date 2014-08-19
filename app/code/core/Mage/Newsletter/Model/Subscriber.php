@@ -252,6 +252,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      */
     public function loadByEmail($subscriberEmail)
     {
+
         $this->addData($this->getResource()->loadByEmail($subscriberEmail));
         return $this;
     }

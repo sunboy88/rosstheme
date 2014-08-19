@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Ebluestore_Newsletter>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.0</version>
+        <depends>
+            <Mage_Newsletter />
+        </depends>
+    </Ebluestore_Newsletter>
+  </modules>
+</config>
