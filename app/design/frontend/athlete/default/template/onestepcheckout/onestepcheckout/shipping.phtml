@@ -1,0 +1,376 @@
+<?php $helper = Mage::helper('onestepcheckout'); ?>
+
+<?php if ($this->isShowShippingAddress()): ?>
+    <div id="showhide_shipping" class="shipping_address" style="display:none;">
+        <h3 id="shipping_step_header" class="step_2"><?php echo($this->__("Shipping Address")); ?></h3>
+        <?php if ($this->customerHasAddresses()): ?>
+            <p class="label"><?php echo $this->__('Select a shipping address from your address book or enter a new address.') ?></p>
+            <ul><li><?php echo $this->getAddressesHtmlSelect('shipping') ?></li></ul>
+        <?php endif ?>
+        <fieldset class="group-select" id="shipping-new-address-form" <?php if ($this->customerHasAddresses()): ?>style="display:none"<?php endif ?>>
+            <input type="hidden" name="shipping[address_id]" value="<?php echo $this->getShippingAddress()->getId() ?>" id="shipping:address_id" />
+            <ul>				
+                <?php $fieldValue = $helper->getFieldValue() ?>
+                <?php $checkCountry = 0 ?>
+                <?php $checkRegion = 0 ?>
+				<?php $row = 0; ?>
+                <?php $fieldsshipping = $helper->getFieldEnables(); ?>
+                <?php for ($i = 0; $i < 20; $i++): ?>
+                    <?php if ($fieldsshipping[$i]['value'] == 'country') $checkCountry = 1 ?>
+                    <?php if ($fieldsshipping[$i]['value'] == 'region') $checkRegion = 1 ?>
+                    <?php
+                    if (!$fieldsshipping[$i]['value'] || $fieldsshipping[$i]['value'] == '0' || $fieldsshipping[$i]['value'] == 'email' ||
+                            $fieldsshipping[$i]['value'] == 'birthday' || $fieldsshipping[$i]['value'] == 'gender' || $fieldsshipping[$i]['value'] == 'taxvat')
+                        continue;
+                    ?>
+                    <?php if (($i % 2 == 0) || (($i % 2 != 0) && (!$fieldsshipping[$i - 1]['value'] || $fieldsshipping[$i - 1]['value'] == '0' || $fieldsshipping[$i - 1]['value'] == 'email' || $fieldsshipping[$i - 1]['value'] == 'birthday' || $fieldsshipping[$i - 1]['value'] == 'gender' || $fieldsshipping[$i - 1]['value'] == 'taxvat'))):
+                        ?>
+                        <li>
+                        <?php endif ?>
+                        <?php
+                        if ((($i % 2 == 0) && ($fieldsshipping[$i]['value'] && $fieldsshipping[$i]['value'] != '0') && (!$fieldsshipping[$i + 1]['value'] || $fieldsshipping[$i + 1]['value'] == '0' || $fieldsshipping[$i + 1]['value'] == 'email' || $fieldsshipping[$i + 1]['value'] == 'birthday' || $fieldsshipping[$i + 1]['value'] == 'gender' || $fieldsshipping[$i + 1]['value'] == 'taxvat')) || (($i % 2 != 0) && ($fieldsshipping[$i]['value'] && $fieldsshipping[$i]['value'] != '0') && (!$fieldsshipping[$i - 1]['value'] || $fieldsshipping[$i - 1]['value'] == '0' || $fieldsshipping[$i - 1]['value'] == 'email' || $fieldsshipping[$i - 1]['value'] == 'birthday' || $fieldsshipping[$i - 1]['value'] == 'gender' || $fieldsshipping[$i - 1]['value'] == 'taxvat'))):
+                            ?>
+                            <div class="one-field">
+                                <?php else: ?>
+                                <div class="two-fields <?php if($row%2!=0) echo 'last' ?>">
+								<?php $row++;?>
+                                <?php endif ?>
+                                <?php if (!$fieldsshipping[$i]['value'] || $fieldsshipping[$i]['value'] == '0') continue; ?>
+                                    <?php if ($fieldsshipping[$i]['value'] == 'street'): ?>
+                                    <label   <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])): ?>class="required" <?php endif ?>  for="shipping:street1"><?php echo $this->__('Address') ?>
+                                        <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])): ?>
+                                            <em>*</em>
+                                          <?php endif ?>              
+                                    </label><br />
+                                    <input  type="text" title="<?php echo $this->__('Street Address') ?>" name="shipping[street][]" id="shipping:street1" value="<?php echo $this->htmlEscape($this->getShippingAddress()->getStreet(1)) ?>" class="<?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])) echo 'required-entry'; ?> input-text"/>
+                                    <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
+                                        <input style="margin-top:10px;"  type="text" title="<?php echo $this->__('Street Address ' . $_i) ?>" name="shipping[street][]" id="shipping:street<?php echo $_i ?>" value="<?php echo $this->htmlEscape($this->getShippingAddress()->getStreet($_i)) ?>" class="input-text" />
+                                    <?php endfor ?>
+                                    <?php elseif ($fieldsshipping[$i]['value'] == 'country'): ?>
+                                    <label  <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])): ?>class="required"<?php endif ?>  for="shipping:country_id"><?php echo $this->__('Country') ?>
+                                        <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])): ?>
+                                            <em>*</em>
+                                    <?php endif ?>
+                                    </label><br />
+                                    <?php echo $this->getCountryHtmlSelect('shipping') ?>
+            <?php if (!$helper->getFieldRequire($fieldsshipping[$i]['value'])): ?>	
+                                        <script type="text/javascript">
+                                                    if ($('shipping:country_id'))
+                                                    $('shipping:country_id').removeClassName('validate-select');</script>
+                                    <?php endif ?>
+                                    <?php elseif ($fieldsshipping[$i]['value'] == 'region'): ?>
+                                    <label <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])): ?>class="required" <?php endif ?>  for="shipping:region"><?php echo $this->__('State/Province') ?>
+                                        <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])): ?>
+                                            <em>*</em>
+            <?php endif ?>
+                                    </label><br/>
+                                    <select id="shipping:region_id" name="shipping[region_id]" title="<?php echo $this->__('State/Province') ?>" class="<?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])) echo "validate-select"; ?>" style="display:none;width:135px;" >
+                                        <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
+                                    </select>
+                                        <?php if (!$helper->enableGeoip()): ?>
+                                        <script type="text/javascript">
+                                                                    $('shipping:region_id').setAttribute('defaultValue', "<?php echo $this->htmlEscape($this->getShippingAddress()->getRegionId()) ?>");</script>
+                                    <?php endif; ?>
+                                    <input type="text" id="shipping:region" name="shipping[region]" value="<?php echo $this->htmlEscape($this->getShippingAddress()->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="<?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])) echo 'required-entry'; ?> input-text" style="display:none" />
+                                <?php elseif ($fieldsshipping[$i]['value'] == 'prefix'): ?>
+                                        <?php $customerNameBlock = Mage::getBlockSingleton('customer/widget_name') ?>
+                                    <label <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])): ?>class="required"<?php endif ?>  for="shipping:prefix"><?php echo $this->__('Prefix Name') ?>
+                                        <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])): ?>
+                                            <em>*</em>
+                                    <?php endif ?>
+                                    </label><br />
+                                    <?php if ($customerNameBlock->getPrefixOptions() === false): ?>
+                                        <input type="text" id="<?php echo $customerNameBlock->getFieldId('prefix') ?>" name="shipping[<?php echo $customerNameBlock->getFieldName('prefix') ?>]" value="" title="<?php echo $this->__('Prefix') ?>" class="input-text <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])) echo "required-entry"; ?>" <?php echo $customerNameBlock->getFieldParams() ?> />
+                                        <?php else: ?>
+                                        <select id="<?php echo $customerNameBlock->getFieldId('prefix') ?>" name="shipping[<?php echo $customerNameBlock->getFieldName('prefix') ?>]" title="<?php echo $this->__('Prefix') ?>" class="<?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])) echo "required-entry"; ?>" <?php echo $customerNameBlock->getFieldParams() ?>>
+                                            <?php foreach ($customerNameBlock->getPrefixOptions() as $_option): ?>
+                                                <option value="<?php echo $_option ?>"><?php echo $this->__($_option) ?></option>
+                                        <?php endforeach ?>
+                                        </select>
+                                    <?php endif; ?>
+                                <?php elseif ($fieldsshipping[$i]['value'] == 'suffix'): ?>
+                                        <?php $customerNameBlock = Mage::getBlockSingleton('customer/widget_name') ?>
+                                    <label <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])): ?>class="required"<?php endif ?>  for="shipping:prefix"><?php echo $this->__('Suffix Name') ?>
+                                        <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])): ?>
+                                            <em>*</em>
+                                    <?php endif ?>
+                                    </label><br />
+                                    <?php if ($customerNameBlock->getSuffixOptions() === false): ?>
+                                        <input type="text" id="<?php echo $customerNameBlock->getFieldId('suffix') ?>" name="shipping[<?php echo $customerNameBlock->getFieldName('suffix') ?>]" value="" title="<?php echo $this->__('Suffix') ?>" class="input-text <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])) echo "required-entry"; ?>" <?php echo $customerNameBlock->getFieldParams() ?> />
+                                        <?php else: ?>
+                                        <select id="<?php echo $customerNameBlock->getFieldId('suffix') ?>" name="shipping[<?php echo $customerNameBlock->getFieldName('suffix') ?>]" title="<?php echo $this->__('Suffix') ?>" class="<?php if ($helper->getFieldRequire($fieldsshipping[$i]['value'])) echo "required-entry"; ?>" <?php echo $customerNameBlock->getFieldParams() ?>>
+                                            <?php foreach ($customerNameBlock->getSuffixOptions() as $_option): ?>
+                                                <option value="<?php echo $_option ?>"><?php echo $this->__($_option) ?></option>
+                                        <?php endforeach ?>
+                                        </select>
+                                    <?php endif; ?>
+                                    <?php else: ?>
+                                    <label  <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value']) || $fieldsshipping[$i]['value'] == 'firstname' || $fieldsshipping[$i]['value'] == 'lastname'): ?>class="required" <?php endif ?>  for="shipping:<?php echo $fieldsshipping[$i]['value']; ?>"><?php echo $this->__($fieldValue[$fieldsshipping[$i]['value']]) ?>
+                                        <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value']) || $fieldsshipping[$i]['value'] == 'firstname' || $fieldsshipping[$i]['value'] == 'lastname'): ?>
+                                            <em>*</em>
+            <?php endif ?>
+                                    </label><br/>
+                                    <input type="text" id="shipping:<?php echo $fieldsshipping[$i]['value']; ?>" name="shipping[<?php echo $fieldsshipping[$i]['value']; ?>]" value="<?php echo $this->htmlEscape($this->getShippingAddress()->getData($fieldsshipping[$i]['value'])) ?>" title="<?php echo $this->__($fieldValue[$fieldsshipping[$i]['value']]) ?>" class="input-text <?php if ($helper->getFieldRequire($fieldsshipping[$i]['value']) || $fieldsshipping[$i]['value'] == 'firstname' || $fieldsshipping[$i]['value'] == 'lastname') echo 'required-entry'; ?>" />
+                                    <?php if ($helper->enableGeoip()): ?>
+                <?php if (($fieldsshipping[$i]['value'] == 'postcode') && $helper->allowDetectByPostcode()): ?>
+                                            <span id="shipping_<?php echo $fieldsshipping[$i]['value'] ?>_autocomplete_indicator" class="autocomplete-indicator" style="display:none;">
+                                                <img class="v-middle" alt="Loading..." src="<?php echo $this->getSkinUrl('images/geoip/indicator.gif') ?>">
+                                            </span>
+                                            <div id="shipping:<?php echo $fieldsshipping[$i]['value'] . '_autocomplete'; ?>" class="autocomplete" style="display:none; position:absolute; background-color:#FFFFFF; max-height:230px; overflow:auto; border:1px solid #B6B6B6"></div>
+                                        <?php endif; ?>
+                <?php if (($fieldsshipping[$i]['value'] == 'city') && $helper->allowDetectByCity()): ?>
+                                            <span id="shipping_<?php echo $fieldsshipping[$i]['value'] ?>_autocomplete_indicator" class="autocomplete-indicator" style="display:none;">
+                                                <img class="v-middle" alt="Loading..." src="<?php echo $this->getSkinUrl('images/geoip/indicator.gif') ?>">
+                                            </span>
+                                            <div id="shipping:<?php echo $fieldsshipping[$i]['value'] . '_autocomplete'; ?>" class="autocomplete" style="display:none; position:absolute; background-color:#FFFFFF; max-height:230px; overflow:auto; border:1px solid #B6B6B6"></div>
+                                        <?php endif; ?>									
+                                    <?php endif; ?>	
+                            <?php endif ?>
+                            </div>
+                            <?php if (($i % 2 != 0) || (($i % 2 == 0) && (!$fieldsshipping[$i + 1]['value'] || $fieldsshipping[$i + 1]['value'] == '0' || $fieldsshipping[$i + 1]['value'] == 'email') || $fieldsshipping[$i + 1]['value'] == 'birthday' || $fieldsshipping[$i + 1]['value'] == 'gender' || $fieldsshipping[$i + 1]['value'] == 'taxvat')):
+                                ?>
+                        </li>
+                    <?php endif ?>
+                <?php endfor ?>
+                    <?php if ($checkCountry == 0): ?>
+                    <div style="display:none;">
+                    <?php echo $this->getCountryHtmlSelect('shipping') ?>
+                    </div>
+                <?php endif ?>
+                    <?php if ($this->isCustomerLoggedIn() && $this->customerHasAddresses()): ?>
+                    <li class="control"><input type="checkbox" class="checkbox" name="shipping[save_in_address_book]" value="1" title="<?php echo $this->__('Save in address book') ?>" id="shipping:save_in_address_book" <?php if ($this->getShippingAddress()->getSaveInAddressBook()): ?> checked="checked"<?php endif; ?> /> <label for="shipping:save_in_address_book"><?php echo $this->__('Save in address book') ?></label></li>
+                <?php else: ?>
+                    <li><input type="hidden" name="shipping[save_in_address_book]" value="1" /></li>
+    <?php endif; ?>
+            </ul>
+        </fieldset> 
+    </div>
+<?php endif; ?>
+<script type="text/javascript">
+//<![CDATA[	
+<?php if ($this->isShowShippingAddress()): ?>
+    <?php if ($checkRegion == 1): ?>
+            var shippingRegionUpdater = new RegionUpdater('shipping:country_id', 'shipping:region', 'shipping:region_id', countryRegions, undefined, 'shipping:postcode');
+    <?php endif; ?>
+    <?php if (!$helper->getFieldRequire('region')): ?>
+            if ($('shipping:region_id')){
+            $('shipping:region_id').removeClassName('validate-select');
+                    $('shipping:region_id').removeClassName('required-entry');
+            }
+    <?php endif ?>
+        function check_show_shipping(){
+            <?php if ($this->isVirtual() || Mage::helper('onestepcheckout')->isHideShippingMethod()): ?>
+                    return false;
+            <?php else: ?>
+                    return true;
+            <?php endif; ?>
+        }
+        function check_show_delivery(){
+            <?php if (!Mage::helper('onestepcheckout')->enabledDelivery()): ?>
+                    return false;
+            <?php else: ?>
+                    return true;
+            <?php endif; ?>
+        }
+        function showDifferentAdress() {
+        if ($('shipping:different_shipping').checked) {
+            $('billing:use_for_shipping').value = '0';
+                    $('showhide_shipping').style.display = 'block';
+                    if (check_show_shipping() && !check_show_delivery()){
+            change_class_name($('shipping_method_step_header'), 2, 3);
+                    change_class_name($('payment_method_step_header'), 3, 4);
+            }
+            if (!check_show_shipping() && check_show_delivery()){
+                change_class_name($('time_of_delivery_header'), 2, 3);
+                    change_class_name($('payment_method_step_header'), 3, 4);
+            }
+            if (!check_show_shipping() && !check_show_delivery()){
+                change_class_name($('payment_method_step_header'), 2, 3);
+            }
+
+            if (check_show_shipping() && check_show_delivery()){
+                    change_class_name($('shipping_method_step_header'), 2, 3);
+                    change_class_name($('time_of_delivery_header'), 3, 4);
+                    change_class_name($('payment_method_step_header'), 4, 5);
+            }
+        } else{
+            $('billing:use_for_shipping').value = '1';
+                                            $('showhide_shipping').style.display = 'none';
+            if (check_show_shipping() && !check_show_delivery()){
+            change_class_name($('shipping_method_step_header'), 3, 2);
+                    change_class_name($('payment_method_step_header'), 4, 3);
+            }
+            if (!check_show_shipping() && check_show_delivery()){
+            change_class_name($('time_of_delivery_header'), 3, 2);
+                    change_class_name($('payment_method_step_header'), 4, 3);
+            }
+            if (!check_show_shipping() && !check_show_delivery()){
+            change_class_name($('payment_method_step_header'), 3, 2);
+            }
+
+            if (check_show_shipping() && check_show_delivery()){
+                     change_class_name($('shipping_method_step_header'), 3, 2);
+                    change_class_name($('time_of_delivery_header'), 4, 3);
+                    change_class_name($('payment_method_step_header'), 5, 4);
+            }
+        }
+        //<!-- if show different shipping address, save billing & shipping address when customer check the checkbox-->
+    <?php $storeId = Mage::app()->getStore()->getStoreId() ?>
+    <?php if (Mage::getStoreConfig('onestepcheckout/ajax_update/enable_ajax', $storeId)): ?>
+            save_address_information(save_address_url, update_address_shipping, update_address_payment, update_address_review);
+    <?php endif; ?>
+        }
+
+        if ($('shipping-address-select')) {
+        Event.observe('shipping-address-select', 'change', function() {
+        var isNew = $('shipping-address-select').value ? false : true;
+                setNewAddress(isNew, 'shipping', save_address_url, update_address_shipping, update_address_payment, update_address_review);
+        });
+        }
+<?php endif; ?>
+//]]>
+</script>
+
+<?php if ($helper->enableGeoip()): ?>
+    <script type="text/javascript">
+        /*
+         Show list postcode shipping
+         */
+    <?php if ($helper->allowDetectByPostcode()): ?>
+            new Ajax.Autocompleter(
+                    'shipping:postcode',
+                    'shipping:postcode_autocomplete',
+                    '<?php echo $this->getUrl('onestepcheckout/geoip/checkPostcode') ?>',
+            {
+            paramName:'postcode',
+                    minChars:<?php echo $helper->getMinCharsPostcode() ?>,
+                    indicator: 'shipping_postcode_autocomplete_indicator',
+                    updateElement:fillFilterShipping,
+                    evalJSON:'force'
+            }
+            );
+    <?php endif; ?>
+        /*
+         Show list city shipping
+         */
+    <?php if ($helper->allowDetectByCity()): ?>
+            new Ajax.Autocompleter(
+                    'shipping:city',
+                    'shipping:city_autocomplete',
+                    '<?php echo $this->getUrl('onestepcheckout/geoip/checkCity') ?>',
+            {
+            paramName:'city',
+                    minChars:<?php echo $helper->getMinCharsCity() ?>,
+                    indicator: 'shipping_city_autocomplete_indicator',
+                    updateElement:fillFilterShipping,
+                    evalJSON:'force'
+            }
+            );
+    <?php endif; ?>
+
+        function fillFilterShipping(li)
+        {
+        var country = li.getAttribute('country');
+                var region = li.getAttribute('region');
+                var region_id = li.getAttribute('region_id');
+                var city = li.getAttribute('city');
+                var postcode = li.getAttribute('postcode');
+                if (city != '') {
+        if ($('shipping:postcode')) {
+        $('shipping:postcode').value = postcode;
+        }
+        }
+        if (country != '') {
+        if ($('shipping:country_id')) {
+        $('shipping:country_id').value = country;
+        }
+        }
+        if (region != '') {
+        if ($('shipping:region')) {
+        $('shipping:region').value = region;
+        }
+        }
+
+        if (region_id != '') {
+        if ($('shipping:region_id')) {
+        $('shipping:region_id').value = region_id;
+        }
+        }
+
+        if (city != '') {
+        if ($('shipping:city')) {
+        $('shipping:city').value = city;
+        }
+        }
+
+        updateShippingRegion();
+        }
+
+        function updateShippingRegion() {
+        var countryEl = $('shipping:country_id');
+                var regionTextEl = $('shipping:region');
+                var regionSelectEl = $('shipping:region_id');
+                var regions = <?php echo $this->helper('directory')->getRegionJson() ?>;
+                var config = regions['config'];
+                delete regions.config;
+                var regions = regions;
+                var zipEl = $(zipEl);
+                disableAction = (typeof disableAction == 'undefined') ? 'hide' : disableAction;
+                updateRegion(countryEl, regionTextEl, regionSelectEl, regions, disableAction, zipEl);
+        }
+    </script>
+<?php endif; ?>
+<?php if (Mage::getStoreConfig('onestepcheckout/general/suggest_address', Mage::app()->getStore()->getStoreId())): ?>
+    <script type="text/javascript">
+        var autocompleteShipping;
+                var componentShippingForm = {
+                street_number: 'short_name',
+                        route: 'long_name',
+                        locality: 'long_name',
+                        administrative_area_level_1: 'long_name',
+                        country: 'short_name',
+                        postal_code: 'short_name',
+                        sublocality: 'long_name'
+                };
+                autocompleteShipping = new google.maps.places.Autocomplete(
+                        (document.getElementById('shipping:street1')),
+                {types: ['geocode']});
+                google.maps.event.addListener(autocompleteShipping, 'place_changed', function() {
+                fillShippingAddress();
+                });
+                function fillShippingAddress() {
+                var place = autocompleteShipping.getPlace();
+                        var street, city, region_id, region, country, postal_code, sublocality;
+                        for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                        if (componentShippingForm[addressType]) {
+                if (addressType == 'street_number'){
+                if (street)
+                        street += ' ' + place.address_components[i][componentBillingForm['street_number']];
+                        else
+                        street = place.address_components[i][componentBillingForm['street_number']];
+                }
+                if (addressType == 'route'){
+                if (street)
+                        street += ' ' + place.address_components[i][componentBillingForm['route']];
+                        else
+                        street = place.address_components[i][componentBillingForm['route']];
+                }
+                if (addressType == 'locality')
+                        city = place.address_components[i][componentShippingForm['locality']];
+                        if (addressType == 'administrative_area_level_1') {
+                region_id = place.address_components[i]['short_name'];
+                        region = place.address_components[i]['long_name'];
+                }
+                if (addressType == 'country')
+                        country = place.address_components[i][componentShippingForm['country']];
+                        if (addressType == 'postal_code')
+                        postal_code = place.address_components[i][componentShippingForm['postal_code']];
+                        if (addressType == 'sublocality')
+                        sublocality = place.address_components[i][componentBillingForm['sublocality']];
+                }
+                }
+                fillAddress('shipping', street, city, region_id, region, country, postal_code, sublocality)
+                }
+    </script>
+<?php endif; ?>

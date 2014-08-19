@@ -1,0 +1,74 @@
+<?php
+	$user_guide = Mage::helper('onestepcheckout')->__('
+	GeoIP is used to auto detect country of Purchaser by their IP address. Follow these steps to update GeoIP:<br/>
+		1. Click "Upload new GeoIP Database version" and upload the file we provide. Please note that a version was already uploaded when you first install the extension.<br/>
+		2. Come back to this page, in the section below, "Latest version available" will display the version you just upload.<br/>
+		3. Click "Update to Latest version" and the system will update database for you. 
+								');
+?>
+<?php $geoip = $this->getGeoip();?>
+<div class="entry-edit">
+	<div class="entry-edit-head">
+		<h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('onestepcheckout')->__('Instructions')?></h4>
+		<div class="form-buttons"></div>
+	</div>
+	<div id="import_form" class="fieldset ">
+		<div class="hor-scroll">
+			<?php echo $user_guide?>
+		</div>
+	</div>
+</div>
+<div class="entry-edit">
+	<div class="entry-edit-head">
+		<h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('onestepcheckout')->__('Database information')?></h4>
+		<div class="form-buttons"></div>
+	</div>
+	<div id="import_form" class="fieldset ">
+		<div class="hor-scroll">
+			<table cellspacing="0" class="form-list">
+					<tbody>
+						<tr>
+							<td class="label"><label for="csv_geoip"><strong><?php echo Mage::helper('onestepcheckout')->__('Records Updated')?>:</strong><span class="required"></span></label></td>
+							<td class="value">
+								<?php echo $geoip->getCurrentRecords();?>          
+							</td>
+						</tr>
+						<tr>
+							<td class="label"><label for="csv_geoip"><strong><?php echo Mage::helper('onestepcheckout')->__('Records Total')?>:</strong><span class="required"></span></label></td>
+							<td class="value">
+								<?php echo $geoip->getTotalRecords();?>          
+							</td>
+						</tr>
+						<tr>
+							<td class="label"><label for="csv_geoip"><strong><?php echo Mage::helper('onestepcheckout')->__('You are using version')?>:</strong><span class="required"></span></label></td>
+							<td class="value">
+								<?php echo $geoip->getCurrentVersion();?>         
+							</td>
+						</tr>
+						<tr>
+							<td class="label"><label for="csv_geoip"><strong><?php echo Mage::helper('onestepcheckout')->__('Latest version available')?>:</strong><span class="required"></span></label></td>
+							<td class="value">
+								<?php echo $geoip->getLastVersion();?>            
+							</td>
+						</tr>
+						<tr>
+							<td class="label"><label for="csv_geoip"><strong><?php echo Mage::helper('onestepcheckout')->__('Status')?>:</strong><span class="required"></span></label></td>
+							<td class="value">								      
+							<span class="<?php if($geoip->getStatus()) echo 'grid-severity-notice'; else echo 'grid-severity-major'?>">
+								<span><?php echo Mage::getModel('onestepcheckout/countrylist')->getStatusLabel($geoip->getStatus());?>   </span>
+							</span>
+							</td>
+						</tr>	
+						<br/>
+						<tr>
+							<td class="label"><label for="csv_geoip"><span class="required"></span></label></td>
+							<td class="value">
+								<button onclick="importGeoIp('<?php echo $this->linkUpdateGeoip()?>')" type="button"><?php echo Mage::helper('onestepcheckout')->__('Update to latest version')?></button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+	</div>
+</div>
+	

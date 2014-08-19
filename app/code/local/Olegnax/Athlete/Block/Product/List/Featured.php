@@ -66,7 +66,12 @@ class Olegnax_Athlete_Block_Product_List_Featured extends Mage_Catalog_Block_Pro
 			if ($isRandom)
 				$collection->getSelect()->order('rand()');
 			$productsCount = $this->getProductsCount();
-			$collection->setPage(1, $productsCount)->load();
+            $p  =   $this->getRequest()->getParam('p');
+            if(isset($p)){
+			    $collection->setPage($p, $productsCount)->load();
+            }else{
+                $collection->setPage(1, $productsCount)->load();
+            }
 			$this->_productCollection = $collection;
 		}
 		return $this->_productCollection;

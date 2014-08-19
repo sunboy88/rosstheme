@@ -7,7 +7,7 @@
 .olegnaxmegamenu #nav div.megamenu-dropdown > ul { position:static; width:auto; border:none; padding: 0; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;}
 
 .olegnaxmegamenu #nav li.wide > div.megamenu-dropdown { position:absolute; left:0; display: none;
-	top:auto; margin-top:6px; padding: 33px 23px 0; z-index:997; width: inherit}
+	top:auto; padding: 33px 23px 0; z-index:997; width: inherit}
 .olegnaxmegamenu #nav li.wide ul.level0 { margin:-9px 0 24px -3px; position:static !important; width:auto; padding:0; -webkit-box-shadow:none; -moz-box-shadow:none; box-shadow:none;}
 .olegnaxmegamenu #nav li.wide ul.level0 > li { float:none; width: 16.6666%; display:inline-block; vertical-align:top; margin:0 0 2px;}
 

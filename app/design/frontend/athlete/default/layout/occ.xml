@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+   
+	<catalog_product_view>	
+		<reference name="head">            
+			<action method="addJs"><script>occ/occ.js</script></action>    
+			<action method="addCss"><script>css/occ.css</script></action>     
+            <action method="addItem"><type>skin_css</type><name>css/occ-enterprise.css</name><params/><if/><condition>is_enterprise</condition></action>
+			<block type="core/template" name="occ.ie.fix" template="occ/html/ie-fix.phtml" /> 
+		</reference>	
+		<reference name="product.info">			
+			<block type="occ/occ" name="occ" template="occ/occ_address.phtml" />
+		</reference>	
+		<reference name="content">
+			<block type="occ/occ" name="occ.popup" template="occ/occ.phtml" />	
+		</reference>	
+	</catalog_product_view>	
+	
+	<groupdeals_product_view>	
+		<reference name="head">            
+			<action method="addJs"><script>occ/occ.js</script></action>    
+			<action method="addCss"><script>css/occ.css</script></action>    
+            <action method="addItem"><type>skin_css</type><name>css/occ-enterprise.css</name><params/><if/><condition>is_enterprise</condition></action>
+			<block type="core/template" name="occ.ie.fix" template="occ/html/ie-fix.phtml" /> 
+		</reference>	
+		<reference name="groupdeals.product.info">			
+			<block type="occ/occ" name="occ" template="occ/occ_address.phtml" />
+		</reference>	
+		<reference name="content">
+			<block type="occ/occ" name="occ.popup" template="occ/occ.phtml" />	
+		</reference>	
+	</groupdeals_product_view>		
+	
+	<!-- login popup block -->
+    <occ_index_login translate="label">
+        <block type="core/template" name="root" output="toHtml" template="occ/customer/account/login.phtml"/>
+    </occ_index_login>
+
+	<!-- address popup block -->
+    <occ_index_address translate="label">
+        <block type="customer/address_edit" name="root" output="toHtml" template="occ/customer/address/edit.phtml"/>
+    </occ_index_address>
+
+	<!-- layout messages block -->
+    <occ_index_messages translate="label">
+        <block type="occ/occ" name="root" output="toHtml" template="occ/messages.phtml"/>
+    </occ_index_messages>
+
+    <!-- aheadworks points and rewards - messages -->
+    <occ_index_awmessages>
+        <block type="points/checkout_cart_points" name="root" template="aw_points/checkout/cart/points.phtml">
+            <block type="core/template" name="infopage.link" template="aw_points/infopagelink.phtml"/>
+        </block>
+    </occ_index_awmessages>
+
+    <occ_index_shippingmethod>
+        <block type="checkout/onepage_shipping_method" name="root" output="toHtml" template="occ/shipping_method.phtml">                    
+			<block type="checkout/onepage_shipping_method_available" name="checkout.onepage.shipping_method.available" as="available" template="checkout/onepage/shipping_method/available.phtml"/> 
+			<block type="checkout/onepage_shipping_method_additional" name="checkout.onepage.shipping_method.additional" as="additional" template="checkout/onepage/shipping_method/additional.phtml"/>
+		</block>
+    </occ_index_shippingmethod> 
+    
+    <!-- available shipping methods block -->
+    <occ_index_available>
+		<block type="checkout/onepage_shipping_method_available" name="root" output="toHtml" template="checkout/onepage/shipping_method/available.phtml" />   
+	</occ_index_available> 
+    
+    <occ_index_payment>
+        <block type="checkout/onepage_payment" name="root" output="toHtml" template="occ/payment.phtml">
+			<block type="occ/occ_payment_methods" name="checkout.payment.methods" as="methods" template="checkout/onepage/payment/methods.phtml">
+				<action method="setMethodFormTemplate"><method>purchaseorder</method><template>payment/form/purchaseorder.phtml</template></action>
+			</block>
+		</block>
+    </occ_index_payment>
+    
+    <!-- aheadworks points and rewards - payment methods -->
+    <occ_index_awpayment>
+        <block type="checkout/onepage_payment" name="root" output="toHtml" template="occ/payment.phtml">
+			<block type="occ/occ_payment_awmethods" name="checkout.payment.methods" as="methods" template="checkout/onepage/payment/methods.phtml">
+				<action method="setMethodFormTemplate"><method>purchaseorder</method><template>payment/form/purchaseorder.phtml</template></action>
+			</block>
+		</block>
+    </occ_index_awpayment>
+  
+	<occ_index_review translate="label">
+		<block type="checkout/onepage_review" name="root" output="toHtml" template="occ/review.phtml">
+        	<block type="checkout/onepage_review_info" name="checkout.onepage.info" as="info" template="checkout/onepage/review/info.phtml">
+        	    <action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>occ/review/item.phtml</template></action>
+        	    <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>occ/review/item.phtml</template></action>
+        	    <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>occ/review/item.phtml</template></action>
+        	    <block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="checkout/onepage/review/totals.phtml"/>
+        	    <block type="core/text_list" name="checkout.onepage.review.info.items.before" as="items_before" translate="label">
+        	        <label>Items Before</label>
+        	    </block>
+        	    <block type="core/text_list" name="checkout.onepage.review.info.items.after" as="items_after" translate="label">
+        	        <label>Items After</label>
+        	    </block>
+        	</block>
+        	<block type="checkout/agreements" name="checkout.onepage.agreements" as="agreements" template="checkout/onepage/agreements.phtml"/>	
+        </block>
+    </occ_index_review>
+  
+	<occ_index_info translate="label">
+        <block type="checkout/onepage_review_info" name="root" output="toHtml" template="checkout/onepage/review/info.phtml">
+            <action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>occ/review/item.phtml</template></action>
+            <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>occ/review/item.phtml</template></action>
+            <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>occ/review/item.phtml</template></action>
+            <block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="checkout/onepage/review/totals.phtml"/>
+            <block type="core/text_list" name="checkout.onepage.review.info.items.before" as="items_before" translate="label">
+                <label>Items Before</label>
+            </block>
+            <block type="core/text_list" name="checkout.onepage.review.info.items.after" as="items_after" translate="label">
+                <label>Items After</label>
+            </block>
+        </block>
+    </occ_index_info>
+    
+    <occ_index_success translate="label">
+        <block type="checkout/onepage_success" name="root" output="toHtml" template="checkout/success.phtml"/>
+    </occ_index_success>
+    
+    <occ_index_failure translate="label">
+        <block type="checkout/onepage_failure" name="root" output="toHtml" template="checkout/onepage/failure.phtml"/>
+    </occ_index_failure>
+    
+    <!-- cart sidebar block -->
+    <occ_index_awpointscart translate="label">
+        <block type="checkout/cart_sidebar" name="root" output="toHtml" template="aw_points/checkout/cart/sidebar.phtml">
+            <block type="points/checkout_cart_points" name="checkout.cart.sidebar.points"
+                   template="aw_points/checkout/cart/sidebar/points.phtml">
+                <block type="core/template" name="infopage.link" template="aw_points/infopagelink.phtml"/>
+            </block>
+        </block>
+    </occ_index_awpointscart>
+       
+    <!-- shopping cart page -->
+    <checkout_cart_index>
+		<reference name="head">            
+			<action method="addJs"><script>occ/occ.js</script></action>    
+			<action method="addCss"><script>css/occ.css</script></action>   
+            <action method="addItem"><type>skin_css</type><name>css/occ-enterprise.css</name><params/><if/><condition>is_enterprise</condition></action>
+			<block type="core/template" name="occ.ie.fix" template="occ/html/ie-fix.phtml" /> 
+		</reference>	
+		<reference name="checkout.cart.methods">
+			<block type="occ/occ" name="occ" template="occ/occ_address.phtml" />
+		</reference>
+		<reference name="content">
+			<block type="occ/occ" name="occ.popup" template="occ/occ.phtml" />	
+		</reference>
+	</checkout_cart_index>	
+	
+	<!-- cart page -->
+    <occ_index_cart_page translate="label">
+		<!-- <update handle="checkout_cart_index" /> -->
+        <block type="checkout/cart" name="root" output="toHtml">
+			<action method="setCartTemplate"><value>checkout/cart.phtml</value></action>
+			<action method="setEmptyTemplate"><value>checkout/cart/noItems.phtml</value></action>
+			<action method="chooseTemplate"/>
+			<action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/item/default.phtml</template></action>
+			<action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/item/default.phtml</template></action>
+			<action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/item/default.phtml</template></action>
+
+			<block type="core/text_list" name="checkout.cart.top_methods" as="top_methods" translate="label">
+				<label>Payment Methods Before Checkout Button</label>
+				<block type="checkout/onepage_link" name="checkout.cart.methods.onepage" template="checkout/onepage/link.phtml"/>
+			</block>
+
+			<block type="page/html_wrapper" name="checkout.cart.form.before" as="form_before" translate="label">
+				<label>Shopping Cart Form Before</label>
+			</block>
+
+			<block type="core/text_list" name="checkout.cart.methods" as="methods" translate="label">
+				<label>Payment Methods After Checkout Button</label>
+				<block type="checkout/onepage_link" name="checkout.cart.methods.onepage" template="checkout/onepage/link.phtml"/>
+				<block type="checkout/multishipping_link" name="checkout.cart.methods.multishipping" template="checkout/multishipping/link.phtml"/>
+			</block>
+
+			<block type="checkout/cart_coupon" name="checkout.cart.coupon" as="coupon" template="checkout/cart/coupon.phtml"/>
+			<block type="checkout/cart_shipping" name="checkout.cart.shipping" as="shipping" template="checkout/cart/shipping.phtml"/>
+			<!-- <block type="checkout/cart_crosssell" name="checkout.cart.crosssell" as="crosssell" template="checkout/cart/crosssell.phtml"/> -->
+
+			<block type="checkout/cart_totals" name="checkout.cart.totals" as="totals" template="checkout/cart/totals.phtml"/>
+		</block>
+    </occ_index_cart_page>		
+	
+</layout> 

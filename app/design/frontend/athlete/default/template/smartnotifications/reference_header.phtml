@@ -1,0 +1,65 @@
+<?php 
+/*
+  * Velan Info Services India Pvt Ltd.
+  *
+  * NOTICE OF LICENSE
+  *
+  * This source file is subject to the EULA
+  * that is bundled with this package in the file LICENSE.txt.
+  * It is also available through the world-wide-web at this URL:
+  * http://store.velanapps.com/License.txt
+  *
+  /***************************************
+  *         MAGENTO EDITION USAGE NOTICE *
+  * *************************************** */
+  /* This package designed for Magento COMMUNITY edition
+  * Velan Info Services does not guarantee correct work of this extension
+  * on any other Magento edition except Magento COMMUNITY edition.
+  * Velan Info Services does not provide extension support in case of
+  * incorrect edition usage.
+  /***************************************
+  *         DISCLAIMER   *
+  * *************************************** */
+  /* Do not edit or add to this file if you wish to upgrade Magento to newer
+  * versions in the future.
+  * ****************************************************
+  * @category   velanapps
+  * @package    Smartnotifications
+  * @author     Velan Team
+  * @copyright  Copyright (c) 2013 Velan Info Services India Pvt Ltd. (http://www.velanapps.com)
+  * @license    http://store.velanapps.com/License.txt
+*/
+
+
+	//Loading Smartnotifications Helper-Data
+	$helperData = Mage::helper('smartnotifications/data');
+
+	// Get the Status of the reference header in helperData
+	$referenceHeaderStatus = $helperData->referenceHeaderStatus();
+
+	// Check whether reference header enabled
+	if($referenceHeaderStatus == 1 )
+	{
+		// Get the script content  
+		$smartNotificationsScript = $helperData->referenceHeaderScript();
+		
+		// Get the stylesheet content
+		$smartNotificationsStyle = $helperData->referenceHeaderStyle();
+?>
+		<!-- Style tag declaration -->
+		<style type="text/css" >
+			<?php echo $smartNotificationsStyle; ?>
+		</style>
+		
+		<!-- Script tag declaration -->
+		<script type="text/javascript">	
+			<?php echo $smartNotificationsScript;	?>	
+		</script>
+		
+	<?php
+	}
+?>
+<script type="text/javascript">	
+	// jQuery noConflict
+	var j = jQuery.noConflict();
+</script>			

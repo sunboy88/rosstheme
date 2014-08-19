@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Eb_Ajaxcatalog>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Eb_Ajaxcatalog>
+    </modules>
+</config> 

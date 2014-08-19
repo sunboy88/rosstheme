@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <catalog_category_default>
+        <reference name="head">
+            <block type="sagbutton/button" name="sagbutton">
+                <action method="setTemplate" ifconfig="sag_settings/cp/show_on_list"><template>sagbutton/cphead.phtml</template></action>
+                <action method="setConfigNode" ifconfig="sag_settings/cp/show_on_list"><node>cp</node></action>
+            </block>
+        </reference>
+    </catalog_category_default>
+
+    <catalog_category_layered>
+        <reference name="head">
+            <block type="sagbutton/button" name="sagbutton">
+                <action method="setTemplate" ifconfig="sag_settings/cp/show_on_list"><template>sagbutton/cphead.phtml</template></action>
+                <action method="setConfigNode" ifconfig="sag_settings/cp/show_on_list"><node>cp</node></action>
+            </block>
+        </reference>
+    </catalog_category_layered>
+
+    <catalog_product_view>
+        <reference name="head">
+            <block type="sagbutton/button" name="sagbutton" template="sagbutton/pphead.phtml" />
+        </reference>
+    </catalog_product_view>
+</layout>

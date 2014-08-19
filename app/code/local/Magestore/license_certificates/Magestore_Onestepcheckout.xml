@@ -1,0 +1,9 @@
+<config>
+   <Magestore_Onestepcheckout>
+      <name>One Step Checkout</name>
+      <type>commercial</type>
+      <activation_date>Aug 14, 2014</activation_date>
+      <expiration_date/>
+      <order_number>100039199</order_number>
+   </Magestore_Onestepcheckout>
+</config>

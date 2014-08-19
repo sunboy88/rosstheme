@@ -1,0 +1,172 @@
+@media (max-width:1199px){
+	#one-step-checkout-form label{float:none;display:inline;}
+	#one-step-checkout-form li.control label{margin-left:2px;}
+	#one-step-checkout-form .address-information ul li.create_account label,#one-step-checkout-form .order-review-info .onestepcheckout-terms-conditions label{float:none;}
+	#one-step-checkout-form input.radio,.address-information ul li.create_account input,
+	#one-step-checkout-form input.checkbox,#one-step-checkout-form .order-review-info .onestepcheckout-newsletter input,#one-step-checkout-form .order-review-info .onestepcheckout-giftwrap input,#one-step-checkout-form .order-review-info .onestepcheckout-terms-conditions input,.address-information ul li.shipping_other_address input,#one-step-checkout-form .order-review-info .onestepcheckout-terms-conditions input,#one-step-checkout-form li.control input.checkbox
+	{margin:-2px  4px 0 0;float:none;}
+}
+@media (max-width: 979px){
+	.one-step-checkout h3 {
+		text-indent: 70px;
+		/* padding: 9px 1px; */
+		font-size: 13px;
+		/* background-size: 50px auto !important; */
+	}
+	.ajax-loader1,.ajax-loader2 ,.ajax-loader3 {	
+		/* margin: 13px 0 0 12px !important; */
+		top: 0;
+		background-size: 27px;
+		right: 0;
+	}	
+	#password_section_id .two-fields{width:100%;margin-bottom: 10px;}
+}
+@media (max-width: 850px){
+	
+	.one-step-checkout h3 {
+		text-indent: 50px;
+		padding: 9px 1px;
+		font-size: 13px;
+		background-size: 50px auto !important;
+	}
+	.ajax-loader1,.ajax-loader2 ,.ajax-loader3 {	
+		margin: 13px 0 0 12px !important;
+		top: 0;
+		background-size: 25px;
+		right: 0;
+	}
+	button#add_coupon_code_button{margin-right:5px;margin-bottom:5px;}
+	 #remove_coupon_code_button{}
+	#one-step-checkout-form label{font-size:12px;float:none;}
+	/* #one-step-checkout-form .checkout-review-load .data-table td.qty-box{padding:6px 15px !important;}
+	#one-step-checkout-form .checkout-review-load .data-table td.qty-box .box-qty{}
+	#one-step-checkout-form .checkout-review-load .data-table td .qty{margin-left:-3px;} */
+	#one-step-checkout-form .checkout-review-load .data-table td.qty-box .box-qty{width:25px;margin:0 auto;}
+	#one-step-checkout-form .checkout-review-load .data-table td.qty-box a{
+		float:left;
+		width:100%;
+		margin:3px 0;
+		text-align:center;
+	}
+	.order-review-section .payment-method .onestepcheckout-payment-methods .sp-methods .form-list .v-fix{width:50%;float:left;margin-right: 0;}
+	.order-review-section .payment-method .v-fix .validation-advice{width:100%;}
+	#one-step-checkout-form .address-information ul li.create_account label,#one-step-checkout-form .order-review-info .onestepcheckout-terms-conditions label{float:none;}
+	#one-step-checkout-form input.radio,.address-information ul li.create_account input,
+	#one-step-checkout-form input.checkbox,#one-step-checkout-form .order-review-info .onestepcheckout-newsletter input,#one-step-checkout-form .order-review-info .onestepcheckout-giftwrap input,#one-step-checkout-form .order-review-info .onestepcheckout-terms-conditions input,.address-information ul li.shipping_other_address input,#one-step-checkout-form .order-review-info .onestepcheckout-terms-conditions input,#one-step-checkout-form li.control input.checkbox
+	{margin:0px  4px 0 0;float:none;}
+	
+}
+@media (max-width: 719px){
+	.one-step-checkout h3 {
+		text-indent: 45px;
+		font-size: 11px;
+	}
+	.ajax-loader1,.ajax-loader2 ,.ajax-loader3 {	
+		background-size: 20px;
+		right: -10px;
+	}
+	#onestepcheckout-toc-popup{width:90% !important;}
+	#onestepcheckout-toc-popup .onestepcheckout-popup-wrapper2{width:100% !important;}	
+        #onestepcheckout-toc-popup h1 {
+		font-size: 12px;
+		float: left;
+		text-indent: 0;
+		padding-left: 10%;
+		width: 85%;
+		padding-right: 5%;
+	}
+}
+@media (max-width: 718px) and (min-width:640px){
+	.two-fields{width:100%;}
+	
+}
+@media (max-width: 639px){
+	.one-step-checkout .address-info-3-columns{width:100%;margin:0;}
+	.one-step-checkout .onestepcheckout-shipping-payment-review{width:100%;}
+	.one-step-checkout .order-info-3-columns{width:100%;}
+	.order-review-section{width:100%;}
+	.order-review-info .onestepcheckout-discount{width:96%;}
+	.onestepcheckout-comment{width:96%;}
+	.onestepcheckout-survey{width:92%;}
+	.one-step-checkout h3 {
+		text-indent: 85px;
+		font-size: 13px;
+		padding: 15px 1px;
+		background-size:  auto  !important;
+	}
+	.onestepcheckout-survey-freetext{width:92%;box-sizing:content-box;}
+	button#add_coupon_code_button{margin-bottom:0px;}
+	.ajax-loader1,.ajax-loader2 ,.ajax-loader3 {	
+		background-size: 35px;
+		right: 10px;
+		margin: 18px 0 0 16px !important
+	}
+	#one-step-checkout-form .checkout-review-load .data-table tbody th{font-weight:bold;}
+	#one-step-checkout-form label,#one-step-checkout-form .address-information ul li.create_account labe{font-size:13px;}	
+	#onestepcheckout-toc-popup h1 {
+		padding-left: 15%;
+		width: 75%;
+		padding-right: 10%; 
+	}	
+}
+@media only screen and (max-width: 639px) and (orientation : landscape){
+	.address-information ul li.create_account input,#one-step-checkout-form .order-review-info .onestepcheckout-newsletter input{margin-top:1px;}
+}
+@media (max-width:560px){
+	#onestepcheckout-login-popup{
+		min-width:320px;
+		margin:0 0 0 -45% !important;
+		width:90%;
+		left:50% !important;
+	}
+	#onestepcheckout-toc-popup{width:95% !important;position:absolute;}
+	#onestepcheckout-toc-popup h1{
+		padding-left: 22%;
+		width: 70%;
+		padding-right: 8%;
+	 }
+	 
+}
+@media (max-width:440px){
+	.onestepcheckout-popup-wrapper #onestepcheckout-login-popup-contents-forgot h1{
+		font-size: 12px;
+		text-indent: 75px;
+	}
+	.onestepcheckout-place{width:100% !important;max-width: 100%;}
+	#onestepcheckout-toc-popup{width:100% !important;}
+	#onestepcheckout-forgot-table li.last p {
+		float: left;
+		margin-top: 15px;
+		margin-bottom: 10px;
+		width: 100%;
+	}
+	#onestepcheckout-login-popup #onestepcheckout-forgot-button {
+		float: left;
+	}
+}
+@media (max-width:380px){
+	#onestepcheckout-login-popup{
+		min-width:320px;
+		margin:0 0 0 -160px !important;
+		width:320px;
+		left:50% !important;
+	}
+}
+/* for Iphone Landscape */
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape){
+	/* .iphone .one-step-checkout h3{font-size:10px;padding: 13px 1px;}
+	.iphone #one-step-checkout-form label{float:left !important;}
+	.iphone #one-step-checkout-form .order-information ol li .onestepcheckout-shipping-method-section .sp-methods dt{float:left;width:100%;margin:5px 0;font-size:11px;}
+	.iphone #one-step-checkout-form input.radio,.address-information ul li.create_account input,
+	.iphone #one-step-checkout-form input.checkbox,#one-step-checkout-form .order-review-info .onestepcheckout-newsletter input,.iphone #one-step-checkout-form .order-review-info .onestepcheckout-giftwrap input,.iphone #one-step-checkout-form .order-review-info .onestepcheckout-terms-conditions input,.iphone .address-information ul li.shipping_other_address input,.iphone #one-step-checkout-form .order-review-info .onestepcheckout-terms-conditions input{float:left !important;}
+	.iphone p.forgot-link a{font-size:12px;}
+	.iphone .one-field .validation-advice{font-size:6.5px;}
+	.iphone #payment_form_ccsave .input-box  .validation-advice{font-size:6.5px;}
+	.iphone #payment_form_ccsave .input-box  .v-fix .validation-advice{font-size:11px;}
+	.iphone .order-review-info .onestepcheckout-terms-conditions .validation-advice{font-size:6.5px;}
+	.iphone #password_section_id  .validation-advice{font-size:6.5px;}
+        */
+}
+
+
+

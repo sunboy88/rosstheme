@@ -22,7 +22,7 @@
 		<remove name="tags_popular"/>
 		<remove name="right.poll"/>
 		<remove name="paypal.partner.right.logo"/>
-		<remove name="reorder"/>
+		<remove name="reodrer"/>
 		-->
 		<!-- Remove callouts and rarely used stuff -->
 		<remove name="right.poll"/>
@@ -303,9 +303,12 @@
 			</block>
 			<block type="catalog/product_list_related" name="content.product.related" as="content_related" template="catalog/product/list/related_content.phtml">
 				<action method="setProductColumns">
-					<product_columns>5</product_columns>
+					<product_columns>4</product_columns>
 				</action>
-			</block>			
+			</block>
+			<block type="cms/block" name="join_afiliate">
+				<action method="setBlockId"><block_id>join_afiliate</block_id></action>
+			</block>
 		</reference>
 
 		<reference name="product.info.additional">
@@ -313,9 +316,22 @@
 			<block type="catalog/product_view_tabs" name="product.info.tabs" as="info_tabs">
 				<action method="setTemplate" ><template>catalog/product/view/tabs.phtml</template></action>
 				<action ifconfig="athlete/product_info/tab_description" method="addTab" translate="title" module="catalog" ><alias>description_tabbed</alias><title>Description</title><block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template></action>
+				<action method="addTab" translate="title" module="catalog" ><alias>specifications_tabbed</alias><title>Specifications</title><block>catalog/product_view_description</block><template>catalog/product/view/specifications.phtml</template></action>
 				<action ifconfig="athlete/product_info/tab_additional" method="addTab" translate="title" module="catalog" ><alias>additional_tabbed</alias><title>Additional</title><block>catalog/product_view_attributes</block><template>catalog/product/view/attributes.phtml</template></action>
 				<action method="addTab" translate="title" module="review" ><alias>reviews_tabbed</alias><title>Reviews</title><block>athlete/product_view_reviews</block><template>review/product_info_review.phtml</template></action>
 				<action ifconfig="athlete/product_info/tab_tags" method="addTab" translate="title" module="tag" ><alias>tags_tabbed</alias><title>Tags</title><block>tag/product_list</block><template>tag/list.phtml</template></action>
+
+				<action ifconfig="athlete/product_info/tab_qa" method="addTab" translate="title" module="productquestions" ><alias>tags_question</alias><title>Q&amp;A</title>
+					<block>productquestions/form</block><template>productquestions/form_product.phtml</template>
+				</action>
+
+				<action ifconfig="athlete/product_info/tab_bulkprices" method="addTab" translate="title"><alias>tags_bulkprices</alias><title>Bulk Prices</title>
+					<block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template>
+				</action>
+
+				<action ifconfig="athlete/product_info/tab_refertoearn" method="addTab" translate="title"><alias>tags_invite</alias><title>Refer To Earn</title>
+					<block>referralreward/invite</block><template>belvg/referralreward/account/invite-content-block.phtml</template>
+				</action>
 
 				<block type="cms/block" name="athlete_custom_tab1" as="athlete_custom_tab1">
 					<action method="setBlockId"><block_id>athlete_custom_tab1</block_id></action>
@@ -412,7 +428,7 @@
             <action method="setTemplate">
 				<template>page/1column.phtml</template>
 			</action>
-        </reference>       
+        </reference>
     </rss_index_index>
 
 

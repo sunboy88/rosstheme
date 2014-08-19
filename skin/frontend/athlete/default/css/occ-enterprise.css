@@ -1,0 +1,28 @@
+/*customer info*/
+.occ-customer-info { padding: 8px; margin: 0 10px 0 0; }
+.occ-customer-info #occ-customer-login { font-size:12px; }
+.occ-customer-info #occ-customer-address label { font-size:12px; }
+.product-options-bottom .occ-customer-info { width:295px; }
+.occ-customer-info .buttons-set button.button { float:none; }
+.occ-customer-info .buttons-set button.button span { height:24px; padding: 0 0 0 10px; }
+.occ-customer-info .buttons-set button.button span span { height:24px; line-height: 21px; padding: 0 15px 1px 5px; }
+#occ-customer-info .please-wait { border:0px; margin:0px; position: relative; padding: 0px; left:0px; top:0px; }
+
+/*occ login popup*/
+#occ-login-popup-content .buttons-set { margin:0 0 10px; }
+#occ-login-popup-content .block-login p.required { width:auto; }
+#occ-login-popup-content .please-wait { border:0px; margin:0px; position: relative; padding: 0px; left:0px; top:0px; }
+
+/*occ popup*/
+#occ-popup-content .please-wait { border:0px; margin:0px; position: relative; padding: 0px; left:0px; top:0px; }
+#occ-popup-content .occ-qty-up span span { color:#ffffff; font-weight: normal; }
+#occ-popup-content .occ-qty-down span span { color:#ffffff; font-weight: normal; }
+#occ-popup-content .column-title { margin: 0 0 9px; }
+
+/*address popup*/
+#occ-address-popup-content .fieldset h2.legend { margin: 10px 0; border-bottom: 1px solid #E6E6E6; }
+#occ-address-popup-content .form-list { margin: 5px 0; }
+#occ-address-popup-content .form-list label { text-align: left; font-size: 12px; }
+#occ-address-popup-content p.required { width:auto; }
+#occ-address-popup-content .buttons-set.disabled button.button { display:none; }
+#occ-address-popup-content .please-wait { border:0px; margin:0px; position: relative; padding: 0px; left:0px; top:0px; }

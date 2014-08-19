@@ -70,19 +70,17 @@ if ($athleteHelper->isOnSale($_product)) {
 			?>
 
 			<div class="product-img-box">
-                <div class="wrap-product-image">
-				    <?php echo $this->getChildHtml('media') ?>
-                </div>
-				<div class="clearer"></div>
-				<?php echo $this->getChildHtml('details.newsletter') ?>
-			</div>
-
-			<div class="product-shop <?php echo $liClass ?>">
-
 				<div class="product-name">
 					<h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
 				</div>
+                <div class="wrap-product-image">
+				    <?php echo $this->getChildHtml('media') ?>
+                </div>
+				<div class="clearer"></div>				
+			</div>
 
+			<div class="product-shop <?php echo $liClass ?>">
+                <div class="wrap-product-shop">
 				<?php //echo $this->getReviewsSummaryHtml($_product, false, true) ?>
 				<?php echo $this->getChildHtml('alert_urls') ?>
 				<?php echo $this->getChildHtml('product_type_data') ?>
@@ -113,19 +111,21 @@ if ($athleteHelper->isOnSale($_product)) {
 
 				<?php echo $this->getChildHtml('addto') ?>
 
+				<?php echo $this->getChildHtml('occ') ?>
+</div>
 				<div class="details_product_banner">
 					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('details_product_banner')->toHtml(); ?> 
 				</div>
 				
 			</div>
 
-			<div class="clearer"></div>
 
 			<?php if ($_product->isSaleable() && $this->hasOptions()): ?>
 				<?php echo $this->getChildChildHtml('container2', '', true, true) ?>
 			<?php endif; ?>
 
 		</form>
+		<?php echo $this->getChildHtml('details.newsletter') ?>
 		<script type="text/javascript">
 			//<![CDATA[
 			var productAddToCartForm = new VarienForm('product_addtocart_form');
@@ -240,6 +240,7 @@ if ($athleteHelper->isOnSale($_product)) {
 		
 	<?php echo $this->getChildHtml('product_additional_data') ?>
 	<?php echo $this->getChildHtml('content_related') ?>
+	<?php echo $this->getChildHtml('join_afiliate') ?>
 	<?php //echo $this->getChildHtml('upsell_products') ?>
 	<?php //echo $this->getChildHtml('content_reviews') ?>
 

@@ -1,0 +1,27 @@
+<?php
+    $_buttonUrl = $this->getButtonImgUrl();
+    list($_width, $_height) = $this->helper('sagbutton')->getButtonDimensions($this->getLanguage(), $this->getSize());
+?>
+<script type="text/javascript">
+    document.observe("dom:loaded", function() {
+        $$('.product-image').each(function(el){
+            var img = document.createElement('img');
+            img = $(img);
+            img.setAttribute('src', "<?php echo $_buttonUrl ?>");
+            img.setAttribute('alt', "Send as gift");
+            img.setAttribute('width', "<?php echo $_width ?>");
+            img.setAttribute('height', "<?php echo $_height ?>");
+
+            var a = document.createElement('a');
+            a = $(a);
+            a.setAttribute('href', "http://sendasgift.com/");
+            a.setAttribute('onclick', "window.open(this.href + '?l=<?php echo $this->getLanguage() ?>&embed=true&url=' + encodeURIComponent(( this.hasAttribute('data-url') ? this.getAttribute('data-url') : location.href )), 'sendasgift', 'width=760,height=370,top=' + ((screen.height / 2) - 185) + ',left=' + ((screen.width / 2) - 380) + ',toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0');return false;");            a.setAttribute('data-url', el.href);
+            a.setAttribute('data-url', el.href);
+            a.appendChild(img);
+
+            var div = document.createElement('div');
+            div.appendChild(a);
+            $(el.parentNode).insert(div);
+        })
+    });
+</script>

@@ -1,0 +1,168 @@
+<?php 
+/*
+  * Velan Info Services India Pvt Ltd.
+  *
+  * NOTICE OF LICENSE
+  *
+  * This source file is subject to the EULA
+  * that is bundled with this package in the file LICENSE.txt.
+  * It is also available through the world-wide-web at this URL:
+  * http://store.velanapps.com/License.txt
+  *
+  /***************************************
+  *         MAGENTO EDITION USAGE NOTICE *
+  * *************************************** */
+  /* This package designed for Magento COMMUNITY edition
+  * Velan Info Services does not guarantee correct work of this extension
+  * on any other Magento edition except Magento COMMUNITY edition.
+  * Velan Info Services does not provide extension support in case of
+  * incorrect edition usage.
+  /***************************************
+  *         DISCLAIMER   *
+  * *************************************** */
+  /* Do not edit or add to this file if you wish to upgrade Magento to newer
+  * versions in the future.
+  * ****************************************************
+  * @category   Velanapps
+  * @package    Smartnotifications
+  * @author     Velan Team
+  * @copyright  Copyright (c) 2013 Velan Info Services India Pvt Ltd. (http://www.velanapps.com)
+  * @license    http://store.velanapps.com/License.txt
+*/
+
+
+	//Loading Smartnotifications Helper-Data
+	$helperData = Mage::helper('smartnotifications/data');
+	
+	// Get the Status of the Informationbar in helperData
+	$informationBarFooterActive = $helperData->headerActive();
+	
+	// Get the Height of the Informationbar in helperData
+	$inforamtionBarHeight = $helperData->height();
+	
+	// Get the Position of the Informationbar in helperData
+	$inforamtionBarPosition = $helperData->informationBarPosition();
+	
+	// Get the Content of the Informationbar in helperData
+	$informationBarContent = $helperData->informationBarContent();
+	
+	// Get the Position of the Fixed Header in helperData
+	$informationBarFixedHeader = $helperData->informationBarFixedHeader();
+	
+	// Get the Pallet of the Informationbar in helperData
+	$informationBarColor = $helperData->informationBarColorPallet();	
+	
+	// Get the Start Date of the Informationbar Content in helperData
+	$informationBarFromDate = $helperData->informationBarFromDate();
+	
+	// Get the End Date of the Informationbar Content in helperData
+	$informationBarToDate = $helperData->informationBarToDate();
+	
+	//** Get current date
+	$currentDate = date("m/d/Y", Mage::getModel('core/date')->timestamp(time()));
+
+	//Check for Status is Enable , Position is Footer , Validate the Date
+	if($informationBarFooterActive == 1 && $inforamtionBarPosition == 'bottom'&&(( $currentDate >= $informationBarFromDate && $currentDate <= $informationBarToDate )||($informationBarFromDate == "" || $informationBarToDate =="" )))
+	{
+		$fixedClass="";		
+		$fixedClass= " fixedFooter";
+		?>
+	
+			<div class="informationFooterBar <?php echo $fixedClass; ?>" id="smartnotificationsFooter">
+			<div id="infoFootClose" class="infoClose closeFooterHide" onclick="return infoFooterHide();"></div>
+				<div id="smartnotificationsFooterContent" class="informationFooterContent" >
+					<?php echo Mage::helper('cms')->getBlockTemplateProcessor()->filter($informationBarContent);?>								
+				</div>
+				</div>
+			</div>
+
+		<script type="text/javascript">		
+			// Get the information bar height
+			var barHeight = "<?php echo $inforamtionBarHeight ; ?>";
+			var dynamicHeight =  parseInt(barHeight);
+			
+			// Show hide of information bar
+			var defaultShow = 1;
+			
+			// Get javascript cookie value
+			var infoCookie = getCookie("infoFoot");
+			
+			jQuery(document).ready(function() { 
+				//** Set the dynamic height in div's
+				jQuery("#smartnotificationsFooter").css({'height' : dynamicHeight+25 });
+				jQuery("#smartnotificationsFooterContent").css({'background-color':'<?php echo $informationBarColor;?>','height' : dynamicHeight,'line-height' : dynamicHeight-10+"px"  });
+				jQuery("#smartnotificationsFooterContent").addClass("infoEffect");
+				
+									
+				if(infoCookie == null || infoCookie == "" || infoCookie == false)
+					infoFooterShow();
+				else
+					infoFooterHide();
+			});
+			
+			function infoFooterShow()
+			{
+				// Remove Cookie Value
+				del_cookie("infoFoot");
+			
+				jQuery("#smartnotificationsFooterContent").addClass("infoEffect");
+				jQuery("#smartnotificationsFooter" ).animate({"height": dynamicHeight+25 },"slow", function() {
+					jQuery("#infoFootClose").attr("onclick","infoFooterHide()");
+					jQuery("#infoFootClose").attr("class","infoClose closeFooterHide");					
+				});
+			}
+			
+			function infoFooterHide()
+			{
+				// Set Java-script cookie value
+				setCookie("infoFoot",true,1);
+				
+				jQuery("#smartnotificationsFooter" ).animate({"height": "22px" },"slow", function() {
+					jQuery("#infoFootClose").attr("onclick","infoFooterShow()");
+					jQuery("#infoFootClose").attr("class","infoClose closeFooterShow");
+					jQuery("#smartnotificationsFooterContent").removeClass("infoEffect");
+				});
+			}
+			
+			/*-----------------------set JS Cookie------------------*/
+			function setCookie(c_name,value,exdays)
+			{
+				var exdate=new Date();
+				exdate.setDate(exdate.getDate() + exdays);
+				var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+				document.cookie=c_name + "=" + c_value;
+			}
+							
+			function getCookie(c_name)
+			{
+				var c_value = document.cookie;
+				var c_start = c_value.indexOf(" " + c_name + "=");
+				if (c_start == -1)
+				{
+					c_start = c_value.indexOf(c_name + "=");
+				}
+				if (c_start == -1)
+				{
+					c_value = null;
+				}
+				else
+				{
+					c_start = c_value.indexOf("=", c_start) + 1;
+					var c_end = c_value.indexOf(";", c_start);
+					if (c_end == -1)
+					{
+						c_end = c_value.length;
+					}
+					c_value = unescape(c_value.substring(c_start,c_end));
+				}
+				return c_value;
+			}
+			function del_cookie(name)
+			{
+				document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+			}
+
+		</script>
+	<?php
+	}
+	?>

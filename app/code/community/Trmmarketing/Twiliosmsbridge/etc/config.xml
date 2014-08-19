@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Trmmarketing
+ * @package    Trmmarketing_Twiliosmsbridge
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Trmmarketing_Twiliosmsbridge>
+            <version>0.1.0</version>
+        </Trmmarketing_Twiliosmsbridge>
+    </modules>
+    <frontend>
+        <!--routers>
+            <twiliosmsbridge>
+                <use>standard</use>
+                <args>
+                    <module>Trmmarketing_Twiliosmsbridge</module>
+                    <frontName>twiliosmsbridge</frontName>
+                </args>
+            </twiliosmsbridge>
+        </routers>
+        <layout>
+            <updates>
+                <twiliosmsbridge>
+                    <file>twiliosmsbridge.xml</file>
+                </twiliosmsbridge>
+            </updates>
+        </layout-->
+		<translate>
+           <modules>
+                <Trmmarketing_Twiliosmsbridge>
+                      <files>
+                           <default>Trmmarketing_Twiliosmsbridge.csv</default>
+                      </files>
+                </Trmmarketing_Twiliosmsbridge>
+          </modules>
+      </translate>
+    </frontend>
+    <admin>
+        <routers>
+			<twiliosmsbridge>
+				<use>admin</use>
+				<args>
+					<module>Trmmarketing_Twiliosmsbridge</module>
+					<frontName>twiliosmsbridge</frontName>
+				</args>
+			</twiliosmsbridge>
+        </routers>
+    </admin>
+    <adminhtml>
+		<!--menu>
+			<twiliosmsbridge module="twiliosmsbridge">
+				<title>Twiliosmsbridge</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="twiliosmsbridge">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>twiliosmsbridge/adminhtml_twiliosmsbridge</action>
+					</items>
+				</children>
+			</twiliosmsbridge>
+		</menu-->
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Trmmarketing_Twiliosmsbridge>
+							<title>Twiliosmsbridge Module</title>
+							<sort_order>10</sort_order>
+						</Trmmarketing_Twiliosmsbridge>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<twiliosmsbridge>
+					<file>twiliosmsbridge.xml</file>
+				</twiliosmsbridge>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <twiliosmsbridge>
+                <class>Trmmarketing_Twiliosmsbridge_Model</class>
+                <resourceModel>twiliosmsbridge_mysql4</resourceModel>
+            </twiliosmsbridge>
+            <twiliosmsbridge_mysql4>
+                <class>Trmmarketing_Twiliosmsbridge_Model_Mysql4</class>
+                <entities>
+                    <twiliosmsbridge>
+                        <table>twiliosmsbridge</table>
+                    </twiliosmsbridge>
+                </entities>
+            </twiliosmsbridge_mysql4>
+        </models>
+        <resources>
+            <twiliosmsbridge_setup>
+                <setup>
+                    <module>Trmmarketing_Twiliosmsbridge</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </twiliosmsbridge_setup>
+            <twiliosmsbridge_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </twiliosmsbridge_write>
+            <twiliosmsbridge_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </twiliosmsbridge_read>
+        </resources>
+        <blocks>
+            <twiliosmsbridge>
+                <class>Trmmarketing_Twiliosmsbridge_Block</class>
+            </twiliosmsbridge>
+        </blocks>
+        <helpers>
+            <twiliosmsbridge>
+                <class>Trmmarketing_Twiliosmsbridge_Helper</class>
+            </twiliosmsbridge>
+        </helpers>
+		<events>
+            <sales_order_place_after>
+        	<observers>
+            <trmmarketing_twiliosmsbridge_model_observer>
+			<type>singleton</type>
+            <class>twiliosmsbridge/observer</class>
+            <method>checkout</method>
+            </trmmarketing_twiliosmsbridge_model_observer>
+	        </observers>
+    	    </sales_order_place_after>
+			
+			<sales_order_shipment_save_after>
+        	<observers>
+            <trmmarketing_twiliosmsbridge_model_observer>
+			<type>singleton</type>
+            <class>twiliosmsbridge/observer</class>
+            <method>tracking</method>
+            </trmmarketing_twiliosmsbridge_model_observer>
+	        </observers>
+    	    </sales_order_shipment_save_after>
+			
+			</events>
+    </global>
+</config>

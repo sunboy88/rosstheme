@@ -1,0 +1,155 @@
+<?php $_helper = Mage::helper('onestepcheckout');?>
+
+<div id="checkout-review-load" class="default-box checkout-review-load">
+  <?php echo $this->getChildHtml('info') ?>
+</div>
+
+<!-- Begin of Discount section -->
+<?php if ($_helper->showDiscount()):?>
+<div class="onestepcheckout-discount">
+	<?php $_couponCode = $this->getQuote()->getCouponCode(); ?>
+	<label for="couponcode"><?php echo $this->__('Coupon code:') ?></label>
+	
+	<div class="discount-form">
+		<input type="hidden" name="remove" id="remove-coupon-onestepcheckout" value="0" />
+		<div class="input-box">
+			<input class="input-text" id="coupon_code_onestepcheckout" autocomplete="off" name="coupon_code" value="<?php echo $this->htmlEscape($_couponCode) ?>" />
+			<br/>
+			<button type="button" id="add_coupon_code_button" title="<?php echo $this->__('Apply Coupon') ?>" class="" value="<?php echo $this->__('Apply Coupon') ?>"><span><span><?php echo $this->__('Apply Coupon') ?></span></span></button>			
+			<button type="button" id="remove_coupon_code_button" title="<?php echo $this->__('Cancel Coupon') ?>" class="" value="<?php echo $this->__('Cancel Coupon') ?>" <?php if(!strlen($_couponCode)): ?> style="display:none;"<?php endif?>><span><span><?php echo $this->__('Cancel Coupon') ?></span></span></button>
+		</div>		
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+	//document.observe('dom:loaded', function() {
+	//fix for IE9
+	Event.observe(window, 'load', function() {
+		var add_coupon_url = '<?php echo $this->getUrl('onestepcheckout/index/add_coupon', array('_secure'=>true)); ?>';
+		Event.observe('add_coupon_code_button', 'click', function() {	
+			var coupon_code = $('coupon_code_onestepcheckout').value;
+			if(coupon_code == '')	{
+				alert('<?php echo $this->__('Please enter coupon code.'); ?>');
+				return;
+			}			
+			add_coupon_code(add_coupon_url);			
+		});
+		
+		Event.observe('remove_coupon_code_button', 'click', function() {
+			remove_coupon_code(add_coupon_url);
+		});
+	});
+//]]>
+</script>
+<?php endif;?>
+<!-- End of discount section-->
+
+<?php //echo $this->getChildHtml('agreements') ?>
+
+<!-- Order comment -->
+<?php if ($_helper->enableOrderComment()):?>
+<div class="onestepcheckout-comment">
+	<label for="onestepcheckout_comment"><?php echo $this->__('Comments');?></label><br/>
+	<textarea id="onestepcheckout_comment" name="billing[onestepcheckout_comment]" col="15"></textarea>	
+</div>
+<?php endif;?>
+
+<!-- Gift message for order -->
+<?php if ($_helper->enableGiftMessage()):?>
+<div class="onestepcheckout-giftmessage">    
+	<?php if (!$this->getQuote()->isVirtual()): ?>
+    <?php echo Mage::helper('onestepcheckout/message')->getInline('onepage_checkout', $this->getQuote(), $this->getDontDisplayContainer()) ?>
+	<?php endif; ?>
+</div>
+<?php endif;?>
+
+<!-- Newsletter Subscriber -->
+<?php if ($_helper->isShowNewsletter()):?>
+<div class="onestepcheckout-newsletter">
+	<input type="checkbox" name="billing[newsletter_subscriber_checkbox]" id="newsletter_subscriber_checkbox" value="1" <?php if ($_helper->isSubscribeByDefault()):?> checked="checked"<?php endif;?>/>
+	<label for="newsletter_subscriber_checkbox"><?php echo $this->__('Sign Up for Our Newsletter');?></label>
+</div>
+<?php endif;?>
+
+<!-- Gift wrap for order -->
+<?php if ($_helper->enableGiftWrap() && !$_helper->enableGiftwrapModule()):?>
+<?php $giftwrapAmount = $_helper->getOrderGiftwrapAmount();?>
+<?php $addGiftwrapUrl = $this->getUrl('onestepcheckout/ajax/add_giftwrap');?>
+<div class="onestepcheckout-giftwrap">
+	<input class="onestepcheckout_giftwrap_checkbox" type="checkbox" name="onestepcheckout_giftwrap_checkbox" 
+           id="onestepcheckout_giftwrap_checkbox" 
+           onclick="addGiftwrap('<?php echo $addGiftwrapUrl ?>');"
+           value="1" <?php if ($_helper->checkGiftwrapSession()):?> checked="checked"<?php endif;?>/>
+	<label for="onestepcheckout_giftwrap_checkbox"><?php echo $this->__('Gift wrap');?>
+		<span><?php echo Mage::helper('checkout')->formatPrice($giftwrapAmount); ?></span>
+	</label>
+</div>
+<?php endif;?>
+<!-- Survey -->
+<?php if($_helper->enableSurvey()):?>
+	<?php
+		$selectedSurveyFields = $this->getRequest()->getPost('onestepcheckout-survey', false);
+		$surveyValues = unserialize($_helper->getSurveyValues());
+	?>
+	<div class="onestepcheckout-survey" id="">
+		<label for="id_survey"><?php echo $_helper->getSurveyQuestion(); ?></label><br>
+		<select style="" name="billing[onestepcheckout-surveybilling]" id="id_survey">
+			<option value=""><?php echo $this->__('Please choose'); ?></option>
+			<?php foreach($surveyValues as $value => $label):
+				$selected= (!empty($selectedSurveyFields) && $selectedSurveyFields == $value) ? ' selected' : '';
+			?>
+			<option value="<?php echo $value?>" <?php echo $selected;?>><?php echo $label['value']?></option>
+			<?php endforeach;?>
+			<?php if($_helper->enableFreeText()):
+				$selected= (empty($surveyValues[$selectedSurveyFields]) && $selectedSurveyFields != '') ? ' selected' : '';
+			?>
+			<option value="freetext" <?php echo $selected;?>><?php echo $this->__('Other'); ?></option>
+			<?php endif;?>
+		</select>
+	</div>
+	<?php if($_helper->enableFreeText()):?>
+		<script type="text/javascript">
+			$('id_survey').observe('change', function (event){
+				if(this.getValue() == 'freetext'){
+					$('id_survey_freetext_div').show();
+				} else {
+					$('id_survey_freetext_div').hide();
+				}
+			});
+		</script>
+		<div id='id_survey_freetext_div' class="onestepcheckout-survey-freetext"<?php echo ((!empty($selectedSurveyFields) && $selectedSurveyFields == 'freetext') ? '' : ' style="display: none;"'); ?>>
+			<label for="id_survey_freetext"><?php echo $this->__('Please specify:'); ?></label><br/>
+			<textarea id="id_survey_freetext" name="billing[onestepcheckout-survey-freetext]"><?php echo $this->getRequest()->getPost('onestepcheckout-survey-freetext', false);?></textarea>
+		</div>
+	<?php endif; ?>
+<?php endif; ?>
+
+<!-- Terms and Conditions -->
+<?php if ($_helper->enableTermsAndConditions()):?>
+<script type="text/javascript">
+ //<![CDATA[
+ var term_popup_width = '<?php echo $_helper->getTermPopupWidth(); ?>';
+ var term_popup_height = '<?php echo $_helper->getTermPopupHeight(); ?>';
+ //]]>
+</script>
+<div class="onestepcheckout-terms-conditions">
+	<input type="checkbox" name="terms_conditions_checkbox" id="terms_conditions_checkbox_id" value="1" class="required-entry"/>
+	<label for="terms_conditions_checkbox_id"><?php echo $this->__('I read and agree to ');?> <a id="onestepcheckout-toc-link" target="_blank" href="javascript:void(0);" ><?php echo $this->__('Terms and Conditions');?></a></label>
+</div>
+<?php endif;?>
+
+
+   
+	<?php $styleChange = Mage::helper('onestepcheckout')->getStyle() ?>
+	<?php if(!$styleChange || $styleChange=='orange'): ?>
+		<?php $styleUse = $this->getSkinUrl('images/onestepcheckout/style/orange/') ?>
+	<?php else: ?>
+		<?php $styleUse = $this->getSkinUrl('images/onestepcheckout/style/'.$styleChange.'/') ?>
+	<?php endif ?>
+
+    <div id="review-please-wait" style="display:none;">
+		<img style="float:left;" src="<?php echo $styleUse; ?>loading-icon.gif">
+		<p style="float:left;padding-top:5px;">&nbsp;&nbsp;<?php echo $this->__('Please wait, processing your order...') ?></p>
+	</div>
+
+

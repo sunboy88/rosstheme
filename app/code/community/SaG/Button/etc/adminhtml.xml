@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <sag_settings translate="title" module="sagbutton">
+                                        <title>Send as Gift Settings</title>
+                                        <sort_order>80</sort_order>
+                                    </sag_settings>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

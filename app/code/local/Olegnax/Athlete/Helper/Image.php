@@ -7,7 +7,7 @@
 
 class Olegnax_Athlete_Helper_Image extends Mage_Core_Helper_Abstract
 {
-	private $_maxWidth = 590;
+	private $_maxWidth = 695;
 	private $_defaultWidth = 473;
 	private $_defaultHeight = 473;
 	private $_thumbPadding = 11;

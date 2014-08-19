@@ -27,6 +27,7 @@ $athleteHelper = $this->helper('athlete');
 ?>
 <?php $_product = $this->getProduct(); ?>
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
+<?php $buynow = $this->__('Buy It Now'); ?>
 <?php if($_product->isSaleable()): ?>
     <div class="add-to-cart">
         <?php if(!$_product->isGrouped()): ?>
@@ -43,6 +44,10 @@ $athleteHelper = $this->helper('athlete');
 	    </div>
         <?php endif; ?>
 		<button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart icon-<?php echo $athleteHelper->getCfg('product_info/button_icons', 'athlete_appearance'); ?>" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span></span></button>
+
+		<button type="button" title="<?php echo $buynow ?>" class="button" onclick='window.location = "<?php echo Mage::helper('checkout/url')->getCheckoutUrl() ?>"'><span><span><?php echo $buynow ?></span></span></button>
+
+		<button type="button" title="<?php echo $this->__('Make An Offer') ?>" class="button"><span><span><?php echo $this->__('Make An Offer') ?></span></span></button>
         <?php echo $this->getChildHtml('', true, true) ?>
     </div>
 <?php endif; ?>

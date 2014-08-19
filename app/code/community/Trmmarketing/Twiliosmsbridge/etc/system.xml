@@ -1,0 +1,209 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * @category    Trmmarketing
+ * @package     Trmmarketing_Twiliosmsbridge
+ * @copyright   Copyright (c) 2013 TRM Marketing LLC
+ * @license     http://www.trm-marketing.com/solutions/license/TRM-Marketing-Standard-License-Agreement.html
+ */
+-->
+<config>
+    <tabs>
+        <trmtwiliosmsbridge_tab module="twiliosmsbridge">
+            <label>TRM Marketing</label>
+            <sort_order>100</sort_order>
+        </trmtwiliosmsbridge_tab>
+    </tabs>
+    <sections>
+        <trmtwiliosmsbridgeconfig module="twiliosmsbridge" translate="label">
+            <label>SMS Order Notifications</label>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <tab>trmtwiliosmsbridge_tab</tab>
+            <groups>
+                <trmtwiliosetupgroup translate="label">
+                    <label>Twilio Account Configuration</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+					<enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+					<accountsid translate="label">
+                            <label>Account SID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </accountsid>
+					<authtoken translate="label">
+                            <label>Auth Token</label>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </authtoken>
+					<twiliophonenumber translate="label">
+                            <label>Twilio Phone Number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </twiliophonenumber>			
+					
+					
+					<!--triggerevent translate="label">
+                            <label>Trigger Event</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>emailbump/eventselect</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </triggerevent>
+						<frequency translate="label">
+                            <label>Delay Duration</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>emailbump/frequency</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </frequency>
+						
+						<checksubscriptionstatus translate="label">
+                            <label>Check Subscription Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </checksubscriptionstatus-->
+						
+						
+                    </fields>
+                </trmtwiliosetupgroup>
+				
+				<trmtwilioadmingroup translate="label">
+                    <label>Admin SMS Configuration</label>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+					<neworderenable translate="label">
+                            <label>Send SMS on New Order</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </neworderenable>
+					<neworderrecipients translate="label comment">
+                            <label>New Order Recipients</label>
+							<comment>Comma seperate each number number. Eg: 55523456789,5551234567</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </neworderrecipients>
+					<ordertotal translate="label">
+                            <label>Include Order Total</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ordertotal>
+					
+					
+						
+						
+                    </fields>
+                </trmtwilioadmingroup>
+				
+				<trmtwiliocustomergroup translate="label">
+                    <label>Customer SMS Configuration</label>
+                    <sort_order>150</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+					<enabled translate="label">
+                            <label>Send Customer Shipping Notification</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+					<sendto translate="label">
+                            <label>Send To Order</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>twiliosmsbridge/sendto</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sendto>
+					
+					<trackingenable translate="label">
+                            <label>Send Tracking Number</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </trackingenable>
+						
+					<sallowspecific translate="label">
+                            <label>SMS to Applicable Countries</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+							<frontend_class>shipping-applicable-country</frontend_class>
+                            <source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sallowspecific>
+                        <specificcountry translate="label">
+                            <label>SMS only to Specific Countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>91</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                        </specificcountry>
+					
+					
+						
+						
+                    </fields>
+                </trmtwiliocustomergroup>
+				
+				
+            </groups>
+        </trmtwiliosmsbridgeconfig>
+    </sections>
+</config>

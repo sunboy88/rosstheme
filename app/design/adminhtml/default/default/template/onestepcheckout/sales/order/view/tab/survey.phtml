@@ -1,0 +1,69 @@
+
+<?php
+	$orderId=Mage::app()->getRequest()->getParam('order_id');
+	$survey = Mage::getModel('onestepcheckout/survey')->load($orderId, 'order_id');
+	$comment = Mage::getModel('sales/order')->load($orderId)->getOnestepcheckoutOrderComment();
+	//echo 'LAN';
+?>
+<?php if($this->getLastItem()) {?>
+</table>
+<?php if($survey->getId()):?>
+<div class="entry-edit">
+	<fieldset>	
+	<div class="survey">
+		<div class="entry-edit-head">
+			<h4 class="icon-head head-account">
+				<?php echo Mage::helper('onestepcheckout')->__('Survey Information') ?>
+			</h4>								
+		</div>
+	</div>
+	<div class="grid">
+		<div class="hor-scroll">
+			<table cellspacing="0" class="data">
+				<tbody>					
+					<tr class="odd">
+						<td class="a-left" style="width:25%;border-right:none !important;font-weight:bold" ><?php echo Mage::helper('onestepcheckout')->__('Survey Question :') ?></td>
+						<td class="a-left">
+							<?php echo $survey->getQuestion();?>
+						</td>						
+					</tr>														
+					<tr class="even">							
+						<td class="a-left" style="width:25%;border-right:none !important;font-weight:bold"><?php echo Mage::helper('onestepcheckout')->__('Answer: ') ?></td>	
+						<td class="a-left">
+							<?php echo $survey->getAnswer();?>
+						</td>							
+					</tr>								
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</fieldset>
+</div>
+<?php endif;?>
+<?php if($comment):?>
+<div class="entry-edit" >
+	<fieldset>
+		<div class="survey">
+			<div class="entry-edit-head">
+				<h4 class="icon-head head-account">
+					<?php echo Mage::helper('onestepcheckout')->__('Comment') ?>
+				</h4>								
+			</div>
+		</div>
+		<div class="grid">
+			<div class="hor-scroll">
+				<table cellspacing="0" class="data">
+					<tbody>						
+						<tr class="even">
+							<td class="a-left">
+							<?php echo $comment;?>
+							</td>
+						</tr>										
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<?php endif;?>
+<?php } ?>

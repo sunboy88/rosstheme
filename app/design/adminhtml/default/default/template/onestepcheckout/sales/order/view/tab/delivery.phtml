@@ -1,0 +1,36 @@
+<?php 
+	$orderId=Mage::app()->getRequest()->getParam('order_id');
+        $delivery = Mage::getModel('onestepcheckout/delivery')->load($orderId, 'order_id');
+?>
+<?php if($this->getLastItem()) {?>
+</table>
+
+<?php if($delivery->getId()):?>
+<div class="entry-edit">
+	<fieldset>	
+	<div class="delivery">
+		<div class="entry-edit-head">
+			<h4 class="icon-head head-account">
+				<?php echo Mage::helper('onestepcheckout')->__('Time of Delivery') ?>
+			</h4>								
+		</div>
+	</div>
+	<div class="grid">
+		<div class="hor-scroll">
+			<table cellspacing="0" class="data">
+				<tbody>					
+					<tr class="odd">
+						
+						<td class="a-left" style="height:35px;line-height:35px;font-weight:bold;padding-left:10px;">
+							<?php echo $delivery->getDeliveryTimeDate();?>
+						</td>						
+					</tr>														
+													
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</fieldset>
+</div>
+<?php endif;?>
+<?php } ?>

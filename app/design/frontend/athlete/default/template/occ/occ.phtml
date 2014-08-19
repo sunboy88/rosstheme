@@ -1,0 +1,55 @@
+<?php if (Mage::helper('occ')->isEnabled() && Mage::helper('occ')->allowCustomerGroup()): ?>
+<div id="occ-popup-wrapper-bkg" style="opacity:0; left:-999999px;"></div>
+<!-- occ login popup -->
+<div id="occ-login-popup-container" class="popup-container" style="position:fixed; left:-999999px; height:100%;" onclick="occTools.hidePopup('occ-login',true);">
+	<div id="occ-login-popup-content" class="popup-content" onclick="occTools.runHidePopup = false;"></div>
+</div>
+
+<!-- occ address popup -->
+<div id="occ-address-popup-container" class="popup-container" style="position:fixed; left:-999999px; height:100%;" onclick="occTools.hidePopup('occ-address',true);">
+	<div id="occ-address-popup-content" class="popup-content" onclick="occTools.runHidePopup = false;"><?php echo $this->helper('customer')->getLoginPostUrl() ?></div>
+</div>
+
+<!-- occ popup -->
+<div id="occ-popup-container" class="popup-container" style="position:fixed; left:-999999px; height:100%;" onclick="occTools.hidePopup('occ',true);"> 
+	<div id="occ-popup-content" class="popup-content" onclick="occTools.runHidePopup = false;">
+		<div id="occ-close">
+			<a href="<?php echo $this->getUrl('checkout'); ?>" title="<?php echo $this->__('Standard checkout') ?>"><?php echo $this->__('Standard checkout') ?></a><span class="separator">&nbsp;|&nbsp;</span><a href="javascript:occTools.hidePopup('occ',true)" title="<?php echo $this->__('Continue Shopping') ?>"><?php echo $this->__('Continue Shopping') ?></a>
+		</div>
+	    <div class="occ-page-title">
+	        <h2><?php echo $this->__('Checkout') ?></h2>
+	    </div>
+		<form id="occ-form" action="">
+			<div class="place-order">
+				<div class="clearer"></div>
+				<div id="occ-layout-messages"></div>
+				<div class="clearer"></div>
+				<div id="occ-shipping-method"></div>
+				<div id="occ-payment-method"></div>
+				<div class="clearer"></div>
+				<div id="occ-review"></div>				
+			</div>
+			<div id="occ-success"></div>
+		</form>	
+		<script type="text/javascript">
+		//<![CDATA[
+		var payment = new Payment('occ-form', '<?php echo $this->getUrl('occ/index/savePayment') ?>');
+		var occ = new Occ({
+			updateBlocks: '<?php echo $this->getUrl('occ/index/updateBlocks') ?>',
+			updateCart: '<?php echo $this->getUrl('occ/cart/updatePost', array('form_key' => Mage::getSingleton('core/session')->getFormKey())) ?>',
+			saveShippingMethod: '<?php echo $this->getUrl('occ/index/saveShippingMethod') ?>',
+			savePaymentMethod: '<?php echo $this->getUrl('occ/index/savePayment') ?>',
+			savePoints: '<?php echo $this->getUrl('occ/index/savePoints') ?>',
+			review: '<?php echo $this->getUrl('occ/index/review') ?>',
+			save: '<?php echo $this->getUrl('checkout/onepage/saveOrder', array('form_key' => Mage::getSingleton('core/session')->getFormKey())) ?>',
+			success: '<?php echo $this->getSuccessUrl(); ?>',
+			failure: '<?php echo $this->helper('core/url')->getCurrentUrl() ?>'}
+		);
+		occTools.isMobile = <?php echo var_export(Mage::helper('occ')->isMobile(), true); ?>;
+		occTools.isTablet = <?php echo var_export(Mage::helper('occ')->isTablet(), true); ?>;
+		//]]>
+		</script>
+	</div>
+</div>
+
+<?php endif; ?>

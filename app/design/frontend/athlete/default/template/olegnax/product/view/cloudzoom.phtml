@@ -44,13 +44,20 @@ $config = $athleteHelper->getCfg('cloudzoom');
 $config['position'] =  empty($config['position']) ? 'right' : $config['position'];
 $config['lens_opacity'] = intval($config['lens_opacity']) / 100;
 $config['tint_opacity'] = intval($config['tint_opacity']) / 100;
+$youtube = "";
+if($_product->getResource()->getAttribute('youtube_video')){
 
+$youtube = $_product->getResource()->getAttribute('youtube_video')->getFrontend()->getValue($_product);
+}
+$vimeo = "";
+if($_product->getResource()->getAttribute('vimeo_video')){
+	$vimeo = $_product->getResource()->getAttribute('vimeo_video')->getFrontend()->getValue($_product);
+}
 ?>
 
 <?php if (count($this->getGalleryImages()) > 0): ?>
 <div class="more-views">
-	<div class="more-views-nav" id="thumbs_slider_nav"><ul><li><a class="prev" href="#"></a></li><li><a class="next" href="#"></a></li></ul></div>
-    <ul class="carousel-slider slides" id="thumbs_slider" data-items="[ [0, 3], [426, 4] ]">
+    <ul class="more-views-list">
     <?php foreach ($this->getGalleryImages() as $_image): ?>
 	    <?php //Skip, if no image
 	    if ($_image->getFile() == NULL)
@@ -64,8 +71,17 @@ $config['tint_opacity'] = intval($config['tint_opacity']) / 100;
 			    ?>" width="<?php echo $thumbX; ?>" height="<?php echo $thumbY; ?>" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>"/>
 		    </a>
 	    </li>
-
     <?php endforeach; ?>
+    <?php if($youtube): ?>
+    	<li>
+    		<a class="youtube-video" href="<?php echo $youtube; ?>">youtube</a>
+    	</li>
+    <?php endif; ?>
+    <?php if($vimeo): ?>
+    	<li>
+    		<a class="vimeo-video" href="<?php echo $vimeo; ?>">vimeo</a>
+    	</li>
+    <?php endif; ?>
     </ul>
 </div>
 <?php endif; ?>
@@ -141,6 +157,41 @@ $config['tint_opacity'] = intval($config['tint_opacity']) / 100;
 			setTimeout(function(){
 				$('#cloud_zoom img').attr('src', $($this).attr('data-srcX2'));
 			}, 100);
+		});
+
+		$(".youtube-video").click(function() {
+			$.fancybox({
+				'padding'		: 0,
+				'autoScale'		: false,
+				'transitionIn'	: 'none',
+				'transitionOut'	: 'none',
+				'title'			: this.title,
+				'width'			: 560,
+				'height'		: 315,
+				'href'			: this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+				'type'			: 'swf',
+				'swf'			: {
+				   	'wmode'		: 'transparent',
+					'allowfullscreen'	: 'true'
+				}
+			});
+			return false;
+		});
+
+		$(".vimeo-video").click(function() {
+			$.fancybox({
+				'padding'		: 0,
+				'autoScale'		: false,
+				'transitionIn'	: 'none',
+				'transitionOut'	: 'none',
+				'title'			: this.title,
+				'width'			: 560,
+				'height'		: 315,
+				'href'			: this.href.replace(new RegExp("([0-9])","i"),'moogaloop.swf?clip_id=$1'),
+				'type'			: 'swf'
+			});
+
+			return false;
 		});
 
 		$('.mousetrap').live('click', function(){

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MD_Ajaxscroll>
+            <version>1.0.0</version>
+        </MD_Ajaxscroll>
+    </modules>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <ajaxscroll translate="title" module="ajaxscroll">
+                                            <title>Ajax Scroll</title>
+                                        </ajaxscroll>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <admin>
+        <routers>
+            <ajaxscroll>
+                <use>admin</use>
+                <args>
+                    <module>MD_Ajaxscroll</module>
+                    <frontName>ajaxscroll</frontName>
+                </args>
+            </ajaxscroll>
+        </routers>
+    </admin>	
+    <frontend>
+        <layout>
+            <updates>
+                <md_ajaxscroll>
+                    <file>md_ajaxscroll.xml</file>
+                </md_ajaxscroll>
+            </updates>
+        </layout>
+     </frontend> 
+	 <global>
+		<helpers>
+            <ajaxscroll>
+                <class>MD_Ajaxscroll_Helper</class>
+            </ajaxscroll>
+        </helpers>
+	 </global>
+	<default>
+        <ajaxscroll>
+            <general>
+                <enabled>1</enabled>
+                <enabled_top>1</enabled_top>
+                <topb_icon>default/ui.totop.black.png</topb_icon>
+                <loading_icon>default/loading_bar.gif</loading_icon>
+                <loading_img>default/loader.gif</loading_img>
+            </general>
+        </ajaxscroll>
+    </default>		
+</config>
+
