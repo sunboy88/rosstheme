@@ -17,7 +17,6 @@
 		</reference>
 
 		<reference name="content">
-			<block type="newsletter/subscribe" name="content.newsletter" template="newsletter/subscribe.phtml"/>
 			<!-- <block type="athleteslideshow/slideshow" name="athlete_slideshow" as="athlete_slideshow" template="olegnax/slideshow/slideshow.phtml" /> -->
 
 		</reference>
@@ -25,6 +24,7 @@
 	</default>
 	<cms_index_index>
 		<reference name="content">
+			<block type="newsletter/subscribe" name="content.newsletter" template="newsletter/subscribe.phtml" before="-"/>
 			<block type="resposiveslider/slider" after="content.newsletter" template="dsresposiveslider/slider.phtml" />
 		</reference>
 	</cms_index_index>

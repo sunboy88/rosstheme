@@ -25,7 +25,7 @@
  */
 ?>
 <div class="block block-subscribe">
-    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('today_special')->toHtml(); ?> 
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('today_special')->toHtml(); ?>
     <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
         <div class="block-content">
             <div class="form-subscribe-header">
@@ -40,7 +40,7 @@
                 <button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button"><span><span><?php echo $this->__('Subscribe') ?></span></span></button>
             </div>
         </div>
-    </form>	
+    </form>
     <script type="text/javascript">
     //<![CDATA[
         var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
