@@ -351,6 +351,13 @@
 	.hide-below-768 { display: none; }
 	.show-below-768 { display: block; }
 
+    .col-invite .send-invites-info .col-1,
+    .col-invite .send-invites-info .col-2{width: 100%;margin: 10px 0;}
+    .col-invite .col-1 .send-block{margin: 0;}
+    .col-invite .friendslist-message button{float: right;clear: both;width: auto;}
+    .col-invite ul.tabs_content{padding: 0 0 20px;}
+    .col-invite .friendslist-message textarea{width: 100%;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;}
+
 /* HEADER
 ======================================================================================= */
 	.top-bar { display: none;}
@@ -865,6 +872,8 @@
 	.page-title .link-rss { width: 13px; height: 13px; padding: 0; font-size: 0;}
     .product-shop .occ-customer-info .buttons-set a{font-size: 11px;}
     .catalog-category-view .product-columns-3 .products-grid li.item{width: 100%;}
+
+    .col-invite .tabs_title li{margin: 0;}
 }
 @media only screen and (max-width: 400px) {
 	.grid-fluid .product-view .add-review .data-table td.selected-value { display: none;}

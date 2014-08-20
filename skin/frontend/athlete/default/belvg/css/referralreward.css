@@ -80,9 +80,10 @@
             .col-invite .emails-pick-up button{width:290px}
         .col-invite .emails-pick-up p{margin-bottom:10px}
 
-    .col-invite .emails-add{margin-bottom:25px; width: 100%;}
+    .col-invite .emails-add{margin-bottom:25px; width: 100%;padding: 0 0 10px;}
         .col-invite .emails-add textarea{width: 225px; margin-bottom:10px; padding:2px 4px; width: 100%;}
         .col-invite .emails-add button{width:100%}
+.col-invite ul.share-links{margin: 10px 0;}
 
     .col-invite .facebook-login{}
         .col-invite .facebook-login .facebook-avatar,
@@ -350,4 +351,9 @@
 .col-invite ul ol,
 .col-invite ul ul,
 .col-invite ol ul,
-.col-invite ol ol{list-style: none;}
+.col-invite ol ol{list-style: none;padding: 0;margin: 0;}
+.col-invite ul.tabs_content{margin: -1px 0 0;}
+.col-invite .tabs_title li{margin-bottom: 0;}
+.col-invite .icosoc{padding: 0;}
+.col-invite .icosoc:hover{background-color: transparent;}
+
