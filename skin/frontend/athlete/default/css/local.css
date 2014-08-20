@@ -3003,3 +3003,11 @@ body.contacts-index-index .grid_13 .form-list .field {width: 344px; }
 	.col3-layout .col-main  { width: 65.90%; float: right; margin-right: 0;}
 	.col3-layout .col-left  { width: 31.52%; margin-left: 0;}
 	.col3-layout .col-right { width: 23%;}
+	
+#grid-effect li,#products-list li{opacity:0;}
+.animate {
+	-webkit-transform: scale(0.6);
+	transform: scale(0.6);
+	-webkit-animation: scaleUp 0.65s ease-in-out forwards;
+	animation: scaleUp 0.65s ease-in-out forwards;
+}

@@ -172,3 +172,16 @@ $athleteHelper = $this->helper('athlete');
                 </li>
             <?php endforeach ?>
 <?php endif; ?>
+<script>
+	jQuery(".products-grid .item").each(function(){
+		var elementshow	=	jQuery(this);
+		var el	=	this;
+		imagesLoaded( jQuery(this), function( instance ) {
+			if(elementshow.hasClass('loaded-image')==false){
+				//elementshow.toggle( "scale" );
+				classie.add( el, 'animate' );
+				elementshow.addClass( "loaded-image" );
+		    }
+		});
+	});
+</script>

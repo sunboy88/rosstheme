@@ -122,7 +122,19 @@ $imgY = $athleteImgHelper->calculateHeight($imgX);
                 </li>
             <?php endforeach; ?>
 
-
+		<script>
+			jQuery(".products-list .item").each(function(){
+				var elementshow	=	jQuery(this);
+				var el	=	this;
+				imagesLoaded( jQuery(this), function( instance ) {
+					if(elementshow.hasClass('loaded-image')==false){
+						//elementshow.toggle( "scale" );
+						classie.add( el, 'animate' );
+						elementshow.addClass( "loaded-image" );
+					}
+				});
+			});
+		</script>
 
     <?php else: ?>
 
@@ -198,6 +210,19 @@ $imgY = $athleteImgHelper->calculateHeight($imgX);
 
                 </div>
             </li>
+			<script>
+				jQuery(".products-grid .item").each(function(){
+					var elementshow	=	jQuery(this);
+					var el	=	this;
+					imagesLoaded( jQuery(this), function( instance ) {
+						if(elementshow.hasClass('loaded-image')==false){
+							//elementshow.toggle( "scale" );
+							classie.add( el, 'animate' );
+							elementshow.addClass( "loaded-image" );
+						}
+					});
+				});
+			</script>
         <?php endforeach ?>
     <?php endif; ?>
 <?php endif; ?>

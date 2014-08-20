@@ -60,6 +60,12 @@
 			<action method="addJs"><script>olegnax/jquery.jcarousel.min.js</script></action>
 			<action method="addJs"><script>olegnax/jquery.anystretch.1.2.min.js</script></action>
 			<action method="addItem"><type>skin_js</type><script>js/script.js</script></action>
+			
+			<action method="addCss"><stylesheet>css/component.css</stylesheet></action>
+			<action method="addItem"><type>skin_js</type><script>js/effectsc/modernizr.custom.js</script></action> 			 
+			<action method="addItem"><type>skin_js</type><script>js/effectsc/masonry.pkgd.min.js</script></action> 
+			<action method="addItem"><type>skin_js</type><script>js/effectsc/imagesloaded.js</script></action>
+			<action method="addItem"><type>skin_js</type><script>js/effectsc/classie.js</script></action>
 		</reference>
 
 		<reference name="top.links">

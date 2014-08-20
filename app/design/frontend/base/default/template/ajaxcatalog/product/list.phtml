@@ -137,7 +137,17 @@ $imgY = $athleteImgHelper->calculateHeight($imgX);
                 <?php endforeach; ?>
             </ol>
             <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
-
+			<script>
+			jQuery(".products-list .item").each(function(){
+				var elementshow	=	jQuery(this);
+				var el	=	this;
+				imagesLoaded( jQuery(this), function( instance ) {
+				   elementshow.addClass('loaded-image');
+				   classie.add( el, 'animate' );
+				});
+			});
+				
+			</script>
         <?php else: ?>
 
             <?php // Grid Mode ?>
@@ -216,6 +226,16 @@ $imgY = $athleteImgHelper->calculateHeight($imgX);
 
                 <?php endforeach ?>
             </ul>
+			<script>
+			jQuery(".products-grid .item").each(function(){
+				var elementshow	=	jQuery(this);
+				var el	=	this;
+				imagesLoaded( jQuery(this), function( instance ) {
+				   elementshow.addClass('loaded-image');
+				   classie.add( el, 'animate' );
+				});
+			});				
+			</script>
         <?php endif; ?>
 
         <?php if ( $athleteHelper->getCfg('listing/toolbar_bottom') ) : ?>

@@ -80,8 +80,8 @@ $athleteHelper = $this->helper('athlete');
 	<div class="clearfix title-container">
 		<h3><?php echo $this->__($blockTitle);?></h3>
 	</div>
-	<?php endif; ?>
-    <ul class="products-grid clearfix">
+	<?php endif; ?>	
+    <ul class="products-grid clearfix effect-3" id="grid-effect">
     <?php foreach ($_productCollection as $_product): ?>
 	    <?php
 	    $deal = Mage::helper('dailydeal')->getDealByProductId($_product->getId());
@@ -182,3 +182,15 @@ $athleteHelper = $this->helper('athlete');
    </ul>
 </div>
 <?php endif; ?>
+
+<script>
+jQuery(".products-grid .item").each(function(){
+	var elementshow	=	jQuery(this);
+	var el	=	this;
+	imagesLoaded( jQuery(this), function( instance ) {
+	   elementshow.addClass('loaded-image');
+	   classie.add( el, 'animate' );
+	});
+});
+	
+</script>
