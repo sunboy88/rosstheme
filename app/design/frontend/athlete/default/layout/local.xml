@@ -331,10 +331,17 @@
 					<block>productquestions/form</block><template>productquestions/form_product.phtml</template>
 				</action>
 
-				<action ifconfig="athlete/product_info/tab_bulkprices" method="addTab" translate="title"><alias>tags_bulkprices</alias><title>Bulk Prices</title>
+				<!-- <action ifconfig="athlete/product_info/tab_bulkprices" method="addTab" translate="title"><alias>tags_bulkprices</alias><title>Bulk Prices</title>
 					<block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template>
-				</action>
+				</action> -->
 				
+				<action method="addTab" translate="title" ifconfig="athlete/product_info/tab_bulkprices">
+					<alias>tags_bulkprices</alias>
+					<title>Bulk Prices</title>
+					<block>bulkprice/bulkprice</block>
+					<template>bulkprice/content.phtml</template>
+				</action>
+
 				<block type="core/template" name="guest_invite" as="guest_invite" template="belvg/referralreward/guest.phtml"/>
 
 				<block type="referralreward/invite" name="invite-friends">

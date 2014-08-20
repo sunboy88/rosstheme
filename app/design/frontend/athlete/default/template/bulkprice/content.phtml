@@ -1,0 +1,31 @@
+<p class="title-bulkprice"><?php echo $this->__("Bulk Prices")?></p>
+<?php 
+$_product = $this->getCurrentProduct();
+$_specialPrice = $_product->getFinalPrice(); 
+
+if($_product->getTierPriceHtml()){
+	$_tierPrice = Mage::helper('core')->currency($_product->getTierPriceHtml(),true,false);
+	
+}else{
+	$_tierPrice = Mage::helper('core')->currency($_product->getFinalPrice(),true,false);	
+}
+ ?>
+ <table id="table-bulkprice">
+ 	<tr class="header-bulk">
+ 		<th><?php echo $this->__("Item Code")?></th>
+ 		<th><?php echo $this->__("Item Name")?></th>
+ 		<th><?php echo $this->__("Quantity")?></th>
+ 		<th><?php echo $this->__("Price")?></th>
+ 	</tr>
+ 	<tbody>
+ 		<tr>
+ 			<td><?php echo $_product->getSku() ?></td>
+ 			<td><?php echo $_product->getName() ?></td>
+ 			<td>(1+)</td>
+ 			<td><?php echo $_tierPrice ?></td>
+ 		</tr>
+ 	</tbody>
+ </table>
+ <div class="text-bulkprice">
+ 	<?php echo $_product->getBulkprice() ?>
+ </div>

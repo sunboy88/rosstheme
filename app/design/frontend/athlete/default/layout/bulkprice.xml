@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout>
+	<catalog_product_view translate="label">
+		<reference name="product.info.tabs">
+			<action method="addTab" translate="title" ifconfig="athlete/product_info/tab_bulkprices">
+					<alias>tags_bulkprices</alias>
+					<title>Bulk Prices</title>
+					<block>bulkprice/bulkprice</block>
+					<template>bulkprice/content.phtml</template>
+				</action>
+		</reference>
+	</catalog_product_view>
+</layout>
