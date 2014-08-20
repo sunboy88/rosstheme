@@ -343,3 +343,11 @@
     .referralreward-registration-form .buttons-set {
         margin: 4em 20px 0 0;
     }
+
+
+.col-invite ul,
+.col-invite ol,
+.col-invite ul ol,
+.col-invite ul ul,
+.col-invite ol ul,
+.col-invite ol ol{list-style: none;}
