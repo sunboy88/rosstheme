@@ -705,6 +705,10 @@
     .catalog-category-view .product-columns-3 .products-grid li.item{width: 45%;}
     .main-container .product-view .product-shop{width: 100%;}
 
+    .productquestions-container input,
+    .productquestions-container select,
+    .productquestions-container textarea{width: 100%!important;}
+
 }
 
 /***** iPhone (landscape) *****/
@@ -844,8 +848,8 @@
 
 
 	.product-view .add-to-cart { float: none }
-	.product-view .add-to-cart button.button { float: none; width: 100% }
-	.product-view .add-to-cart .qty-container {float: none; width: 100%; margin: 0; padding-left: 0; padding-right: 0; text-align: center;}
+	.product-view .add-to-cart button.button {}
+	.product-view .add-to-cart .qty-container {width: 25.3%; margin: 0; padding: 0; text-align: center;}
 	.product-view .add-to-cart .qty-content-container { display: inline-block }
 	.product-view button.btn-cart > span { padding: 0px 13px 0px 7px; display: block; }
     .product-view button.btn-cart span span { padding: 0px 0px 0px 33px;}
