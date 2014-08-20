@@ -1725,7 +1725,7 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .products-grid .product-image img {	max-width:100%;	height:auto;}
 .products-grid .product-image img.additional_img {position: absolute; z-index: 1; top:0; left:0; right:0; margin: 0 auto; display: none; }
 
-.products-grid .product-hover { display: inline-block;position: absolute;bottom: 0;left: 0;width: 100%;}
+.products-grid .product-hover { display: inline-block;position: absolute;bottom: 0;left: 0;width: 100%;z-index: 2;}
 
 .products-grid .product-name { margin:0; padding:0; display: inline-block; position: relative; z-index: 1;}
 .products-grid .product-name:after { content: ''; position: absolute; left: 0; top: 0; width: 0; height: 100%; z-index: -1;}
@@ -1886,7 +1886,7 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .product-columns-7 .products-grid li.item { width: 14.2857%;}
 
 /* View Type Grid hovers */
-.products-grid li.item.hover {background-color: #f0f0f0; -webkit-user-select: none; -webkit-touch-callout: none}
+/*.products-grid li.item.hover {background-color: #f0f0f0; -webkit-user-select: none; -webkit-touch-callout: none}
 .products-grid li.item.hover .product-name.animate-me:after,
 .products-grid li.item.hover .price-box.animate-me:after { width: 100%; background: #000;}
 .products-grid li.item.hover .product-hover .animate-me a { color: #fff; background: transparent}
@@ -1894,8 +1894,14 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .products-grid li.item.hover .product-hover .animate-me .price { color: #ffe51e;}
 .products-grid li.item.hover .actions {display:block}
 .products-grid li.item.hover .actions .add-to-links li.animate-me { margin:0; opacity: 1; visibility: visible}
-.products-grid li.item.hover .ratings {opacity: 1; top: 9px}
+.products-grid li.item.hover .ratings {opacity: 1; top: 9px}*/
 .products-grid li.item a:hover {text-decoration:none; }
+.product-slider-container .products-grid li.item.hover{background: #fff;}
+.product-slider-container .products-grid li.item.hover .product-hover .animate-me .price{color: #fff;}
+.product-slider-container .products-grid li.item button.button:hover > span:after{display: none;}
+.product-slider-container .products-grid .price-box,
+.product-slider-container .products-grid .new-product .price-box .old-price .price,
+.product-slider-container .products-grid .sale-product .price-box .old-price .price{color: #fff;}
 
 /* View Type: List */
 .products-list li.item { position: relative; padding:31px 0; margin: 0; border-bottom-color: #f0f0f0;}
@@ -2194,7 +2200,7 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .add-review .data-table td input { display: none; }
 .add-review .rating-radio { display: block; margin: 0 3px 0 0; width: 38px; height:18px; background: #4d4d4d; cursor: pointer; }
 .add-review .rating-radio.active { background-color:#ffe51e; }
-.add-review .form-list { margin:10px 0 0; padding: 22px 20px 0px 23px; background: #f4f4f4; }
+.add-review .form-list { margin:10px 0 0; padding: 22px 20px 0px 23px; background: #f4f4f4;list-style: none; }
 .add-review .form-list li { margin:0;padding-bottom: 18px; }
 .add-review .form-list label { width:80px; height: 30px; line-height: 28px; font-weight: 300; color: #626261; color: rgba(0,0,0,0.67); word-break:break-word;}
 .add-review .form-list label.summary { line-height: 1.2; height: auto; }
@@ -2396,7 +2402,7 @@ ul.tier-prices.product-pricing {margin-top: 14px;}
 
 .product-slider-container {border-top: 1px solid #d5d5d5; margin: 89px 0 0; -webkit-transform: translateZ(0);}
 .product-slider-container a {padding: 0;}
-.product-slider-container a.minimal-price-link { display: block;margin: -20px 0 0;}
+.cms-index-index .product-slider-container a.minimal-price-link { display: block;margin: -20px 0 0;}
 .product-slider-container ul {list-style:none; margin: 0; padding: 0;}
 .title-container { text-align: center; line-height: 36px; margin: -19px 0 15px;}
 .title-container h3 {
@@ -3004,7 +3010,7 @@ body.contacts-index-index .grid_13 .form-list .field {width: 344px; }
 	.col3-layout .col-left  { width: 31.52%; margin-left: 0;}
 	.col3-layout .col-right { width: 23%;}
 	
-#grid-effect li,#products-list li{opacity:0;}
+/*#grid-effect li,#products-list li{opacity:0;}*/
 .animate {
 	-webkit-transform: scale(0.6);
 	transform: scale(0.6);
