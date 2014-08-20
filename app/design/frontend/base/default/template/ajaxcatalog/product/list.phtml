@@ -154,7 +154,7 @@ $imgY = $athleteImgHelper->calculateHeight($imgX);
 
             <?php $_collectionSize = $_productCollection->count() ?>
             <?php $_columnCount = $this->getColumnCount(); ?>
-            <ul class="products-grid">
+            <ul class="products-grid" id="grid-effect" >
                 <?php foreach ($_productCollection as $_product): ?>
                     <?php
                     $liClass = '';

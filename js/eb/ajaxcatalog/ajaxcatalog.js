@@ -101,9 +101,9 @@ $jq=jQuery.noConflict();
                                 $jq("#ajaxcatalogsending").prev().removeClass('last');
 								$jq("ul.products-grid").append(list.cataloglistproduct);
 								$$("#ajaxcatalogsending").invoke("replace","");
-							}else{
-								$jq("#ajaxcatalogsending").prev().prev().children('li').removeClass('last');
-								$jq("#ajaxcatalogsending").prev().prev().append(list.cataloglistproduct);
+							}else{								
+								$jq(".products-list li").removeClass('last');
+								$jq(".products-list").append(list.cataloglistproduct);
 								$$("#ajaxcatalogsending").invoke("replace",'');
 							}
 
