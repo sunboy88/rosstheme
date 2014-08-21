@@ -321,7 +321,11 @@
 	.my-account .dedicated-review-box .average-rating {margin: 0;}
 
     .main-container .footer-container:before{top: 310px;}
-    .catalog-category-view .product-columns-3 .products-grid li.item{width: 45%;}
+    .catalog-category-view .product-columns-3 .products-grid li.item,
+    .catalogsearch-result-index .product-columns-3 .products-grid li.item{width: 45%;}
+
+    .wrapper_filter, .amshopby-index-index .col-main > .wrapper_filter{width: 29%;margin-right: 4%;}
+    .main-container .col-main .block-subscribe, .amshopby-index-index .col-main > *, .slider-homepage{width: 67%;}
 }
 @media only screen and (min-width: 600px) and (max-width: 1023px) {
 /* footer newsletter */
@@ -702,7 +706,8 @@
 		width: auto; right: -1px; padding: 0;
 	}
 	.grid-fluid .header-dropdown ul {padding: 15px;}
-    .catalog-category-view .product-columns-3 .products-grid li.item{width: 45%;}
+    .catalog-category-view .product-columns-3 .products-grid li.item,
+    .catalogsearch-result-index .product-columns-3 .products-grid li.item{width: 45%;}
     .main-container .product-view .product-shop{width: 100%;}
 
     .productquestions-container input,
@@ -875,7 +880,8 @@
 
 	.page-title .link-rss { width: 13px; height: 13px; padding: 0; font-size: 0;}
     .product-shop .occ-customer-info .buttons-set a{font-size: 11px;}
-    .catalog-category-view .product-columns-3 .products-grid li.item{width: 100%;}
+    .catalog-category-view .product-columns-3 .products-grid li.item,
+    .catalogsearch-result-index .product-columns-3 .products-grid li.item{width: 100%;}
 
     .col-invite .tabs_title li{margin: 0;}
     #table-bulkprice th, #table-bulkprice td{padding: 7px 3px;}
