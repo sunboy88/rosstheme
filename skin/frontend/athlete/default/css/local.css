@@ -2269,7 +2269,7 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 #table-bulkprice{width: 100%;margin: 0 0 15px;border: 1px solid #ddd;}
 #table-bulkprice th,
 #table-bulkprice td{padding: 7px 15px;}
-#table-bulkprice th{background: #eee;border-bottom: 1px solid #ddd;}
+#table-bulkprice th{background: #eee;border-bottom: 1px solid #ddd;font-weight: bold;}
 #table-bulkprice td{border-bottom: 1px solid #ddd;}
 /* Qty buttons */
 .qty-container {float: left;width: 25.8%;margin: 0;}
