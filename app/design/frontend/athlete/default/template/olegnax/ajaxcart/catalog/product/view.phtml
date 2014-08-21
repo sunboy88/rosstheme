@@ -92,7 +92,7 @@ if ($athleteHelper->isOnSale($_product)) {
 								class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
 						</div>
 					<?php endif;*/ ?>
-
+					<?php echo $_product->getData('half_price'); ?>
 					<?php echo $this->getChildHtml('other'); ?>
 
 					<?php if (!$this->hasOptions()): ?>
