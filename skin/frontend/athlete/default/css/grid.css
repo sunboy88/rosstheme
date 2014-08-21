@@ -878,6 +878,7 @@
     .catalog-category-view .product-columns-3 .products-grid li.item{width: 100%;}
 
     .col-invite .tabs_title li{margin: 0;}
+    #table-bulkprice th, #table-bulkprice td{padding: 7px 3px;}
 }
 @media only screen and (max-width: 400px) {
 	.grid-fluid .product-view .add-review .data-table td.selected-value { display: none;}

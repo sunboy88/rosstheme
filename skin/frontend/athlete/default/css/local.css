@@ -2266,6 +2266,11 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 
 #product-attribute-specs-table tr + tr th {border-top: 1px solid #fff;}
 
+#table-bulkprice{width: 100%;margin: 0 0 15px;}
+#table-bulkprice th,
+#table-bulkprice td{padding: 7px 15px;}
+#table-bulkprice th{background: #eee;border-bottom: 1px solid #ddd;}
+#table-bulkprice td{border-bottom: 1px solid #ddd;}
 /* Qty buttons */
 .qty-container {float: left;width: 25.8%;margin: 0;}
 .qty-container .qty {width: 81%; text-align: center;display: block;padding: 0 2px;height: 36px;border: 1px solid #b0b0b0;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;font: 600 15px 'open sans';line-height: 36px; }
