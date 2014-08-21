@@ -31,7 +31,7 @@ $questions = $this->_collection;
 ?>
 <div class="productquestions-container">
 
-    <h2><?php echo $this->__('Questions on %s', $this->getProduct()->getName()) ?></h2>
+    <label><?php echo $questions->getSize().$this->__(' Questions & ').$questions->getSize().$this->__(' Answers') ?></label>
 
     <?php if ($questions->getSize()): ?>
         <?php echo $this->getChildHtml('productquestions_sorter'); ?>
