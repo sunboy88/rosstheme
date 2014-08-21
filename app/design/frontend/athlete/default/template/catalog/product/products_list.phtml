@@ -128,10 +128,8 @@ $athleteHelper = $this->helper('athlete');
                 <?php if( $athleteHelper->getCfg('listing/grid_name') ): ?>
                     <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2><br/>
                 <?php endif; ?>
-            <div class="name">
-                <?php if( $athleteHelper->getCfg('listing/hover_rating') && $_product->getRatingSummary() ): ?>
-	                <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
-                <?php endif; ?>
+            <div class="short-desc">
+                <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
             </div>
             <div class="product-view-deal">
 		    	<?php $now_time=Mage::getModel('core/date')->timestamp(time()); ?>
