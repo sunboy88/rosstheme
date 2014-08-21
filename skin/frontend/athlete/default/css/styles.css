@@ -678,6 +678,8 @@ tr.summary-details-excluded { font-style:italic; }
 .product-options-bottom { padding:10px; border:1px solid #ddd; border-top:0; }
 .product-options-bottom .price-box { margin:10px 0; }
 
+.half-price-txt{text-align: center;font: bold 18px 'open sans';line-height: 25px;text-transform: uppercase;color: #5d5d5d;margin: 10px 0 0;}
+
 /* Grouped Product */
 
 /* Block: Description */

@@ -2338,7 +2338,7 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .product-view .product-shop .price-box .price,
 .product-options-bottom .price-box .price { font-size: 36px; line-height: 100%; font-weight: 400;}
 .product-options-bottom .price-box .old-price .price,
-.product-shop .price-box .old-price .price { font-size: 24px;}
+.product-shop .price-box .old-price .price { font: bold 18px 'open sans';line-height: 25px;color: #b8b8b8;text-transform: uppercase;letter-spacing: 0!important;}
 
 .products-list .product-shop .price-box .old-price { margin-top: 0;}
 .products-list .product-shop .price-box .old-price .price { font-size: 15px;}
@@ -2349,7 +2349,7 @@ ul.block-tw-list span {color: #7a7a7a; color: rgba(0,0,0,.62);}
 .product-shop .price-box-wrap .f-left{float: none!important;clear: both;}
 .product-shop .price-box { margin:0 25px 0 0;display: block;margin: 0;text-align: right;}
 .product-options-bottom .price-box .old-price, .product-options-bottom .price-box .special-price,
-.product-shop .price-box .old-price, .product-shop .price-box .special-price { display: block;padding-right: 5px;}
+.product-shop .price-box .old-price, .product-shop .price-box .special-price { display: block;}
 .product-options-bottom .price-box .old-price,
 .product-shop .price-box .old-price { margin:8px 0 0;float: none;}
 .product-options-bottom .price-label,
