@@ -1018,6 +1018,7 @@ body.cms-index-index{background: #fff;}
 .catalogsearch-result-index .product-columns-3 .products-grid li.item{width: 28.333%;}
 .wrap-block{border: 1px solid #d4d4d4;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;}
 .wrap-block .block-layered-nav .block-content > ol{margin: 6px 0;padding: 0 0 0 18px;}
+.wrap-block .block-layered-nav ol > li{line-height: 0;}
 .main-container .col-main .block-subscribe,
 .amshopby-index-index .col-main > *,
 .slider-homepage{float: right;width: 75%;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;border: none;background: none;padding: 0;position: relative;margin: 0 0 25px;}
